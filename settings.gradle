@@ -1,0 +1,4 @@
+include ':ShareSDK'
+include ':app'
+include ':OneKeyShare'
+include ':PushSDK'

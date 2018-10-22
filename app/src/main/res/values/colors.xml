@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <drawable name="default_drdrawable">#eff0f0</drawable>
+    <drawable name="more_drdrawable">#F96468</drawable>
+
+    <color name="transparent">#ffff</color>
+    <color name="lay_press">#11F8F8FF</color>
+    <color name="lay_press_line">#E2E2E2</color>
+    <color name="layout_back">#F3F3F3</color>
+    <color name="layout_background">#ECEFF0</color>
+    <color name="title_bg">#10BDCD</color>
+    <color name="btn_no_msg">#dff6f8</color>
+    <color name="btn_bg">#FF5577</color>
+    <color name="toast_bg">#ba282C36</color>
+    <color name="txt_selected_color">#F96468</color>
+    <color name="btn_pay_selected_color">#c64a4e</color>
+    <color name="txt_selected_press_color">#FF7468</color>
+    <color name="btn_tv_color">#FF7E7E</color>
+    <color name="btn_bg_press">#FF4455</color>
+    <color name="txt_color">#999999</color>
+    <color name="text_color">#282C36</color>
+    <color name="text_color2">#777c88</color>
+    <color name="press_gray">#9C9C9C</color>
+    <color name="press_normal">#999999</color>
+    <color name="title_text">#FFFFFF</color>
+    <color name="lay_back">#282C36</color>
+    <color name="white">#FFFFFF</color>
+    <color name="black">#000000</color>
+    <color name="textColor">#282c36</color>
+    <color name="line_color">#e0e0e0</color>
+    <color name="profile_title_color">#323232</color>
+    <color name="profile_tv_color">#757779</color>
+    <color name="profile_tv_line_color">#C8C8C8</color>
+    <color name="popup_color">#7b000000</color>
+    <color name="white_80_alpha">#CCFFFFFF</color>
+    <color name="tab_text_color">#D5D5D5</color>
+    <color name="color_gray">#414550</color>
+    <color name="color_blcak_28">#282C36</color>
+    <color name="color_blcak_76">#767676</color>
+    <color name="color_53">#535353</color>
+    <color name="color_e8">#e8e8e8</color>
+    <color name="color_83">#838383</color>
+    <color name="color_9b">#9B9B9B</color>
+    <color name="color_f5">#ECEFF0</color>
+    <color name="color_f9">#f9f9f9</color>
+    <color name="color_d4">#D4D4D4</color>
+    <color name="color_d7">#D7D7D7</color>
+    <color name="color_57">#575757</color>
+    <color name="color_48">#484848</color>
+    <color name="color_e0">#e0e0e0</color>
+    <color name="regist_hint">#D5DBDC</color>
+
+    <color name="vifrification">#00000000</color>
+
+    <color name="divider_color">#11000000</color>
+    <color name="msg_color">#FFFFFFFF</color>
+
+    <color name="btn_press_color">#66000000</color>
+    <color name="btn_unpress_color">#22000000</color>
+
+    <!--  <color name="blue_bl">#01212c</color>  -->
+    <color name="blue_bl">#ffffff</color>
+    <color name="txt_red">#F96468</color>
+</resources>

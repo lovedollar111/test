@@ -1,0 +1,59 @@
+<resources>
+
+    <dimen name="border_radius_with_dimensions">0.5dp</dimen>
+    <dimen name="size_3">16sp</dimen>
+    <!-- PullToRefresh -->
+    <dimen name="indicator_right_padding">10dp</dimen>
+    <dimen name="indicator_corner_radius">12dp</dimen>
+    <dimen name="indicator_internal_padding">4dp</dimen>
+    <dimen name="header_footer_left_right_padding">25dp</dimen>
+    <dimen name="header_footer_top_bottom_padding">10dp</dimen>
+    <dimen name="main_title_text_size">18sp</dimen>
+    <dimen name="dis_80">40dp</dimen>
+    <dimen name="dis_45">45dp</dimen>
+    <dimen name="btn_radius">5dp</dimen>
+    <dimen name="login_padding_left">50dp</dimen>
+    <dimen name="login_padding_right">50dp</dimen>
+    <dimen name="login_btn_padding">55dp</dimen>
+    <dimen name="login_btn_padding_top">50dp</dimen>
+    <dimen name="btn_padding_left">5dp</dimen>
+    <dimen name="btn_padding_right">5dp</dimen>
+    <dimen name="line_height">0.5dip</dimen>
+    <dimen name="btn_height_40">40dip</dimen>
+    <dimen name="btn_height_25">25dip</dimen>
+    <dimen name="dis_1">0.5dp</dimen>
+    <dimen name="dis_2">1dp</dimen>
+    <dimen name="dis_5">2.5dp</dimen>
+    <dimen name="dis_8">4dp</dimen>
+    <dimen name="dis_10">5dp</dimen>
+    <dimen name="dis_12">6dp</dimen>
+    <dimen name="dis_15">7.5dp</dimen>
+    <dimen name="dis_20">10dp</dimen>
+    <dimen name="dis_25">12.5dp</dimen>
+    <dimen name="dis_30">15dp</dimen>
+    <dimen name="dis_35">17.5dp</dimen>
+    <dimen name="dis_40">20dp</dimen>
+    <dimen name="dis_50">25dp</dimen>
+    <dimen name="dis_60">30dp</dimen>
+    <dimen name="dis_70">35dp</dimen>
+    <dimen name="dis_100">50dp</dimen>
+    <dimen name="dis_120">60dp</dimen>
+    <dimen name="dis_150">75dp</dimen>
+
+    <dimen name="font_size_20">20sp</dimen>
+    <dimen name="font_size_12">12sp</dimen>
+    <dimen name="font_size_16">16sp</dimen>
+    <dimen name="font_size_17">17sp</dimen>
+    <dimen name="font_size_18">18sp</dimen>
+    <dimen name="font_size_25">25sp</dimen>
+    <dimen name="font_size_10">11sp</dimen>
+    <dimen name="font_size_15">15sp</dimen>
+    <dimen name="font_size_14">14sp</dimen>
+    <dimen name="font_size_13">13sp</dimen>
+    <dimen name="font_size_11">11sp</dimen>
+
+    <!-- Default screen margins, per the Android Design guidelines. -->
+
+    <dimen name="order_rdo2">90dp</dimen>
+
+</resources>

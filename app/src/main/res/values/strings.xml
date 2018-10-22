@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools" tools:ignore="MissingTranslation">
+
+    <!-- App -->
+    <string name="app_exit">再按一次退出</string>
+    <string name="network_wait">请稍候\.\.\.
+</string>
+    <string name="network_error">网络请求异常、请稍候再试</string>
+    <string name="network_data_error">
+数据异常、请稍候再试
+</string>
+    <string name="app_save">保存</string>
+    <string name="app_cancel">取消</string>
+    <string name="btn_has_choose">确定 %1$d/%2$d
+</string>
+    <string name="btn_no_choose">确定</string>
+    <string name="button_text_no">取消</string>
+    <string name="button_text_tips">提示</string>
+    <string name="button_text_yes">确定
+</string>
+
+    <!-- PullToRefreshListView -->
+    <string name="refreshlist_footer_hint_ready">松开载入更多
+</string>
+    <string name="refreshlist_footer_hint_normal">查看更多</string>
+    <string name="refreshlist_refresh_pull_label">下拉刷新
+</string>
+    <string name="refreshlist_header_hint_ready">松开刷新数据</string>
+    <string name="refreshlist_header_hint_loading">正在加载\.\.\.
+</string>
+    <string name="app_name">汪汪星球</string>
+
+    <!--  -->
+    <string name="hint_password">设置密码，6–20位字母数字组合</string>
+    <string name="tip_phone">请输入正确的手机号</string>
+    <string name="tip_verify_code">验证码为4位数字
+</string>
+    <string name="tip_pass_error">密码错误</string>
+    <string name="tip_pass">密码应为6-20位字母数字组合，请重新设置。
+</string>
+    <string name="tip_privacy_clause">必须同意注册协议</string>
+    <string name="login_phone">手机号
+</string>
+    <string name="login_verify_code">验证码</string>
+    <string name="txt_get_verify_code">
+获取验证码
+</string>
+    <string name="user_c_reg">立即注册</string>
+    <string name="user_pass_login">密码登录
+</string>
+    <string name="regit_warm_pre">点击注册表明已阅读并同意用户
+</string>
+    <string name="regit_warm_sub">《隐私条款》</string>
+    <string name="regit_no_account">还没有账号？
+</string>
+    <string name="reset_verify_code">重新获取
+</string>
+    <string name="user_login">登录</string>
+
+    <!-- Main -->
+    <string name="main_home">首页</string>
+    <string name="main_order">订单</string>
+    <string name="main_shop">商城
+</string>
+    <string name="main_user">我的</string>
+
+    <!-- 首页 -->
+    <string name="home_lately_title">最近订单</string>
+    <string name="home_new_title">新增订单
+</string>
+    <string name="home_hot_biz_title">热销商品</string>
+    <string name="home_hot_pro_price">%1$d元
+</string>
+    <!-- 我的订单 -->
+    <string name="order_detail_title">订单详情</string>
+    <string name="order_cancel">取消订单
+</string>
+    <string name="order_accept">接受订单</string>
+    <string name="order_reject">拒绝订单</string>
+    <string name="order_no_text">订单编号：%1$s
+</string>
+    <string name="order_time_text">下单时间：%1$s</string>
+    <string name="order_buy_name">购买用户：%1$s
+</string>
+    <string name="order_phone">联系方式：%1$s</string>
+    <string name="order_remark">备注信息：%1$s
+</string>
+
+    <!-- 我的商城 -->
+    <string name="biz_y_q">元</string>
+    <string name="shop_name_tip">请输入商城名称</string>
+    <string name="shop_save">保存</string>
+    <string name="shop_remm">推荐商品</string>
+    <string name="shop_cancel_remm">取消推荐</string>
+    <string name="shop_buy">立即购买</string>
+    <string name="shop_pay">立即支付</string>
+    <string name="shop_product_buy_title">购买产品</string>
+    <string name="shop_product_detail_title">确认订单内容</string>
+    <string name="shop_pay_title">选择支付方式</string>
+    <string name="shop_cart_title">购物车</string>
+    <string name="shop_product_num_indicator">%1$d/%2$d</string>
+    <string name="shop_buy_select_time">已经选择时间：%1$s</string>
+    <string name="shop_product_type_price">%1$s元</string>
+    <string name="shop_cart_num">%1$s人</string>
+    <string name="shop_order_price">￥%1$s</string>
+
+    <!-- 个人中心 -->
+    <string name="user_setting">设置</string>
+    <string name="user_setting_calendar">接单设置</string>
+    <string name="user_setting_profile">个人资料</string>
+    <string name="user_input_name_tip">请输入姓名</string>
+    <string name="user_input_card_tip">请输入正确身份证号码</string>
+    <string name="user_setting_password">修改登录密码</string>
+    <string name="user_setting_logout">退出登录</string>
+    <string name="user_cert_card_title">身份证认证</string>
+    <string name="user_cert_phone_title">电话号码</string>
+    <string name="user_cert_email_title">电子邮件认证</string>
+    <string name="user_guide_title">导游认证</string>
+    <string name="user_comment_title">我的评价</string>
+    <string name="user_introduce_title">我的介绍</string>
+    <string name="user_order_set_up_title">接单设置</string>
+    <string name="user_order_set_price_title">设置服务价格</string>
+    <string name="user_pirce">%1$d元</string>
+    <string name="user_order">订单号：%1$s</string>
+    <string name="user_no_order">暂无订单</string>
+    <string name="user_find_order">查看订单</string>
+    <string name="user_refuse_order">拒绝订单</string>
+    <string name="user_order_date_tip">请选择接单日期</string>
+    <string name="user_guide_no_error">请输入导游证编号</string>
+    <string name="user_travel_error">请选择旅行社</string>
+    <string name="user_travel_img_error">请上传导游证正反图片</string>
+    <string name="user_card_img_error">
+请上传身份证正反图片</string>
+    <string name="user_confirm_refuse">是否确认拒绝？</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="about_us">身处异地他乡的你,憧憬着精彩与美好,有着\n探索的冲动.但是因为陌生与不安感,\n这些小小的问题是否会阻碍\n你探索?\n我们要做的就是拉近彼此的距离,让你不管到\n哪里,都可以感受到家的温暖.品质体验与贴心\n服务就在你身边!抛弃老套的旅游模式.\n年轻的心,就是要告别束缚,\n享受自己专属的旅途.\n在”汪汪星球”,你可以找当地最棒的达人.\n他们帮你规划行程,推荐最优质的特色体验,\n提供只属于你的专属之旅.一起分享旅途\n中的快乐,给你最温馨的照顾.\n在路途中,我们要的只是\n你上扬的嘴角!</string>
+    <string name="invite_rule1">扫描图中二维码或者点击页面上的分享下载链接按钮将APP的下载链接发送给好友，也可以在App Store／安卓应用市场搜索“汪汪星球”下载APP；</string>
+    <string name="invite_rule2">好友在注册时输入邀请码并且提交认证信息；</string>
+    <string name="invite_rule3">用户信息审核一般需要3–5个工作日，好友账号的认证信息通过审核之后则记为邀请成功。</string>
+
+
+</resources>
