@@ -13,4 +13,5 @@ public class NdkUtil {
      * which is packaged with this application.
      */
     public native String stringFromJNI();
+    public native void createWatcher(String userId);
 }

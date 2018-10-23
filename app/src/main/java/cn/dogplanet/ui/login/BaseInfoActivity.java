@@ -1,7 +1,6 @@
 package cn.dogplanet.ui.login;
 
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
 import cn.dogplanet.GlobalContext;

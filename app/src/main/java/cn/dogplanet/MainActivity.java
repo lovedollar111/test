@@ -1,8 +1,8 @@
 package cn.dogplanet;
 
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.os.Process;
 
 import cn.dogplanet.Ndk.NdkUtil;
 import cn.dogplanet.app.util.StringUtils;
@@ -28,6 +28,8 @@ public class MainActivity extends BaseFragmentActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        NdkUtil ndkUtil=new NdkUtil();
+        ndkUtil.createWatcher(String.valueOf(Process.myUid()));
         if (StringUtils.isNotBlank(getIntent().getStringExtra(SELECT_TYPE))){
             select_type=getIntent().getStringExtra(SELECT_TYPE);
         }
