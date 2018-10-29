@@ -119,7 +119,7 @@ public class SplashActivity extends Activity {
             Intent mainIntent = new Intent(SplashActivity.this,
                     FirstActivity.class);
             SplashActivity.this.startActivity(mainIntent);
-        } else if (StringUtils.isBlank(expert.getExpert_icon())) {
+        } else if (StringUtils.isBlank(expert.getExpert_name())) {
             // 如果必填项为空即跳转到完善个人信息
             startActivity(BaseInfoActivity.newIntent());
         } else {

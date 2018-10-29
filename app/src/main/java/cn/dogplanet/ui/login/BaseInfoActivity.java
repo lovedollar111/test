@@ -9,6 +9,7 @@ import cn.dogplanet.base.BaseActivity;
 
 public class BaseInfoActivity extends BaseActivity {
 
+
     public static Intent newIntent(){
         return new Intent(GlobalContext.getInstance(),BaseInfoActivity.class);
     }
@@ -17,5 +18,7 @@ public class BaseInfoActivity extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_base_info);
+
     }
+
 }

@@ -7,6 +7,8 @@ import android.support.v4.app.FragmentActivity;
 import android.view.Window;
 import android.view.WindowManager;
 
+import org.greenrobot.eventbus.EventBus;
+
 import cn.dogplanet.app.util.SystemStatusManager;
 
 /**
@@ -22,6 +24,7 @@ public class BaseFragmentActivity extends FragmentActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setTranslucentStatus();
+        EventBus.getDefault().register(this);
     }
 
     private void setTranslucentStatus()
@@ -52,6 +55,7 @@ public class BaseFragmentActivity extends FragmentActivity {
     @Override
     protected void onDestroy() {
         super.onDestroy();
+        EventBus.getDefault().unregister(this);
     }
 
     @Override

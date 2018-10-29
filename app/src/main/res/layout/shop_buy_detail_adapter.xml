@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="@dimen/dis_20"
+    android:background="@color/white" >
+
+    <cn.dogplanet.net.volley.toolbox.NetworkImageView
+        android:id="@+id/ad_img"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_marginLeft="@dimen/dis_20"
+        android:layout_marginTop="@dimen/dis_20"
+        android:scaleType="centerCrop"
+        android:background="@color/color_9b"/>
+
+    <TextView
+        android:id="@+id/ad_main_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/dis_30"
+        android:layout_marginTop="@dimen/dis_15"
+        android:layout_toRightOf="@id/ad_img"
+        android:layout_alignTop="@id/ad_img"
+        android:textColor="@color/text_color"
+        android:textSize="14sp" 
+        android:singleLine="true"
+        android:text="蜈支洲水上项目"
+        android:layout_toLeftOf="@+id/ad_price"
+        android:layout_marginRight="@dimen/dis_20"/>
+
+    <TextView
+        android:id="@+id/ad_child_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/ad_main_name"
+        android:layout_marginLeft="@dimen/dis_30"
+        android:layout_marginTop="@dimen/dis_10"
+        android:layout_toRightOf="@id/ad_img"
+        android:textColor="#777c88"
+        android:textSize="11sp" 
+        android:visibility="visible"
+        android:text="双人水上摩托		服务人数1人"
+        android:layout_toLeftOf="@+id/ad_price"
+        android:layout_marginRight="@dimen/dis_20"/>
+
+    <TextView
+        android:id="@+id/ad_price"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_alignTop="@id/ad_child_name"
+        android:layout_marginRight="@dimen/dis_20"
+        android:textColor="@color/txt_selected_color"
+        android:textSize="11sp"
+        android:text="1290元"/>
+
+    <View
+        android:id="@+id/ad_line"
+        style="@style/view_hor_match_line"
+        android:layout_below="@id/ad_img"
+        android:layout_marginLeft="@dimen/dis_20"
+        android:layout_marginRight="@dimen/dis_20"
+        android:layout_marginTop="@dimen/dis_20"
+        android:background="#dadada" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/ad_line"
+        android:layout_marginLeft="@dimen/dis_20"
+        android:layout_marginTop="@dimen/dis_20"
+        android:textColor="@color/text_color"
+        android:text="游玩时间"
+        android:textSize="12sp"
+        android:paddingBottom="@dimen/dis_20"/>
+
+    <TextView
+        android:id="@+id/ad_time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_below="@id/ad_line"
+        android:layout_marginRight="@dimen/dis_30"
+        android:layout_marginTop="@dimen/dis_20"
+        android:textColor="@color/text_color"
+        android:textSize="12sp"
+        android:text="2015-10-07"/>
+
+</RelativeLayout>

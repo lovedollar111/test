@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/color_f5"
+    android:orientation="vertical" >
+
+    <RelativeLayout style="@style/top_titile_style"
+        android:paddingRight="@dimen/dis_10">
+
+        <EditText
+            android:id="@+id/editText"
+            android:layout_width="fill_parent"
+            android:layout_height="match_parent"
+            android:background="@null"
+            android:cursorVisible="true"
+            android:focusableInTouchMode="true"
+            android:hint="请输入订单号或姓名或手机号"
+            android:imeOptions="actionSearch|flagNoExtractUi|flagNoFullscreen"
+            android:singleLine="true"
+            android:textColor="@color/white"
+            android:textColorHint="#afff"
+            android:textCursorDrawable="@drawable/color_cursor"
+            android:textSize="@dimen/font_size_12" />
+
+        <Button
+            android:id="@+id/btn_back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:background="@android:color/transparent"
+            android:layout_alignBaseline="@+id/editText"
+            android:textSize="@dimen/font_size_12"
+            android:text="取消"
+            android:textColor="@color/white" />
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="@dimen/dis_20"
+        android:gravity="center"
+        android:orientation="vertical" >
+
+        <cn.dogplanet.handmark.pulltorefresh.library.PullToRefreshListView
+            xmlns:ptr="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/list"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#ECECEC"
+            android:clipToPadding="false"
+            android:divider="@color/color_f5"
+            android:dividerHeight="@dimen/dis_20"
+            android:gravity="center_horizontal"
+            android:horizontalSpacing="@null"
+            android:listSelector="#00000000"
+            android:scrollbars="none"
+            android:stretchMode="columnWidth"
+            android:verticalSpacing="1dp"
+            ptr:ptrAnimationStyle="flip"
+            ptr:ptrHeaderTextColor="#000000"
+            ptr:ptrListViewExtrasEnabled="false"
+            ptr:ptrMode="pullFromEnd"
+            ptr:ptrScrollingWhileRefreshingEnabled="true"
+            ptr:ptrShowIndicator="false"
+            android:visibility="visible"/>
+
+        <TextView
+            android:id="@+id/tv_tip"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:drawablePadding="15dp"
+            android:drawableTop="@mipmap/order_default"
+            android:gravity="center_horizontal"
+            android:visibility="gone" />
+    </LinearLayout>
+
+</LinearLayout>

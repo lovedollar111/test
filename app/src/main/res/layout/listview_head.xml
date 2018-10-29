@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dis_45"
+        android:background="#fff"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingLeft="@dimen/dis_20"
+        android:paddingRight="@dimen/dis_40" >
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginRight="@dimen/dis_40"
+            android:src="@mipmap/title_name" />
+
+        <cn.dogplanet.app.widget.EditTextWithDel
+            android:id="@+id/et_name"
+            style="@style/profile_et_style"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@android:color/transparent"
+            android:hint="输入您的姓名"
+            android:imeOptions="actionNext"
+            android:inputType="text"
+            android:maxLength="10"
+            android:singleLine="true"
+            android:textColorHint="@color/color_d4" />
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dis_45"
+        android:background="#fff"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:layout_marginTop="@dimen/dis_2"
+        android:paddingLeft="@dimen/dis_20"
+        android:paddingRight="@dimen/dis_40" >
+
+        <ImageView
+            android:id="@+id/img_phone"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginRight="@dimen/dis_30"
+            android:src="@mipmap/user_telephone" />
+
+        <cn.dogplanet.app.widget.EditTextWithDel
+            android:id="@+id/et_phone"
+            style="@style/profile_et_style"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@android:color/transparent"
+            android:hint="输入您的电话号码"
+            android:imeOptions="actionNext"
+            android:inputType="number"
+            android:maxLength="11"
+            android:singleLine="true"
+            android:textColorHint="@color/color_d4" />
+    </LinearLayout>
+    
+    <LinearLayout
+        android:id="@+id/lay_idcard"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dis_45"
+        android:background="#fff"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:layout_marginTop="@dimen/dis_2"
+        android:paddingLeft="9dp"
+        android:paddingRight="@dimen/dis_40" 
+        android:visibility="visible">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginRight="@dimen/dis_40"
+            android:src="@mipmap/title_card" />
+
+        <cn.dogplanet.app.widget.EditTextWithDel
+            android:id="@+id/et_idcard"
+            style="@style/profile_et_style"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@android:color/transparent"
+            android:hint="输入您的身份证号"
+            android:imeOptions="actionDone"
+            android:digits="1234567890X"
+            android:singleLine="true"
+            android:textColorHint="@color/color_d4" />
+    </LinearLayout>
+
+</LinearLayout>

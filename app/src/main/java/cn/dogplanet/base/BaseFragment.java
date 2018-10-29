@@ -5,6 +5,8 @@ import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.widget.Toast;
 
+import org.greenrobot.eventbus.EventBus;
+
 /**
  * Fragment 基类
  * editor:ztr
@@ -20,6 +22,7 @@ public abstract class BaseFragment extends Fragment {
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		mContext = getActivity();
+		EventBus.getDefault().register(this);
 	}
 
 	private Toast mToast;
@@ -67,4 +70,9 @@ public abstract class BaseFragment extends Fragment {
 		cancelToast();
 	}
 
+	@Override
+	public void onDestroy() {
+		super.onDestroy();
+		EventBus.getDefault().unregister(this);
+	}
 }

@@ -1,5 +1,6 @@
 package cn.dogplanet.base;
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.os.Build;
 import android.os.Bundle;
@@ -7,8 +8,15 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Toast;
 
-import cn.dogplanet.app.util.SystemStatusManager;
+import com.iflytek.sunflower.FlowerCollector;
+import com.umeng.analytics.MobclickAgent;
+import com.umeng.message.PushAgent;
 
+import cn.dogplanet.GlobalContext;
+import cn.dogplanet.R;
+import cn.dogplanet.app.util.AppManager;
+import cn.dogplanet.app.util.SystemStatusManager;
+import cn.dogplanet.app.widget.CustomProgress;
 
 /**
  * Activity 基类
@@ -17,6 +25,7 @@ import cn.dogplanet.app.util.SystemStatusManager;
  * file_name:BaseActivity.java
  * date:2016-12-6
  */
+@SuppressLint("Registered")
 public class BaseActivity extends Activity {
 
     private Toast mToast;
@@ -24,6 +33,9 @@ public class BaseActivity extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        PushAgent.getInstance(this).onAppStart();
+        AppManager.getAppManager().addActivity(this);
+        FlowerCollector.openPageMode(true);
         setTranslucentStatus();
     }
 
@@ -46,6 +58,7 @@ public class BaseActivity extends Activity {
         showToast(getResources().getString(resId));
     }
 
+    @SuppressLint("ShowToast")
     protected void showToast(String text) {
         if (null == mToast) {
             mToast = Toast.makeText(this, text, Toast.LENGTH_LONG);
@@ -56,6 +69,7 @@ public class BaseActivity extends Activity {
         mToast.show();
     }
 
+    @SuppressLint("ShowToast")
     public void showToast(String text, int duration) {
         if (null == mToast) {
             mToast = Toast.makeText(this, text, duration);
@@ -66,6 +80,23 @@ public class BaseActivity extends Activity {
         mToast.show();
     }
 
+    private CustomProgress mProgress;
+
+    public void showProgress() {
+        // if (null == mProgress) {
+        mProgress = CustomProgress.show(this, getString(R.string.network_wait),
+                true, null);
+        // } else {
+        // mProgress.show();
+        // }
+    }
+
+    public void hideProgress() {
+        if (null != mProgress && mProgress.isShowing()) {
+            mProgress.dismiss();
+        }
+    }
+
     public void cancelToast() {
         if (null != mToast) {
             mToast.cancel();
@@ -74,12 +105,19 @@ public class BaseActivity extends Activity {
 
     @Override
     protected void onResume() {
+        FlowerCollector.onResume(getApplicationContext());
+        FlowerCollector.onPageStart(this.getLocalClassName());
+        MobclickAgent.onResume(this);
         super.onResume();
     }
 
     @Override
     protected void onPause() {
         cancelToast();
+        hideProgress();
+        MobclickAgent.onPause(this);
+        FlowerCollector.onPageEnd(this.getLocalClassName());
+        FlowerCollector.onPause(this);
         super.onPause();
     }
 
@@ -91,5 +129,7 @@ public class BaseActivity extends Activity {
     @Override
     protected void onDestroy() {
         super.onDestroy();
+        GlobalContext.getInstance().getRequestQueue().cancelAll(this);
+        AppManager.getAppManager().finishActivity(this);
     }
 }
