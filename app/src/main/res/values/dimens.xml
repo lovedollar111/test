@@ -29,16 +29,26 @@
     <dimen name="dis_12">6dp</dimen>
     <dimen name="dis_15">7.5dp</dimen>
     <dimen name="dis_20">10dp</dimen>
+    <dimen name="dis_24">12dp</dimen>
     <dimen name="dis_25">12.5dp</dimen>
     <dimen name="dis_30">15dp</dimen>
     <dimen name="dis_35">17.5dp</dimen>
+    <dimen name="dis_36">18dp</dimen>
     <dimen name="dis_40">20dp</dimen>
+    <dimen name="dis_44">22dp</dimen>
+    <dimen name="dis_48">24dp</dimen>
     <dimen name="dis_50">25dp</dimen>
+    <dimen name="dis_54">27dp</dimen>
     <dimen name="dis_60">30dp</dimen>
     <dimen name="dis_70">35dp</dimen>
+    <dimen name="dis_88">44dp</dimen>
     <dimen name="dis_100">50dp</dimen>
+    <dimen name="dis_108">54dp</dimen>
     <dimen name="dis_120">60dp</dimen>
     <dimen name="dis_150">75dp</dimen>
+    <dimen name="dis_175">87.5dp</dimen>
+    <dimen name="dis_180">90dp</dimen>
+    <dimen name="dis_200">100dp</dimen>
 
     <dimen name="font_size_20">20sp</dimen>
     <dimen name="font_size_12">12sp</dimen>
@@ -46,12 +56,11 @@
     <dimen name="font_size_17">17sp</dimen>
     <dimen name="font_size_18">18sp</dimen>
     <dimen name="font_size_25">25sp</dimen>
-    <dimen name="font_size_10">11sp</dimen>
     <dimen name="font_size_15">15sp</dimen>
     <dimen name="font_size_14">14sp</dimen>
     <dimen name="font_size_13">13sp</dimen>
     <dimen name="font_size_11">11sp</dimen>
-
+    <dimen name="font_size_10">10sp</dimen>
     <!-- Default screen margins, per the Android Design guidelines. -->
 
     <dimen name="order_rdo2">90dp</dimen>

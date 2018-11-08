@@ -5,13 +5,15 @@ package cn.dogplanet.constant;
  * file_name:HttpUrl.java date:2016-12-6
  */
 public class HttpUrl {
-    //	private static final String HTTP_URL = "http://123.56.154.187:8080/";
+    	private static final String HTTP_URL = "http://123.56.154.187:8080/";
 //
-    private static final String HTTP_URL = "http://api.dogplanet.cn/";
+//    private static final String HTTP_URL = "http://api.dogplanet.cn/";
     /** --------登录、注册相关接口--------- **/
     // 密码登录 或验证码登录
     public static final String EXPERT_LOGIN = HTTP_URL + "v1/b/expert/login";
 
+    //验证手机号是否存在
+    public static final String CHECK_EXPERT_PHONE = HTTP_URL + "v1/b/expert/check-expert-phone";
     // 注册时获取区域列表
     public static final String GET_AREA_LIST = HTTP_URL + "v1/b/expert/get-area-list";
     // 注册
@@ -29,9 +31,9 @@ public class HttpUrl {
     public static final String EXPERT_SEND_VERIFY_CODE = HTTP_URL
             + "v1/b/expert/send-verification-code";
 
-    // 验证注册邀请码是否存在
-    public static final String CHECK_INVITE_CODE = HTTP_URL
-            + "v1/b/expert/check-invite-code";
+    // 找回密码 修改密码 共用
+    public static final String UPDATE_PWD = HTTP_URL
+            + "v1/b/expert/update-pwd";
 
     // 获取省市区三级联动数据
     public static final String EXPERT_ADDRESS = HTTP_URL

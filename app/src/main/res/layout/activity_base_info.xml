@@ -6,4 +6,387 @@
     android:background="@color/white"
     tools:context=".ui.login.BaseInfoActivity">
 
+    <TextView
+        android:id="@+id/tv_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/color_33"
+        android:text="@string/register_2"
+        android:textSize="@dimen/font_size_20"
+        android:layout_margin="@dimen/dis_36"/>
+
+
+    <RelativeLayout
+        android:id="@+id/lay_step"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dis_150"
+        android:layout_marginTop="@dimen/dis_30"
+        android:layout_below="@+id/tv_title"
+        android:background="@color/white">
+
+        <TextView
+            android:id="@+id/tv_step_1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/set_password"
+            android:layout_alignParentBottom="true"
+            android:layout_marginStart="@dimen/dis_36"/>
+
+        <ImageView
+            android:id="@+id/img_step_1"
+            android:layout_width="@dimen/dis_30"
+            android:layout_height="@dimen/dis_30"
+            android:src="@mipmap/ic_launcher"
+            android:layout_above="@+id/tv_step_1"
+            android:layout_alignEnd="@+id/tv_step_1"
+            android:layout_alignStart="@+id/tv_step_1"
+            android:layout_marginBottom="@dimen/dis_20"
+            />
+
+        <TextView
+            android:id="@+id/tv_step_2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/set_info"
+            android:layout_alignParentBottom="true"
+            android:layout_marginStart="@dimen/dis_36"
+            android:layout_centerHorizontal="true"/>
+
+        <ImageView
+            android:id="@+id/img_step_2"
+            android:layout_width="@dimen/dis_30"
+            android:layout_height="@dimen/dis_30"
+            android:src="@mipmap/ic_launcher"
+            android:layout_above="@+id/tv_step_2"
+            android:layout_alignEnd="@+id/tv_step_2"
+            android:layout_alignStart="@+id/tv_step_2"
+            android:layout_marginBottom="@dimen/dis_20"
+            />
+
+        <TextView
+            android:id="@+id/tv_step_3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/set_img"
+            android:layout_alignParentBottom="true"
+            android:layout_marginStart="@dimen/dis_36"
+            android:layout_alignParentEnd="true"
+            android:layout_marginEnd="@dimen/dis_36"/>
+
+        <ImageView
+            android:id="@+id/img_step_3"
+            android:layout_width="@dimen/dis_30"
+            android:layout_height="@dimen/dis_30"
+            android:src="@mipmap/ic_launcher"
+            android:layout_above="@+id/tv_step_3"
+            android:layout_alignEnd="@+id/tv_step_3"
+            android:layout_alignStart="@+id/tv_step_3"
+            android:layout_marginBottom="@dimen/dis_20"
+            />
+
+        <View
+            style="@style/view_hor_match_line"
+            android:layout_centerVertical="true"
+            android:layout_toEndOf="@+id/tv_step_1"
+            android:layout_toStartOf="@+id/img_step_2"
+            android:background="@color/black" />
+
+        <View
+            style="@style/view_hor_match_line"
+            android:layout_centerVertical="true"
+            android:layout_toEndOf="@+id/tv_step_2"
+            android:layout_toStartOf="@+id/img_step_3"
+            android:background="@color/black" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/lay_name"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dis_88"
+        android:layout_marginTop="@dimen/dis_50"
+        android:layout_below="@+id/lay_step">
+
+        <ImageView
+            android:id="@+id/img_name"
+            android:layout_width="@dimen/dis_40"
+            android:layout_height="@dimen/dis_40"
+            android:scaleType="center"
+            android:src="@mipmap/ic_launcher"
+            android:layout_marginStart="@dimen/dis_36"
+            android:layout_centerVertical="true"
+            />
+
+
+        <cn.dogplanet.app.widget.EditTextWithDel
+            android:id="@+id/et_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginEnd="@dimen/dis_40"
+            android:layout_marginStart="@dimen/dis_24"
+            android:layout_toEndOf="@+id/img_name"
+            android:background="@color/white"
+            android:hint="@string/hint_input_name"
+            android:inputType="textPassword"
+            android:textColor="@color/color_33"
+            android:textColorHint="@color/color_c7"
+            android:textSize="@dimen/font_size_15"
+            android:singleLine="true"
+            android:imeOptions="actionNext"/>
+
+    </RelativeLayout>
+
+    <View
+        style="@style/view_hor_margin_line"
+        android:layout_marginStart="@dimen/dis_36"
+        android:layout_marginEnd="@dimen/dis_36"
+        android:layout_below="@id/lay_name"
+        />
+
+    <RelativeLayout
+        android:id="@+id/lay_id_card"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dis_88"
+        android:layout_below="@id/lay_name"
+        android:layout_marginTop="@dimen/dis_20">
+
+        <ImageView
+            android:id="@+id/img_id_card"
+            android:layout_width="@dimen/dis_40"
+            android:layout_height="@dimen/dis_40"
+            android:scaleType="center"
+            android:src="@mipmap/ic_launcher"
+            android:layout_marginStart="@dimen/dis_36"
+            android:layout_centerVertical="true"
+            />
+
+
+        <cn.dogplanet.app.widget.EditTextWithDel
+            android:id="@+id/et_id_card"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_toEndOf="@+id/img_id_card"
+            android:background="@color/white"
+            android:layout_marginStart="@dimen/dis_24"
+            android:layout_marginEnd="@dimen/dis_40"
+            android:hint="@string/hint_input_id_card"
+            android:textSize="@dimen/font_size_15"
+            android:textColorHint="@color/color_c7"
+            android:textColor="@color/color_33"
+            android:layout_centerVertical="true"
+            android:inputType="textPassword"
+            android:singleLine="true"
+            android:imeOptions="actionNext"
+            />
+
+    </RelativeLayout>
+
+    <View
+        style="@style/view_hor_margin_line"
+        android:layout_marginStart="@dimen/dis_36"
+        android:layout_marginEnd="@dimen/dis_36"
+        android:layout_below="@id/lay_id_card"
+        />
+
+
+    <RelativeLayout
+        android:id="@+id/lay_company"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dis_88"
+        android:layout_below="@id/lay_id_card"
+        android:layout_marginTop="@dimen/dis_20">
+
+        <ImageView
+            android:id="@+id/img_company"
+            android:layout_width="@dimen/dis_40"
+            android:layout_height="@dimen/dis_40"
+            android:scaleType="center"
+            android:src="@mipmap/ic_launcher"
+            android:layout_marginStart="@dimen/dis_36"
+            android:layout_centerVertical="true"
+            />
+
+        <ImageView
+            android:id="@+id/img_company_choose"
+            android:layout_width="@dimen/dis_60"
+            android:layout_height="@dimen/dis_40"
+            android:scaleType="center"
+            android:src="@mipmap/ic_launcher"
+            android:layout_marginEnd="@dimen/dis_36"
+            android:layout_alignParentEnd="true"
+            android:paddingEnd="@dimen/dis_20"
+            android:paddingStart="@dimen/dis_20"
+            android:layout_centerVertical="true"
+            />
+
+        <cn.dogplanet.app.widget.EditTextWithDel
+            android:id="@+id/et_company"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            android:layout_marginStart="@dimen/dis_24"
+            android:layout_marginEnd="@dimen/dis_40"
+            android:hint="@string/hint_choose_company"
+            android:textSize="@dimen/font_size_15"
+            android:textColorHint="@color/color_c7"
+            android:textColor="@color/color_33"
+            android:layout_toEndOf="@id/img_company"
+            android:layout_toStartOf="@+id/img_company_choose"
+            android:layout_centerVertical="true"
+            android:singleLine="true"
+            android:imeOptions="actionDone"
+            />
+
+    </RelativeLayout>
+
+    <View
+        style="@style/view_hor_margin_line"
+        android:layout_marginStart="@dimen/dis_36"
+        android:layout_marginEnd="@dimen/dis_36"
+        android:layout_below="@id/lay_company"
+        />
+
+
+    <RelativeLayout
+        android:id="@+id/lay_driving_licence_time"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dis_88"
+        android:layout_marginTop="@dimen/dis_20"
+        android:layout_below="@+id/lay_company">
+
+        <ImageView
+            android:id="@+id/img_driving_licence_time"
+            android:layout_width="@dimen/dis_40"
+            android:layout_height="@dimen/dis_40"
+            android:scaleType="center"
+            android:src="@mipmap/ic_launcher"
+            android:layout_marginStart="@dimen/dis_36"
+            android:layout_centerVertical="true"
+            />
+
+
+        <cn.dogplanet.app.widget.EditTextWithDel
+            android:id="@+id/et_driving_licence_time"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginEnd="@dimen/dis_40"
+            android:layout_marginStart="@dimen/dis_24"
+            android:layout_toEndOf="@+id/img_driving_licence_time"
+            android:background="@color/white"
+            android:hint="@string/hint_input_driving"
+            android:inputType="textPassword"
+            android:textColor="@color/color_33"
+            android:textColorHint="@color/color_c7"
+            android:textSize="@dimen/font_size_15"
+            android:singleLine="true"
+            android:imeOptions="actionNext"/>
+
+    </RelativeLayout>
+
+    <View
+        style="@style/view_hor_margin_line"
+        android:layout_marginStart="@dimen/dis_36"
+        android:layout_marginEnd="@dimen/dis_36"
+        android:layout_below="@id/lay_driving_licence_time"
+        />
+
+    <RelativeLayout
+        android:id="@+id/lay_vehicle_license_time"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dis_88"
+        android:layout_below="@id/lay_driving_licence_time"
+        android:layout_marginTop="@dimen/dis_20">
+
+        <ImageView
+            android:id="@+id/img_vehicle_license_time"
+            android:layout_width="@dimen/dis_40"
+            android:layout_height="@dimen/dis_40"
+            android:scaleType="center"
+            android:src="@mipmap/ic_launcher"
+            android:layout_marginStart="@dimen/dis_36"
+            android:layout_centerVertical="true"
+            />
+
+
+        <cn.dogplanet.app.widget.EditTextWithDel
+            android:id="@+id/et_vehicle_license_time"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_toEndOf="@+id/img_vehicle_license_time"
+            android:background="@color/white"
+            android:layout_marginStart="@dimen/dis_24"
+            android:layout_marginEnd="@dimen/dis_40"
+            android:hint="@string/hint_input_vehicle"
+            android:textSize="@dimen/font_size_15"
+            android:textColorHint="@color/color_c7"
+            android:textColor="@color/color_33"
+            android:layout_centerVertical="true"
+            android:inputType="textPassword"
+            android:singleLine="true"
+            android:imeOptions="actionNext"
+            />
+
+    </RelativeLayout>
+
+    <View
+        style="@style/view_hor_margin_line"
+        android:layout_marginStart="@dimen/dis_36"
+        android:layout_marginEnd="@dimen/dis_36"
+        android:layout_below="@id/lay_vehicle_license_time"
+        />
+
+
+    <RelativeLayout
+        android:id="@+id/lay_operational_qualification_time"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dis_88"
+        android:layout_below="@id/lay_vehicle_license_time"
+        android:layout_marginTop="@dimen/dis_20">
+
+        <ImageView
+            android:id="@+id/img_operational_qualification_time"
+            android:layout_width="@dimen/dis_40"
+            android:layout_height="@dimen/dis_40"
+            android:scaleType="center"
+            android:src="@mipmap/ic_launcher"
+            android:layout_marginStart="@dimen/dis_36"
+            android:layout_centerVertical="true"
+            />
+
+
+        <cn.dogplanet.app.widget.EditTextWithDel
+            android:id="@+id/et_operational_qualification_time"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            android:layout_marginStart="@dimen/dis_24"
+            android:layout_marginEnd="@dimen/dis_40"
+            android:hint="@string/hint_input_operational"
+            android:textSize="@dimen/font_size_15"
+            android:textColorHint="@color/color_c7"
+            android:textColor="@color/color_33"
+            android:layout_toEndOf="@id/img_operational_qualification_time"
+            android:layout_centerVertical="true"
+            android:singleLine="true"
+            android:imeOptions="actionDone"
+            />
+
+    </RelativeLayout>
+
+    <Button
+        android:id="@+id/btn_next"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dis_80"
+        android:layout_marginStart="@dimen/dis_60"
+        android:layout_marginEnd="@dimen/dis_60"
+        android:layout_below="@id/lay_operational_qualification_time"
+        android:layout_marginTop="@dimen/dis_40"
+        android:background="@drawable/gradient_c7_ab"
+        android:text="@string/next"
+        android:textColor="@color/white"
+        />
+
+
 </RelativeLayout>

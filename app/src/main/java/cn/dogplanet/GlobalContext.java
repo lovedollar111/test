@@ -1,13 +1,14 @@
 package cn.dogplanet;
 
-import android.app.Activity;
 import android.app.Application;
 import android.content.Context;
-import android.content.SharedPreferences;
 import android.support.multidex.MultiDex;
 
+import com.umeng.commonsdk.UMConfigure;
 import com.umeng.message.IUmengRegisterCallback;
 import com.umeng.message.PushAgent;
+
+import net.wequick.small.Small;
 
 import cn.dogplanet.app.cache.LruImageCache;
 import cn.dogplanet.app.util.Config;
@@ -25,7 +26,7 @@ public class GlobalContext extends Application {
     private Config mConfig;
     private RequestQueue mRequestQueue;
     private ImageLoader imageLoader;
-    private static PushAgent mPushAgent;
+    private PushAgent mPushAgent;
 
 
     public static GlobalContext getInstance() {
@@ -36,13 +37,10 @@ public class GlobalContext extends Application {
     public void onCreate() {
         super.onCreate();
         globalContext = this;
+        Small.preSetUp(this);
         mConfig = new Config(this);
-        initThirdService();
-
-    }
-
-    private void initThirdService() {
-        mPushAgent = PushAgent.getInstance(globalContext);
+        UMConfigure.init(globalContext, UMConfigure.DEVICE_TYPE_PHONE, "181525f12a7a9b020bc8355d0742ce26");
+        mPushAgent = PushAgent.getInstance(this);
         mPushAgent.register(new IUmengRegisterCallback() {
 
             @Override
@@ -58,17 +56,10 @@ public class GlobalContext extends Application {
         });
         CustomNotificationHandler notificationClickHandler = new CustomNotificationHandler();
         mPushAgent.setNotificationClickHandler(notificationClickHandler);
-        new Thread(new Runnable() {
-            @Override
-            public void run() {
+        mConfig = new Config(globalContext);
+        CrashHandler crashHandler = CrashHandler.getInstance();
+        crashHandler.init(getApplicationContext(), mConfig.getCrashLogDir());
 
-                mConfig = new Config(globalContext);
-
-                CrashHandler crashHandler = CrashHandler.getInstance();
-                crashHandler.init(getApplicationContext(), mConfig.getCrashLogDir());
-
-            }
-        }).start();
     }
 
 

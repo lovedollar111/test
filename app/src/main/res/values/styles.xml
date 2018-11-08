@@ -113,7 +113,7 @@
     <style name="view_hor_margin_line">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">@dimen/line_height</item>
-        <item name="android:background">@color/color_e0</item>
+        <item name="android:background">@color/color_e5</item>
         <item name="android:layout_marginLeft">@dimen/dis_30</item>
     </style>
 
@@ -160,13 +160,13 @@
     </style>
 
     <!-- 顶部标题栏 -->
-    <style name="top_titile_style">
+    <style name="top_title_style">
         <item name="android:layout_width">match_parent</item>
         <item name="android:paddingLeft">@dimen/dis_20</item>
         <item name="android:paddingTop">@dimen/dis_40</item>
         <item name="android:paddingRight">@dimen/dis_20</item>
         <item name="android:layout_height">65dp</item>
-        <item name="android:background">@color/title_bg</item>
+        <item name="android:background">@color/white</item>
         <item name="android:gravity">bottom</item>
     </style>
 
@@ -179,7 +179,7 @@
 
     <!-- 顶部标题栏  TextView -->
     <style name="top_title_text">
-        <item name="android:textColor">@color/title_text</item>
+        <item name="android:textColor">@color/color_33</item>
         <item name="android:textSize">@dimen/main_title_text_size</item>
         <!-- <item name="android:textStyle">bold</item> -->
     </style>

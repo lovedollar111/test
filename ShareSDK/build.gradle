@@ -1,7 +1,7 @@
 apply plugin: 'com.android.library'
 
 dependencies {
-    api fileTree(dir: 'libs', include: '*.jar')
+    api fileTree(include: '*.jar', dir: 'libs')
 }
 
 android {
@@ -9,8 +9,8 @@ android {
     buildToolsVersion '27.0.3'
 
     compileOptions {
-        sourceCompatibility JavaVersion.VERSION_1_7
-        targetCompatibility JavaVersion.VERSION_1_7
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
     }
 
     sourceSets {

@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    package="cn.dogplanet">
+    package="cn.dogplanet"
+    android:versionCode="400"
+    android:versionName="3.0.0">
 
     <!-- 添加权限开始 -->
     <!-- 获取用户手机的IMEI，用来唯一的标识用户 -->
@@ -102,58 +104,75 @@
             </intent-filter>
         </activity>
 
-
+        <activity
+            android:name=".MainActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateUnspecified|adjustPan" />
         <activity
             android:name=".ui.login.LoginActivity"
             android:launchMode="singleTask"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateUnspecified|adjustPan" />
-
+        <activity
+            android:name=".ui.login.ParagraphActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateUnspecified|adjustPan" />
         <activity
             android:name=".ui.login.FirstActivity"
             android:launchMode="singleTask"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateUnspecified|adjustPan" />
-
         <activity
             android:name=".ui.login.BaseInfoActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateUnspecified|adjustPan" />
+        <activity
+            android:name=".ui.login.CardInfoActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateUnspecified|adjustPan" />
+
+        <activity android:name=".ui.login.ForgetPasswordActivity"
             android:launchMode="singleTask"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateUnspecified|adjustPan" />
 
         <activity
-            android:name=".ui.login.AuthenticationInfoActivity"
+            android:name=".ui.shop.ShopProductPayActivity"
             android:launchMode="singleTask"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateUnspecified|adjustPan" />
-
-
-        <activity android:name=".ui.shop.ShopProductPayActivity"
+        <activity
+            android:name=".ui.shop.ShopProductCartActivity"
             android:launchMode="singleTask"
             android:screenOrientation="portrait"
-            android:windowSoftInputMode="stateUnspecified|adjustPan"/>
-
-        <activity android:name=".ui.shop.ShopProductCartActivity"
+            android:windowSoftInputMode="stateUnspecified|adjustPan" />
+        <activity
+            android:name=".ui.shop.PersonMsgActivity"
             android:launchMode="singleTask"
             android:screenOrientation="portrait"
-            android:windowSoftInputMode="stateUnspecified|adjustPan"/>
-
-        <activity android:name=".ui.shop.PersonMsgActivity"
+            android:windowSoftInputMode="stateUnspecified|adjustPan" />
+        <activity
+            android:name=".ui.order.OrderFindActivity"
             android:launchMode="singleTask"
             android:screenOrientation="portrait"
-            android:windowSoftInputMode="stateUnspecified|adjustPan"/>
-
-        <activity android:name=".ui.order.OrderFindActivity"
+            android:windowSoftInputMode="stateUnspecified|adjustPan" />
+        <activity
+            android:name=".ui.order.OrderDetailActivity"
             android:launchMode="singleTask"
             android:screenOrientation="portrait"
-            android:windowSoftInputMode="stateUnspecified|adjustPan"/>
-
-
-        <activity android:name=".ui.order.OrderDetailActivity"
+            android:windowSoftInputMode="stateUnspecified|adjustPan" />
+        <activity
+            android:name=".ui.user.CompanyListActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateUnspecified|adjustPan" />
+        <activity
+            android:name=".ui.user.CompanyFindActivity"
             android:launchMode="singleTask"
             android:screenOrientation="portrait"
-            android:windowSoftInputMode="stateUnspecified|adjustPan"/>
-
+            android:windowSoftInputMode="stateUnspecified|adjustPan" />
 
         <!-- WX支付 -->
         <activity

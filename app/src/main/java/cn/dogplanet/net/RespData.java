@@ -15,6 +15,9 @@ public class RespData {
     // 验证失败
     public final static Integer CODE_VALIDA_FAIL = 1010;
 
+    public final static Integer CODE_REGISTERED_SUCCESS = 1007;
+
+
     // 状态码
     private Integer code;
     // 消息
@@ -73,6 +76,9 @@ public class RespData {
     public boolean isValida() {
         return this.code.intValue() == CODE_VALIDA_FAIL;
     }
+
+    //已注册
+    public boolean isRegistered(){return this.code.intValue() == CODE_REGISTERED_SUCCESS;}
 
     @Override
     public String toString() {

@@ -5,7 +5,7 @@
     android:background="@color/color_f5"
     android:orientation="vertical" >
 
-    <RelativeLayout style="@style/top_titile_style" >
+    <RelativeLayout style="@style/top_title_style" >
 
         <ImageButton
             android:id="@+id/btn_back"

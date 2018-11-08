@@ -24,9 +24,9 @@ import cn.dogplanet.net.PublicReq;
 import cn.dogplanet.net.RespData;
 import cn.dogplanet.net.volley.Response;
 import cn.dogplanet.net.volley.VolleyError;
-import cn.dogplanet.ui.login.AuthenticationInfoActivity;
 import cn.dogplanet.ui.login.BaseInfoActivity;
 import cn.dogplanet.ui.login.FirstActivity;
+import cn.dogplanet.ui.login.LoginActivity;
 
 /**
  * 启动页
@@ -53,19 +53,16 @@ public class SplashActivity extends Activity {
         Animation animation = AnimationUtils.loadAnimation(this,
                 R.anim.splash_in);
         lay_splash.setAnimation(animation);
-        new Handler().postDelayed(new Runnable() {
-            public void run() {
-                String expert_str = (String) SPUtils.get(WConstant.EXPERT_DATA, "");
-                if (StringUtils.isBlank(expert_str)) {
-                    Intent mainIntent = new Intent(SplashActivity.this,
-                            FirstActivity.class);
-                    SplashActivity.this.startActivity(mainIntent);
-                    SplashActivity.this.finish();
-                } else {
-                    syncExpertData();
-                }
+        new Handler().postDelayed(() -> {
+            String expert_str = (String) SPUtils.get(WConstant.EXPERT_DATA, "");
+            if (StringUtils.isBlank(expert_str)) {
+                Intent mainIntent = new Intent(SplashActivity.this,
+                        LoginActivity.class);
+                SplashActivity.this.startActivity(mainIntent);
+                SplashActivity.this.finish();
+            } else {
+                syncExpertData();
             }
-
         }, SPLASH_DISPLAY_LENGHT);
     }
 
@@ -76,33 +73,30 @@ public class SplashActivity extends Activity {
             params.put("expert_id", expert.getId().toString());
             params.put("access_token", expert.getAccess_token());
             PublicReq.request(HttpUrl.EXPERT_PERSON_DATA,
-                    new Response.Listener<String>() {
-                        @Override
-                        public void onResponse(String response) {
-                            try {
-                                RespData respData = GsonHelper.parseObject(
-                                        response, RespData.class);
-                                if (null != respData) {
-                                    if (respData.isValida()) {
-                                        startActivity(FirstActivity.newIntent());
-                                        finish();
-                                    } else if (respData.isSuccess()) {
-                                        Expert et = GsonHelper.parseObject(
-                                                GsonHelper.toJson(respData
-                                                        .getExpert()),
-                                                Expert.class);
-                                        if (null != et) {
-                                            SPUtils.put(WConstant.EXPERT_DATA,
-                                                    GsonHelper.toJson(et));
-                                        }
+                    response -> {
+                        try {
+                            RespData respData = GsonHelper.parseObject(
+                                    response, RespData.class);
+                            if (null != respData) {
+                                if (respData.isValida()) {
+                                    startActivity(FirstActivity.newIntent());
+                                    finish();
+                                } else if (respData.isSuccess()) {
+                                    Expert et = GsonHelper.parseObject(
+                                            GsonHelper.toJson(respData
+                                                    .getExpert()),
+                                            Expert.class);
+                                    if (null != et) {
+                                        SPUtils.put(WConstant.EXPERT_DATA,
+                                                GsonHelper.toJson(et));
                                     }
-
                                 }
-                            } catch (Exception e) {
-                                e.printStackTrace();
+
                             }
-                            redirectActivity();
+                        } catch (Exception e) {
+                            e.printStackTrace();
                         }
+                        redirectActivity();
                     }, new Response.ErrorListener() {
                         @Override
                         public void onErrorResponse(VolleyError error) {
@@ -117,7 +111,7 @@ public class SplashActivity extends Activity {
         expert = WCache.getCacheExpert();
         if (null == expert) {
             Intent mainIntent = new Intent(SplashActivity.this,
-                    FirstActivity.class);
+                    LoginActivity.class);
             SplashActivity.this.startActivity(mainIntent);
         } else if (StringUtils.isBlank(expert.getExpert_name())) {
             // 如果必填项为空即跳转到完善个人信息
@@ -125,7 +119,6 @@ public class SplashActivity extends Activity {
         } else {
             SplashActivity.this.startActivity(MainActivity.newIntent(MainActivity.TYPE_HOME));
         }
-        startActivity(AuthenticationInfoActivity.newIntent());
         SplashActivity.this.finish();
     }
 

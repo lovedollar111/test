@@ -6,7 +6,7 @@
 
     <RelativeLayout
         android:id="@+id/titleLayout"
-        style="@style/top_titile_style" >
+        style="@style/top_title_style" >
 
         <ImageButton
             android:id="@+id/btn_back"

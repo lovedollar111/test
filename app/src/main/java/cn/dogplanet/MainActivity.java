@@ -107,6 +107,7 @@ public class MainActivity extends BaseFragmentActivity implements View.OnClickLi
 
     private void initView() {
 
+
     }
 
     private void saveUuid(String deviceToken) {
@@ -196,6 +197,9 @@ public class MainActivity extends BaseFragmentActivity implements View.OnClickLi
         FragmentTransaction transaction = getSupportFragmentManager()
                 .beginTransaction();
         hideFragments(transaction);
+        switch (v.getId()){
+
+        }
     }
 
 

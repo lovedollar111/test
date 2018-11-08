@@ -31,13 +31,16 @@
     <string name="app_name">汪汪星球</string>
 
     <!--  -->
-    <string name="hint_password">设置密码，6–20位字母数字组合</string>
+    <string name="hint_password">请输入您的密码</string>
+    <string name="hint_input_password">设置6-20位数字字母组合新密码</string>
+    <string name="hint_again_password">再次输入密码</string>
     <string name="tip_phone">请输入正确的手机号</string>
     <string name="tip_verify_code">验证码为4位数字
 </string>
     <string name="tip_pass_error">密码错误</string>
-    <string name="tip_pass">密码应为6-20位字母数字组合，请重新设置。
+    <string name="tip_pass">密码应为6-20位字母数字组合，请重新输入。
 </string>
+    <string name="tip_tow_pass_error">两次输入的密码不一致，请重新输入</string>
     <string name="tip_privacy_clause">必须同意注册协议</string>
     <string name="login_phone">手机号
 </string>
@@ -53,7 +56,7 @@
     <string name="regit_warm_sub">《隐私条款》</string>
     <string name="regit_no_account">还没有账号？
 </string>
-    <string name="reset_verify_code">重新获取
+    <string name="reset_verify_code">重新发送
 </string>
     <string name="user_login">登录</string>
 
@@ -138,6 +141,28 @@
     <string name="invite_rule1">扫描图中二维码或者点击页面上的分享下载链接按钮将APP的下载链接发送给好友，也可以在App Store／安卓应用市场搜索“汪汪星球”下载APP；</string>
     <string name="invite_rule2">好友在注册时输入邀请码并且提交认证信息；</string>
     <string name="invite_rule3">用户信息审核一般需要3–5个工作日，好友账号的认证信息通过审核之后则记为邀请成功。</string>
-
-
+    <string name="log_with_password">账号登录</string>
+    <string name="log_with_wx">微信登陆</string>
+    <string name="disclaimer1">注册/登陆即表示已阅读并同意</string>
+    <string name="disclaimer2">《汪汪星球用户协议》</string>
+    <string name="hint_phone">请输入您的手机号</string>
+    <string name="hint_verification">请输入验证码</string>
+    <string name="forget_password">忘记密码</string>
+    <string name="paragraph">隐私条款</string>
+    <string name="log_with_verification">验证码登陆</string>
+    <string name="send_verification">发送验证码</string>
+    <string name="ok">完成</string>
+    <string name="register_1">注册1</string>
+    <string name="register_2">注册2</string>
+    <string name="hint_invite">请输入邀请码（选填）</string>
+    <string name="set_password">设置密码</string>
+    <string name="set_info">认证信息</string>
+    <string name="set_img">上传证件</string>
+    <string name="next">下一步</string>
+    <string name="hint_input_name">输入真实姓名且与身份证保持一致</string>
+    <string name="hint_input_id_card">输入身份证号与身份证保持一致</string>
+    <string name="hint_choose_company">选择您的达人公司</string>
+    <string name="hint_input_driving">输入驾驶证有效期与证件保持一致</string>
+    <string name="hint_input_vehicle">输入行驶证有效期与证件保持一致</string>
+    <string name="hint_input_operational">输入运营资质有效期与证件保持一致</string>
 </resources>

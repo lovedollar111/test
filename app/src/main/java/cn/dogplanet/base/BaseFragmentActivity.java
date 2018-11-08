@@ -24,7 +24,6 @@ public class BaseFragmentActivity extends FragmentActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setTranslucentStatus();
-        EventBus.getDefault().register(this);
     }
 
     private void setTranslucentStatus()
@@ -55,7 +54,6 @@ public class BaseFragmentActivity extends FragmentActivity {
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        EventBus.getDefault().unregister(this);
     }
 
     @Override
