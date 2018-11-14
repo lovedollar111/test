@@ -1,9 +1,132 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.user.CompanyFindActivity">
+    tools:context=".ui.user.CompanyFindActivity"
+    android:background="@color/back_gary"
+    android:orientation="vertical">
 
-</android.support.constraint.ConstraintLayout>
+    <RelativeLayout style="@style/top_title_style"
+        android:padding="@dimen/dis_0">
+
+        <TextView
+            android:id="@+id/btn_search"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/dis_72"
+            android:layout_alignParentEnd="true"
+            android:layout_marginEnd="@dimen/dis_24"
+            android:textSize="@dimen/font_size_12"
+            android:text="@string/str_search"
+            android:textColor="@color/color_8e"
+            android:layout_marginBottom="@dimen/dis_8"
+            android:gravity="center_vertical"/>
+
+
+        <RelativeLayout
+            android:id="@+id/lay_search"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dis_72"
+            android:layout_toStartOf="@+id/btn_search"
+            android:background="@drawable/back_round_gray"
+            android:layout_marginStart="@dimen/dis_24"
+            android:layout_marginBottom="@dimen/dis_8"
+            android:layout_marginEnd="@dimen/dis_30"
+            android:orientation="horizontal"
+            android:visibility="gone">
+            
+            <ImageView
+                android:layout_width="@dimen/dis_28"
+                android:layout_height="@dimen/dis_28"
+                android:scaleType="centerCrop"
+                android:src="@mipmap/ic_launcher"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="@dimen/dis_24"
+                />
+
+
+            <cn.dogplanet.app.widget.EditTextWithDel
+                android:id="@+id/et_search"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@null"
+                android:cursorVisible="true"
+                android:focusableInTouchMode="true"
+                android:hint="@string/search_company"
+                android:imeOptions="actionSearch|flagNoExtractUi|flagNoFullscreen"
+                android:textColor="@color/color_c7"
+                android:textColorHint="#afff"
+                android:textCursorDrawable="@drawable/color_cursor"
+                android:textSize="@dimen/font_size_12"
+                android:layout_marginEnd="@dimen/dis_20"
+                android:layout_marginStart="@dimen/dis_72"
+                android:maxLines="1"
+                android:layout_centerVertical="true"
+                />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/lay_hint"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dis_72"
+            android:layout_toStartOf="@+id/btn_search"
+            android:background="@drawable/back_round_gray"
+            android:layout_marginStart="@dimen/dis_24"
+            android:layout_marginBottom="@dimen/dis_8"
+            android:layout_marginEnd="@dimen/dis_30"
+            android:layout_centerHorizontal="true"
+            android:gravity="center">
+
+            <ImageView
+                android:layout_width="@dimen/dis_28"
+                android:layout_height="@dimen/dis_28"
+                android:scaleType="centerCrop"
+                android:src="@mipmap/ic_launcher"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="@dimen/dis_24"
+                />
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:background="@null"
+                android:focusableInTouchMode="true"
+                android:textColor="@color/color_c7"
+                android:textSize="@dimen/font_size_12"
+                android:layout_marginEnd="@dimen/dis_20"
+                android:layout_marginStart="@dimen/dis_72"
+                android:maxLines="1"
+                android:text="搜索旅行社"
+                android:layout_centerVertical="true"
+                android:gravity="center_vertical"
+                />
+
+        </RelativeLayout>
+    </RelativeLayout>
+
+    <ListView
+        android:id="@+id/list_company"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scrollbars="none"
+        android:background="@color/back_gary"
+        android:layout_marginStart="@dimen/dis_24"
+        android:layout_marginEnd="@dimen/dis_24"
+        android:layout_marginTop="@dimen/dis_24"
+        android:dividerHeight="@dimen/dis_24"
+        android:divider="#0000"
+        />
+
+    <TextView
+        android:id="@+id/tv_tip"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:drawablePadding="15dp"
+        android:drawableTop="@mipmap/ic_launcher"
+        android:gravity="center_horizontal"
+        android:visibility="gone" />
+
+</LinearLayout>

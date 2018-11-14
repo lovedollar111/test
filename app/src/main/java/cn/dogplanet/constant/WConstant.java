@@ -13,6 +13,10 @@ public class WConstant {
     public static final String WW_ID = "1";
     public static final String EXPERT_DATA = "expert_data";
 
+    public static final String TYPE_DRIVER="20";
+
+    public static final String COMPANY_ID="company_id";
+    public static final String COMPANY_NAME="company_name";
 
     // 图片左边
     public static final String IMAGE_LEFT = "left";

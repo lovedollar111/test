@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/back_round_white_30"
+    android:paddingBottom="@dimen/dis_40">
+
+    <View
+        android:id="@+id/view_line"
+        style="@style/view_hor_margin_line"
+        android:layout_marginEnd="@dimen/dis_20"
+        android:layout_marginStart="@dimen/dis_20" />
+
+    <cn.dogplanet.app.widget.CircleImageView
+        android:id="@+id/img_company"
+        android:layout_width="@dimen/dis_80"
+        android:layout_height="@dimen/dis_80"
+        android:layout_marginStart="@dimen/dis_24"
+        android:layout_marginTop="@dimen/dis_36" />
+
+    <RelativeLayout
+        android:id="@+id/lay_people"
+        android:layout_width="@dimen/dis_70"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="@dimen/dis_50"
+        android:layout_marginTop="@dimen/dis_44">
+
+        <ImageView
+            android:id="@+id/img_people_num"
+            android:layout_width="@dimen/dis_30"
+            android:layout_height="@dimen/dis_30"
+            android:layout_centerHorizontal="true"
+            android:src="@mipmap/ic_launcher" />
+
+        <TextView
+            android:id="@+id/tv_people_num"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/img_people_num"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="@dimen/dis_10"
+            android:text="20000"
+            android:textColor="@color/color_c7"
+            android:textSize="@dimen/font_size_11" />
+
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/tv_company_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/dis_70"
+        android:layout_marginStart="@dimen/dis_24"
+        android:layout_marginTop="@dimen/dis_36"
+        android:layout_toEndOf="@id/img_company"
+        android:layout_toStartOf="@id/lay_people"
+        android:maxLines="1"
+        android:text="海韵假日有限公司"
+        android:textSize="@dimen/font_size_15" />
+
+    <TextView
+        android:id="@+id/tv_msg"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tv_company_name"
+        android:layout_marginEnd="@dimen/dis_70"
+        android:layout_marginStart="@dimen/dis_24"
+        android:layout_marginTop="@dimen/dis_10"
+        android:layout_toEndOf="@id/img_company"
+        android:layout_toStartOf="@id/lay_people"
+        android:text="汪汪星球直属旅行社公司社公司社公"
+        android:textColor="@color/color_8e"
+        android:textSize="@dimen/font_size_13" />
+
+
+    <RelativeLayout
+        android:id="@+id/lay_company_phone"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tv_msg">
+
+        <ImageView
+            android:id="@+id/img_company_phone"
+            android:layout_width="@dimen/dis_32"
+            android:layout_height="@dimen/dis_32"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="@dimen/dis_30"
+            android:scaleType="centerCrop"
+            android:src="@mipmap/ic_launcher" />
+
+        <TextView
+            android:id="@+id/tv_company_phone"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/img_company_phone"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="@dimen/dis_10"
+            android:text="李四  000-98765432"
+            android:textColor="@color/color_8e"
+            android:textSize="@dimen/font_size_11" />
+
+    </RelativeLayout>
+
+
+</RelativeLayout>

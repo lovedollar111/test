@@ -12,14 +12,15 @@
         android:layout_height="wrap_content"
         android:textColor="@color/color_33"
         android:text="@string/register_1"
-        android:textSize="@dimen/font_size_20"
-        android:layout_margin="@dimen/dis_36"/>
+        android:textSize="@dimen/font_size_26"
+        android:layout_marginStart="@dimen/dis_60"
+        android:layout_marginTop="@dimen/dis_75"/>
 
 
     <RelativeLayout
         android:id="@+id/lay_step"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/dis_150"
+        android:layout_height="@dimen/dis_100"
         android:layout_marginTop="@dimen/dis_30"
         android:layout_below="@+id/tv_title"
         android:background="@color/white">
@@ -30,16 +31,18 @@
             android:layout_height="wrap_content"
             android:text="@string/set_password"
             android:layout_alignParentBottom="true"
-            android:layout_marginStart="@dimen/dis_36"/>
+            android:layout_marginStart="@dimen/dis_60"
+            android:textSize="@dimen/font_size_11"
+            android:textColor="@color/color_f13051"/>
 
         <ImageView
             android:id="@+id/img_step_1"
             android:layout_width="@dimen/dis_30"
             android:layout_height="@dimen/dis_30"
             android:src="@mipmap/ic_launcher"
-            android:layout_above="@+id/tv_step_1"
             android:layout_alignEnd="@+id/tv_step_1"
             android:layout_alignStart="@+id/tv_step_1"
+            android:layout_centerVertical="true"
             android:layout_marginBottom="@dimen/dis_20"
             />
 
@@ -50,14 +53,16 @@
             android:text="@string/set_info"
             android:layout_alignParentBottom="true"
             android:layout_marginStart="@dimen/dis_36"
-            android:layout_centerHorizontal="true"/>
+            android:layout_centerHorizontal="true"
+            android:textSize="@dimen/font_size_11"
+            android:textColor="@color/color_8e"/>
 
         <ImageView
             android:id="@+id/img_step_2"
             android:layout_width="@dimen/dis_30"
             android:layout_height="@dimen/dis_30"
             android:src="@mipmap/ic_launcher"
-            android:layout_above="@+id/tv_step_2"
+            android:layout_centerVertical="true"
             android:layout_alignEnd="@+id/tv_step_2"
             android:layout_alignStart="@+id/tv_step_2"
             android:layout_marginBottom="@dimen/dis_20"
@@ -71,14 +76,16 @@
             android:layout_alignParentBottom="true"
             android:layout_marginStart="@dimen/dis_36"
             android:layout_alignParentEnd="true"
-            android:layout_marginEnd="@dimen/dis_36"/>
+            android:layout_marginEnd="@dimen/dis_60"
+            android:textSize="@dimen/font_size_11"
+            android:textColor="@color/color_8e"/>
 
         <ImageView
             android:id="@+id/img_step_3"
             android:layout_width="@dimen/dis_30"
             android:layout_height="@dimen/dis_30"
             android:src="@mipmap/ic_launcher"
-            android:layout_above="@+id/tv_step_3"
+            android:layout_centerVertical="true"
             android:layout_alignEnd="@+id/tv_step_3"
             android:layout_alignStart="@+id/tv_step_3"
             android:layout_marginBottom="@dimen/dis_20"
@@ -89,14 +96,14 @@
             android:layout_centerVertical="true"
             android:layout_toEndOf="@+id/tv_step_1"
             android:layout_toStartOf="@+id/img_step_2"
-            android:background="@color/black" />
+            android:background="@color/color_c7" />
 
         <View
             style="@style/view_hor_match_line"
             android:layout_centerVertical="true"
             android:layout_toEndOf="@+id/tv_step_2"
             android:layout_toStartOf="@+id/img_step_3"
-            android:background="@color/black" />
+            android:background="@color/color_c7" />
 
     </RelativeLayout>
 
@@ -255,6 +262,13 @@
 
     </RelativeLayout>
 
+    <View
+        style="@style/view_hor_margin_line"
+        android:layout_marginStart="@dimen/dis_36"
+        android:layout_marginEnd="@dimen/dis_36"
+        android:layout_below="@id/lay_invite_code"
+        />
+
     <Button
         android:id="@+id/btn_next"
         android:layout_width="match_parent"
@@ -262,7 +276,7 @@
         android:layout_marginStart="@dimen/dis_60"
         android:layout_marginEnd="@dimen/dis_60"
         android:layout_below="@id/lay_invite_code"
-        android:layout_marginTop="@dimen/dis_150"
+        android:layout_marginTop="@dimen/dis_75"
         android:background="@drawable/gradient_c7_ab"
         android:text="@string/next"
         android:textColor="@color/white"

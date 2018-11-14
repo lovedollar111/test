@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/lay_main"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/back_round_white"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/title"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dis_50"
+        android:layout_marginBottom="@dimen/dis_10"
+        android:layout_marginTop="@dimen/dis_30"
+        android:gravity="center"
+        android:text="@string/choose_date"
+        android:background="@drawable/back_round_white"
+        android:textColor="#282b36"
+        android:textSize="18sp" />
+
+    <LinearLayout
+        android:id="@+id/lay_chk"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dis_40"
+        android:descendantFocusability="blocksDescendants"
+        android:background="@drawable/back_round_white"
+        android:gravity="center_vertical|left"
+        android:paddingStart="50dp"
+        android:visibility="visible">
+
+        <CheckBox
+            android:id="@+id/ck_checkbox"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:button="@drawable/cart_checkbox"
+            android:checked="false"
+            android:focusable="false"
+            android:gravity="center"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dis_20"
+            android:text="@string/str_long"
+            android:textColor="@color/text_color"
+            android:textSize="20sp" />
+    </LinearLayout>
+
+    <DatePicker
+        android:id="@+id/datePicker"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="@dimen/dis_40"
+        android:calendarViewShown="false"
+
+        />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:layout_marginTop="@dimen/dis_50"
+        android:background="#dadada" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:background="@drawable/back_round_white">
+
+        <Button
+            android:id="@+id/btn_cancel"
+            android:layout_width="0dp"
+            android:layout_height="50dp"
+            android:layout_weight="1"
+            android:background="@drawable/back_round_white"
+            android:gravity="center"
+            android:text="@string/btn_cancel"
+            android:textColor="@color/title_bg"
+            android:textSize="@dimen/font_size_12" />
+
+        <View
+            android:layout_width="0.5dp"
+            android:layout_height="match_parent"
+            android:background="#dadada" />
+
+        <Button
+            android:id="@+id/btn_ok"
+            android:layout_width="0dp"
+            android:layout_height="50dp"
+            android:layout_weight="1"
+            android:background="@drawable/back_round_white"
+            android:gravity="center"
+            android:text="@string/btn_ok"
+            android:textColor="@color/title_bg"
+            android:textSize="@dimen/font_size_12" />
+    </LinearLayout>
+
+</LinearLayout>

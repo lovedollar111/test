@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/back_round_white_30"
+    android:orientation="vertical">
+
+    <ImageView
+        android:layout_width="@dimen/dis_142"
+        android:layout_height="@dimen/dis_142"
+        android:layout_marginTop="@dimen/dis_75"
+        android:layout_marginStart="@dimen/dis_60"
+        android:layout_marginEnd="@dimen/dis_60"
+        android:layout_gravity="center_horizontal"
+        />
+
+    <TextView
+        android:id="@+id/tv_phone"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/dis_60"
+        android:layout_marginEnd="@dimen/dis_60"
+        android:layout_marginTop="@dimen/dis_70"
+        android:layout_gravity="center_horizontal"
+        android:textColor="@color/black"
+        android:textSize="@dimen/font_size_15"
+        android:text="000-98765432"
+        />
+
+    
+    <Button
+        android:id="@+id/btn_ok"
+        android:layout_width="@dimen/dis_480"
+        android:layout_height="@dimen/dis_80"
+        android:background="@drawable/gradient_f1_e0"
+        android:text="@string/str_call"
+        android:layout_gravity="center_horizontal"
+        android:textSize="@dimen/font_size_18"
+        android:textColor="@color/white"
+        android:layout_marginTop="@dimen/dis_136"
+        android:layout_marginBottom="@dimen/dis_70"
+        />
+    
+</LinearLayout>

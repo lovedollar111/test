@@ -102,6 +102,33 @@ public class Expert {
     //达人证件类型
     private String id_card_type;
 
+    private Expert.CardPhoto driver_license;
+    private Expert.CardPhoto vehicle_license;
+    private Expert.CardPhoto operational_qualification;
+
+    public CardPhoto getDriver_license() {
+        return driver_license;
+    }
+
+    public void setDriver_license(CardPhoto driver_license) {
+        this.driver_license = driver_license;
+    }
+
+    public CardPhoto getVehicle_license() {
+        return vehicle_license;
+    }
+
+    public void setVehicle_license(CardPhoto vehicle_license) {
+        this.vehicle_license = vehicle_license;
+    }
+
+    public CardPhoto getOperational_qualification() {
+        return operational_qualification;
+    }
+
+    public void setOperational_qualification(CardPhoto operational_qualification) {
+        this.operational_qualification = operational_qualification;
+    }
 
     public boolean getPassord() {
         return payment_password;
@@ -439,7 +466,7 @@ public class Expert {
         this.age = age;
     }
 
-    public class CardPhoto {
+    public static class CardPhoto {
         private String id;
         private String url;
         private String date;

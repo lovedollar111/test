@@ -1,12 +1,171 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:background="@color/white"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context=".ui.login.CardInfoActivity">
 
 
 
-</RelativeLayout>
+    <TextView
+        android:id="@+id/tv_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/color_33"
+        android:text="@string/register_3"
+        android:textSize="@dimen/font_size_26"
+        android:layout_marginStart="@dimen/dis_60"
+        android:layout_marginTop="@dimen/dis_75"/>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white"
+        android:scrollbars="none">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <RelativeLayout
+                android:id="@+id/lay_step"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dis_100"
+                android:layout_marginTop="@dimen/dis_30"
+                android:background="@color/white">
+
+                <TextView
+                    android:id="@+id/tv_step_1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/set_password"
+                    android:layout_alignParentBottom="true"
+                    android:layout_marginStart="@dimen/dis_60"
+                    android:textSize="@dimen/font_size_11"
+                    android:textColor="@color/color_f13051"/>
+
+                <ImageView
+                    android:id="@+id/img_step_1"
+                    android:layout_width="@dimen/dis_30"
+                    android:layout_height="@dimen/dis_30"
+                    android:src="@mipmap/ic_launcher"
+                    android:layout_alignEnd="@+id/tv_step_1"
+                    android:layout_alignStart="@+id/tv_step_1"
+                    android:layout_centerVertical="true"
+                    android:layout_marginBottom="@dimen/dis_20"
+                    />
+
+                <TextView
+                    android:id="@+id/tv_step_2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/set_info"
+                    android:layout_alignParentBottom="true"
+                    android:layout_marginStart="@dimen/dis_36"
+                    android:layout_centerHorizontal="true"
+                    android:textSize="@dimen/font_size_11"
+                    android:textColor="@color/color_f13051"/>
+
+                <ImageView
+                    android:id="@+id/img_step_2"
+                    android:layout_width="@dimen/dis_30"
+                    android:layout_height="@dimen/dis_30"
+                    android:src="@mipmap/ic_launcher"
+                    android:layout_centerVertical="true"
+                    android:layout_alignEnd="@+id/tv_step_2"
+                    android:layout_alignStart="@+id/tv_step_2"
+                    android:layout_marginBottom="@dimen/dis_20"
+                    />
+
+                <TextView
+                    android:id="@+id/tv_step_3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/set_img"
+                    android:layout_alignParentBottom="true"
+                    android:layout_marginStart="@dimen/dis_36"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginEnd="@dimen/dis_60"
+                    android:textSize="@dimen/font_size_11"
+                    android:textColor="@color/color_f13051"/>
+
+                <ImageView
+                    android:id="@+id/img_step_3"
+                    android:layout_width="@dimen/dis_30"
+                    android:layout_height="@dimen/dis_30"
+                    android:src="@mipmap/ic_launcher"
+                    android:layout_centerVertical="true"
+                    android:layout_alignEnd="@+id/tv_step_3"
+                    android:layout_alignStart="@+id/tv_step_3"
+                    android:layout_marginBottom="@dimen/dis_20"
+                    />
+
+                <View
+                    style="@style/view_hor_match_line"
+                    android:layout_centerVertical="true"
+                    android:layout_toEndOf="@+id/tv_step_1"
+                    android:layout_toStartOf="@+id/img_step_2"
+                    android:background="@color/color_f13051" />
+
+                <View
+                    style="@style/view_hor_match_line"
+                    android:layout_centerVertical="true"
+                    android:layout_toEndOf="@+id/tv_step_2"
+                    android:layout_toStartOf="@+id/img_step_3"
+                    android:background="@color/color_f13051" />
+
+            </RelativeLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_below="@+id/lay_step"
+                android:layout_marginTop="@dimen/dis_100">
+
+                <ImageView
+                    android:layout_width="0dp"
+                    android:layout_height="110dp"
+                    android:layout_marginStart="@dimen/dis_30"
+                    android:layout_weight="1"
+                    android:src="@mipmap/shili" />
+
+                <RelativeLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginStart="@dimen/dis_20"
+                    android:layout_marginEnd="@dimen/dis_30">
+
+                    <TextView
+                        android:id="@+id/tv_img_hint"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="上传证件参考事例："
+                        android:textColor="@color/color_33"
+                        android:textSize="@dimen/font_size_15" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/tv_img_hint"
+                        android:layout_marginTop="@dimen/dis_20"
+                        android:text="手持证件照拍摄之后上传，\n要五官清晰，\n不要遮挡。"
+                        android:textColor="@color/color_8e"
+                        android:textSize="@dimen/font_size_11" />
+
+                </RelativeLayout>
+
+            </LinearLayout>
+
+        </RelativeLayout>
+
+    </ScrollView>
+
+
+</LinearLayout>

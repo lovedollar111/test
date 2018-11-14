@@ -4,6 +4,7 @@ import android.app.Dialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.view.View;
@@ -104,7 +105,7 @@ public class NiftyDialogBuilder extends Dialog implements DialogInterface {
         params.height = ViewGroup.LayoutParams.WRAP_CONTENT;
         params.width = ViewGroup.LayoutParams.WRAP_CONTENT;
         getWindow().setAttributes(params);
-
+        getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
     }
 
     public static NiftyDialogBuilder getInstance(Context context) {
@@ -132,11 +133,8 @@ public class NiftyDialogBuilder extends Dialog implements DialogInterface {
         mFrameLayoutCustomView = mDialogView.findViewById(R.id.customPanel);
         title_template= mDialogView.findViewById(R.id.title_template);
         img_close= mDialogView.findViewById(R.id.img_close);
-        img_close.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (isCancelable) dismiss();
-            }
+        img_close.setOnClickListener(v -> {
+            if (isCancelable) dismiss();
         });
         mTitle = mDialogView.findViewById(R.id.alertTitle);
         mMessage = mDialogView.findViewById(R.id.message);
@@ -147,24 +145,18 @@ public class NiftyDialogBuilder extends Dialog implements DialogInterface {
 
         setContentView(mDialogView);
 
-        this.setOnShowListener(new OnShowListener() {
-            @Override
-            public void onShow(DialogInterface dialogInterface) {
+        this.setOnShowListener(dialogInterface -> {
 
-                mLinearLayoutView.setVisibility(View.VISIBLE);
-                if (type == null) {
-                    type = Effectstype.Fadein;
-                }
-                start(type);
-
-
+            mLinearLayoutView.setVisibility(View.VISIBLE);
+            if (type == null) {
+                type = Effectstype.Fadein;
             }
+            start(type);
+
+
         });
-        mRelativeLayoutView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
+        mRelativeLayoutView.setOnClickListener(view -> {
 //                if (isCancelable) dismiss();
-            }
         });
     }
 

@@ -157,9 +157,10 @@ public class FirstActivity extends BaseActivity {
                 }
                 break;
             case R.id.btn_next:
-                if(checkInput()){
-                    reg();
-                }
+//                if(checkInput()){
+//                    reg();
+//                }
+                startActivity(BaseInfoActivity.newIntent());
                 break;
         }
     }
@@ -220,12 +221,9 @@ public class FirstActivity extends BaseActivity {
                     }
                 }
             }
-        }, new Response.ErrorListener() {
-            @Override
-            public void onErrorResponse(VolleyError error) {
-                hideProgress();
-                ToastUtil.showError(R.string.network_error);
-            }
+        }, error -> {
+            hideProgress();
+            ToastUtil.showError(R.string.network_error);
         }, params);
     }
 

@@ -154,6 +154,7 @@
     <string name="ok">完成</string>
     <string name="register_1">注册1</string>
     <string name="register_2">注册2</string>
+    <string name="register_3">注册3</string>
     <string name="hint_invite">请输入邀请码（选填）</string>
     <string name="set_password">设置密码</string>
     <string name="set_info">认证信息</string>
@@ -165,4 +166,22 @@
     <string name="hint_input_driving">输入驾驶证有效期与证件保持一致</string>
     <string name="hint_input_vehicle">输入行驶证有效期与证件保持一致</string>
     <string name="hint_input_operational">输入运营资质有效期与证件保持一致</string>
+
+    <string name="err_name">请输入真实姓名</string>
+    <string name="err_id_card_null">请输入身份证号</string>
+    <string name="err_id_card">请输入正确身份证号</string>
+    <string name="err_company">请选择达人公司</string>
+    <string name="err_driving_licence_time">请选择驾驶证有效期</string>
+    <string name="err_vehicle_license_time">请选择行驶证有效期</string>
+    <string name="err_operational_qualification_time">请选择运营资质有效期</string>
+    <string name="btn_cancel">取消</string>
+    <string name="btn_ok">确定</string>
+    <string name="choose_date">选择日期</string>
+    <string name="str_long">长期</string>
+    <string name="company_list">选择所属公司</string>
+    <string name="company_find">搜索达人公司名称</string>
+    <string name="str_rem">推荐</string>
+    <string name="str_call">拨打电话</string>
+    <string name="str_search">搜索</string>
+    <string name="search_company">搜索达人公司名称</string>
 </resources>

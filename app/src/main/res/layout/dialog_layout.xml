@@ -21,14 +21,15 @@ https://github.com/android/platform_frameworks_base/blob/master/core/res/res/lay
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/main"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="wrap_content"
+    android:background="@drawable/back_round_white">
 
     <LinearLayout
         android:id="@+id/parentPanel"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
-        android:background="#0000"
+        android:background="@drawable/back_round_white"
         android:clickable="false"
         android:orientation="vertical"
         android:visibility="visible">
@@ -39,7 +40,7 @@ https://github.com/android/platform_frameworks_base/blob/master/core/res/res/lay
             android:layout_height="wrap_content"
             android:background="#22000000"
             android:orientation="vertical"
-            android:visibility="visible">
+            android:visibility="gone">
 
             <RelativeLayout
                 android:id="@+id/title_template"
@@ -83,7 +84,7 @@ https://github.com/android/platform_frameworks_base/blob/master/core/res/res/lay
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:orientation="vertical"
-            android:visibility="visible">
+            android:visibility="gone">
 
             <TextView
                 android:id="@+id/message"

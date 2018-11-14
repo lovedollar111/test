@@ -12,14 +12,15 @@
         android:layout_height="wrap_content"
         android:textColor="@color/color_33"
         android:text="@string/register_2"
-        android:textSize="@dimen/font_size_20"
-        android:layout_margin="@dimen/dis_36"/>
+        android:textSize="@dimen/font_size_26"
+        android:layout_marginStart="@dimen/dis_60"
+        android:layout_marginTop="@dimen/dis_75"/>
 
 
     <RelativeLayout
         android:id="@+id/lay_step"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/dis_150"
+        android:layout_height="@dimen/dis_100"
         android:layout_marginTop="@dimen/dis_30"
         android:layout_below="@+id/tv_title"
         android:background="@color/white">
@@ -30,16 +31,18 @@
             android:layout_height="wrap_content"
             android:text="@string/set_password"
             android:layout_alignParentBottom="true"
-            android:layout_marginStart="@dimen/dis_36"/>
+            android:layout_marginStart="@dimen/dis_60"
+            android:textSize="@dimen/font_size_11"
+            android:textColor="@color/color_f13051"/>
 
         <ImageView
             android:id="@+id/img_step_1"
             android:layout_width="@dimen/dis_30"
             android:layout_height="@dimen/dis_30"
             android:src="@mipmap/ic_launcher"
-            android:layout_above="@+id/tv_step_1"
             android:layout_alignEnd="@+id/tv_step_1"
             android:layout_alignStart="@+id/tv_step_1"
+            android:layout_centerVertical="true"
             android:layout_marginBottom="@dimen/dis_20"
             />
 
@@ -50,14 +53,16 @@
             android:text="@string/set_info"
             android:layout_alignParentBottom="true"
             android:layout_marginStart="@dimen/dis_36"
-            android:layout_centerHorizontal="true"/>
+            android:layout_centerHorizontal="true"
+            android:textSize="@dimen/font_size_11"
+            android:textColor="@color/color_f13051"/>
 
         <ImageView
             android:id="@+id/img_step_2"
             android:layout_width="@dimen/dis_30"
             android:layout_height="@dimen/dis_30"
             android:src="@mipmap/ic_launcher"
-            android:layout_above="@+id/tv_step_2"
+            android:layout_centerVertical="true"
             android:layout_alignEnd="@+id/tv_step_2"
             android:layout_alignStart="@+id/tv_step_2"
             android:layout_marginBottom="@dimen/dis_20"
@@ -71,14 +76,16 @@
             android:layout_alignParentBottom="true"
             android:layout_marginStart="@dimen/dis_36"
             android:layout_alignParentEnd="true"
-            android:layout_marginEnd="@dimen/dis_36"/>
+            android:layout_marginEnd="@dimen/dis_60"
+            android:textSize="@dimen/font_size_11"
+            android:textColor="@color/color_8e"/>
 
         <ImageView
             android:id="@+id/img_step_3"
             android:layout_width="@dimen/dis_30"
             android:layout_height="@dimen/dis_30"
             android:src="@mipmap/ic_launcher"
-            android:layout_above="@+id/tv_step_3"
+            android:layout_centerVertical="true"
             android:layout_alignEnd="@+id/tv_step_3"
             android:layout_alignStart="@+id/tv_step_3"
             android:layout_marginBottom="@dimen/dis_20"
@@ -89,14 +96,14 @@
             android:layout_centerVertical="true"
             android:layout_toEndOf="@+id/tv_step_1"
             android:layout_toStartOf="@+id/img_step_2"
-            android:background="@color/black" />
+            android:background="@color/color_f13051" />
 
         <View
             style="@style/view_hor_match_line"
             android:layout_centerVertical="true"
             android:layout_toEndOf="@+id/tv_step_2"
             android:layout_toStartOf="@+id/img_step_3"
-            android:background="@color/black" />
+            android:background="@color/color_c7" />
 
     </RelativeLayout>
 
@@ -128,7 +135,6 @@
             android:layout_toEndOf="@+id/img_name"
             android:background="@color/white"
             android:hint="@string/hint_input_name"
-            android:inputType="textPassword"
             android:textColor="@color/color_33"
             android:textColorHint="@color/color_c7"
             android:textSize="@dimen/font_size_15"
@@ -175,7 +181,6 @@
             android:textColorHint="@color/color_c7"
             android:textColor="@color/color_33"
             android:layout_centerVertical="true"
-            android:inputType="textPassword"
             android:singleLine="true"
             android:imeOptions="actionNext"
             />
@@ -220,7 +225,7 @@
             android:layout_centerVertical="true"
             />
 
-        <cn.dogplanet.app.widget.EditTextWithDel
+        <EditText
             android:id="@+id/et_company"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -236,6 +241,8 @@
             android:layout_centerVertical="true"
             android:singleLine="true"
             android:imeOptions="actionDone"
+            android:focusable="false"
+            android:focusableInTouchMode="false"
             />
 
     </RelativeLayout>
@@ -266,7 +273,7 @@
             />
 
 
-        <cn.dogplanet.app.widget.EditTextWithDel
+        <EditText
             android:id="@+id/et_driving_licence_time"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -276,12 +283,12 @@
             android:layout_toEndOf="@+id/img_driving_licence_time"
             android:background="@color/white"
             android:hint="@string/hint_input_driving"
-            android:inputType="textPassword"
             android:textColor="@color/color_33"
             android:textColorHint="@color/color_c7"
             android:textSize="@dimen/font_size_15"
-            android:singleLine="true"
-            android:imeOptions="actionNext"/>
+            android:focusable="false"
+            android:focusableInTouchMode="false"
+            android:singleLine="true"/>
 
     </RelativeLayout>
 
@@ -310,7 +317,7 @@
             />
 
 
-        <cn.dogplanet.app.widget.EditTextWithDel
+        <EditText
             android:id="@+id/et_vehicle_license_time"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -323,9 +330,9 @@
             android:textColorHint="@color/color_c7"
             android:textColor="@color/color_33"
             android:layout_centerVertical="true"
-            android:inputType="textPassword"
             android:singleLine="true"
-            android:imeOptions="actionNext"
+            android:focusable="false"
+            android:focusableInTouchMode="false"
             />
 
     </RelativeLayout>
@@ -356,7 +363,7 @@
             />
 
 
-        <cn.dogplanet.app.widget.EditTextWithDel
+        <EditText
             android:id="@+id/et_operational_qualification_time"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -370,10 +377,18 @@
             android:layout_toEndOf="@id/img_operational_qualification_time"
             android:layout_centerVertical="true"
             android:singleLine="true"
-            android:imeOptions="actionDone"
+            android:focusable="false"
+            android:focusableInTouchMode="false"
             />
 
     </RelativeLayout>
+
+    <View
+        style="@style/view_hor_margin_line"
+        android:layout_marginStart="@dimen/dis_36"
+        android:layout_marginEnd="@dimen/dis_36"
+        android:layout_below="@id/lay_operational_qualification_time"
+        />
 
     <Button
         android:id="@+id/btn_next"

@@ -47,17 +47,11 @@ public class HttpUrl {
     // 获取银行卡对应银行的信息
     public static final String BANK_CARD = HTTP_URL + "v1/util/get-bank";
 
-    // 旅行社数据
-    public static final String EXPERT_TRAVEL = HTTP_URL
-            + "v1/b/expert/get-travel-agency";
 
-    //获取推荐旅行社列表数据
-    public static final String EXPERT_RECOMMEND_TRAVEL = HTTP_URL
-            + "v1/b/expert/get-recommend-travel-agency";
+    //获取旅行社列表 获取推荐旅行社列表 按照关键字搜索 共用
+    public static final String GET_TRAVEL = HTTP_URL
+            + "v1/b/expert/get-travel-agency-list";
 
-    //根据关键词搜索公司名称
-    public static final String GET_COMPANY = HTTP_URL
-            + "v1/b/expert/get-company";
     //根据关键词搜索获取旅行社列表数据
     public static final String EXPERT_TRAVEL_BY_DESC = HTTP_URL
             + "v1/b/expert/get-travel-agency-by-desc";
