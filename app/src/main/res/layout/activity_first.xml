@@ -276,7 +276,7 @@
         android:layout_marginStart="@dimen/dis_60"
         android:layout_marginEnd="@dimen/dis_60"
         android:layout_below="@id/lay_invite_code"
-        android:layout_marginTop="@dimen/dis_75"
+        android:layout_marginTop="@dimen/dis_40"
         android:background="@drawable/gradient_c7_ab"
         android:text="@string/next"
         android:textColor="@color/white"

@@ -12,13 +12,13 @@
         android:padding="@dimen/dis_0">
 
         <TextView
-            android:id="@+id/btn_search"
+            android:id="@+id/btn_cancel"
             android:layout_width="wrap_content"
             android:layout_height="@dimen/dis_72"
             android:layout_alignParentEnd="true"
             android:layout_marginEnd="@dimen/dis_24"
             android:textSize="@dimen/font_size_12"
-            android:text="@string/str_search"
+            android:text="@string/str_cancel"
             android:textColor="@color/color_8e"
             android:layout_marginBottom="@dimen/dis_8"
             android:gravity="center_vertical"/>
@@ -99,7 +99,7 @@
                 android:layout_marginEnd="@dimen/dis_20"
                 android:layout_marginStart="@dimen/dis_72"
                 android:maxLines="1"
-                android:text="搜索旅行社"
+                android:text="@string/str_search_company"
                 android:layout_centerVertical="true"
                 android:gravity="center_vertical"
                 />

@@ -4,7 +4,6 @@ package cn.dogplanet.net;
  * 请求返回数据
  *
  * @author sh
- *
  */
 public class RespData {
     // 成功
@@ -16,6 +15,9 @@ public class RespData {
     public final static Integer CODE_VALIDA_FAIL = 1010;
 
     public final static Integer CODE_REGISTERED_SUCCESS = 1007;
+
+    //微信登陆未绑定账号
+    public final static Integer CODE_UN_REG = 1009;
 
 
     // 状态码
@@ -56,6 +58,11 @@ public class RespData {
         return this.code.intValue() == CODE_SUCCESS;
     }
 
+    public boolean isUnReg() {
+        return this.code.intValue() == CODE_UN_REG;
+    }
+
+
     public Integer getId() {
         return id;
     }
@@ -78,7 +85,9 @@ public class RespData {
     }
 
     //已注册
-    public boolean isRegistered(){return this.code.intValue() == CODE_REGISTERED_SUCCESS;}
+    public boolean isRegistered() {
+        return this.code.intValue() == CODE_REGISTERED_SUCCESS;
+    }
 
     @Override
     public String toString() {

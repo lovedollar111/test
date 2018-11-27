@@ -182,7 +182,7 @@
             android:textColor="@color/color_33"
             android:layout_centerVertical="true"
             android:singleLine="true"
-            android:imeOptions="actionNext"
+            android:imeOptions="actionDone"
             />
 
     </RelativeLayout>

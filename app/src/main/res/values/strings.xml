@@ -182,6 +182,12 @@
     <string name="company_find">搜索达人公司名称</string>
     <string name="str_rem">推荐</string>
     <string name="str_call">拨打电话</string>
-    <string name="str_search">搜索</string>
+    <string name="str_cancel">取消</string>
     <string name="search_company">搜索达人公司名称</string>
+    <string name="str_id_card_left">手持身份证正面照</string>
+    <string name="str_id_card_right">手持身份证反面照</string>
+    <string name="str_driver">手持驾驶证照</string>
+    <string name="str_vehicle">手持行驶证照</string>
+    <string name="str_operational">手持运营资质照</string>
+    <string name="str_search_company">搜索旅行社</string>
 </resources>

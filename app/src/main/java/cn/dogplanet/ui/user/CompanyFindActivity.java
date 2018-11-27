@@ -2,6 +2,8 @@ package cn.dogplanet.ui.user;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
@@ -39,8 +41,6 @@ public class CompanyFindActivity extends BaseActivity {
 
     public static final String COMPANY_ID = "find_company_id";
     public static final String COMPANY_NAME = "find_company_name";
-    @BindView(R.id.btn_search)
-    TextView btnSearch;
     @BindView(R.id.et_search)
     EditTextWithDel etSearch;
     @BindView(R.id.lay_search)
@@ -64,14 +64,34 @@ public class CompanyFindActivity extends BaseActivity {
         setContentView(R.layout.activity_company_find);
         ButterKnife.bind(this);
         getCompany();
+        initView();
+    }
+
+    private void initView() {
+        etSearch.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                getCompany();
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+
+            }
+        });
     }
 
 
-    @OnClick({R.id.btn_search, R.id.lay_hint})
+    @OnClick({R.id.btn_cancel, R.id.lay_hint})
     public void onViewClicked(View view) {
         switch (view.getId()) {
-            case R.id.btn_search:
-                getCompany();
+            case R.id.btn_cancel:
+                finish();
                 break;
             case R.id.lay_hint:
                 layHint.setVisibility(View.GONE);

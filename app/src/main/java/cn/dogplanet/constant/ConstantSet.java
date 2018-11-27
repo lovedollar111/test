@@ -25,6 +25,7 @@ public class ConstantSet {
      * 新浪微博第三方登录
      */
     public static final String APP_KEY = "2045436852";
+    public static final String WX_APP_ID="wxb12e168f6cf407c9";
     /**
      * 当前 DEMO 应用的回调页，第三方应用可以使用自己的回调页。
      * <p/>

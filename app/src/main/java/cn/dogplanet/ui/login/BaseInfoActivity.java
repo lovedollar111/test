@@ -275,6 +275,7 @@ public class BaseInfoActivity extends BaseActivity {
     }
 
     private void saveData() {
+        startActivity(CardInfoActivity.newIntent());
         Expert expert = new Expert();
         expert.setExpert_name(et_name.getText().toString());
         expert.setExpert_id_card(et_id_card.getText().toString());
@@ -291,14 +292,12 @@ public class BaseInfoActivity extends BaseActivity {
 
         Expert.CardPhoto vehicle_license = new Expert.CardPhoto();
         vehicle_license.setDate(vehicle_license_time);
-        expert.setDriver_license(vehicle_license);
+        expert.setVehicle_license(vehicle_license);
 
         Expert.CardPhoto operational_qualification = new Expert.CardPhoto();
         operational_qualification.setDate(operational_qualification_time);
-        expert.setDriver_license(operational_qualification);
-
+        expert.setOperational_qualification(operational_qualification);
         EventBus.getDefault().postSticky(expert);
-        startActivity(CardInfoActivity.newIntent());
     }
 
 

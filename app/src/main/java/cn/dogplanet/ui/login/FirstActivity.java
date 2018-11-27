@@ -6,7 +6,6 @@ import android.text.Editable;
 import android.text.TextWatcher;
 import android.text.method.HideReturnsTransformationMethod;
 import android.text.method.PasswordTransformationMethod;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -34,8 +33,6 @@ import cn.dogplanet.constant.WConstant;
 import cn.dogplanet.entity.Expert;
 import cn.dogplanet.net.PublicReq;
 import cn.dogplanet.net.RespData;
-import cn.dogplanet.net.volley.Response;
-import cn.dogplanet.net.volley.VolleyError;
 
 public class FirstActivity extends BaseActivity {
 
@@ -157,10 +154,9 @@ public class FirstActivity extends BaseActivity {
                 }
                 break;
             case R.id.btn_next:
-//                if(checkInput()){
-//                    reg();
-//                }
-                startActivity(BaseInfoActivity.newIntent());
+                if(checkInput()){
+                    reg();
+                }
                 break;
         }
     }
@@ -186,7 +182,6 @@ public class FirstActivity extends BaseActivity {
 
     private void reg() {
         Map<String, String> params = new HashMap<>();
-        Log.i("info",phone+"");
         params.put("expert_account", phone);
         params.put("expert_password", et_password.getText().toString());
         params.put("confirm_password",et_again_password.getText().toString());
@@ -195,30 +190,27 @@ public class FirstActivity extends BaseActivity {
         }
         params.put("source", "20");
         showProgress();
-        PublicReq.request(HttpUrl.EXPERT_REG, new Response.Listener<String>() {
-            @Override
-            public void onResponse(String response) {
-                hideProgress();
-                RespData respData = GsonHelper.parseObject(response,
-                        RespData.class);
-                if (null != respData) {
-                    if (respData.isSuccess()) {
-                        Expert expert = GsonHelper.parseObject(
-                                GsonHelper.toJson(respData.getExpert()),
-                                Expert.class);
-                        if (null != expert) {
-                            // 注册成功 缓存数据 并跳转到主界面
-                            SPUtils.put(WConstant.EXPERT_DATA,
-                                    GsonHelper.toJson(expert));
-                            // 跳转都完善个人信息界面
-                            startActivity(BaseInfoActivity.newIntent());
+        PublicReq.request(HttpUrl.EXPERT_REG, response -> {
+            hideProgress();
+            RespData respData = GsonHelper.parseObject(response,
+                    RespData.class);
+            if (null != respData) {
+                if (respData.isSuccess()) {
+                    Expert expert = GsonHelper.parseObject(
+                            GsonHelper.toJson(respData.getExpert()),
+                            Expert.class);
+                    if (null != expert) {
+                        // 注册成功 缓存数据 并跳转到主界面
+                        SPUtils.put(WConstant.EXPERT_DATA,
+                                GsonHelper.toJson(expert));
+                        // 跳转都完善个人信息界面
+                        startActivity(BaseInfoActivity.newIntent());
 
-                        } else {
-                            ToastUtil.showError(R.string.network_error);
-                        }
                     } else {
-                        ToastUtil.showError(respData.getMsg());
+                        ToastUtil.showError(R.string.network_error);
                     }
+                } else {
+                    ToastUtil.showError(respData.getMsg());
                 }
             }
         }, error -> {

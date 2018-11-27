@@ -13,8 +13,8 @@ android {
         applicationId "cn.dogplanet"
         minSdkVersion 19
         targetSdkVersion 26
-        versionCode 1
-        versionName "1.0"
+        versionCode 400
+        versionName "3.0.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
         externalNativeBuild {
             cmake {
@@ -42,6 +42,7 @@ android {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
     }
+    sourceSets { main { assets.srcDirs = ['src/main/assets', 'src/main/assets/'] } }
 }
 
 allprojects {
@@ -65,10 +66,10 @@ dependencies {
     implementation 'com.jakewharton:butterknife:8.8.1'
     implementation 'com.jakewharton:butterknife-annotations:8.8.1'
     annotationProcessor 'com.jakewharton:butterknife-compiler:8.8.1'
-//PushSDK必须依赖基础组件库，所以需要加入对应依赖
-    compile 'com.umeng.sdk:common:1.5.3'
-//PushSDK必须依赖utdid库，所以需要加入对应依赖
-    compile 'com.umeng.sdk:utdid:1.1.5.3'
-//PushSDK
-    compile 'com.umeng.sdk:push:4.2.0'
+    //PushSDK必须依赖基础组件库，所以需要加入对应依赖
+    implementation 'com.umeng.sdk:common:1.5.3'
+    //PushSDK必须依赖utdid库，所以需要加入对应依赖
+    implementation 'com.umeng.sdk:utdid:1.1.5.3'
+    //PushSDK
+    implementation 'com.umeng.sdk:push:4.2.0'
 }

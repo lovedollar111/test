@@ -13,10 +13,12 @@ import net.wequick.small.Small;
 import cn.dogplanet.app.cache.LruImageCache;
 import cn.dogplanet.app.util.Config;
 import cn.dogplanet.app.util.SPUtils;
+import cn.dogplanet.constant.ConstantSet;
 import cn.dogplanet.net.volley.Request;
 import cn.dogplanet.net.volley.RequestQueue;
 import cn.dogplanet.net.volley.toolbox.ImageLoader;
 import cn.dogplanet.net.volley.toolbox.Volley;
+import cn.sharesdk.framework.ShareSDK;
 
 
 public class GlobalContext extends Application {
@@ -38,6 +40,7 @@ public class GlobalContext extends Application {
         super.onCreate();
         globalContext = this;
         Small.preSetUp(this);
+        ShareSDK.initSDK(this);
         mConfig = new Config(this);
         UMConfigure.init(globalContext, UMConfigure.DEVICE_TYPE_PHONE, "181525f12a7a9b020bc8355d0742ce26");
         mPushAgent = PushAgent.getInstance(this);
@@ -59,9 +62,7 @@ public class GlobalContext extends Application {
         mConfig = new Config(globalContext);
         CrashHandler crashHandler = CrashHandler.getInstance();
         crashHandler.init(getApplicationContext(), mConfig.getCrashLogDir());
-
     }
-
 
     @Override
     protected void attachBaseContext(Context base) {

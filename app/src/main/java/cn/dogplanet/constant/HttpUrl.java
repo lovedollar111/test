@@ -18,6 +18,9 @@ public class HttpUrl {
     public static final String GET_AREA_LIST = HTTP_URL + "v1/b/expert/get-area-list";
     // 注册
     public static final String EXPERT_REG = HTTP_URL + "v1/b/expert/reg";
+    //判断open_id是否存在
+    public static final String CHECK_OPEN_ID = HTTP_URL + "v1/b/expert/check-open-id";
+
     // 忘记密码
     public static final String EXPERT_FORGOT_PWD = HTTP_URL
             + "v1/b/expert/forgot-pwd";

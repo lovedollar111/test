@@ -121,6 +121,7 @@
 
 
             <LinearLayout
+                android:id="@+id/lay_hint"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
@@ -162,6 +163,196 @@
                 </RelativeLayout>
 
             </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/lay_img_id_card"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_below="@+id/lay_hint">
+
+                <cn.dogplanet.app.widget.RoundCornerImageView
+                    android:id="@+id/img_left_card"
+                    android:layout_width="0dp"
+                    android:layout_height="140dp"
+                    android:layout_weight="1"
+                    android:scaleType="centerCrop"
+                    android:visibility="visible"
+                    android:layout_marginStart="@dimen/dis_30"/>
+
+                <cn.dogplanet.app.widget.RoundCornerImageView
+                    android:id="@+id/img_right_card"
+                    android:layout_width="0dp"
+                    android:layout_height="140dp"
+                    android:layout_weight="1"
+                    android:scaleType="centerCrop"
+                    android:visibility="visible"
+                    android:layout_marginEnd="@dimen/dis_30"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/lay_tv_id_card"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:layout_below="@+id/lay_img_id_card"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/dis_20"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="@string/str_id_card_left"
+                    android:textColor="@color/color_8e"
+                    android:textSize="@dimen/font_size_12" />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/dis_20"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="@string/str_id_card_right"
+                    android:textColor="@color/color_8e"
+                    android:textSize="@dimen/font_size_12" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/lay_img_driver"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_below="@+id/lay_tv_id_card">
+
+                <cn.dogplanet.app.widget.RoundCornerImageView
+                    android:id="@+id/img_driver"
+                    android:layout_width="0dp"
+                    android:layout_height="140dp"
+                    android:layout_weight="1"
+                    android:scaleType="centerCrop"
+                    android:visibility="visible"
+                    android:layout_marginStart="@dimen/dis_30"/>
+
+                <cn.dogplanet.app.widget.RoundCornerImageView
+                    android:id="@+id/img_vehicle"
+                    android:layout_width="0dp"
+                    android:layout_height="140dp"
+                    android:layout_weight="1"
+                    android:scaleType="centerCrop"
+                    android:visibility="visible"
+                    android:layout_marginEnd="@dimen/dis_30"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/lay_tv_driver"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:layout_below="@+id/lay_img_driver"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/dis_20"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="@string/str_driver"
+                    android:textColor="@color/color_8e"
+                    android:textSize="@dimen/font_size_12" />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/dis_20"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="@string/str_vehicle"
+                    android:textColor="@color/color_8e"
+                    android:textSize="@dimen/font_size_12" />
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:id="@+id/lay_img_operational"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_below="@+id/lay_tv_driver">
+
+                <cn.dogplanet.app.widget.RoundCornerImageView
+                    android:id="@+id/img_operational"
+                    android:layout_width="0dp"
+                    android:layout_height="140dp"
+                    android:layout_weight="1"
+                    android:scaleType="centerCrop"
+                    android:visibility="visible"
+                    android:layout_marginStart="@dimen/dis_30"/>
+
+                <cn.dogplanet.app.widget.RoundCornerImageView
+                    android:layout_width="0dp"
+                    android:layout_height="140dp"
+                    android:layout_weight="1"
+                    android:scaleType="centerCrop"
+                    android:visibility="invisible"
+                    android:layout_marginEnd="@dimen/dis_30"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/lay_tv_operational"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:layout_below="@+id/lay_img_operational"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/dis_20"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="@string/str_operational"
+                    android:textColor="@color/color_8e"
+                    android:textSize="@dimen/font_size_12" />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/dis_20"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="@string/str_id_card_right"
+                    android:textColor="@color/color_8e"
+                    android:textSize="@dimen/font_size_12"
+                    android:visibility="invisible"/>
+
+            </LinearLayout>
+
+
+            <Button
+                android:id="@+id/btn_reg"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dis_80"
+                android:layout_marginStart="@dimen/dis_60"
+                android:layout_marginEnd="@dimen/dis_60"
+                android:layout_below="@id/lay_tv_operational"
+                android:layout_marginTop="@dimen/dis_60"
+                android:background="@drawable/gradient_c7_ab"
+                android:text="@string/next"
+                android:textColor="@color/white"
+                />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dis_30"/>
 
         </RelativeLayout>
 

@@ -494,6 +494,31 @@ public class Expert {
         public void setDate(String date) {
             this.date = date;
         }
+
+        @Override
+        public String toString() {
+            return "CardPhoto{" +
+                    "id='" + id + '\'' +
+                    ", url='" + url + '\'' +
+                    ", date='" + date + '\'' +
+                    '}';
+        }
+    }
+
+    @Override
+    public String toString() {
+        return "Expert{" +
+                ", access_token='" + access_token + '\'' +
+                ", expert_name='" + expert_name + '\'' +
+                ", id_card_photo=" + id_card_photo +
+                ", expert_id_card='" + expert_id_card + '\'' +
+                ", expert_introduce='" + expert_introduce + '\'' +
+                ", travel_agency_id='" + travel_agency_id + '\'' +
+                ", travel_agency_name='" + travel_agency_name + '\'' +
+                ", driver_license=" + driver_license +
+                ", vehicle_license=" + vehicle_license +
+                ", operational_qualification=" + operational_qualification +
+                '}';
     }
 
     // // 擅长
