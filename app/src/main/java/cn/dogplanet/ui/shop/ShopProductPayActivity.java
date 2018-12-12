@@ -19,8 +19,6 @@ import com.tencent.mm.sdk.modelpay.PayReq;
 import com.tencent.mm.sdk.openapi.IWXAPI;
 import com.tencent.mm.sdk.openapi.WXAPIFactory;
 
-import org.greenrobot.eventbus.EventBus;
-
 import java.util.HashMap;
 import java.util.Map;
 
@@ -37,7 +35,6 @@ import cn.dogplanet.app.widget.niftymodaldialogeffects.NiftyDialogBuilder;
 import cn.dogplanet.base.BaseActivity;
 import cn.dogplanet.constant.HttpUrl;
 import cn.dogplanet.constant.WCache;
-import cn.dogplanet.constant.WConstant;
 import cn.dogplanet.entity.Expert;
 import cn.dogplanet.entity.OrderDetailResp;
 import cn.dogplanet.entity.OrderMainEnum;
@@ -46,7 +43,6 @@ import cn.dogplanet.entity.PayResult;
 import cn.dogplanet.entity.WXPayEntity;
 import cn.dogplanet.entity.ZFBPayEntity;
 import cn.dogplanet.net.PublicReq;
-import cn.dogplanet.ui.order.OrderDetailActivity;
 import cn.dogplanet.wxapi.Constants;
 
 
@@ -297,10 +293,10 @@ public class ShopProductPayActivity extends BaseActivity {
                                     respData.getOrder().getStatus())) {
                                 Toast.makeText(ShopProductPayActivity.this,
                                         "支付成功", Toast.LENGTH_SHORT).show();
-                                startActivity(OrderDetailActivity
-                                        .newIntent(orderId));
-                                String type=WConstant.TYPE_BACK_MAIN;
-                                EventBus.getDefault().postSticky(type);
+//                                startActivity(OrderDetailActivity
+//                                        .newIntent(orderId));
+//                                String type=WConstant.TYPE_BACK_MAIN;
+//                                EventBus.getDefault().postSticky(type);
                                 finish();
                             } else {
                                 builder.show();

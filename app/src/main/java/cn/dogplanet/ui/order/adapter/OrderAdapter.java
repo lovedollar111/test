@@ -1,29 +1,27 @@
 package cn.dogplanet.ui.order.adapter;
 
 import android.content.Context;
-import android.graphics.Color;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.view.View.OnClickListener;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.BaseAdapter;
 import android.widget.Button;
-import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
+import butterknife.BindView;
+import butterknife.ButterKnife;
 import cn.dogplanet.R;
 import cn.dogplanet.app.util.StringUtils;
+import cn.dogplanet.app.widget.NoScrollListView;
 import cn.dogplanet.entity.Order;
-import cn.dogplanet.entity.OrderMainEnum;
+import cn.dogplanet.entity.OrderDetail;
 import cn.dogplanet.ui.order.OrderDetailActivity;
-import cn.dogplanet.ui.shop.ShopProductPayActivity;
 
 /**
  * 我的订单Adapter
@@ -34,201 +32,153 @@ import cn.dogplanet.ui.shop.ShopProductPayActivity;
  */
 public class OrderAdapter extends BaseAdapter {
 
-	private Context mContext;
-	private List<Order> mOrders=new ArrayList<>();
-	private SimpleDateFormat formatter_num = new SimpleDateFormat("yyyy-MM-dd");
-	private int type;
+    public static final String TYPE_LIST = "list";
+    public static final String TYPE_FIND = "find";
 
-	public OrderAdapter(Context context, List<Order> orders, int type) {
-		super();
-		this.mContext = context;
-		this.mOrders.addAll(orders);
-		this.type = type;
-	}
 
-	public List<Order> getOrders() {
-		return mOrders;
-	}
-	
-	public void clear(){
-		mOrders.clear();
-		notifyDataSetChanged();
-	}
+    private Context mContext;
+    private List<Order> mOrders = new ArrayList<>();
+    private OnPayListener onPayListener;
+    private String type;
 
-	public void setOrders(List<Order> orders) {
-		this.mOrders = orders;
-	}
+    public OrderAdapter(Context context, List<Order> orders, String type, OnPayListener onPayListener) {
+        super();
+        this.mContext = context;
+        this.mOrders.addAll(orders);
+        this.onPayListener = onPayListener;
+        this.type = type;
+    }
 
-	public void addAll(List<Order> orders) {
-		this.mOrders.addAll(orders);
-		notifyDataSetChanged();
-	}
+    public List<Order> getOrders() {
+        return mOrders;
+    }
 
-	@Override
-	public int getCount() {
-		return mOrders.size();
-	}
+    public void clear() {
+        mOrders.clear();
+        notifyDataSetChanged();
+    }
 
-	@Override
-	public Object getItem(int position) {
-		return mOrders.get(position);
-	}
+    public void setOrders(List<Order> orders) {
+        this.mOrders = orders;
+    }
 
-	@Override
-	public long getItemId(int position) {
-		return position;
-	}
-	
-	public void setType(int type){
-		this.type=type;
-	}
+    public void addAll(List<Order> orders) {
+        this.mOrders.addAll(orders);
+        notifyDataSetChanged();
+    }
 
-	public void setIsRead(int pos){
-		if(pos<=mOrders.size()){
-			mOrders.get(pos).setIs_read("1");
-		}
-		notifyDataSetChanged();
-	}
-	
-	@Override
-	public View getView(int position, View convertView, ViewGroup parent) {
-		final ViewHolder holder;
-		if (null == convertView) {
-			holder = new ViewHolder();
-			convertView = LayoutInflater.from(mContext).inflate(
-					R.layout.order_adapter_item, parent, false);
-			holder.tv_status = convertView
-					.findViewById(R.id.tv_status);
-			holder.btn_pay = convertView.findViewById(R.id.btn_pay);
-			holder.line = convertView.findViewById(R.id.view_line);
-			holder.order_num = convertView
-					.findViewById(R.id.order_num);
-			holder.tv_price = convertView
-					.findViewById(R.id.tv_price);
-			holder.tv_peo = convertView.findViewById(R.id.tv_peo);
-			holder.isRead = convertView.findViewById(R.id.isRead);
-			holder.tv_time = convertView.findViewById(R.id.tv_time);
-			holder.layout_main= convertView.findViewById(R.id.layout_main);
-			convertView.setTag(holder);
-		} else {
-			holder = (ViewHolder) convertView.getTag();
-		}
-		Order o = mOrders.get(position);
-		if (StringUtils.isNotBlank(o.getOrder_num())) {
-			holder.order_num.setText(String.format("订单编号：%s", o.getOrder_num()));
-		}
+    @Override
+    public int getCount() {
+        return mOrders.size();
+    }
 
-		if (StringUtils.isNotBlank(o.getCreate_time())) {
-			holder.tv_time.setText(o.getCreate_time());
-		}
+    @Override
+    public Object getItem(int position) {
+        return mOrders.get(position);
+    }
 
-		if (StringUtils.isNotBlank(o.getContact_name())&&StringUtils.isNotBlank(o.getContact_tel())) {
-			holder.tv_peo.setText(String.format("%s——%s", o.getContact_name(), o.getContact_tel()));
-		}
+    @Override
+    public long getItemId(int position) {
+        return position;
+    }
 
-		if (StringUtils.isNotBlank(o.getUser_id()) &&o.getPay()!=null&& o.getPay()
-				&& o.getStatus().equals(OrderMainEnum.OS_1.getStaus())) {
-			holder.btn_pay.setVisibility(View.VISIBLE);
-			holder.line.setVisibility(View.VISIBLE);
-			holder.btn_pay.setTag(o.getId());
-			holder.btn_pay.setOnClickListener(new OnClickListener() {
 
-				@Override
-				public void onClick(View v) {
-					String oid = v.getTag().toString();
-					mContext.startActivity(ShopProductPayActivity
-							.newIntent(oid));
-				}
-			});
-		} else {
-			holder.btn_pay.setVisibility(View.GONE);
-			holder.line.setVisibility(View.GONE);
-			holder.btn_pay.setOnClickListener(null);
-		}
+    public void setIsRead(int pos) {
+        if (pos <= mOrders.size()) {
+            mOrders.get(pos).setIs_read("1");
+        }
+        notifyDataSetChanged();
+    }
 
-		holder.tv_price.setText(String.format("¥%s", o.getPrice()));
-		if (o.getIs_read().equals("1")) {
-			holder.isRead.setVisibility(View.GONE);
-		} else {
-			holder.isRead.setVisibility(View.VISIBLE);
-		}
+    @Override
+    public View getView(int position, View convertView, ViewGroup parent) {
+        ViewHolder holder;
+        if (null == convertView) {
+            convertView = LayoutInflater.from(mContext).inflate(
+                    R.layout.order_adapter_item, parent, false);
+            holder = new ViewHolder(convertView);
+            convertView.setTag(holder);
+        } else {
+            holder = (ViewHolder) convertView.getTag();
+        }
+        Order order = mOrders.get(position);
+        holder.tvName.setText(String.format("%s————%s", order.getContact_name(), order.getContact_tel()));
+        String status = order.getStatus();
+        switch (status) {
+            case OrderDetail.ORDER_TYPE_WAIT:
+                holder.tvStatus.setText("未支付");
+                break;
+            case OrderDetail.ORDER_TYPE_SUCCESS:
+                holder.tvStatus.setText("已支付");
+                break;
+            case OrderDetail.ORDER_TYPE_CLOSE:
+                holder.tvStatus.setText("交易关闭");
+                break;
+            case OrderDetail.ORDER_TYPE_BACK_MONEY:
+                holder.tvStatus.setText("退款中");
+            case OrderDetail.ORDER_TYPE_BACK_ALL_MONEY:
+                holder.tvStatus.setText("已退款");
+                break;
+        }
+        if (type.equals(TYPE_FIND)) {
+            holder.btnPay.setVisibility(View.GONE);
+            holder.viewLine.setVisibility(View.GONE);
+        } else {
 
-		holder.layout_main.setOnClickListener(new OnClickListener() {
-			
-			@Override
-			public void onClick(View v) {
-				// TODO Auto-generated method stub
-				holder.isRead.setVisibility(View.GONE);
-				mContext.startActivity(OrderDetailActivity.newIntent());
-			}
-		});
-		
-		OrderMainEnum oe = OrderMainEnum.getOrderStausBySCode(o.getStatus());
-		if (50 != type && OrderMainEnum.OS_6.getStaus().equals(o.getStatus())
-				&& !StringUtils.isBlank(o.getFinishDate())) {
-			Date date;
-			try {
-				date = formatter_num.parse(o.getFinishDate());
-				
-				boolean isCanSucs = formatter_num.parse(
-						formatter_num.format(new Date())).after(date);
-				if (!isCanSucs) {
-					// 未过游玩时间 显示已付款
-					holder.tv_status.setText(OrderMainEnum.OS_2.getText());
-					holder.tv_status.setBackgroundColor(Color
-							.parseColor(OrderMainEnum.OS_2.getColor()));
-				} else {
-					// 过了游玩时间 显示已成功
-					holder.tv_status.setText(OrderMainEnum.OS_6.getText());
-					holder.tv_status.setBackgroundColor(Color
-							.parseColor(OrderMainEnum.OS_6.getColor()));
-				}
-			} catch (ParseException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-		} else if (60 == type){
-			if(OrderMainEnum.OS_6.getStaus().equals(o.getStatus())
-					&& !StringUtils.isBlank(o.getFinishDate())){
-				holder.tv_status.setText("部分退款");
-				holder.tv_status.setBackgroundColor(Color.rgb(179, 222, 126));
-			}else{
-				holder.tv_status.setText("全部退款");
-				holder.tv_status.setBackgroundColor(Color.rgb(255, 184, 184));
-			}
+            switch (status) {
+                case OrderDetail.ORDER_TYPE_WAIT:
+                    holder.btnPay.setVisibility(View.GONE);
+                    holder.viewLine.setVisibility(View.GONE);
+                    break;
+                case OrderDetail.ORDER_TYPE_SUCCESS:
+                    holder.btnPay.setVisibility(View.GONE);
+                    holder.viewLine.setVisibility(View.GONE);
+                    break;
+                case OrderDetail.ORDER_TYPE_CLOSE:
+                    holder.btnPay.setVisibility(View.GONE);
+                    holder.viewLine.setVisibility(View.GONE);
+                    break;
+                case OrderDetail.ORDER_TYPE_BACK_MONEY:
+                    holder.btnPay.setVisibility(View.GONE);
+                    holder.viewLine.setVisibility(View.GONE);
+                case OrderDetail.ORDER_TYPE_BACK_ALL_MONEY:
+                    holder.btnPay.setVisibility(View.GONE);
+                    holder.viewLine.setVisibility(View.GONE);
+                    break;
+            }
+        }
+        OrderListAdapter adapter;
+        adapter = new OrderListAdapter(order.getOrderProducts(), mContext);
+        holder.scrollList.setAdapter(adapter);
+        adapter.notifyDataSetChanged();
+        holder.btnPay.setOnClickListener(v -> onPayListener.OnPay(order.getId()));
+        holder.layMain.setOnClickListener(v ->
+                mContext.startActivity(OrderDetailActivity.newIntent(order.getId())));
+        holder.scrollList.setOnItemClickListener((parent1, view, position1, id) -> mContext.startActivity(OrderDetailActivity.newIntent(order.getId())));
+        return convertView;
+    }
 
-		} else {
-			if (null == oe) {
-				holder.tv_status.setVisibility(View.INVISIBLE);
-			} else {
-				holder.tv_status.setText(oe.getText());
-				holder.tv_status.setBackgroundColor(Color.parseColor(oe
-						.getColor()));
-			}
-		}
-		if(type==20){
-			holder.tv_status.setText(OrderMainEnum.OS_2.getText());
-			holder.tv_status.setBackgroundColor(Color
-					.parseColor(OrderMainEnum.OS_2.getColor()));
-		}else if(type==40){
-			holder.tv_status.setText(OrderMainEnum.OS_6.getText());
-			holder.tv_status.setBackgroundColor(Color
-					.parseColor(OrderMainEnum.OS_6.getColor()));
-		}
-		return convertView;
-	}
 
-	private class ViewHolder {
-		private Button btn_pay;
-		private View line;
+    static class ViewHolder {
+        @BindView(R.id.tv_name)
+        TextView tvName;
+        @BindView(R.id.tv_status)
+        TextView tvStatus;
+        @BindView(R.id.scroll_list)
+        NoScrollListView scrollList;
+        @BindView(R.id.btn_pay)
+        Button btnPay;
+        @BindView(R.id.view_line2)
+        View viewLine;
+        @BindView(R.id.lay_main)
+        RelativeLayout layMain;
 
-		private TextView order_num;
-		private TextView tv_status;
-		private TextView tv_peo;
-		private TextView tv_time;
-		private TextView tv_price;
-		private ImageView isRead;
-		
-		private RelativeLayout layout_main;
-	}
+        ViewHolder(View view) {
+            ButterKnife.bind(this, view);
+        }
+    }
+
+    public interface OnPayListener {
+        void OnPay(String id);
+    }
 }
