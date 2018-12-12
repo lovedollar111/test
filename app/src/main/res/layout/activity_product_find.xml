@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.shop.ProductFindActivity">
+
+
+    <RelativeLayout style="@style/top_title_style"
+        android:padding="@dimen/dis_0"
+        android:visibility="visible">
+
+        <TextView
+            android:id="@+id/btn_cancel"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/dis_72"
+            android:layout_alignParentEnd="true"
+            android:layout_marginEnd="@dimen/dis_24"
+            android:textSize="@dimen/font_size_12"
+            android:text="@string/str_cancel"
+            android:textColor="@color/color_8e"
+            android:layout_marginBottom="@dimen/dis_8"
+            android:gravity="center_vertical"/>
+
+
+        <RelativeLayout
+            android:id="@+id/lay_search"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dis_72"
+            android:layout_toStartOf="@+id/btn_cancel"
+            android:background="@drawable/back_round_gray"
+            android:layout_marginStart="@dimen/dis_24"
+            android:layout_marginBottom="@dimen/dis_8"
+            android:layout_marginEnd="@dimen/dis_30"
+            android:orientation="horizontal"
+            android:visibility="visible">
+
+            <ImageView
+                android:layout_width="@dimen/dis_28"
+                android:layout_height="@dimen/dis_28"
+                android:scaleType="centerCrop"
+                android:src="@mipmap/ic_launcher"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="@dimen/dis_24"
+                />
+
+            <cn.dogplanet.app.widget.EditTextWithDel
+                android:id="@+id/et_search"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@null"
+                android:cursorVisible="true"
+                android:focusableInTouchMode="true"
+                android:hint="@string/search_product"
+                android:imeOptions="actionSearch|flagNoExtractUi|flagNoFullscreen"
+                android:textColor="@color/color_c7"
+                android:textColorHint="#afff"
+                android:textCursorDrawable="@drawable/color_cursor"
+                android:textSize="@dimen/font_size_12"
+                android:layout_marginEnd="@dimen/dis_20"
+                android:layout_marginStart="@dimen/dis_72"
+                android:singleLine="true"
+                android:layout_centerVertical="true"
+                android:layout_toStartOf="@+id/img_input"
+                />
+
+            <ImageView
+                android:id="@+id/img_input"
+                android:layout_width="@dimen/dis_28"
+                android:layout_height="@dimen/dis_28"
+                android:scaleType="centerCrop"
+                android:src="@mipmap/ic_launcher"
+                android:layout_centerVertical="true"
+                android:layout_alignParentEnd="true"
+                android:layout_marginStart="@dimen/dis_24"
+                android:layout_marginEnd="@dimen/dis_30"
+                />
+
+        </RelativeLayout>
+    </RelativeLayout>
+
+</RelativeLayout>

@@ -165,6 +165,7 @@
         <item name="android:paddingLeft">@dimen/dis_20</item>
         <item name="android:paddingTop">@dimen/dis_40</item>
         <item name="android:paddingRight">@dimen/dis_20</item>
+        <item name="android:paddingBottom">@dimen/dis_20</item>
         <item name="android:layout_height">65dp</item>
         <item name="android:background">@color/white</item>
         <item name="android:gravity">bottom</item>

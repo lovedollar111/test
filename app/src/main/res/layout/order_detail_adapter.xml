@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/back_gary">
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/dis_36"
+        android:background="@drawable/back_round_white_30"
+        android:visibility="visible">
+
+        <cn.dogplanet.app.widget.RoundCornerImageView
+            android:id="@+id/img_product"
+            android:layout_width="@dimen/dis_180"
+            android:layout_height="@dimen/dis_80"
+            android:layout_marginStart="@dimen/dis_36"
+            android:layout_marginTop="@dimen/dis_50" />
+
+        <Button
+            android:id="@+id/btn_return"
+            android:layout_width="@dimen/dis_150"
+            android:layout_height="@dimen/dis_60"
+            android:layout_alignParentEnd="true"
+            android:layout_marginEnd="@dimen/dis_36"
+            android:layout_marginTop="@dimen/dis_50"
+            android:background="@drawable/gradient_f1_e0"
+            android:text="@string/string_return"
+            android:textColor="@color/white"
+            android:textSize="@dimen/font_size_14" />
+
+        <TextView
+            android:id="@+id/tv_product_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@+id/img_product"
+            android:layout_marginEnd="@dimen/dis_40"
+            android:layout_marginStart="@dimen/dis_20"
+            android:layout_toEndOf="@+id/img_product"
+            android:layout_toStartOf="@+id/btn_return" />
+
+        <TextView
+            android:id="@+id/tv_product_num"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/img_product"
+            android:layout_marginStart="@dimen/dis_20"
+            android:layout_toEndOf="@+id/img_product" />
+
+        <TextView
+            android:id="@+id/tv_product_date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/img_product"
+            android:layout_marginStart="@dimen/dis_20"
+            android:layout_toEndOf="@+id/tv_product_num" />
+
+        <TextView
+            android:id="@+id/tv_product_price"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/img_product"
+            android:layout_marginStart="@dimen/dis_20"
+            android:layout_toEndOf="@+id/tv_product_date" />
+
+        <View
+            android:id="@+id/view_line"
+            android:layerType="software"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dis_40"
+            android:layout_below="@+id/tv_product_num"
+            android:layout_marginTop="@dimen/dis_20"
+            android:background="@drawable/shape_line_dash" />
+
+        <View
+            android:layout_width="@dimen/dis_40"
+            android:layout_height="@dimen/dis_40"
+            android:layout_alignTop="@+id/view_line"
+            android:background="@drawable/back_circle"
+            android:layout_marginStart="-10dp"/>
+
+
+        <View
+            android:layout_width="@dimen/dis_40"
+            android:layout_height="@dimen/dis_40"
+            android:layout_alignParentEnd="true"
+            android:layout_alignTop="@+id/view_line"
+            android:background="@drawable/back_circle"
+            android:layout_marginEnd="-10dp"/>
+
+        <TextView
+            android:id="@+id/tv_code"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/view_line"
+            android:layout_marginStart="@dimen/dis_30" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dis_20"
+            android:layout_below="@+id/tv_code" />
+
+    </RelativeLayout>
+
+
+</RelativeLayout>

@@ -32,7 +32,7 @@
 
     <!--  -->
     <string name="hint_password">请输入您的密码</string>
-    <string name="hint_input_password">设置6-20位数字字母组合新密码</string>
+    <string name="hint_input_password">设置6–20位数字字母组合新密码</string>
     <string name="hint_again_password">再次输入密码</string>
     <string name="tip_phone">请输入正确的手机号</string>
     <string name="tip_verify_code">验证码为4位数字
@@ -184,10 +184,50 @@
     <string name="str_call">拨打电话</string>
     <string name="str_cancel">取消</string>
     <string name="search_company">搜索达人公司名称</string>
+    <string name="search_order">请输入订单号或姓名或手机号</string>
+    <string name="search_product">搜索产品名称</string>
     <string name="str_id_card_left">手持身份证正面照</string>
     <string name="str_id_card_right">手持身份证反面照</string>
     <string name="str_driver">手持驾驶证照</string>
     <string name="str_vehicle">手持行驶证照</string>
     <string name="str_operational">手持运营资质照</string>
     <string name="str_search_company">搜索旅行社</string>
+    <string name="string_rem">主推</string>
+
+    <string name="string_product_buy">购票信息</string>
+    <string name="string_product_detail">产品详情</string>
+    <string name="string_date">游玩日期</string>
+    <string name="string_num">购买人数</string>
+    <string name="string_other">其他</string>
+    <string name="string_service_desc">产品简介</string>
+    <string name="string_money_explain">费用说明</string>
+    <string name="string_instructions">产品说明</string>
+    <string name="string_directions">使用方法</string>
+    <string name="string_returns">退改规则</string>
+    <string name="string_total_money">总计金额(元)</string>
+    <string name="string_money">总计金额</string>
+    <string name="string_pay">确认下单</string>
+    <string name="string_choose_pay">选择支付方式</string>
+    <string name="string_total_pay_money">共计支付(元)</string>
+    <string name="string_pay_wx">微信支付</string>
+    <string name="string_pay_zfb">支付宝支付</string>
+    <string name="string_pay_ok">确认支付</string>
+    <string name="string_create_order">提交订单</string>
+    <string name="string_order_cancel">取消订单</string>
+    <string name="string_name">姓名</string>
+    <string name="string_phone">电话</string>
+    <string name="string_order_detail">订单详情</string>
+    <string name="string_id_card_num">身份证号</string>
+    <string name="string_order_num">订单编号</string>
+    <string name="string_time">下单时间</string>
+    <string name="string_return">申请退款</string>
+    <string name="string_hint">7–15个工作日内办理退款，请耐心等待</string>
+    <string name="string_ok">确认</string>
+    <string name="string_order_pay">立即支付</string>
+    <string name="string_user_center">个人中心</string>
+    <string name="string_authentication">认证信息</string>
+    <string name="string_safe">安全设置</string>
+    <string name="string_invite">邀请好友</string>
+    <string name="string_about">关于汪汪</string>
+    <string name="string_quit">退出登录</string>
 </resources>

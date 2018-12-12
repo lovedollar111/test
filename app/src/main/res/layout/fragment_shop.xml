@@ -1,6 +1,407 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:idv="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white">
 
+
+    <cn.dogplanet.app.widget.library.PullToRefreshScrollView
+        android:id="@+id/scr_main"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/back_gary"
+        android:scrollbars="none">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/back_gary"
+            android:orientation="vertical">
+
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="180dp"
+                android:background="@color/white">
+
+                <android.support.v4.view.ViewPager
+                    android:id="@+id/vp_banner"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" />
+
+
+                <cn.dogplanet.app.widget.bannerViewPager.IndicatorView
+                    android:id="@+id/idv_banner"
+                    android:layout_width="match_parent"
+                    android:layout_height="10dp"
+                    android:layout_alignBottom="@+id/vp_banner"
+                    android:layout_marginBottom="@dimen/dis_20"
+                    android:layout_marginTop="20dp"
+                    android:gravity="center_horizontal"
+                    idv:indicatorInterval="10dp"
+                    idv:isCirculate="true"
+                    idv:normalDrawable="@mipmap/dot_normal"
+                    idv:selectDrawable="@mipmap/dot_focused" />
+
+            </RelativeLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dis_136"
+                android:background="@color/white"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:id="@+id/lay_ticket"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:layout_width="@dimen/dis_60"
+                        android:layout_height="@dimen/dis_60"
+                        android:layout_marginBottom="@dimen/dis_10"
+                        android:scaleType="center"
+                        android:src="@mipmap/ic_launcher" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="门船票"
+                        android:textSize="@dimen/font_size_12" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/lay_diving"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:layout_width="@dimen/dis_60"
+                        android:layout_height="@dimen/dis_60"
+                        android:layout_marginBottom="@dimen/dis_10"
+                        android:scaleType="center"
+                        android:src="@mipmap/ic_launcher" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="潜水类"
+                        android:textSize="@dimen/font_size_12" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/lay_sea"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:layout_width="@dimen/dis_60"
+                        android:layout_height="@dimen/dis_60"
+                        android:layout_marginBottom="@dimen/dis_10"
+                        android:scaleType="center"
+                        android:src="@mipmap/ic_launcher" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="海上娱乐"
+                        android:textSize="@dimen/font_size_12" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/lay_land"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:layout_width="@dimen/dis_60"
+                        android:layout_height="@dimen/dis_60"
+                        android:layout_marginBottom="@dimen/dis_10"
+                        android:scaleType="center"
+                        android:src="@mipmap/ic_launcher" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="陆地玩乐"
+                        android:textSize="@dimen/font_size_12" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/lay_other"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:layout_width="@dimen/dis_60"
+                        android:layout_height="@dimen/dis_60"
+                        android:layout_marginBottom="@dimen/dis_10"
+                        android:scaleType="center"
+                        android:src="@mipmap/ic_launcher" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="其他套票"
+                        android:textSize="@dimen/font_size_12" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/dis_24"
+                android:background="@drawable/back_round_white_30"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dis_80"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:layout_width="@dimen/dis_40"
+                        android:layout_height="@dimen/dis_40"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginEnd="@dimen/dis_10"
+                        android:layout_marginStart="@dimen/dis_24"
+                        android:src="@mipmap/ic_launcher" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:text="主推产品"
+                        android:textColor="@color/color_33"
+                        android:textSize="@dimen/font_size_18" />
+
+                </LinearLayout>
+
+                <cn.dogplanet.app.widget.NoScrollGridView
+                    android:id="@+id/list_rem_product"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/back_round_white_30"
+                    android:divider="#0000"
+                    android:dividerHeight="0dp"
+                    android:listSelector="#00000000"
+                    android:numColumns="2"
+                    android:scrollbars="none" />
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:id="@+id/lay_new_product"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/dis_24"
+                android:background="@drawable/back_round_white_30"
+                android:gravity="center_horizontal"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dis_80"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:layout_width="@dimen/dis_40"
+                        android:layout_height="@dimen/dis_40"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginEnd="@dimen/dis_10"
+                        android:layout_marginStart="@dimen/dis_24"
+                        android:src="@mipmap/ic_launcher" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:text="最新套餐"
+                        android:textColor="@color/color_33"
+                        android:textSize="@dimen/font_size_18" />
+
+                </LinearLayout>
+
+                <cn.dogplanet.app.widget.RoundCornerImageView
+                    android:id="@+id/img_new_product"
+                    android:layout_width="match_parent"
+                    android:layout_height="105dp"
+                    android:layout_marginEnd="@dimen/dis_24"
+                    android:layout_marginStart="@dimen/dis_24" />
+
+                <TextView
+                    android:id="@+id/tv_new_product_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_horizontal">
+
+                    <ImageView
+                        android:layout_width="@dimen/dis_10"
+                        android:layout_height="@dimen/dis_10" />
+
+                    <TextView
+                        android:id="@+id/tv_new_product_price"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/tv_new_product_introduce"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/dis_24"
+                android:background="@drawable/back_round_white_30"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dis_80"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:layout_width="@dimen/dis_40"
+                        android:layout_height="@dimen/dis_40"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginEnd="@dimen/dis_10"
+                        android:layout_marginStart="@dimen/dis_24"
+                        android:src="@mipmap/ic_launcher" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:text="本周热销"
+                        android:textColor="@color/color_33"
+                        android:textSize="@dimen/font_size_18" />
+
+                </LinearLayout>
+
+                <cn.dogplanet.app.widget.NoScrollGridView
+                    android:id="@+id/list_hot_product"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/back_round_white_30"
+                    android:divider="#0000"
+                    android:dividerHeight="0dp"
+                    android:listSelector="#00000000"
+                    android:numColumns="2"
+                    android:scrollbars="none" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+
+    </cn.dogplanet.app.widget.library.PullToRefreshScrollView>
+
+    <ImageView
+        android:id="@+id/img_2vm"
+        android:layout_width="@dimen/dis_28"
+        android:layout_height="@dimen/dis_72"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginEnd="@dimen/dis_24"
+        android:layout_marginTop="@dimen/dis_60"
+        android:scaleType="center"
+        android:src="@mipmap/ic_launcher" />
+
+    <RelativeLayout
+        android:id="@+id/lay_search"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dis_72"
+        android:layout_marginBottom="@dimen/dis_8"
+        android:layout_marginEnd="@dimen/dis_24"
+        android:layout_marginStart="@dimen/dis_24"
+        android:layout_marginTop="@dimen/dis_60"
+        android:layout_toStartOf="@+id/img_2vm"
+        android:background="@drawable/back_round_gray"
+        android:orientation="horizontal"
+        android:visibility="visible">
+
+        <ImageView
+            android:layout_width="@dimen/dis_28"
+            android:layout_height="@dimen/dis_28"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="@dimen/dis_24"
+            android:scaleType="centerCrop"
+            android:src="@mipmap/ic_launcher" />
+
+        <cn.dogplanet.app.widget.EditTextWithDel
+            android:id="@+id/et_search"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_centerVertical="true"
+            android:layout_marginEnd="@dimen/dis_20"
+            android:layout_marginStart="@dimen/dis_72"
+            android:layout_toStartOf="@+id/img_input"
+            android:background="@null"
+            android:cursorVisible="true"
+            android:focusableInTouchMode="true"
+            android:hint="@string/search_company"
+            android:imeOptions="actionSearch|flagNoExtractUi|flagNoFullscreen"
+            android:singleLine="true"
+            android:textColor="@color/color_c7"
+            android:textColorHint="#afff"
+            android:textCursorDrawable="@drawable/color_cursor"
+            android:textSize="@dimen/font_size_12" />
+
+        <ImageView
+            android:id="@+id/img_input"
+            android:layout_width="@dimen/dis_28"
+            android:layout_height="@dimen/dis_28"
+            android:layout_centerVertical="true"
+            android:layout_marginEnd="@dimen/dis_30"
+            android:layout_marginStart="@dimen/dis_24"
+            android:scaleType="centerCrop"
+            android:src="@mipmap/ic_launcher" />
+
+    </RelativeLayout>
+
+
+    <cn.dogplanet.app.widget.FloatingActionButton
+        android:id="@+id/btn_cart"
+        android:layout_width="@dimen/dis_100"
+        android:layout_height="@dimen/dis_100"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginBottom="@dimen/dis_50"
+        android:layout_marginEnd="@dimen/dis_30"
+        app:btn_color="#04ffffff"
+        app:drawable="@mipmap/ic_launcher"
+        />
 </RelativeLayout>

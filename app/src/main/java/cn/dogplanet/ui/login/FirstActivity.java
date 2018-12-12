@@ -6,6 +6,7 @@ import android.text.Editable;
 import android.text.TextWatcher;
 import android.text.method.HideReturnsTransformationMethod;
 import android.text.method.PasswordTransformationMethod;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -189,6 +190,7 @@ public class FirstActivity extends BaseActivity {
             params.put("invite_code", et_invite_code.getText().toString());
         }
         params.put("source", "20");
+        Log.i("info",params.toString());
         showProgress();
         PublicReq.request(HttpUrl.EXPERT_REG, response -> {
             hideProgress();

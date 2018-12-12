@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:background="@drawable/back_round_white_30"
+    android:orientation="vertical" >
+
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dis_40"/>
+
+    <TextView
+        android:id="@+id/title"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dis_50"
+        android:layout_marginBottom="@dimen/dis_30"
+        android:layout_marginTop="@dimen/dis_30"
+        android:gravity="center"
+        android:text="确认退款"
+        android:textColor="#282b36"
+        android:textSize="@dimen/font_size_18" />
+
+    <TextView
+        android:id="@+id/msg"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/dis_10"
+        android:gravity="center"
+        android:padding="@dimen/dis_20"
+        android:text="是否确认退款"
+        android:textColor="@color/color_48"
+        android:textSize="@dimen/font_size_14" />
+
+
+    <Button
+        android:id="@+id/btn_ok"
+        android:layout_width="@dimen/dis_480"
+        android:layout_height="@dimen/dis_70"
+        android:background="@drawable/gradient_f1_e0"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="@dimen/dis_50"
+        android:textColor="@color/white"
+        android:text="@string/string_ok"
+        android:textSize="@dimen/font_size_15"
+        android:layout_marginStart="@dimen/dis_50"
+        android:layout_marginEnd="@dimen/dis_50"
+        />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dis_80"/>
+</LinearLayout>

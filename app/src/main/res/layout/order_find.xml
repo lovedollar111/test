@@ -5,34 +5,78 @@
     android:background="@color/color_f5"
     android:orientation="vertical" >
 
+
     <RelativeLayout style="@style/top_title_style"
-        android:paddingRight="@dimen/dis_10">
+        android:padding="@dimen/dis_0"
+        android:visibility="visible">
 
-        <EditText
-            android:id="@+id/editText"
-            android:layout_width="fill_parent"
-            android:layout_height="match_parent"
-            android:background="@null"
-            android:cursorVisible="true"
-            android:focusableInTouchMode="true"
-            android:hint="请输入订单号或姓名或手机号"
-            android:imeOptions="actionSearch|flagNoExtractUi|flagNoFullscreen"
-            android:singleLine="true"
-            android:textColor="@color/white"
-            android:textColorHint="#afff"
-            android:textCursorDrawable="@drawable/color_cursor"
-            android:textSize="@dimen/font_size_12" />
-
-        <Button
-            android:id="@+id/btn_back"
+        <TextView
+            android:id="@+id/btn_cancel"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentRight="true"
-            android:background="@android:color/transparent"
-            android:layout_alignBaseline="@+id/editText"
+            android:layout_height="@dimen/dis_72"
+            android:layout_alignParentEnd="true"
+            android:layout_marginEnd="@dimen/dis_24"
             android:textSize="@dimen/font_size_12"
-            android:text="取消"
-            android:textColor="@color/white" />
+            android:text="@string/str_cancel"
+            android:textColor="@color/color_8e"
+            android:layout_marginBottom="@dimen/dis_8"
+            android:gravity="center_vertical"/>
+
+
+        <RelativeLayout
+            android:id="@+id/lay_search"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dis_72"
+            android:layout_toStartOf="@+id/btn_cancel"
+            android:background="@drawable/back_round_gray"
+            android:layout_marginStart="@dimen/dis_24"
+            android:layout_marginBottom="@dimen/dis_8"
+            android:layout_marginEnd="@dimen/dis_30"
+            android:orientation="horizontal"
+            android:visibility="visible">
+
+            <ImageView
+                android:layout_width="@dimen/dis_28"
+                android:layout_height="@dimen/dis_28"
+                android:scaleType="centerCrop"
+                android:src="@mipmap/ic_launcher"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="@dimen/dis_24"
+                />
+
+            <cn.dogplanet.app.widget.EditTextWithDel
+                android:id="@+id/et_search"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@null"
+                android:cursorVisible="true"
+                android:focusableInTouchMode="true"
+                android:hint="@string/search_order"
+                android:imeOptions="actionSearch|flagNoExtractUi|flagNoFullscreen"
+                android:textColor="@color/color_c7"
+                android:textColorHint="#afff"
+                android:textCursorDrawable="@drawable/color_cursor"
+                android:textSize="@dimen/font_size_12"
+                android:layout_marginEnd="@dimen/dis_20"
+                android:layout_marginStart="@dimen/dis_72"
+                android:singleLine="true"
+                android:layout_centerVertical="true"
+                android:layout_toStartOf="@+id/img_input"
+                />
+
+            <ImageView
+                android:id="@+id/img_input"
+                android:layout_width="@dimen/dis_28"
+                android:layout_height="@dimen/dis_28"
+                android:scaleType="centerCrop"
+                android:src="@mipmap/ic_launcher"
+                android:layout_centerVertical="true"
+                android:layout_alignParentEnd="true"
+                android:layout_marginStart="@dimen/dis_24"
+                android:layout_marginEnd="@dimen/dis_30"
+                />
+
+        </RelativeLayout>
     </RelativeLayout>
 
     <LinearLayout
@@ -42,7 +86,7 @@
         android:gravity="center"
         android:orientation="vertical" >
 
-        <cn.dogplanet.handmark.pulltorefresh.library.PullToRefreshListView
+        <cn.dogplanet.app.widget.library.PullToRefreshListView
             xmlns:ptr="http://schemas.android.com/apk/res-auto"
             android:id="@+id/list"
             android:layout_width="match_parent"

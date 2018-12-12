@@ -22,14 +22,14 @@ https://github.com/android/platform_frameworks_base/blob/master/core/res/res/lay
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="@drawable/back_round_white">
+    android:background="#0000">
 
     <LinearLayout
         android:id="@+id/parentPanel"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
-        android:background="@drawable/back_round_white"
+        android:background="#0000"
         android:clickable="false"
         android:orientation="vertical"
         android:visibility="visible">
@@ -101,10 +101,10 @@ https://github.com/android/platform_frameworks_base/blob/master/core/res/res/lay
 
         <ImageView
             android:id="@+id/img_close"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="right"
-            android:background="@mipmap/dialog_close"
+            android:layout_width="@dimen/dis_40"
+            android:layout_height="@dimen/dis_40"
+            android:layout_gravity="end"
+            android:background="@mipmap/ic_launcher"
             android:layout_marginBottom="@dimen/dis_20"
             />
 

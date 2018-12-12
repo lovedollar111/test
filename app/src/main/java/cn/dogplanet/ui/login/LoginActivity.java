@@ -43,6 +43,7 @@ import cn.dogplanet.constant.WConstant;
 import cn.dogplanet.entity.Expert;
 import cn.dogplanet.net.PublicReq;
 import cn.dogplanet.net.RespData;
+import cn.dogplanet.ui.user.CompanyListActivity;
 import cn.sharesdk.framework.Platform;
 import cn.sharesdk.framework.PlatformActionListener;
 import cn.sharesdk.framework.ShareSDK;
@@ -130,13 +131,14 @@ public class LoginActivity extends BaseActivity implements PlatformActionListene
     }
 
 
-    @OnClick({R.id.tv_disclaimer, R.id.btn_get_verification, R.id.btn_log, R.id.tv_log_with_password, R.id.tv_log_with_wx, R.id.img_log_with_password, R.id.img_log_with_wx, R.id.tv_forget_password})
+    @OnClick({R.id.tv_disclaimer, R.id.btn_get_verification, R.id.tv_time,R.id.btn_log, R.id.tv_log_with_password, R.id.tv_log_with_wx, R.id.img_log_with_password, R.id.img_log_with_wx, R.id.tv_forget_password})
     public void OnClick(View view) {
         switch (view.getId()) {
             case R.id.tv_disclaimer:
                 startActivity(ParagraphActivity.newIntent());
                 break;
             case R.id.btn_get_verification:
+            case R.id.tv_time:
                 KeyBoardUtils.closeKeybord(et_phone, this);
                 if (checkPhone()) {
                     graphicCodeDialog = new GraphicCodeDialog(this, et_phone.getText().toString(),
@@ -385,7 +387,7 @@ public class LoginActivity extends BaseActivity implements PlatformActionListene
                         } else if (respData.isSuccess()) {
                             startActivity(FirstActivity.newIntent());
                             Expert expert = new Expert();
-                            expert.setExpert_account(et_password.getText().toString());
+                            expert.setExpert_account(et_phone.getText().toString());
                             EventBus.getDefault().postSticky(expert);
                         } else {
                             ToastUtil.showError(respData.getMsg());

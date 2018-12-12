@@ -180,11 +180,11 @@ public class HttpUrl {
     public static final String GET_SCENIC_PRODUCT = HTTP_URL
             + "v1/b/expert-product/get-scenic-product";
 
-    // 获取推荐商品
+    // 修改推荐产品
     public static final String EDIT_RECOMMEND_PRODUCT = HTTP_URL
             + "v1/b/expert-product/edit-recommend-product";
 
-    // 修改推荐产品
+    // 获取推荐商品
     public static final String GET_RECOMM_PRODUCT = HTTP_URL
             + "v1/b/expert-product/get-recommend-product";
 
@@ -253,9 +253,9 @@ public class HttpUrl {
             + "v1/b/expert-product/check-buy-product";
 
     /** 达人首页 相关接口 **/
-    // 首页轮播图
-    public static final String GET_BANNER = HTTP_URL
-            + "v1/b/expert-product/get-banner";
+    // 首页
+    public static final String GET_FIRST_PAGE = HTTP_URL
+            + "v1/b/expert-product/first-page";
     // 热销商品
     public static final String GET_HOT_PRODUCT = HTTP_URL
             + "v1/b/expert-product/get-hot-product";
@@ -388,6 +388,9 @@ public class HttpUrl {
     public static final String SAVE_ORDER_REMIND = HTTP_URL
             + "v1/b/expert-order/save-order-remind";
 
+    //通过子产品ID获取主产品的退改规则
+    public static final String GET_PRODUCT_RETURNS = HTTP_URL
+            + "v1/b/expert-product/get-product-returns";
     /** 达人商品 **/
     // 获取商品分类
     public static final String GET_CATEGORY = HTTP_URL

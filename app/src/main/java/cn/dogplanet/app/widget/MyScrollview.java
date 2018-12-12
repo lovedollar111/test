@@ -11,6 +11,7 @@ public class MyScrollview extends ScrollView {
 	private int downY;
 	private int mTouchSlop;
 	private Boolean isCancel = true;
+	private OnScrollListener listener;
 
 	public MyScrollview(Context context) {
 		super(context);
@@ -67,6 +68,25 @@ public class MyScrollview extends ScrollView {
 			return super.onInterceptTouchEvent(e);
 		} else {
 			return false;
+		}
+	}
+
+	public interface OnScrollListener{
+		void onScroll(int scrollY);
+	}
+
+	public void setOnScrollListener(OnScrollListener listener) {
+		this.listener = listener;
+	}
+
+	//重写原生onScrollChanged方法，将参数传递给接口，由接口传递出去
+	@Override
+	protected void onScrollChanged(int l, int t, int oldl, int oldt) {
+		super.onScrollChanged(l, t, oldl, oldt);
+		if(listener != null){
+
+			//这里我只传了垂直滑动的距离
+			listener.onScroll(t);
 		}
 	}
 }

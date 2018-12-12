@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:background="@drawable/back_round_white"
+    android:orientation="vertical" >
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dis_50"
+        android:layout_marginBottom="@dimen/dis_60"
+        android:layout_marginTop="@dimen/dis_30"
+        android:gravity="center"
+        android:text="申请退款"
+        android:textColor="#282b36"
+        android:textSize="@dimen/font_size_18"
+        android:visibility="visible"/>
+
+    <EditText
+        android:id="@+id/et_num"
+        android:layout_width="@dimen/dis_480"
+        android:layout_height="@dimen/dis_70"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginStart="@dimen/dis_50"
+        android:layout_marginEnd="@dimen/dis_50"
+        android:background="@drawable/back_round_gray_5"
+        android:gravity="center"
+        android:layout_marginTop="@dimen/dis_20"
+        android:textColorHint="@color/color_e0"
+        android:inputType="number"
+        android:maxLength="5"
+        android:textSize="@dimen/font_size_18" />
+
+    <LinearLayout
+        android:id="@+id/lay_rule"
+        android:layout_width="@dimen/dis_480"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginStart="@dimen/dis_50"
+        android:gravity="end|center_vertical"
+        android:layout_marginTop="@dimen/dis_10"
+        android:layout_marginEnd="@dimen/dis_50">
+
+        <ImageView
+            android:layout_width="@dimen/dis_15"
+            android:layout_height="@dimen/dis_15"
+            android:src="@mipmap/ic_launcher"
+            android:layout_marginEnd="@dimen/dis_10"/>
+        
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/font_size_11"
+            android:text="@string/string_returns"
+            />
+
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/string_hint"
+        android:layout_gravity="center_horizontal"
+        android:textSize="@dimen/font_size_12"
+        android:layout_marginTop="@dimen/dis_50"
+        />
+
+
+    <Button
+        android:id="@+id/btn_ok"
+        android:layout_width="@dimen/dis_480"
+        android:layout_height="@dimen/dis_70"
+        android:background="@drawable/gradient_f1_e0"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="@dimen/dis_30"
+        android:layout_marginStart="@dimen/dis_50"
+        android:layout_marginEnd="@dimen/dis_50"
+        android:textColor="@color/white"
+        android:text="@string/string_ok"
+        android:textSize="@dimen/font_size_15"
+        />
+
+
+</LinearLayout>

@@ -42,13 +42,21 @@ android {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
     }
-    sourceSets { main { assets.srcDirs = ['src/main/assets', 'src/main/assets/'] } }
+    sourceSets {
+        main {
+            assets.srcDirs = ['src/main/assets', 'src/main/assets/']
+            jniLibs.srcDirs = ['libs']
+        }
+    }
 }
 
 allprojects {
     repositories {
         jcenter()
-        maven { url "https://raw.githubusercontent.com/Pgyer/mvn_repo_pgyer/master" }
+        maven {
+            url "https://raw.githubusercontent.com/Pgyer/mvn_repo_pgyer/master"
+        }
+        maven { url "https://jitpack.io" }
     }
 }
 
@@ -72,4 +80,6 @@ dependencies {
     implementation 'com.umeng.sdk:utdid:1.1.5.3'
     //PushSDK
     implementation 'com.umeng.sdk:push:4.2.0'
+    implementation 'com.getbase:floatingactionbutton:1.10.1'
+    implementation 'com.github.hackware1993:MagicIndicator:1.5.0'
 }

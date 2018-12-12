@@ -18,6 +18,14 @@ import cn.dogplanet.app.util.StringUtils;
  * date:2016-12-6
  */
 public class OrderDetail {
+
+	public final static String ORDER_TYPE_ALL = "0";
+	public final static String ORDER_TYPE_WAIT = "10";
+	public final static String ORDER_TYPE_CLOSE = "30";
+	public final static String ORDER_TYPE_SUCCESS = "40";
+	public final static String ORDER_TYPE_BACK_MONEY = "50";
+	public final static String ORDER_TYPE_BACK_ALL_MONEY = "60";
+
 	// category 10：达人商品 20：达人服务
 	private String id;
 	private String user_id;
@@ -145,6 +153,7 @@ public class OrderDetail {
 		private boolean show_refund;
 		private String check_number;
 		private String category;
+		private boolean is_package_ticket;
 
 		public String getCheck_number() {
 			return check_number;
@@ -264,6 +273,14 @@ public class OrderDetail {
 
 		public void setCategory(String category) {
 			this.category = category;
+		}
+
+		public boolean isIs_package_ticket() {
+			return is_package_ticket;
+		}
+
+		public void setIs_package_ticket(boolean is_package_ticket) {
+			this.is_package_ticket = is_package_ticket;
 		}
 	}
 

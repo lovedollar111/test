@@ -29,6 +29,8 @@ import cn.dogplanet.app.widget.MyScrollview;
 public class PullToRefreshScrollView extends PullToRefreshBase<MyScrollview> {
 
 	private boolean isCancel=true;
+	private MyScrollview.OnScrollListener listener;
+	private MyScrollview scrollView;
 
 
 	public PullToRefreshScrollView(Context context) {
@@ -60,7 +62,6 @@ public class PullToRefreshScrollView extends PullToRefreshBase<MyScrollview> {
 	@Override
 	protected MyScrollview createRefreshableView(Context context,
 			AttributeSet attrs) {
-		MyScrollview scrollView;
 		if (VERSION.SDK_INT >= VERSION_CODES.GINGERBREAD) {
 			scrollView = new InternalScrollViewSDK9(context, attrs);
 		} else {
@@ -69,6 +70,11 @@ public class PullToRefreshScrollView extends PullToRefreshBase<MyScrollview> {
 
 		scrollView.setId(R.id.scrollview);
 		return scrollView;
+	}
+
+	public void setOnScrollListener(MyScrollview.OnScrollListener listener) {
+		this.listener = listener;
+		scrollView.setOnScrollListener(this.listener);
 	}
 
 	@Override

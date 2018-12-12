@@ -1,5 +1,7 @@
 package cn.dogplanet.entity;
 
+import java.util.List;
+
 /**
  * 订单
  * editor:ztr
@@ -37,6 +39,8 @@ public class Order {
 	private String is_read;
 	
 	private String begin_date;
+
+	private List<OrderDetail.OrderProduct> orderProducts;
 
 	public String getIs_read() {
 		return is_read;
@@ -209,5 +213,13 @@ public class Order {
 
 	public void setNum(String num) {
 		this.num = num;
+	}
+
+	public List<OrderDetail.OrderProduct> getOrderProducts() {
+		return orderProducts;
+	}
+
+	public void setOrderProducts(List<OrderDetail.OrderProduct> orderProducts) {
+		this.orderProducts = orderProducts;
 	}
 }

@@ -23,11 +23,14 @@
     <dimen name="btn_height_25">25dip</dimen>
     <dimen name="dis_1">0.5dp</dimen>
     <dimen name="dis_2">1dp</dimen>
+    <dimen name="dis_4">2dp</dimen>
     <dimen name="dis_5">2.5dp</dimen>
+    <dimen name="dis_6">3dp</dimen>
     <dimen name="dis_8">4dp</dimen>
     <dimen name="dis_10">5dp</dimen>
     <dimen name="dis_12">6dp</dimen>
     <dimen name="dis_15">7.5dp</dimen>
+    <dimen name="dis_18">9dp</dimen>
     <dimen name="dis_20">10dp</dimen>
     <dimen name="dis_24">12dp</dimen>
     <dimen name="dis_25">12.5dp</dimen>
@@ -53,9 +56,11 @@
     <dimen name="dis_136">78dp</dimen>
     <dimen name="dis_142">71dp</dimen>
     <dimen name="dis_150">75dp</dimen>
+    <dimen name="dis_160">80dp</dimen>
     <dimen name="dis_175">87.5dp</dimen>
     <dimen name="dis_180">90dp</dimen>
     <dimen name="dis_200">100dp</dimen>
+    <dimen name="dis_240">120dp</dimen>
     <dimen name="dis_480">240dp</dimen>
 
     <dimen name="font_size_26">26sp</dimen>

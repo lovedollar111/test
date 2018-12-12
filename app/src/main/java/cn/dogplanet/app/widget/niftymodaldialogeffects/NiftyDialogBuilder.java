@@ -290,10 +290,12 @@ public class NiftyDialogBuilder extends Dialog implements DialogInterface {
         if (mFrameLayoutCustomView.getChildCount() > 0) {
             mFrameLayoutCustomView.removeAllViews();
         }
+        mFrameLayoutCustomView.setPadding(0,0,0,0);
         mFrameLayoutCustomView.addView(view);
         mFrameLayoutCustomView.setVisibility(View.VISIBLE);
         mLinearLayoutTopView.setVisibility(View.GONE);
         mLinearLayoutMsgView.setVisibility(View.GONE);
+        img_close.setVisibility(View.VISIBLE);
         return this;
     }
 

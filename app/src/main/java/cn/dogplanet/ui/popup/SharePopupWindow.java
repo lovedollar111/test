@@ -12,6 +12,7 @@ import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.GridView;
 import android.widget.PopupWindow;
+import android.widget.TextView;
 
 import cn.dogplanet.R;
 import cn.dogplanet.entity.ShareData;
@@ -38,12 +39,16 @@ public class SharePopupWindow extends PopupWindow {
     private Context context;
     private PlatformActionListener platformActionListener;
     private ShareParams shareParams;
+    private String inviteCode;
 
-    public SharePopupWindow(Context cx) {
+    public SharePopupWindow(Context cx,String inviteCode) {
         this.context = cx;
+        this.inviteCode=inviteCode;
         view = LayoutInflater.from(context)
                 .inflate(R.layout.share_layout, null);
-        GridView gridView = (GridView) view.findViewById(R.id.share_gridview);
+        GridView gridView = view.findViewById(R.id.share_gridview);
+        TextView tvInviteCode=view.findViewById(R.id.tv_invite_code);
+        tvInviteCode.setText(String.format("邀请码:%s", inviteCode));
         ShareAdapter adapter = new ShareAdapter(context, 1);
         gridView.setAdapter(adapter);
         // 设置SelectPicPopupWindow的View

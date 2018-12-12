@@ -15,6 +15,9 @@ public class WConstant {
 
     public static final String TYPE_DRIVER="20";
 
+
+    public static final String TYPE_BACK_MAIN="20";
+
     public static final String COMPANY_ID="company_id";
     public static final String COMPANY_NAME="company_name";
 

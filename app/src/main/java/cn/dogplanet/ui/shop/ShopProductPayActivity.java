@@ -1,19 +1,16 @@
 package cn.dogplanet.ui.shop;
 
 import android.annotation.SuppressLint;
-import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Intent;
-import android.content.SharedPreferences;
-import android.content.SharedPreferences.Editor;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.view.View.OnClickListener;
-import android.widget.RelativeLayout;
+import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -22,58 +19,65 @@ import com.tencent.mm.sdk.modelpay.PayReq;
 import com.tencent.mm.sdk.openapi.IWXAPI;
 import com.tencent.mm.sdk.openapi.WXAPIFactory;
 
+import org.greenrobot.eventbus.EventBus;
+
 import java.util.HashMap;
 import java.util.Map;
-import java.util.Objects;
 
+import butterknife.BindView;
+import butterknife.ButterKnife;
+import butterknife.OnClick;
 import cn.dogplanet.GlobalContext;
 import cn.dogplanet.R;
 import cn.dogplanet.app.util.GsonHelper;
+import cn.dogplanet.app.util.StringUtils;
 import cn.dogplanet.app.util.ToastUtil;
+import cn.dogplanet.app.widget.niftymodaldialogeffects.Effectstype;
+import cn.dogplanet.app.widget.niftymodaldialogeffects.NiftyDialogBuilder;
 import cn.dogplanet.base.BaseActivity;
 import cn.dogplanet.constant.HttpUrl;
 import cn.dogplanet.constant.WCache;
+import cn.dogplanet.constant.WConstant;
 import cn.dogplanet.entity.Expert;
-import cn.dogplanet.entity.Order;
 import cn.dogplanet.entity.OrderDetailResp;
 import cn.dogplanet.entity.OrderMainEnum;
 import cn.dogplanet.entity.OrderPayResp;
 import cn.dogplanet.entity.PayResult;
 import cn.dogplanet.entity.WXPayEntity;
-import cn.dogplanet.entity.WXPayEntity.WXPay;
 import cn.dogplanet.entity.ZFBPayEntity;
 import cn.dogplanet.net.PublicReq;
-import cn.dogplanet.net.volley.Response;
-import cn.dogplanet.net.volley.VolleyError;
 import cn.dogplanet.ui.order.OrderDetailActivity;
 import cn.dogplanet.wxapi.Constants;
 
-/**
- * 立即支付 editor:ztr
- * package_name:cn.dogplanet.ui.shop
- * file_name:ShopProductPayActivity.java
- * date:2016-12-6
- */
-public class ShopProductPayActivity extends BaseActivity implements
-        OnClickListener {
 
-    private static final int PAY_TYPE_WX = 0;
-    private static final int PAY_TYPE_ZFB = 1;
-
-    private final static String ORDER_ARG = "ORDER_ARG";
-    private Expert expert = null;
-    private String orderId;
-    private TextView order_num, price;
-
-    private IWXAPI api;
-
-    private Order order;
+public class ShopProductPayActivity extends BaseActivity {
 
 
-    private static final int SDK_PAY_FLAG = 1;
+    private static final String PAY_BY_WX = "1";
+    private static final String PAY_BY_ZFB = "2";
+
+    private final static String ORDER_ID = "ORDER_ID";
+
+    @BindView(R.id.btn_cancel)
+    ImageView btnCancel;
+    @BindView(R.id.tv_price)
+    TextView tvPrice;
+    @BindView(R.id.img_wx)
+    ImageView imgWx;
+    @BindView(R.id.img_zfb)
+    ImageView imgZfb;
+    @BindView(R.id.btn_pay)
+    Button btnPay;
 
     private WXPayEntity wxPayEntity;
     private ZFBPayEntity zfbPayEntity;
+    private IWXAPI api;
+    private static final int SDK_PAY_FLAG = 1;
+
+    private String orderId;
+
+    private String payType = null;
+    private Expert expert;
 
     @SuppressLint("HandlerLeak")
     private Handler mHandler = new Handler() {
@@ -84,19 +88,16 @@ public class ShopProductPayActivity extends BaseActivity implements
                     @SuppressWarnings("unchecked")
                     PayResult payResult = new PayResult(
                             (Map<String, String>) msg.obj);
-                    /*
-                     * 对于支付结果，请商户依赖服务端的异步通知结果。同步通知结果，仅作为支付结束的通知。
-                     */
                     String resultInfo = payResult.getResult();// 同步返回需要验证的信息
                     String resultStatus = payResult.getResultStatus();
-                    final AlertDialog dialog = new AlertDialog.Builder(ShopProductPayActivity.this).create();
+                    final AlertDialog dialog = new AlertDialog.Builder(getApplicationContext()).create();
                     View view = LayoutInflater.from(getApplicationContext()).inflate(
                             R.layout.dialog_item, null);
                     TextView title = view.findViewById(R.id.title);
                     title.setText("支付结果通知");
                     TextView tv_msg = view.findViewById(R.id.msg);
                     view.findViewById(R.id.btn_ok).setOnClickListener(
-                            new OnClickListener() {
+                            new View.OnClickListener() {
 
                                 @Override
                                 public void onClick(View v) {
@@ -134,7 +135,7 @@ public class ShopProductPayActivity extends BaseActivity implements
     public static Intent newIntent(String oId) {
         Intent intent = new Intent(GlobalContext.getInstance(),
                 ShopProductPayActivity.class);
-        intent.putExtra(ORDER_ARG, oId);
+        intent.putExtra(ORDER_ID, oId);
         return intent;
     }
 
@@ -142,37 +143,12 @@ public class ShopProductPayActivity extends BaseActivity implements
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.shop_product_pay);
+        ButterKnife.bind(this);
+        expert = WCache.getCacheExpert();
         api = WXAPIFactory.createWXAPI(this, null);
         api.registerApp(Constants.APP_ID);
-        orderId = Objects.requireNonNull(getIntent().getExtras()).getString(ORDER_ARG);
-        SharedPreferences sharedPreferences = getSharedPreferences(
-                "shopPayMsg", Activity.MODE_PRIVATE);
-        Editor edit = sharedPreferences.edit();
-        edit.putString("orderId", orderId);
-        edit.apply();
-        expert = WCache.getCacheExpert();
+        orderId = getIntent().getStringExtra(ORDER_ID);
         getOrder();
-        initView();
-    }
-
-
-    private void initView() {
-        this.findViewById(R.id.btn_back).setOnClickListener(this);
-        RelativeLayout pay_wx = this.findViewById(R.id.pay_wx);
-        RelativeLayout pay_zfb = this.findViewById(R.id.pay_zfb);
-        order_num = this.findViewById(R.id.order_num);
-        price = this.findViewById(R.id.tv_price);
-
-        pay_wx.setOnClickListener(this);
-        pay_zfb.setOnClickListener(this);
-    }
-
-    private void updateView(Order order) {
-        if (null != order) {
-            String fr = getString(R.string.shop_order_price);
-            price.setText(String.format(fr, order.getPrice()));
-            order_num.setText(order.getOrder_num());
-        }
     }
 
     private void getOrder() {
@@ -183,99 +159,101 @@ public class ShopProductPayActivity extends BaseActivity implements
             params.put("id", orderId);
             showProgress();
             PublicReq.request(HttpUrl.GET_ORDER_DATA,
-                    new Response.Listener<String>() {
-
-                        @Override
-                        public void onResponse(String response) {
-                            OrderPayResp respData = GsonHelper.parseObject(
-                                    response, OrderPayResp.class);
-                            if (null != respData) {
-                                if (respData.isSuccess()) {
-                                    order = respData.getOrder();
-                                    updateView(respData.getOrder());
-                                } else {
-                                    ToastUtil.showError(respData.getMsg());
-                                }
+                    response -> {
+                        OrderPayResp respData = GsonHelper.parseObject(
+                                response, OrderPayResp.class);
+                        if (null != respData) {
+                            if (respData.isSuccess()) {
+                                updateView(respData);
                             } else {
-                                ToastUtil
-                                        .showError(R.string.network_data_error);
+                                ToastUtil.showError(respData.getMsg());
                             }
-                            hideProgress();
+                        } else {
+                            ToastUtil
+                                    .showError(R.string.network_data_error);
                         }
-                    }, new Response.ErrorListener() {
-                        @Override
-                        public void onErrorResponse(VolleyError error) {
-                            hideProgress();
-                            ToastUtil.showError(R.string.network_error);
-                        }
+                        hideProgress();
+                    }, error -> {
+                        hideProgress();
+                        ToastUtil.showError(R.string.network_error);
                     }, params);
         }
     }
 
-    @Override
-    public void onClick(View v) {
-        switch (v.getId()) {
-            case R.id.btn_back:
-                startActivity(OrderDetailActivity.newIntent());
+    private void updateView(OrderPayResp respData) {
+        if (StringUtils.isNotBlank(respData.getOrder().getPrice())) {
+            tvPrice.setText(String.format("¥%s", respData.getOrder().getPrice()));
+        }
+    }
+
+
+    @OnClick({R.id.lay_wx, R.id.lay_zfb, R.id.btn_pay, R.id.btn_cancel})
+    public void onViewClicked(View view) {
+        switch (view.getId()) {
+            case R.id.lay_wx:
+                payType = PAY_BY_WX;
+                updateButton();
+                break;
+            case R.id.lay_zfb:
+                payType = PAY_BY_ZFB;
+                updateButton();
+                break;
+            case R.id.btn_pay:
+                startPay();
+                break;
+            case R.id.btn_cancel:
                 finish();
-                break;
-            case R.id.pay_wx:
-                getPayMsg(PAY_TYPE_WX);
-                break;
-            case R.id.pay_zfb:
-                getPayMsg(PAY_TYPE_ZFB);
-                break;
-            default:
                 break;
         }
     }
 
-    private void getPayMsg(final int payType) {
+    private void updateButton() {
+        if (StringUtils.isNotBlank(payType)) {
+            btnPay.setBackgroundResource(R.drawable.gradient_f1_e0);
+            btnPay.setEnabled(false);
+        } else {
+            btnPay.setBackgroundResource(R.drawable.gradient_c7_ab);
+            btnPay.setEnabled(true);
+        }
+    }
+
+    private void startPay() {
         // TODO Auto-generated method stub
         String url;
         Map<String, String> params = new HashMap<>();
         params.put("expert_id", expert.getId().toString());
         params.put("access_token", expert.getAccess_token());
         params.put("order_id", orderId);
-        if (payType == PAY_TYPE_WX) {
+        if (payType.contains(PAY_BY_WX)) {
             url = HttpUrl.PAY_ORDER_BY_WX;
         } else {
             url = HttpUrl.PAY_ORDER_BY_ZFB;
         }
         PublicReq.request(url,
-                new Response.Listener<String>() {
-
-                    @Override
-                    public void onResponse(String response) {
-                        // TODO Auto-generated method stub
-                        if (payType == PAY_TYPE_WX) {
-                            wxPayEntity = GsonHelper.parseObject(response,
-                                    WXPayEntity.class);
-                            if (wxPayEntity != null && wxPayEntity.isSuccess()) {
-                                goToPay(payType);
-                            }
-                        } else if (payType == PAY_TYPE_ZFB) {
-                            zfbPayEntity = GsonHelper.parseObject(response, ZFBPayEntity.class);
-                            if (zfbPayEntity != null && zfbPayEntity.isSuccess()) {
-                                goToPay(payType);
-                            }
+                response -> {
+                    // TODO Auto-generated method stub
+                    if (payType.contains(PAY_BY_WX)) {
+                        wxPayEntity = GsonHelper.parseObject(response,
+                                WXPayEntity.class);
+                        if (wxPayEntity != null && wxPayEntity.isSuccess()) {
+                            goToPay();
+                        }
+                    } else {
+                        zfbPayEntity = GsonHelper.parseObject(response, ZFBPayEntity.class);
+                        if (zfbPayEntity != null && zfbPayEntity.isSuccess()) {
+                            goToPay();
                         }
                     }
-                }, new Response.ErrorListener() {
-
-                    @Override
-                    public void onErrorResponse(VolleyError error) {
-                        // TODO Auto-generated method stub
-                        ToastUtil.showError(R.string.network_error);
-                    }
+                }, error -> {
+                    // TODO Auto-generated method stub
+                    ToastUtil.showError(R.string.network_error);
                 }, params);
     }
 
-
-    private void goToPay(final int payType) {
-        if (payType == PAY_TYPE_WX) {
+    private void goToPay() {
+        if (payType.contains(PAY_BY_WX)) {
             PayReq req = new PayReq();
-            WXPay result = wxPayEntity.getResult();
+            WXPayEntity.WXPay result = wxPayEntity.getResult();
             req.appId = result.getAppid();
             req.partnerId = result.getPartnerid();
             req.prepayId = result.getPrepayid();
@@ -284,18 +262,14 @@ public class ShopProductPayActivity extends BaseActivity implements
             req.packageValue = "Sign=WXPay";
             req.sign = result.getSign();
             api.sendReq(req);
-        } else if (payType == PAY_TYPE_ZFB) {
-            Runnable payRunnable = new Runnable() {
-                @Override
-                public void run() {
-                    PayTask alipay = new PayTask(
-                            ShopProductPayActivity.this);
-                    Map<String, String> result = alipay.payV2(zfbPayEntity.getResult(), true);
-                    Message msg = new Message();
-                    msg.what = SDK_PAY_FLAG;
-                    msg.obj = result;
-                    mHandler.sendMessage(msg);
-                }
+        } else {
+            Runnable payRunnable = () -> {
+                PayTask alipay = new PayTask(ShopProductPayActivity.this);
+                Map<String, String> result = alipay.payV2(zfbPayEntity.getResult(), true);
+                Message msg = new Message();
+                msg.what = SDK_PAY_FLAG;
+                msg.obj = result;
+                mHandler.sendMessage(msg);
             };
 
             Thread payThread = new Thread(payRunnable);
@@ -310,56 +284,42 @@ public class ShopProductPayActivity extends BaseActivity implements
             params.put("access_token", expert.getAccess_token());
             params.put("id", orderId);
             PublicReq.request(HttpUrl.GET_ORDER_DETAIL,
-                    new Response.Listener<String>() {
-                        @Override
-                        public void onResponse(String response) {
-                            final AlertDialog dialog = new AlertDialog.Builder(
-                                    ShopProductPayActivity.this).create();
-                            View view = LayoutInflater.from(
-                                    getApplicationContext()).inflate(
-                                    R.layout.dialog_item, null);
-                            OrderDetailResp respData = GsonHelper.parseObject(
-                                    response, OrderDetailResp.class);
-                            if (respData != null && respData.isSuccess()) {
-                                if (OrderMainEnum.OS_6.getStaus().equals(
-                                        respData.getOrder().getStatus())) {
-                                    Toast.makeText(ShopProductPayActivity.this,
-                                            "支付成功", Toast.LENGTH_SHORT).show();
-                                    startActivity(OrderDetailActivity
-                                            .newIntent());
-                                    finish();
-                                } else {
-                                    TextView title = view
-                                            .findViewById(R.id.title);
-                                    title.setText("支付结果通知");
-                                    TextView msg = view
-                                            .findViewById(R.id.msg);
-                                    msg.setText("支付失败");
-                                    view.findViewById(R.id.btn_ok)
-                                            .setOnClickListener(
-                                                    new OnClickListener() {
-
-                                                        @Override
-                                                        public void onClick(
-                                                                View v) {
-                                                            dialog.cancel();
-                                                        }
-                                                    });
-                                    dialog.show();
-                                    dialog.setContentView(view);
-                                }
+                    response -> {
+                        View view = LayoutInflater.from(this).inflate(R.layout.dialog_ok,
+                                null);
+                        NiftyDialogBuilder builder = NiftyDialogBuilder.getInstance(this);
+                        builder.setCustomView(view, this);
+                        builder.withEffect(Effectstype.Fadein);
+                        OrderDetailResp respData = GsonHelper.parseObject(
+                                response, OrderDetailResp.class);
+                        if (respData != null && respData.isSuccess()) {
+                            if (OrderMainEnum.OS_6.getStaus().equals(
+                                    respData.getOrder().getStatus())) {
+                                Toast.makeText(ShopProductPayActivity.this,
+                                        "支付成功", Toast.LENGTH_SHORT).show();
+                                startActivity(OrderDetailActivity
+                                        .newIntent(orderId));
+                                String type=WConstant.TYPE_BACK_MAIN;
+                                EventBus.getDefault().postSticky(type);
+                                finish();
                             } else {
-                                ToastUtil
-                                        .showError(R.string.network_data_error);
+                                builder.show();
+                                TextView title = view
+                                        .findViewById(R.id.title);
+                                title.setText("支付结果通知");
+                                TextView msg = view
+                                        .findViewById(R.id.msg);
+                                msg.setText("支付失败");
+                                view.findViewById(R.id.btn_ok)
+                                        .setOnClickListener(
+                                                v -> builder.dismiss());
                             }
+                        } else {
+                            ToastUtil
+                                    .showError(R.string.network_data_error);
                         }
-                    }, new Response.ErrorListener() {
-                        @Override
-                        public void onErrorResponse(VolleyError error) {
-                            ToastUtil.showError(R.string.network_error);
-                        }
-                    }, params);
+                    }, error -> ToastUtil.showError(R.string.network_error), params);
         }
     }
-
 }
+

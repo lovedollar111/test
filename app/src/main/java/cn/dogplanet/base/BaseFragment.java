@@ -22,7 +22,6 @@ public abstract class BaseFragment extends Fragment {
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		mContext = getActivity();
-		EventBus.getDefault().register(this);
 	}
 
 	private Toast mToast;
@@ -73,6 +72,5 @@ public abstract class BaseFragment extends Fragment {
 	@Override
 	public void onDestroy() {
 		super.onDestroy();
-		EventBus.getDefault().unregister(this);
 	}
 }

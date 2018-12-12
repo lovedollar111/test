@@ -9,7 +9,7 @@
         />
 
     <corners
-        android:radius="@dimen/dis_10"
+        android:radius="@dimen/dis_30"
          />
 
 </shape>

@@ -13,6 +13,7 @@
     <uses-permission android:name="android.permission.CAMERA" />
     <uses-permission android:name="android.permission.ACCESS_GPS" />
     <uses-permission android:name="android.permission.CALL_PHONE" />
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
     <uses-permission
         android:name="android.permission.USE_CREDENTIALS"
         android:maxSdkVersion="22" />
@@ -153,6 +154,16 @@
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateUnspecified|adjustPan" />
         <activity
+            android:name=".ui.shop.ProductFindActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateUnspecified|adjustPan" />
+        <activity
+            android:name=".ui.shop.ProductBuyActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateUnspecified|adjustPan" />
+        <activity
             android:name=".ui.order.OrderFindActivity"
             android:launchMode="singleTask"
             android:screenOrientation="portrait"
@@ -257,6 +268,10 @@
             android:configChanges="orientation|keyboardHidden|navigation"
             android:exported="false"
             android:screenOrientation="behind" />
+
+        <service
+            android:name="com.baidu.speech.VoiceRecognitionService"
+            android:exported="false" />
         <!-- APPKEY值的配置 -->
         <meta-data
             android:name="UMENG_APPKEY"
@@ -293,6 +308,21 @@
             android:name="IFLYTEK_CHANNEL"
             android:value="dogplanet" />
 
+        <!--  -->
+        <meta-data
+            android:name="com.baidu.speech.APP_ID"
+            android:value="14965231" />
+        <meta-data
+            android:name="com.baidu.speech.API_KEY"
+            android:value="Z9xu8KjqeYKDnFxLRKbIriTE" />
+        <meta-data
+            android:name="com.baidu.speech.SECRET_KEY"
+            android:value="jdcc0it3ry1q4SVdRlYDrbFSWY5KHiTW" />
+
+        <activity android:name=".ui.user.InfoActivity"></activity>
+        <activity android:name=".ui.user.AuthenticationInfoActivity" />
+        <activity android:name=".ui.user.SafeActivity" />
+        <activity android:name=".ui.user.AboutActivity" />
     </application>
 
 </manifest>

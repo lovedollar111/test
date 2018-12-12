@@ -1,6 +1,78 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@color/back_gary"
+    android:orientation="vertical">
 
-</RelativeLayout>
+
+    <RelativeLayout
+        style="@style/top_title_style"
+        android:padding="@dimen/dis_0"
+        android:visibility="visible">
+
+
+        <RelativeLayout
+            android:id="@+id/lay_search"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dis_72"
+            android:layout_marginBottom="@dimen/dis_8"
+            android:layout_marginEnd="@dimen/dis_30"
+            android:layout_marginStart="@dimen/dis_24"
+            android:background="@drawable/back_round_gray"
+            android:orientation="horizontal"
+            android:visibility="visible">
+
+            <ImageView
+                android:layout_width="@dimen/dis_28"
+                android:layout_height="@dimen/dis_28"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="@dimen/dis_24"
+                android:scaleType="centerCrop"
+                android:src="@mipmap/ic_launcher" />
+
+            <TextView
+                android:id="@+id/et_search"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_centerVertical="true"
+                android:layout_marginEnd="@dimen/dis_20"
+                android:layout_marginStart="@dimen/dis_72"
+                android:layout_toStartOf="@+id/img_input"
+                android:background="@null"
+                android:focusableInTouchMode="true"
+                android:hint="@string/search_company"
+                android:gravity="center"
+                android:singleLine="true"
+                android:textColor="@color/color_c7"
+                android:textColorHint="#afff"
+                android:textCursorDrawable="@drawable/color_cursor"
+                android:textSize="@dimen/font_size_12" />
+
+            <ImageView
+                android:id="@+id/img_input"
+                android:layout_width="@dimen/dis_28"
+                android:layout_height="@dimen/dis_28"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                android:layout_marginEnd="@dimen/dis_30"
+                android:layout_marginStart="@dimen/dis_24"
+                android:scaleType="centerCrop"
+                android:src="@mipmap/ic_launcher" />
+
+        </RelativeLayout>
+    </RelativeLayout>
+
+
+    <net.lucode.hackware.magicindicator.MagicIndicator
+        android:id="@+id/magic_indicator"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dis_100"
+        android:background="@color/white" />
+
+    <android.support.v4.view.ViewPager
+        android:id="@+id/view_pager"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/back_gary" />
+</LinearLayout>
