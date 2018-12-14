@@ -164,54 +164,6 @@ public class BaseInfoActivity extends BaseActivity {
 
             }
         });
-        et_driving_licence_time.addTextChangedListener(new TextWatcher() {
-            @Override
-            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-
-            }
-
-            @Override
-            public void onTextChanged(CharSequence s, int start, int before, int count) {
-
-            }
-
-            @Override
-            public void afterTextChanged(Editable s) {
-
-            }
-        });
-        et_vehicle_license_time.addTextChangedListener(new TextWatcher() {
-            @Override
-            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-
-            }
-
-            @Override
-            public void onTextChanged(CharSequence s, int start, int before, int count) {
-
-            }
-
-            @Override
-            public void afterTextChanged(Editable s) {
-
-            }
-        });
-        et_operational_qualification_time.addTextChangedListener(new TextWatcher() {
-            @Override
-            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-
-            }
-
-            @Override
-            public void onTextChanged(CharSequence s, int start, int before, int count) {
-
-            }
-
-            @Override
-            public void afterTextChanged(Editable s) {
-
-            }
-        });
     }
 
     @OnClick({R.id.btn_next, R.id.lay_company, R.id.lay_driving_licence_time, R.id.et_driving_licence_time,R.id.lay_vehicle_license_time, R.id.et_vehicle_license_time,R.id.lay_operational_qualification_time,R.id.et_operational_qualification_time})
@@ -223,7 +175,7 @@ public class BaseInfoActivity extends BaseActivity {
                 }
                 break;
             case R.id.lay_company:
-                startActivityForResult(CompanyListActivity.newIntent(company_id), CompanyListActivity.COMPANY_LIST_CODE);
+                startActivityForResult(CompanyListActivity.newIntent(company_id,CompanyListActivity.TYPE_CHOOSE), CompanyListActivity.COMPANY_LIST_CODE);
                 break;
             case R.id.lay_driving_licence_time:
             case R.id.et_driving_licence_time:
@@ -430,6 +382,7 @@ public class BaseInfoActivity extends BaseActivity {
         });
         view.findViewById(R.id.btn_cancel).setOnClickListener(v -> builder.cancel());
         builder.show();
+        updateBtn();
     }
 
     public boolean onKeyDown(int keyCode, KeyEvent event) {

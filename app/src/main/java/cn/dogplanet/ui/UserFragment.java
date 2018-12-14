@@ -47,6 +47,10 @@ import cn.dogplanet.net.volley.toolbox.ListImageListener;
 import cn.dogplanet.ui.login.LoginActivity;
 import cn.dogplanet.ui.popup.SharePopupWindow;
 import cn.dogplanet.ui.shop.ShopProductCartActivity;
+import cn.dogplanet.ui.user.AboutActivity;
+import cn.dogplanet.ui.user.AuthenticationInfoActivity;
+import cn.dogplanet.ui.user.InfoActivity;
+import cn.dogplanet.ui.user.SafeActivity;
 
 public class UserFragment extends BaseFragment {
 
@@ -121,6 +125,8 @@ public class UserFragment extends BaseFragment {
                     et.getExpert_icon());
             GlobalContext.getInstance().getImageLoader()
                     .get(et.getExpert_icon(), imageListener);
+        }else{
+            imgHead.setImageResource(R.mipmap.userimage);
         }
         tvName.setText(et.getExpert_name());
     }
@@ -130,15 +136,19 @@ public class UserFragment extends BaseFragment {
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.lay_info:
+                startActivity(InfoActivity.newIntent());
                 break;
             case R.id.lay_authentication_info:
+                startActivity(AuthenticationInfoActivity.newIntent());
                 break;
             case R.id.lay_safe:
+                startActivity(SafeActivity.newIntent());
                 break;
             case R.id.lay_invite:
                 getInviteCode();
                 break;
             case R.id.lay_about:
+                startActivity(AboutActivity.newIntent());
                 break;
             case R.id.btn_quit:
                 exit();
@@ -163,7 +173,7 @@ public class UserFragment extends BaseFragment {
     }
 
     private void updateView(SharePersonResp.InviteArr inviteArr) {
-        if ("20".equals(inviteArr.getCheck_status())) {
+        if (Expert.AUTHENTICATION_20.equals(expert.getAuthentication_status())) {
             ShareData shareData = new ShareData();
             shareData.setContent("旅行，不单单是从一个熟悉的地方去到一个陌生的地方，而是应该去像个当地人一样体验别样的风土人情，跟着我们的达人一起。");
             shareData.setPic("http://img0.dogplanet.cn/share_logo.jpg");

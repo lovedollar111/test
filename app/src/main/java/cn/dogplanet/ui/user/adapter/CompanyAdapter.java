@@ -122,7 +122,7 @@ public class CompanyAdapter extends BaseAdapter {
         NiftyDialogBuilder builder = NiftyDialogBuilder.getInstance(mContext);
         builder.withEffect(Effectstype.Fadein);
         View view = LayoutInflater.from(mContext).inflate(R.layout.dialog_phone, null);
-        builder.setCustomViewWithoutClose(view, mContext);
+        builder.setCustomView(view, mContext);
         ButterKnife.findById(view, R.id.btn_ok).setOnClickListener(v -> {
             callPhone(phone);
             builder.cancel();

@@ -18,7 +18,7 @@ public class Expert {
     //高级认证审核状态：authentication_status 1:未进行认证高级认证 0:待审核 10:审核中 20:审核成功 30:审核失败
 
     private String check_status;
-    private int authentication_status;
+    private String authentication_status;
     private String authentication_category;
 
     public static final String CHECK_0 = "0";
@@ -101,6 +101,8 @@ public class Expert {
 
     //达人证件类型
     private String id_card_type;
+
+    private String open_id;
 
     private Expert.CardPhoto driver_license;
     private Expert.CardPhoto vehicle_license;
@@ -394,11 +396,11 @@ public class Expert {
         this.check_status = check_status;
     }
 
-    public int getAuthentication_status() {
+    public String getAuthentication_status() {
         return authentication_status;
     }
 
-    public void setAuthentication_status(int authentication_status) {
+    public void setAuthentication_status(String authentication_status) {
         this.authentication_status = authentication_status;
     }
 
@@ -464,6 +466,14 @@ public class Expert {
 
     public void setAge(String age) {
         this.age = age;
+    }
+
+    public String getOpen_id() {
+        return open_id;
+    }
+
+    public void setOpen_id(String open_id) {
+        this.open_id = open_id;
     }
 
     public static class CardPhoto {

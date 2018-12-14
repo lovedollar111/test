@@ -1,6 +1,7 @@
 package cn.dogplanet.ui.order;
 
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.Html;
@@ -9,6 +10,7 @@ import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import org.greenrobot.eventbus.EventBus;
@@ -76,11 +78,15 @@ public class OrderDetailActivity extends BaseActivity {
     PullToRefreshScrollView scrollMain;
     @BindView(R.id.btn_cancel)
     TextView btnCancel;
+    @BindView(R.id.tv_price)
+    TextView tvPrice;
+    @BindView(R.id.lay_pay)
+    LinearLayout layPay;
     private Expert expert;
     private String oid;
     private NiftyDialogBuilder builderCancel;
     private String backType;
-    private String pro_id,pro_category;
+    private String pro_id, pro_category;
 
     public static Intent newIntent(String oid) {
         Intent intent = new Intent(GlobalContext.getInstance(),
@@ -101,9 +107,9 @@ public class OrderDetailActivity extends BaseActivity {
         initView();
     }
 
-    @Subscribe(threadMode = ThreadMode.MAIN,sticky = true)
-    public void stringEventBus(String type){
-        backType=type;
+    @Subscribe(threadMode = ThreadMode.MAIN, sticky = true)
+    public void stringEventBus(String type) {
+        backType = type;
     }
 
     private void initView() {
@@ -168,22 +174,25 @@ public class OrderDetailActivity extends BaseActivity {
         tvOrderNum.setText(order.getOrder_num());
         tvTime.setText(order.getCreate_time());
         if (order.getProducts() != null && !order.getProducts().isEmpty()) {
-            OrderDetailAdapter adapter = new OrderDetailAdapter(order.getProducts(), this, (id, num, date, isPackage,proId,proCategory) -> {
+            OrderDetailAdapter adapter = new OrderDetailAdapter(order.getProducts(), this, (id, num, date, isPackage, proId, proCategory) -> {
                 if (isPackage) {
                     getTicketNum(date, id, num);
                 } else {
                     showNumDialog(id, num);
                 }
-                pro_id=proId;
-                pro_category=proCategory;
+                pro_id = proId;
+                pro_category = proCategory;
             });
             listSubOrder.setAdapter(adapter);
         }
         String status = order.getStatus();
         if (status.equals(OrderDetail.ORDER_TYPE_WAIT)) {
             btnCancel.setVisibility(View.VISIBLE);
-        }else {
+            layPay.setVisibility(View.VISIBLE);
+            tvPrice.setText(order.getPrice());
+        } else {
             btnCancel.setVisibility(View.GONE);
+            layPay.setVisibility(View.GONE);
         }
     }
 
@@ -277,10 +286,10 @@ public class OrderDetailActivity extends BaseActivity {
                                 tv_title.setText("该产品退改规则如下");
                                 TextView tv_msg = view.findViewById(R.id.msg);
                                 String fromHtml;
-                                if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.N) {
-                                    fromHtml= String.valueOf(Html.fromHtml(respData.getProduct().getReturns(), Html.FROM_HTML_MODE_LEGACY));
+                                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
+                                    fromHtml = String.valueOf(Html.fromHtml(respData.getProduct().getReturns(), Html.FROM_HTML_MODE_LEGACY));
                                 } else {
-                                    fromHtml= String.valueOf(Html.fromHtml(respData.getProduct().getReturns()));
+                                    fromHtml = String.valueOf(Html.fromHtml(respData.getProduct().getReturns()));
                                 }
                                 tv_msg.setText(fromHtml);
                                 tv_msg.setLineSpacing(0, 0.96f);
@@ -324,10 +333,10 @@ public class OrderDetailActivity extends BaseActivity {
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.btn_back:
-                if(backType.equals(WConstant.TYPE_BACK_MAIN)){
+                if (StringUtils.isBlank(backType) || backType.equals(WConstant.TYPE_BACK_MAIN)) {
                     startActivity(MainActivity.newIntent(MainActivity.TYPE_ORDER));
                     finish();
-                }else {
+                } else {
                     finish();
                 }
                 break;

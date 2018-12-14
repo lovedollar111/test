@@ -13,7 +13,7 @@
         android:clipToPadding="false"
         android:layout_marginStart="@dimen/dis_24"
         android:layout_marginEnd="@dimen/dis_24"
-        android:layout_marginBottom="@dimen/dis_30"
+        android:paddingBottom="@dimen/dis_30"
         android:divider="@color/back_gary"
         android:background="@color/back_gary"
         android:dividerHeight="@dimen/dis_20"

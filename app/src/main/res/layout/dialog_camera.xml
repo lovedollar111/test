@@ -7,33 +7,37 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:background="@color/tab_text_color"
-        android:orientation="vertical"
-        android:padding="22.5dp" >
+        android:background="@color/back_gary"
+        android:orientation="vertical" >
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dis_2"
+            android:background="@color/color_e0"/>
 
         <Button
             android:id="@+id/btn_camera"
             android:layout_width="match_parent"
             android:layout_height="@dimen/dis_80"
-            android:background="@drawable/btn_white_selector"
+            android:background="@color/white"
             android:text="拍照" />
 
         <Button
             android:id="@+id/btn_album"
             android:layout_width="match_parent"
             android:layout_height="@dimen/dis_80"
-            android:layout_marginTop="@dimen/dis_20"
-            android:background="@drawable/btn_white_selector"
+            android:layout_marginTop="@dimen/dis_2"
+            android:background="@color/white"
             android:text="从手机相册选择" />
 
         <Button
             android:id="@+id/btn_cancel"
             android:layout_width="match_parent"
             android:layout_height="@dimen/dis_45"
-            android:layout_marginTop="22.5dp"
-            android:background="@drawable/btn_gray_selector"
+            android:layout_marginTop="@dimen/dis_20"
+            android:background="@color/white"
             android:text="@string/app_cancel"
-            android:textColor="@color/white" />
+            android:textColor="@color/black" />
     </LinearLayout>
 
 </RelativeLayout>

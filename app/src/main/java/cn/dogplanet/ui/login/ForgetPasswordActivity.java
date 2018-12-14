@@ -310,7 +310,7 @@ public class ForgetPasswordActivity extends BaseActivity {
                                     // 开始倒计时
                                     graphicCodeDialog.dismiss();
                                     setDownTimerStart();
-                                    KeyBoardUtils.closeKeybord(et_password, ForgetPasswordActivity.this);
+                                    KeyBoardUtils.openKeybord(et_verification, ForgetPasswordActivity.this);
                                 } else if (1007 == respData.getCode()) {
                                     startActivity(MainActivity.newIntent(MainActivity.TYPE_HOME));
                                 } else {

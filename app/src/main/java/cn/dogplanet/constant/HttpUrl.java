@@ -38,6 +38,10 @@ public class HttpUrl {
     public static final String UPDATE_PWD = HTTP_URL
             + "v1/b/expert/update-pwd";
 
+    //个人中心 更新图像
+    public static final String SAVE_BASE_INFO = HTTP_URL
+            + "v1/b/expert/save-expert-base-info";
+
     // 获取省市区三级联动数据
     public static final String EXPERT_ADDRESS = HTTP_URL
             + "v1/b/expert/get-expert-address";
@@ -58,9 +62,7 @@ public class HttpUrl {
     //根据关键词搜索获取旅行社列表数据
     public static final String EXPERT_TRAVEL_BY_DESC = HTTP_URL
             + "v1/b/expert/get-travel-agency-by-desc";
-    // 第一步 保存基本信息
-    public static final String SAVE_BASE_INFO = HTTP_URL
-            + "v1/b/expert/save-expert-base-info";
+
     // 保存认证信息
     public static final String SAVE_CERTIFICATION_INFO = HTTP_URL
             + "v1/b/expert/save-expert-certification-info";

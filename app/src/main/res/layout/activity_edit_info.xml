@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/back_gary"
     android:orientation="vertical"
-    tools:context=".ui.user.InfoActivity">
+    tools:context=".ui.login.BaseInfoActivity">
 
     <RelativeLayout style="@style/top_title_style">
 
@@ -25,25 +24,24 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
-            android:text="@string/string_set_password" />
+            android:text="@string/edit_info" />
     </RelativeLayout>
-
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="@dimen/dis_24"
         android:background="@drawable/back_round_white_30"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:layout_margin="@dimen/dis_24">
 
         <RelativeLayout
-            android:id="@+id/lay_phone"
+            android:id="@+id/lay_name"
             android:layout_width="match_parent"
             android:layout_height="@dimen/dis_88"
             android:layout_marginTop="@dimen/dis_20">
 
             <ImageView
-                android:id="@+id/img_phone"
+                android:id="@+id/img_name"
                 android:layout_width="@dimen/dis_40"
                 android:layout_height="@dimen/dis_40"
                 android:layout_centerVertical="true"
@@ -53,15 +51,15 @@
 
 
             <cn.dogplanet.app.widget.EditTextWithDel
-                android:id="@+id/et_phone"
+                android:id="@+id/et_name"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_centerVertical="true"
                 android:layout_marginEnd="@dimen/dis_40"
                 android:layout_marginStart="@dimen/dis_24"
-                android:layout_toEndOf="@+id/img_phone"
+                android:layout_toEndOf="@+id/img_name"
                 android:background="@color/white"
-                android:hint="@string/hint_phone"
+                android:hint="@string/hint_input_name"
                 android:imeOptions="actionNext"
                 android:singleLine="true"
                 android:textColor="@color/color_33"
@@ -76,13 +74,13 @@
             android:layout_marginStart="@dimen/dis_36" />
 
         <RelativeLayout
-            android:id="@+id/lay_verification"
+            android:id="@+id/lay_id_card"
             android:layout_width="match_parent"
             android:layout_height="@dimen/dis_88"
             android:layout_marginTop="@dimen/dis_20">
 
             <ImageView
-                android:id="@+id/img_verification"
+                android:id="@+id/img_id_card"
                 android:layout_width="@dimen/dis_40"
                 android:layout_height="@dimen/dis_40"
                 android:layout_centerVertical="true"
@@ -90,29 +88,17 @@
                 android:scaleType="center"
                 android:src="@mipmap/ic_launcher" />
 
-            <TextView
-                android:id="@+id/tv_send_verification"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textColor="@color/login_color"
-                android:textSize="@dimen/font_size_14"
-                android:layout_marginEnd="@dimen/dis_36"
-                android:layout_alignParentEnd="true"
-                android:text="@string/send_verification"
-                android:layout_centerVertical="true"/>
-
 
             <cn.dogplanet.app.widget.EditTextWithDel
-                android:id="@+id/et_verification"
+                android:id="@+id/et_id_card"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_centerVertical="true"
                 android:layout_marginEnd="@dimen/dis_40"
                 android:layout_marginStart="@dimen/dis_24"
-                android:layout_toEndOf="@+id/img_verification"
-                android:layout_toStartOf="@+id/tv_send_verification"
+                android:layout_toEndOf="@+id/img_id_card"
                 android:background="@color/white"
-                android:hint="@string/hint_verification"
+                android:hint="@string/hint_input_id_card"
                 android:imeOptions="actionDone"
                 android:singleLine="true"
                 android:textColor="@color/color_33"
@@ -128,13 +114,13 @@
 
 
         <RelativeLayout
-            android:id="@+id/lay_password"
+            android:id="@+id/lay_driving_licence_time"
             android:layout_width="match_parent"
             android:layout_height="@dimen/dis_88"
             android:layout_marginTop="@dimen/dis_20">
 
             <ImageView
-                android:id="@+id/img_password"
+                android:id="@+id/img_driving_licence_time"
                 android:layout_width="@dimen/dis_40"
                 android:layout_height="@dimen/dis_40"
                 android:layout_centerVertical="true"
@@ -142,33 +128,19 @@
                 android:scaleType="center"
                 android:src="@mipmap/ic_launcher" />
 
-            <ImageView
-                android:id="@+id/img_see_password"
-                android:layout_width="@dimen/dis_60"
-                android:layout_height="@dimen/dis_40"
-                android:scaleType="center"
-                android:src="@mipmap/ic_launcher"
-                android:layout_marginEnd="@dimen/dis_36"
-                android:layout_alignParentEnd="true"
-                android:paddingEnd="@dimen/dis_20"
-                android:paddingStart="@dimen/dis_20"
-                android:layout_centerVertical="true"
-                />
 
-
-            <cn.dogplanet.app.widget.EditTextWithDel
-                android:id="@+id/et_password"
+            <EditText
+                android:id="@+id/et_driving_licence_time"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_centerVertical="true"
                 android:layout_marginEnd="@dimen/dis_40"
                 android:layout_marginStart="@dimen/dis_24"
-                android:layout_toEndOf="@+id/img_password"
-                android:layout_toStartOf="@+id/img_see_password"
+                android:layout_toEndOf="@+id/img_driving_licence_time"
                 android:background="@color/white"
                 android:focusable="false"
                 android:focusableInTouchMode="false"
-                android:hint="@string/hint_password"
+                android:hint="@string/hint_input_driving"
                 android:singleLine="true"
                 android:textColor="@color/color_33"
                 android:textColorHint="@color/color_c7"
@@ -182,14 +154,13 @@
             android:layout_marginStart="@dimen/dis_36" />
 
         <RelativeLayout
-            android:id="@+id/lay_again_password"
+            android:id="@+id/lay_vehicle_license_time"
             android:layout_width="match_parent"
             android:layout_height="@dimen/dis_88"
-            android:layout_marginTop="@dimen/dis_20"
-            android:layout_marginBottom="@dimen/dis_20">
+            android:layout_marginTop="@dimen/dis_20">
 
             <ImageView
-                android:id="@+id/img_again_password"
+                android:id="@+id/img_vehicle_license_time"
                 android:layout_width="@dimen/dis_40"
                 android:layout_height="@dimen/dis_40"
                 android:layout_centerVertical="true"
@@ -198,32 +169,18 @@
                 android:src="@mipmap/ic_launcher" />
 
 
-            <ImageView
-                android:id="@+id/img_see_again_password"
-                android:layout_width="@dimen/dis_60"
-                android:layout_height="@dimen/dis_40"
-                android:scaleType="center"
-                android:src="@mipmap/ic_launcher"
-                android:layout_marginEnd="@dimen/dis_36"
-                android:layout_alignParentEnd="true"
-                android:paddingEnd="@dimen/dis_20"
-                android:paddingStart="@dimen/dis_20"
-                android:layout_centerVertical="true"
-                />
-
-            <cn.dogplanet.app.widget.EditTextWithDel
-                android:id="@+id/et_again_password"
+            <EditText
+                android:id="@+id/et_vehicle_license_time"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_centerVertical="true"
                 android:layout_marginEnd="@dimen/dis_40"
                 android:layout_marginStart="@dimen/dis_24"
-                android:layout_toEndOf="@+id/img_again_password"
-                android:layout_toStartOf="@+id/img_see_again_password"
+                android:layout_toEndOf="@+id/img_vehicle_license_time"
                 android:background="@color/white"
                 android:focusable="false"
                 android:focusableInTouchMode="false"
-                android:hint="@string/hint_again_password"
+                android:hint="@string/hint_input_vehicle"
                 android:singleLine="true"
                 android:textColor="@color/color_33"
                 android:textColorHint="@color/color_c7"
@@ -237,10 +194,52 @@
             android:layout_marginStart="@dimen/dis_36" />
 
 
+        <RelativeLayout
+            android:id="@+id/lay_operational_qualification_time"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dis_88"
+            android:layout_marginTop="@dimen/dis_20"
+            android:layout_marginBottom="@dimen/dis_20">
+
+            <ImageView
+                android:id="@+id/img_operational_qualification_time"
+                android:layout_width="@dimen/dis_40"
+                android:layout_height="@dimen/dis_40"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="@dimen/dis_36"
+                android:scaleType="center"
+                android:src="@mipmap/ic_launcher" />
+
+
+            <EditText
+                android:id="@+id/et_operational_qualification_time"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginEnd="@dimen/dis_40"
+                android:layout_marginStart="@dimen/dis_24"
+                android:layout_toEndOf="@id/img_operational_qualification_time"
+                android:background="@color/white"
+                android:focusable="false"
+                android:focusableInTouchMode="false"
+                android:hint="@string/hint_input_operational"
+                android:singleLine="true"
+                android:textColor="@color/color_33"
+                android:textColorHint="@color/color_c7"
+                android:textSize="@dimen/font_size_15" />
+
+        </RelativeLayout>
+
+        <View
+            style="@style/view_hor_margin_line"
+            android:layout_marginEnd="@dimen/dis_36"
+            android:layout_marginStart="@dimen/dis_36" />
+
     </LinearLayout>
 
+
     <Button
-        android:id="@+id/btn_ok"
+        android:id="@+id/btn_next"
         android:layout_width="match_parent"
         android:layout_height="@dimen/dis_80"
         android:layout_marginEnd="@dimen/dis_60"
@@ -249,5 +248,6 @@
         android:background="@drawable/gradient_c7_ab"
         android:text="@string/app_save"
         android:textColor="@color/white" />
+
 
 </LinearLayout>

@@ -11,7 +11,6 @@ import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
-import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
 import android.widget.Button;
@@ -257,7 +256,6 @@ public class CardInfoActivity extends BaseActivity {
     };
 
     private void uploadImage(String path) {
-        Log.i("info", path + "\n" + expert);
 //        if (null != expert) {
         ArrayList<String> paths = new ArrayList<>();
         paths.add(path);
@@ -266,6 +264,7 @@ public class CardInfoActivity extends BaseActivity {
         params.put("access_token", expert.getAccess_token());
         // 分享照片：10 ， 达人头像：20， 身份证或导游证照片：30， 商城封面：40
         params.put("category", "30");
+        showProgress();
         UploadUtilsAsync uploadUtilsAsync = new UploadUtilsAsync(this, params, paths);
         uploadUtilsAsync.setListener(result -> {
             UploadImage resultImg = GsonHelper.parseObject(result,
@@ -309,9 +308,9 @@ public class CardInfoActivity extends BaseActivity {
 
 
     private void updateCard(String expertIcon) {
-        Log.i("info", expertIcon);
         ImageRequest imageRequest = new ImageRequest(expertIcon,
                 bitmap -> {
+                    hideProgress();
                     if (type == IMG_DRIVER) {
                         imgDriver.setImageBitmap(bitmap);
                     } else if (type == IMG_VEHICLE) {

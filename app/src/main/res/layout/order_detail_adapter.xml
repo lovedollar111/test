@@ -17,8 +17,8 @@
             android:id="@+id/img_product"
             android:layout_width="@dimen/dis_180"
             android:layout_height="@dimen/dis_80"
-            android:layout_marginStart="@dimen/dis_36"
-            android:layout_marginTop="@dimen/dis_50" />
+            android:layout_marginStart="@dimen/dis_12"
+            android:layout_marginTop="@dimen/dis_30" />
 
         <Button
             android:id="@+id/btn_return"
@@ -26,7 +26,7 @@
             android:layout_height="@dimen/dis_60"
             android:layout_alignParentEnd="true"
             android:layout_marginEnd="@dimen/dis_36"
-            android:layout_marginTop="@dimen/dis_50"
+            android:layout_marginTop="@dimen/dis_30"
             android:background="@drawable/gradient_f1_e0"
             android:text="@string/string_return"
             android:textColor="@color/white"

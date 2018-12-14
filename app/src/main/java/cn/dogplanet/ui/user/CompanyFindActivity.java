@@ -12,7 +12,9 @@ import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ListView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
@@ -32,12 +34,17 @@ import cn.dogplanet.app.util.KeyBoardUtils;
 import cn.dogplanet.app.util.StringUtils;
 import cn.dogplanet.app.util.ToastUtil;
 import cn.dogplanet.app.widget.EditTextWithDel;
+import cn.dogplanet.app.widget.niftymodaldialogeffects.Effectstype;
+import cn.dogplanet.app.widget.niftymodaldialogeffects.NiftyDialogBuilder;
 import cn.dogplanet.baiduApi.AutoCheck;
 import cn.dogplanet.baiduApi.IRecogListener;
 import cn.dogplanet.baiduApi.MessageStatusRecogListener;
 import cn.dogplanet.baiduApi.MyRecognizer;
 import cn.dogplanet.base.BaseActivity;
 import cn.dogplanet.constant.HttpUrl;
+import cn.dogplanet.constant.WCache;
+import cn.dogplanet.entity.Expert;
+import cn.dogplanet.entity.Resp;
 import cn.dogplanet.entity.Travel;
 import cn.dogplanet.entity.TravelResp;
 import cn.dogplanet.net.PublicReq;
@@ -50,6 +57,8 @@ public class CompanyFindActivity extends BaseActivity {
 
     public static final String COMPANY_ID = "find_company_id";
     public static final String COMPANY_NAME = "find_company_name";
+    public static final String COMPANY_TYPE = "find_company_type";
+
     @BindView(R.id.et_search)
     EditTextWithDel etSearch;
     @BindView(R.id.lay_search)
@@ -63,9 +72,15 @@ public class CompanyFindActivity extends BaseActivity {
 
     private MyRecognizer myRecognizer;
     private boolean flag=false;//判断是不是语音输入
+    private String type,old_travel_agency_id;
+    private Expert expert;
+    private List<Travel> travels;
 
-    public static Intent newIntent() {
-        return new Intent(GlobalContext.getInstance(), CompanyFindActivity.class);
+    public static Intent newIntent(String companyId,String type) {
+       Intent intent=new Intent(GlobalContext.getInstance(), CompanyFindActivity.class);
+       intent.putExtra(COMPANY_TYPE,type);
+       intent.putExtra(COMPANY_ID,companyId);
+       return intent;
     }
 
     @Override
@@ -73,6 +88,9 @@ public class CompanyFindActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_company_find);
         ButterKnife.bind(this);
+        type=getIntent().getStringExtra(COMPANY_TYPE);
+        old_travel_agency_id=getIntent().getStringExtra(COMPANY_ID);
+        expert= WCache.getCacheExpert();
         initView();
         IRecogListener listener = new MessageStatusRecogListener(new Handler(){
             @Override
@@ -240,25 +258,68 @@ public class CompanyFindActivity extends BaseActivity {
     }
 
     private void updateView(TravelResp resp) {
-        List<Travel> travels = resp.getTravelAgency();
-        if(travels!=null&&travels.size()>0){
+        travels = resp.getTravelAgency();
+        if(travels !=null&& travels.size()>0){
             tvTip.setVisibility(View.GONE);
             listCompany.setVisibility(View.VISIBLE);
             CompanyAdapter companyAdapter = new CompanyAdapter(resp.getTravelAgency(), this, false, "");
             listCompany.setAdapter(companyAdapter);
             companyAdapter.notifyDataSetChanged();
-            listCompany.setOnItemClickListener((parent, view, position, id) -> {
-                Intent intent = new Intent();
-                intent.putExtra(COMPANY_ID, travels.get(position).getId().toString());
-                intent.putExtra(COMPANY_NAME, travels.get(position).getName());
-                setResult(COMPANY_FIND_CODE, intent);
-                finish();
+            listCompany.setOnItemClickListener((parent, v, position, id) -> {
+                if(type.equals(CompanyListActivity.TYPE_CHANGE)){
+                    View view = LayoutInflater.from(this).inflate(R.layout.dialog_ok,
+                            null);
+                    NiftyDialogBuilder builder = NiftyDialogBuilder.getInstance(this);
+                    builder.setCustomView(view, this);
+                    builder.withEffect(Effectstype.Fadein);
+                    builder.show(); TextView tv_title = view.findViewById(R.id.title);
+                    tv_title.setText("提示");
+                    TextView tv_msg = view.findViewById(R.id.msg);
+                    tv_msg.setText("您的更换公司申请将提交给原公司，原公司同意后进入新公司审核流程，共计约7个工作日，请您耐心等待，在此期间内，您的账号无法进行下单操作。");
+                    Button button = view.findViewById(R.id.btn_ok);
+                    button.setText("确定");
+                    button.setOnClickListener(v1 -> {
+                        builder.dismiss();
+                        changeCompany(travels.get(position).getId().toString(),position);
+                    });
+                }else {
+                    Intent intent = new Intent();
+                    intent.putExtra(COMPANY_ID, travels.get(position).getId().toString());
+                    intent.putExtra(COMPANY_NAME, travels.get(position).getName());
+                    setResult(COMPANY_FIND_CODE, intent);
+                    finish();
+                }
+
             });
         }else{
             tvTip.setVisibility(View.VISIBLE);
             listCompany.setVisibility(View.GONE);
         }
 
+    }
+
+    private void changeCompany(String company_id,int position) {
+        if(!company_id.equals(old_travel_agency_id)){
+            Map<String, String> params = new HashMap<>();
+            params.put("expert_id", expert.getId().toString());
+            params.put("access_token", expert.getAccess_token());
+            params.put("old_travel_agency_id", old_travel_agency_id);
+            params.put("new_travel_agency_id", company_id);
+            PublicReq.request(HttpUrl.CHANGE_TRAVEL_AGENCY, response -> {
+                Resp resp = GsonHelper.parseObject(response, Resp.class);
+                if (resp != null && resp.isSuccess()) {
+                    ToastUtil.showMes("保存成功");
+                    Intent intent = new Intent();
+                    intent.putExtra(COMPANY_ID, travels.get(position).getId().toString());
+                    intent.putExtra(COMPANY_NAME, travels.get(position).getName());
+                    setResult(COMPANY_FIND_CODE, intent);
+                    finish();
+                } else {
+                    ToastUtil.showError(R.string.network_data_error);
+                }
+
+            }, error -> ToastUtil.showError(R.string.network_error), params);
+        }
     }
 
     @Override

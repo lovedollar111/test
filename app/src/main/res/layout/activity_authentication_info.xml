@@ -5,6 +5,514 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ui.user.InfoActivity"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:background="@color/back_gary">
+
+
+
+
+    <RelativeLayout style="@style/top_title_style" >
+
+        <ImageButton
+            android:id="@+id/btn_back"
+            android:layout_width="@dimen/dis_30"
+            android:layout_height="match_parent"
+            android:layout_alignParentStart="true"
+            android:layout_centerVertical="true"
+            android:background="#0000"
+            android:src="@mipmap/ic_launcher" />
+
+        <TextView
+            android:id="@+id/title"
+            style="@style/top_title_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="@string/set_info" />
+    </RelativeLayout>
+
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scrollbars="none"
+        android:background="@color/back_gary">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="@color/back_gary">
+            <LinearLayout
+                android:id="@+id/lay_txt"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:background="@drawable/back_round_white_30"
+                android:layout_marginTop="@dimen/dis_36"
+                android:layout_marginStart="@dimen/dis_36"
+                android:layout_marginEnd="@dimen/dis_36">
+
+                <RelativeLayout
+                    android:id="@+id/lay_name"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dis_80">
+
+                    <ImageView
+                        android:id="@+id/img_name"
+                        android:layout_width="@dimen/dis_40"
+                        android:layout_height="@dimen/dis_40"
+                        android:scaleType="center"
+                        android:src="@mipmap/ic_launcher"
+                        android:layout_marginStart="@dimen/dis_36"
+                        android:layout_centerVertical="true"
+                        />
+
+
+                    <TextView
+                        android:id="@+id/et_name"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_marginEnd="@dimen/dis_40"
+                        android:layout_marginStart="@dimen/dis_24"
+                        android:layout_toEndOf="@+id/img_name"
+                        android:background="@color/white"
+                        android:textColor="@color/color_33"
+                        android:textSize="@dimen/font_size_15"
+                        android:singleLine="true"
+                        />
+
+                </RelativeLayout>
+
+                <View
+                    style="@style/view_hor_margin_line"
+                    android:layout_marginStart="@dimen/dis_36"
+                    android:layout_marginEnd="@dimen/dis_36"
+                    />
+
+                <RelativeLayout
+                    android:id="@+id/lay_id_card"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dis_80">
+
+                    <ImageView
+                        android:id="@+id/img_id_card"
+                        android:layout_width="@dimen/dis_40"
+                        android:layout_height="@dimen/dis_40"
+                        android:scaleType="center"
+                        android:src="@mipmap/ic_launcher"
+                        android:layout_marginStart="@dimen/dis_36"
+                        android:layout_centerVertical="true"
+                        />
+
+
+                    <TextView
+                        android:id="@+id/et_id_card"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_toEndOf="@+id/img_id_card"
+                        android:background="@color/white"
+                        android:layout_marginStart="@dimen/dis_24"
+                        android:layout_marginEnd="@dimen/dis_40"
+                        android:textSize="@dimen/font_size_15"
+                        android:textColor="@color/color_33"
+                        android:layout_centerVertical="true"
+                        android:singleLine="true"
+                        android:imeOptions="actionDone"
+                        />
+
+                </RelativeLayout>
+
+                <View
+                    style="@style/view_hor_margin_line"
+                    android:layout_marginStart="@dimen/dis_36"
+                    android:layout_marginEnd="@dimen/dis_36"
+                    />
+
+
+                <RelativeLayout
+                    android:id="@+id/lay_company"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dis_80">
+
+                    <ImageView
+                        android:id="@+id/img_company"
+                        android:layout_width="@dimen/dis_40"
+                        android:layout_height="@dimen/dis_40"
+                        android:scaleType="center"
+                        android:src="@mipmap/ic_launcher"
+                        android:layout_marginStart="@dimen/dis_36"
+                        android:layout_centerVertical="true"
+                        />
+
+                    <ImageView
+                        android:id="@+id/img_company_choose"
+                        android:layout_width="@dimen/dis_30"
+                        android:layout_height="@dimen/dis_40"
+                        android:layout_alignParentEnd="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginEnd="@dimen/dis_36"
+                        android:paddingEnd="@dimen/dis_20"
+                        android:paddingStart="@dimen/dis_20"
+                        android:scaleType="center"
+                        android:src="@mipmap/ic_launcher" />
+
+                    <TextView
+                        android:id="@+id/et_company"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@color/white"
+                        android:layout_marginStart="@dimen/dis_24"
+                        android:layout_marginEnd="@dimen/dis_40"
+                        android:textSize="@dimen/font_size_15"
+                        android:textColor="@color/color_33"
+                        android:layout_toEndOf="@id/img_company"
+                        android:layout_toStartOf="@+id/img_company_choose"
+                        android:layout_centerVertical="true"
+                        android:singleLine="true"
+                        android:focusable="false"
+                        android:focusableInTouchMode="false"
+                        />
+
+                </RelativeLayout>
+
+                <View
+                    style="@style/view_hor_margin_line"
+                    android:layout_marginStart="@dimen/dis_36"
+                    android:layout_marginEnd="@dimen/dis_36"
+                    />
+
+
+                <RelativeLayout
+                    android:id="@+id/lay_driving_licence_time"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dis_80">
+
+                    <ImageView
+                        android:id="@+id/img_driving_licence_time"
+                        android:layout_width="@dimen/dis_40"
+                        android:layout_height="@dimen/dis_40"
+                        android:scaleType="center"
+                        android:src="@mipmap/ic_launcher"
+                        android:layout_marginStart="@dimen/dis_36"
+                        android:layout_centerVertical="true"
+                        />
+
+
+                    <TextView
+                        android:id="@+id/et_driving_licence_time"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_marginEnd="@dimen/dis_40"
+                        android:layout_marginStart="@dimen/dis_24"
+                        android:layout_toEndOf="@+id/img_driving_licence_time"
+                        android:background="@color/white"
+                        android:textColor="@color/color_33"
+                        android:textSize="@dimen/font_size_15"
+                        android:focusable="false"
+                        android:focusableInTouchMode="false"
+                        android:singleLine="true"/>
+
+                </RelativeLayout>
+
+                <View
+                    style="@style/view_hor_margin_line"
+                    android:layout_marginStart="@dimen/dis_36"
+                    android:layout_marginEnd="@dimen/dis_36"
+                    />
+
+                <RelativeLayout
+                    android:id="@+id/lay_vehicle_license_time"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dis_80">
+
+                    <ImageView
+                        android:id="@+id/img_vehicle_license_time"
+                        android:layout_width="@dimen/dis_40"
+                        android:layout_height="@dimen/dis_40"
+                        android:scaleType="center"
+                        android:src="@mipmap/ic_launcher"
+                        android:layout_marginStart="@dimen/dis_36"
+                        android:layout_centerVertical="true"
+                        />
+
+
+                    <TextView
+                        android:id="@+id/et_vehicle_license_time"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_toEndOf="@+id/img_vehicle_license_time"
+                        android:background="@color/white"
+                        android:layout_marginStart="@dimen/dis_24"
+                        android:layout_marginEnd="@dimen/dis_40"
+                        android:textSize="@dimen/font_size_15"
+                        android:textColor="@color/color_33"
+                        android:layout_centerVertical="true"
+                        android:singleLine="true"
+                        android:focusable="false"
+                        android:focusableInTouchMode="false"
+                        />
+
+                </RelativeLayout>
+
+                <View
+                    style="@style/view_hor_margin_line"
+                    android:layout_marginStart="@dimen/dis_36"
+                    android:layout_marginEnd="@dimen/dis_36"
+                    />
+
+
+                <RelativeLayout
+                    android:id="@+id/lay_operational_qualification_time"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dis_80">
+
+                    <ImageView
+                        android:id="@+id/img_operational_qualification_time"
+                        android:layout_width="@dimen/dis_40"
+                        android:layout_height="@dimen/dis_40"
+                        android:scaleType="center"
+                        android:src="@mipmap/ic_launcher"
+                        android:layout_marginStart="@dimen/dis_36"
+                        android:layout_centerVertical="true"
+                        />
+
+
+                    <TextView
+                        android:id="@+id/et_operational_qualification_time"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@color/white"
+                        android:layout_marginStart="@dimen/dis_24"
+                        android:layout_marginEnd="@dimen/dis_40"
+                        android:textSize="@dimen/font_size_15"
+                        android:textColor="@color/color_33"
+                        android:layout_toEndOf="@id/img_operational_qualification_time"
+                        android:layout_centerVertical="true"
+                        android:singleLine="true"
+                        android:focusable="false"
+                        android:focusableInTouchMode="false"
+                        />
+
+                </RelativeLayout>
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:background="@drawable/back_round_white_30"
+                android:layout_below="@+id/lay_txt"
+                android:layout_marginTop="@dimen/dis_36"
+                android:layout_marginStart="@dimen/dis_36"
+                android:layout_marginEnd="@dimen/dis_36">
+
+                <RelativeLayout
+                    android:id="@+id/lay_card_left"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dis_80">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_marginEnd="@dimen/dis_40"
+                        android:layout_marginStart="@dimen/dis_36"
+                        android:background="@color/white"
+                        android:textColor="@color/color_33"
+                        android:textSize="@dimen/font_size_15"
+                        android:singleLine="true"
+                        android:text="手持身份证正面照"
+                        />
+
+                    <ImageView
+                        android:layout_width="@dimen/dis_30"
+                        android:layout_height="@dimen/dis_40"
+                        android:layout_alignParentEnd="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginEnd="@dimen/dis_36"
+                        android:paddingEnd="@dimen/dis_20"
+                        android:paddingStart="@dimen/dis_20"
+                        android:scaleType="center"
+                        android:src="@mipmap/ic_launcher" />
+
+                </RelativeLayout>
+
+                <View
+                    style="@style/view_hor_margin_line"
+                    android:layout_marginStart="@dimen/dis_36"
+                    android:layout_marginEnd="@dimen/dis_36"
+                    />
+
+                <RelativeLayout
+                    android:id="@+id/lay_card_right"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dis_80">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_marginEnd="@dimen/dis_40"
+                        android:layout_marginStart="@dimen/dis_36"
+                        android:background="@color/white"
+                        android:textColor="@color/color_33"
+                        android:textSize="@dimen/font_size_15"
+                        android:singleLine="true"
+                        android:text="手持身份证反面照"
+                        />
+
+                    <ImageView
+                        android:layout_width="@dimen/dis_30"
+                        android:layout_height="@dimen/dis_40"
+                        android:layout_alignParentEnd="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginEnd="@dimen/dis_36"
+                        android:paddingEnd="@dimen/dis_20"
+                        android:paddingStart="@dimen/dis_20"
+                        android:scaleType="center"
+                        android:src="@mipmap/ic_launcher" />
+
+                </RelativeLayout>
+
+
+                <View
+                    style="@style/view_hor_margin_line"
+                    android:layout_marginStart="@dimen/dis_36"
+                    android:layout_marginEnd="@dimen/dis_36"
+                    />
+
+
+                <RelativeLayout
+                    android:id="@+id/lay_driving_licence"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dis_80">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_marginEnd="@dimen/dis_40"
+                        android:layout_marginStart="@dimen/dis_36"
+                        android:background="@color/white"
+                        android:textColor="@color/color_33"
+                        android:textSize="@dimen/font_size_15"
+                        android:singleLine="true"
+                        android:text="手持驾驶证"
+                        />
+
+                    <ImageView
+                        android:layout_width="@dimen/dis_30"
+                        android:layout_height="@dimen/dis_40"
+                        android:layout_alignParentEnd="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginEnd="@dimen/dis_36"
+                        android:paddingEnd="@dimen/dis_20"
+                        android:paddingStart="@dimen/dis_20"
+                        android:scaleType="center"
+                        android:src="@mipmap/ic_launcher" />
+
+                </RelativeLayout>
+
+
+                <View
+                    style="@style/view_hor_margin_line"
+                    android:layout_marginStart="@dimen/dis_36"
+                    android:layout_marginEnd="@dimen/dis_36"
+                    />
+
+
+                <RelativeLayout
+                    android:id="@+id/lay_vehicle_license"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dis_80">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_marginEnd="@dimen/dis_40"
+                        android:layout_marginStart="@dimen/dis_36"
+                        android:background="@color/white"
+                        android:textColor="@color/color_33"
+                        android:textSize="@dimen/font_size_15"
+                        android:singleLine="true"
+                        android:text="手持行驶证"
+                        />
+
+                    <ImageView
+                        android:layout_width="@dimen/dis_30"
+                        android:layout_height="@dimen/dis_40"
+                        android:layout_alignParentEnd="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginEnd="@dimen/dis_36"
+                        android:paddingEnd="@dimen/dis_20"
+                        android:paddingStart="@dimen/dis_20"
+                        android:scaleType="center"
+                        android:src="@mipmap/ic_launcher" />
+
+                </RelativeLayout>
+
+
+                <View
+                    style="@style/view_hor_margin_line"
+                    android:layout_marginStart="@dimen/dis_36"
+                    android:layout_marginEnd="@dimen/dis_36"
+                    />
+
+                <RelativeLayout
+                    android:id="@+id/lay_operational_qualification"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dis_80">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_marginEnd="@dimen/dis_40"
+                        android:layout_marginStart="@dimen/dis_36"
+                        android:background="@color/white"
+                        android:textColor="@color/color_33"
+                        android:textSize="@dimen/font_size_15"
+                        android:singleLine="true"
+                        android:text="手持运营资质"
+                        />
+
+                    <ImageView
+                        android:layout_width="@dimen/dis_30"
+                        android:layout_height="@dimen/dis_40"
+                        android:layout_alignParentEnd="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginEnd="@dimen/dis_36"
+                        android:paddingEnd="@dimen/dis_20"
+                        android:paddingStart="@dimen/dis_20"
+                        android:scaleType="center"
+                        android:src="@mipmap/ic_launcher" />
+
+                </RelativeLayout>
+
+            </LinearLayout>
+
+
+            <ImageView
+                android:id="@+id/img_status"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/dis_100"
+                android:layout_alignParentEnd="true"
+                android:layout_marginTop="@dimen/dis_60"
+                android:src="@mipmap/ic_launcher"
+                android:visibility="gone"
+                />
+
+        </RelativeLayout>
+
+
+    </ScrollView>
+
 
 </LinearLayout>

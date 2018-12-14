@@ -106,7 +106,7 @@
             android:id="@+id/lay_safe"
             android:layout_width="match_parent"
             android:layout_height="@dimen/dis_88"
-            android:layout_marginTop="@dimen/dis_30"
+            android:layout_marginTop="@dimen/dis_10"
             android:background="@drawable/back_round_white_30">
 
 
@@ -141,7 +141,7 @@
             android:id="@+id/lay_invite"
             android:layout_width="match_parent"
             android:layout_height="@dimen/dis_88"
-            android:layout_marginTop="@dimen/dis_30"
+            android:layout_marginTop="@dimen/dis_10"
             android:background="@drawable/back_round_white_30">
 
 
@@ -176,8 +176,8 @@
             android:id="@+id/lay_about"
             android:layout_width="match_parent"
             android:layout_height="@dimen/dis_88"
-            android:layout_marginBottom="@dimen/dis_20"
-            android:layout_marginTop="@dimen/dis_30">
+            android:layout_marginBottom="@dimen/dis_10"
+            android:layout_marginTop="@dimen/dis_10">
 
 
             <ImageView

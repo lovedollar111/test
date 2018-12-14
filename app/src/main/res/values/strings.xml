@@ -110,7 +110,7 @@
     <!-- 个人中心 -->
     <string name="user_setting">设置</string>
     <string name="user_setting_calendar">接单设置</string>
-    <string name="user_setting_profile">个人资料</string>
+    <string name="user_setting_profile">个人信息</string>
     <string name="user_input_name_tip">请输入姓名</string>
     <string name="user_input_card_tip">请输入正确身份证号码</string>
     <string name="user_setting_password">修改登录密码</string>
@@ -158,6 +158,7 @@
     <string name="hint_invite">请输入邀请码（选填）</string>
     <string name="set_password">设置密码</string>
     <string name="set_info">认证信息</string>
+    <string name="edit_info">修改认证信息</string>
     <string name="set_img">上传证件</string>
     <string name="next">下一步</string>
     <string name="hint_input_name">输入真实姓名且与身份证保持一致</string>
@@ -230,4 +231,8 @@
     <string name="string_invite">邀请好友</string>
     <string name="string_about">关于汪汪</string>
     <string name="string_quit">退出登录</string>
+    <string name="string_set_password">密码设置</string>
+    <string name="about_ww">关于汪汪</string>
+    <string name="string_update">版本更新</string>
+    <string name="string_msg">意见反馈</string>
 </resources>

@@ -124,11 +124,10 @@ public class OrderAdapter extends BaseAdapter {
             holder.btnPay.setVisibility(View.GONE);
             holder.viewLine.setVisibility(View.GONE);
         } else {
-
             switch (status) {
                 case OrderDetail.ORDER_TYPE_WAIT:
-                    holder.btnPay.setVisibility(View.GONE);
-                    holder.viewLine.setVisibility(View.GONE);
+                    holder.btnPay.setVisibility(View.VISIBLE);
+                    holder.viewLine.setVisibility(View.VISIBLE);
                     break;
                 case OrderDetail.ORDER_TYPE_SUCCESS:
                     holder.btnPay.setVisibility(View.GONE);
