@@ -57,7 +57,49 @@ public class ProductDetail {
 
 	private String url;
 
-	private boolean no_ticket;//是否需要门票
+	private boolean no_ticket;//是否需要门票 true表示不需要购买门票，false表示需要先购买门票
+
+    private canBuyNum canBuyNum;
+    private canBuy canBuy;
+
+    private boolean travel_agency_status; //true 此旅行社状态可以下单 false 不能下单
+    private String travel_agency_message;
+    private boolean authentication_status;  //true 可以下单 false 不能下单
+    private String authentication_message;
+    private boolean can_join_cart;
+
+    public boolean getTravel_agency_status() {
+        return travel_agency_status;
+    }
+
+    public void setTravel_agency_status(boolean travel_agency_status) {
+        this.travel_agency_status = travel_agency_status;
+    }
+
+    public String getTravel_agency_message() {
+        return travel_agency_message;
+    }
+
+    public void setTravel_agency_message(String travel_agency_message) {
+        this.travel_agency_message = travel_agency_message;
+    }
+
+    public boolean getAuthentication_status() {
+        return authentication_status;
+    }
+
+    public void setAuthentication_status(boolean authentication_status) {
+        this.authentication_status = authentication_status;
+    }
+
+    public String getAuthentication_message() {
+        return authentication_message;
+    }
+
+    public void setAuthentication_message(String authentication_message) {
+        this.authentication_message = authentication_message;
+    }
+
 
 	public String getBuy_status() {
 		return buy_status;
@@ -307,4 +349,72 @@ public class ProductDetail {
 	public void setNo_ticket(boolean no_ticket) {
 		this.no_ticket = no_ticket;
 	}
+
+    public boolean getCan_join_cart() {
+        return can_join_cart;
+    }
+
+    public void setCan_join_cart(boolean can_join_cart) {
+        this.can_join_cart = can_join_cart;
+    }
+
+    public ProductDetail.canBuy getCanBuy() {
+        return canBuy;
+    }
+
+    public void setCanBuy(ProductDetail.canBuy canBuy) {
+        this.canBuy = canBuy;
+    }
+
+    public ProductDetail.canBuyNum getCanBuyNum() {
+        return canBuyNum;
+    }
+
+    public void setCanBuyNum(ProductDetail.canBuyNum canBuyNum) {
+        this.canBuyNum = canBuyNum;
+    }
+
+
+    public class canBuy{
+        private boolean status;
+        private int time;
+        private String msg;
+
+        public boolean getStatus() {
+            return status;
+        }
+
+        public void setStatus(boolean status) {
+            this.status = status;
+        }
+
+        public int getTime() {
+            return time;
+        }
+
+        public void setTime(int time) {
+            this.time = time;
+        }
+
+        public String getMsg() {
+            return msg;
+        }
+
+        public void setMsg(String msg) {
+            this.msg = msg;
+        }
+    }
+
+    public class canBuyNum{
+
+        private int number;
+
+        public int getNumber() {
+            return number;
+        }
+
+        public void setNumber(int number) {
+            this.number = number;
+        }
+    }
 }

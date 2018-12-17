@@ -9,7 +9,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.WindowManager;
-import android.widget.LinearLayout;
 import android.widget.ListView;
 
 import org.greenrobot.eventbus.EventBus;
@@ -54,11 +53,9 @@ public class PersonMsgActivity extends BaseActivity implements OnClickListener {
 
     @BindView(R.id.shop_list)
     ListView shopList;
-    @BindView(R.id.et_name)
+
     EditTextWithDel etName;
-    @BindView(R.id.et_phone)
     EditTextWithDel etPhone;
-    @BindView(R.id.et_idcard)
     EditTextWithDel etIdcard;
 
     private Expert expert;
@@ -105,6 +102,9 @@ public class PersonMsgActivity extends BaseActivity implements OnClickListener {
         View view = LayoutInflater.from(getApplicationContext()).inflate(
                 R.layout.listview_head, null);
         shopList.addHeaderView(view);
+        etIdcard = view.findViewById(R.id.et_id_card);
+        etPhone = view.findViewById(R.id.et_phone);
+        etName = view.findViewById(R.id.et_name);
     }
 
     @Subscribe(threadMode = ThreadMode.MAIN, sticky = true)

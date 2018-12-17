@@ -18,7 +18,8 @@
         android:layout_width="@dimen/dis_200"
         android:layout_height="@dimen/dis_80"
         android:background="@drawable/gradient_num"
-        android:textColor="@color/white" />
+        android:textColor="@color/white"
+        android:gravity="center"/>
 
 
     <TextView

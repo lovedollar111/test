@@ -2,7 +2,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:background="@color/color_f5" >
+    android:background="@color/back_gary" >
 
     <RelativeLayout
         android:id="@+id/titleLayout"
@@ -88,7 +88,9 @@
         android:layout_above="@id/layout"
         android:layout_below="@id/titleLayout"
         android:background="@color/back_gary"
-        android:divider="@color/color_f5"
+        android:divider="@color/back_gary"
+        android:layout_marginStart="@dimen/dis_24"
+        android:layout_marginEnd="@dimen/dis_24"
         android:dividerHeight="@dimen/dis_15" />
 
 

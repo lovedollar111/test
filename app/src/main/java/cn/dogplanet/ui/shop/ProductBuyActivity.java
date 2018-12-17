@@ -1,20 +1,14 @@
 package cn.dogplanet.ui.shop;
 
 import android.annotation.SuppressLint;
-import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
-import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentPagerAdapter;
-import android.support.v4.app.FragmentStatePagerAdapter;
 import android.support.v4.app.FragmentTransaction;
-import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatDelegate;
-import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
@@ -43,7 +37,6 @@ import cn.dogplanet.R;
 import cn.dogplanet.app.util.GsonHelper;
 import cn.dogplanet.app.util.StringUtils;
 import cn.dogplanet.app.util.ToastUtil;
-import cn.dogplanet.app.widget.CustomScrollViewPager;
 import cn.dogplanet.app.widget.HoldTabScrollView;
 import cn.dogplanet.app.widget.bannerViewPager.BannerPagerAdapter;
 import cn.dogplanet.app.widget.bannerViewPager.BannerTimerTask;
@@ -53,17 +46,11 @@ import cn.dogplanet.constant.HttpUrl;
 import cn.dogplanet.constant.WCache;
 import cn.dogplanet.entity.Expert;
 import cn.dogplanet.entity.OrderPayResp;
-import cn.dogplanet.entity.Product;
 import cn.dogplanet.entity.ProductDetail;
 import cn.dogplanet.entity.ProductResp;
 import cn.dogplanet.entity.Resp;
 import cn.dogplanet.entity.ShopBuyDetail;
 import cn.dogplanet.net.PublicReq;
-import cn.dogplanet.net.volley.Response;
-import cn.dogplanet.net.volley.VolleyError;
-import cn.dogplanet.ui.OrderFragment;
-import cn.dogplanet.ui.ShopFragment;
-import cn.dogplanet.ui.UserFragment;
 
 public class ProductBuyActivity extends BaseFragmentActivity implements HoldTabScrollView.OnHoldTabScrollViewScrollChanged {
 
@@ -128,7 +115,6 @@ public class ProductBuyActivity extends BaseFragmentActivity implements HoldTabS
 
 
     private int mHeight = 0;
-    private boolean canJump = true;
 
     private String product_id;
     private Expert expert;
@@ -209,8 +195,6 @@ public class ProductBuyActivity extends BaseFragmentActivity implements HoldTabS
                         if (resp.isSuccess()) {
                             product = resp.getProduct();
                             updateView();
-                        } else {
-                            ToastUtil.showError(resp.getMsg());
                         }
                     } else {
                         ToastUtil.showError(R.string.network_data_error);
@@ -242,6 +226,43 @@ public class ProductBuyActivity extends BaseFragmentActivity implements HoldTabS
                 order_num = num;
                 tvPrice.setText(String.valueOf(num * product.getPrice()));
                 price = num * product.getPrice();
+                if (num != 0) {
+                    if (product.getCan_join_cart()) {
+                        btnJoinCart.setVisibility(View.VISIBLE);
+                        btnJoinCart.setBackgroundResource(R.drawable.gradient_btn_red_left);
+                        btnBuy.setBackgroundResource(R.drawable.gradient_btn_red_right);
+                        if(product.getCanBuyNum().getNumber()>0&&product.getTravel_agency_status()&&product.getAuthentication_status()){
+                            btnBuy.setEnabled(true);
+                            btnJoinCart.setEnabled(true);
+                        }else{
+                            btnBuy.setEnabled(false);
+                            btnJoinCart.setEnabled(false);
+                        }
+                    } else {
+                        btnJoinCart.setVisibility(View.GONE);
+                        btnJoinCart.setBackgroundResource(R.drawable.gradient_btn_red_left);
+                        btnBuy.setBackgroundResource(R.drawable.gradient_f1_e0);
+                        if(product.getCanBuy().getStatus()&&product.getTravel_agency_status()&&product.getAuthentication_status()){
+                            btnBuy.setEnabled(true);
+                            btnJoinCart.setEnabled(true);
+                        }else{
+                            btnBuy.setEnabled(false);
+                            btnJoinCart.setEnabled(false);
+                        }
+                    }
+                } else {
+                    if (product.getCan_join_cart()) {
+                        btnJoinCart.setVisibility(View.VISIBLE);
+                        btnJoinCart.setBackgroundResource(R.drawable.gradient_btn_gray_left);
+                        btnBuy.setBackgroundResource(R.drawable.gradient_btn_gray_right);
+                    } else {
+                        btnJoinCart.setVisibility(View.GONE);
+                        btnJoinCart.setBackgroundResource(R.drawable.gradient_btn_gray_left);
+                        btnBuy.setBackgroundResource(R.drawable.gradient_c7_ab);
+                    }
+                    btnBuy.setEnabled(false);
+                    btnJoinCart.setEnabled(false);
+                }
             }
         });
         is_rem = product.getRecommend();
@@ -254,6 +275,42 @@ public class ProductBuyActivity extends BaseFragmentActivity implements HoldTabS
                 items[i] = item;
             }
             notifyHomeAdapter(items);
+        }
+        if (product.getCan_join_cart()) {
+            if(productBuyFragment!=null){
+                productBuyFragment.hideNumBtn(product.getCanBuyNum().getNumber());
+            }
+        } else {
+            if (!product.getCanBuy().getStatus()) {
+                int time = product.getTime();
+                int hour = time / 3600;
+                int min = (time - hour * 3600) / 60;
+                int second = time - hour * 3600 - min * 60;
+                if (StringUtils.isNotBlank(product.getCanBuy().getMsg())) {
+                    ToastUtil.showError(product.getCanBuy().getMsg());
+
+                } else {
+                    ToastUtil.showError(String.format("当前时段暂不可购买该产品，请%d小时%d分%d秒后再试", hour, min, second));
+                }
+                productBuyFragment.hideNumBtn(product.getMost());
+            }
+        }
+
+        if (!product.getAuthentication_status()) {
+            ToastUtil.showError(product.getAuthentication_message());
+        }
+
+        if (!product.getTravel_agency_status()) {
+            ToastUtil.showError(product.getTravel_agency_message());
+        }
+        if (product.getCan_join_cart()) {
+            btnJoinCart.setVisibility(View.VISIBLE);
+            btnJoinCart.setBackgroundResource(R.drawable.gradient_btn_gray_left);
+            btnBuy.setBackgroundResource(R.drawable.gradient_btn_gray_right);
+        } else {
+            btnJoinCart.setVisibility(View.GONE);
+            btnJoinCart.setBackgroundResource(R.drawable.gradient_btn_gray_left);
+            btnBuy.setBackgroundResource(R.drawable.gradient_c7_ab);
         }
     }
 
@@ -326,7 +383,7 @@ public class ProductBuyActivity extends BaseFragmentActivity implements HoldTabS
 
 
     private void buy() {
-        ShopBuyDetail detail=new ShopBuyDetail();
+        ShopBuyDetail detail = new ShopBuyDetail();
         detail.setId(product.getPoi_id());
         detail.setCategory(String.valueOf(product.getCategory()));
         detail.setType(ShopBuyDetail.TYPE_DETAIL);
@@ -336,6 +393,7 @@ public class ProductBuyActivity extends BaseFragmentActivity implements HoldTabS
         detail.setTime(order_date);
         detail.setPrice(String.valueOf(product.getPrice()));
         EventBus.getDefault().postSticky(detail);
+        startActivity(PersonMsgActivity.newIntent());
     }
 
     private void joinCart() {
@@ -382,16 +440,16 @@ public class ProductBuyActivity extends BaseFragmentActivity implements HoldTabS
             params.put("type", is_rem ? "20" : "10");
             PublicReq.request(HttpUrl.EDIT_RECOMMEND_PRODUCT, response -> {
                 if (StringUtils.isNotBlank(response)) {
-                     Resp resp=GsonHelper.parseObject(response, Resp.class);
-                     if(resp!=null){
-                         if(resp.isSuccess()){
-                             is_rem=!is_rem;
-                             //todo
-                         }
-                         ToastUtil.showMes(resp.getMsg());
-                     }else{
-                         ToastUtil.showError(R.string.network_data_error);
-                     }
+                    Resp resp = GsonHelper.parseObject(response, Resp.class);
+                    if (resp != null) {
+                        if (resp.isSuccess()) {
+                            is_rem = !is_rem;
+                            //todo
+                        }
+                        ToastUtil.showMes(resp.getMsg());
+                    } else {
+                        ToastUtil.showError(R.string.network_data_error);
+                    }
                 }
             }, error -> {
                 ToastUtil.showError(R.string.network_error);
@@ -451,13 +509,11 @@ public class ProductBuyActivity extends BaseFragmentActivity implements HoldTabS
             if (layTop.getVisibility() == View.GONE) {
                 layTop.setVisibility(View.VISIBLE);
                 layChoose.setVisibility(View.GONE);
-                canJump = false;
             }
         } else {
             if (layTop.getVisibility() == View.VISIBLE) {
                 layTop.setVisibility(View.GONE);
                 layChoose.setVisibility(View.VISIBLE);
-                canJump = true;
             }
         }
     }
