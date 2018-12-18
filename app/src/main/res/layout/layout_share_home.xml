@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/pop_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#0000">
+
+
+    <RelativeLayout
+        android:id="@+id/lay_2vm"
+        android:layout_width="match_parent"
+        android:layout_height="300dp"
+        android:layout_marginTop="@dimen/dis_200"
+        android:layout_marginEnd="@dimen/dis_100"
+        android:layout_marginStart="@dimen/dis_100"
+        android:background="@drawable/back_round_white_30"
+        >
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="@dimen/dis_100"
+            android:layout_marginEnd="@dimen/dis_60"
+            android:layout_marginStart="@dimen/dis_60"
+            android:layout_marginTop="@dimen/dis_70">
+
+
+            <ImageView
+                android:id="@+id/img_2vm"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+
+            <ImageView
+                android:layout_width="@dimen/dis_120"
+                android:layout_height="@dimen/dis_120"
+                android:layout_centerInParent="true"
+                android:src="@mipmap/logo" />
+        </RelativeLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="@dimen/dis_50"
+            android:text="扫码了解更多好吃好玩的地方"
+            android:textColor="@color/color_c7"
+            android:textSize="@dimen/font_size_11" />
+
+    </RelativeLayout>
+
+    <ImageView
+        android:id="@+id/btn_close"
+        android:layout_width="@dimen/dis_45"
+        android:layout_height="@dimen/dis_45"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginEnd="66dp"
+        android:layout_marginTop="67dp"
+        android:src="@mipmap/logo" />
+
+    <TextView
+        android:id="@+id/tv_share"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="@dimen/dis_50"
+        android:text="分享产品到"
+        android:textColor="@color/color_c7"
+        android:textSize="@dimen/font_size_11"
+        android:layout_below="@+id/lay_2vm"/>
+
+
+    <GridView
+        android:id="@+id/gridView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dis_30"
+        android:layout_below="@id/tv_share"
+        android:numColumns="5"/>
+
+</RelativeLayout>

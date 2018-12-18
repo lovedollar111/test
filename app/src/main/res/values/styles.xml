@@ -17,7 +17,7 @@
 
     <!-- 自己写的的style 风格，加了个图片 -->
     <style name="AppThemeDrawable" parent="android:Theme.Holo.Light.NoActionBar">
-        <item name="android:windowBackground">@drawable/launcher</item>
+        <item name="android:windowBackground">@mipmap/splash</item>
     </style>
 
     <style name="dialog_transparent">

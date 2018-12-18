@@ -10,7 +10,6 @@
     <dimen name="header_footer_top_bottom_padding">10dp</dimen>
     <dimen name="main_title_text_size">18sp</dimen>
     <dimen name="dis_80">40dp</dimen>
-    <dimen name="dis_45">45dp</dimen>
     <dimen name="btn_radius">5dp</dimen>
     <dimen name="login_padding_left">50dp</dimen>
     <dimen name="login_padding_right">50dp</dimen>
@@ -41,15 +40,19 @@
     <dimen name="dis_36">18dp</dimen>
     <dimen name="dis_40">20dp</dimen>
     <dimen name="dis_44">22dp</dimen>
+    <dimen name="dis_45">22.5dp</dimen>
     <dimen name="dis_48">24dp</dimen>
     <dimen name="dis_50">25dp</dimen>
     <dimen name="dis_54">27dp</dimen>
     <dimen name="dis_55">27.5dp</dimen>
     <dimen name="dis_60">30dp</dimen>
+    <dimen name="dis_64">32dp</dimen>
     <dimen name="dis_70">35dp</dimen>
     <dimen name="dis_72">36dp</dimen>
     <dimen name="dis_75">37.5dp</dimen>
+    <dimen name="dis_84">42dp</dimen>
     <dimen name="dis_88">44dp</dimen>
+    <dimen name="dis_90">45dp</dimen>
     <dimen name="dis_100">50dp</dimen>
     <dimen name="dis_108">54dp</dimen>
     <dimen name="dis_120">60dp</dimen>
@@ -61,6 +64,8 @@
     <dimen name="dis_180">90dp</dimen>
     <dimen name="dis_200">100dp</dimen>
     <dimen name="dis_240">120dp</dimen>
+    <dimen name="dis_270">135dp</dimen>
+    <dimen name="dis_400">200dp</dimen>
     <dimen name="dis_480">240dp</dimen>
 
     <dimen name="font_size_26">26sp</dimen>

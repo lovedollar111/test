@@ -17,8 +17,7 @@
             android:id="@+id/share_icon"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"
-            android:src="@mipmap/weixin_friends" />
+            android:layout_centerHorizontal="true" />
 
 
         <TextView
@@ -29,8 +28,7 @@
             android:layout_centerHorizontal="true"
             android:paddingBottom="@dimen/dis_10"
             android:paddingTop="@dimen/dis_10"
-            android:text="微信"
-            android:textColor="#282C36"
+            android:textColor="@color/white"
             android:textSize="@dimen/font_size_12" />
     </RelativeLayout>
 
@@ -38,7 +36,7 @@
         android:id="@id/view_line"
         android:layout_width="1dp"
         android:layout_height="33dp"
-        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
         android:layout_marginTop="@dimen/dis_30"
         android:background="@color/color_e0" />
 

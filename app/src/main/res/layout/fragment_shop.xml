@@ -2,10 +2,17 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:idv="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/lay_main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/white">
 
+    <View
+        android:id="@+id/lay_back"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#8c000000"
+        android:visibility="gone"/>
 
     <cn.dogplanet.app.widget.library.PullToRefreshScrollView
         android:id="@+id/scr_main"
@@ -23,7 +30,7 @@
 
             <RelativeLayout
                 android:layout_width="match_parent"
-                android:layout_height="180dp"
+                android:layout_height="@dimen/dis_400"
                 android:background="@color/white">
 
                 <android.support.v4.view.ViewPager
@@ -49,7 +56,7 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/dis_136"
+                android:layout_height="@dimen/dis_200"
                 android:background="@color/white"
                 android:gravity="center_vertical"
                 android:orientation="horizontal">
@@ -63,17 +70,18 @@
                     android:orientation="vertical">
 
                     <ImageView
-                        android:layout_width="@dimen/dis_60"
-                        android:layout_height="@dimen/dis_60"
-                        android:layout_marginBottom="@dimen/dis_10"
-                        android:scaleType="center"
-                        android:src="@mipmap/ic_launcher" />
+                        android:layout_width="@dimen/dis_90"
+                        android:layout_height="@dimen/dis_80"
+                        android:layout_marginBottom="@dimen/dis_20"
+                        android:scaleType="centerCrop"
+                        android:src="@drawable/ic_ticket" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="门船票"
-                        android:textSize="@dimen/font_size_12" />
+                        android:textColor="@color/color_33"
+                        android:textSize="@dimen/font_size_13" />
 
                 </LinearLayout>
 
@@ -86,17 +94,18 @@
                     android:orientation="vertical">
 
                     <ImageView
-                        android:layout_width="@dimen/dis_60"
-                        android:layout_height="@dimen/dis_60"
-                        android:layout_marginBottom="@dimen/dis_10"
-                        android:scaleType="center"
-                        android:src="@mipmap/ic_launcher" />
+                        android:layout_width="@dimen/dis_90"
+                        android:layout_height="@dimen/dis_80"
+                        android:layout_marginBottom="@dimen/dis_20"
+                        android:scaleType="centerCrop"
+                        android:src="@drawable/ic_diving" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="潜水类"
-                        android:textSize="@dimen/font_size_12" />
+                        android:textColor="@color/color_33"
+                        android:textSize="@dimen/font_size_13" />
 
                 </LinearLayout>
 
@@ -109,17 +118,18 @@
                     android:orientation="vertical">
 
                     <ImageView
-                        android:layout_width="@dimen/dis_60"
-                        android:layout_height="@dimen/dis_60"
-                        android:layout_marginBottom="@dimen/dis_10"
-                        android:scaleType="center"
-                        android:src="@mipmap/ic_launcher" />
+                        android:layout_width="@dimen/dis_90"
+                        android:layout_height="@dimen/dis_80"
+                        android:layout_marginBottom="@dimen/dis_20"
+                        android:scaleType="centerCrop"
+                        android:src="@drawable/ic_sea" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="海上娱乐"
-                        android:textSize="@dimen/font_size_12" />
+                        android:textColor="@color/color_33"
+                        android:textSize="@dimen/font_size_13" />
 
                 </LinearLayout>
 
@@ -132,17 +142,18 @@
                     android:orientation="vertical">
 
                     <ImageView
-                        android:layout_width="@dimen/dis_60"
-                        android:layout_height="@dimen/dis_60"
-                        android:layout_marginBottom="@dimen/dis_10"
-                        android:scaleType="center"
-                        android:src="@mipmap/ic_launcher" />
+                        android:layout_width="@dimen/dis_90"
+                        android:layout_height="@dimen/dis_80"
+                        android:layout_marginBottom="@dimen/dis_20"
+                        android:scaleType="centerCrop"
+                        android:src="@drawable/ic_land" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="陆地玩乐"
-                        android:textSize="@dimen/font_size_12" />
+                        android:textColor="@color/color_33"
+                        android:textSize="@dimen/font_size_13" />
 
                 </LinearLayout>
 
@@ -155,17 +166,18 @@
                     android:orientation="vertical">
 
                     <ImageView
-                        android:layout_width="@dimen/dis_60"
-                        android:layout_height="@dimen/dis_60"
-                        android:layout_marginBottom="@dimen/dis_10"
-                        android:scaleType="center"
-                        android:src="@mipmap/ic_launcher" />
+                        android:layout_width="@dimen/dis_90"
+                        android:layout_height="@dimen/dis_80"
+                        android:layout_marginBottom="@dimen/dis_20"
+                        android:scaleType="centerCrop"
+                        android:src="@drawable/ic_other" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="其他套票"
-                        android:textSize="@dimen/font_size_12" />
+                        android:textColor="@color/color_33"
+                        android:textSize="@dimen/font_size_13" />
 
                 </LinearLayout>
 
@@ -181,16 +193,16 @@
 
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="@dimen/dis_80"
+                    android:layout_height="@dimen/dis_84"
                     android:orientation="horizontal">
 
                     <ImageView
                         android:layout_width="@dimen/dis_40"
                         android:layout_height="@dimen/dis_40"
                         android:layout_gravity="center_vertical"
-                        android:layout_marginEnd="@dimen/dis_10"
+                        android:layout_marginEnd="@dimen/dis_15"
                         android:layout_marginStart="@dimen/dis_24"
-                        android:src="@mipmap/ic_launcher" />
+                        android:src="@drawable/ic_rem_product" />
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -227,7 +239,7 @@
 
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="@dimen/dis_80"
+                    android:layout_height="@dimen/dis_84"
                     android:orientation="horizontal">
 
                     <ImageView
@@ -235,8 +247,8 @@
                         android:layout_height="@dimen/dis_40"
                         android:layout_gravity="center_vertical"
                         android:layout_marginEnd="@dimen/dis_10"
-                        android:layout_marginStart="@dimen/dis_24"
-                        android:src="@mipmap/ic_launcher" />
+                        android:layout_marginStart="@dimen/dis_18"
+                        android:src="@drawable/ic_new" />
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -251,34 +263,48 @@
                 <cn.dogplanet.app.widget.RoundCornerImageView
                     android:id="@+id/img_new_product"
                     android:layout_width="match_parent"
-                    android:layout_height="105dp"
-                    android:layout_marginEnd="@dimen/dis_24"
-                    android:layout_marginStart="@dimen/dis_24" />
+                    android:layout_height="@dimen/dis_270"
+                    android:layout_marginEnd="@dimen/dis_18"
+                    android:layout_marginStart="@dimen/dis_18"
+                    android:scaleType="centerCrop" />
 
                 <TextView
                     android:id="@+id/tv_new_product_name"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content" />
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dis_20"
+                    android:textColor="@color/color_33"
+                    android:textSize="@dimen/font_size_15" />
 
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:gravity="center_horizontal">
+                    android:layout_height="@dimen/dis_40"
+                    android:layout_gravity="center"
+                    android:gravity="center">
 
                     <ImageView
-                        android:layout_width="@dimen/dis_10"
-                        android:layout_height="@dimen/dis_10" />
+                        android:layout_width="@dimen/dis_20"
+                        android:layout_height="@dimen/dis_20"
+                        android:scaleType="centerCrop"
+                        android:src="@drawable/ic_price" />
 
                     <TextView
                         android:id="@+id/tv_new_product_price"
                         android:layout_width="wrap_content"
-                        android:layout_height="wrap_content" />
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/dis_5"
+                        android:textColor="@color/color_8e"
+                        android:textSize="@dimen/font_size_13" />
                 </LinearLayout>
 
                 <TextView
                     android:id="@+id/tv_new_product_introduce"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content" />
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/dis_30"
+                    android:layout_marginTop="@dimen/dis_5"
+                    android:textColor="@color/color_8e"
+                    android:textSize="@dimen/font_size_13" />
             </LinearLayout>
 
             <LinearLayout
@@ -290,7 +316,7 @@
 
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="@dimen/dis_80"
+                    android:layout_height="@dimen/dis_84"
                     android:orientation="horizontal">
 
                     <ImageView
@@ -299,7 +325,7 @@
                         android:layout_gravity="center_vertical"
                         android:layout_marginEnd="@dimen/dis_10"
                         android:layout_marginStart="@dimen/dis_24"
-                        android:src="@mipmap/ic_launcher" />
+                        android:src="@drawable/ic_hot" />
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -331,25 +357,25 @@
 
     <ImageView
         android:id="@+id/img_2vm"
-        android:layout_width="@dimen/dis_28"
-        android:layout_height="@dimen/dis_72"
+        android:layout_width="@dimen/dis_40"
+        android:layout_height="@dimen/dis_64"
         android:layout_alignParentEnd="true"
         android:layout_alignParentTop="true"
         android:layout_marginEnd="@dimen/dis_24"
         android:layout_marginTop="@dimen/dis_60"
         android:scaleType="center"
-        android:src="@mipmap/ic_launcher" />
+        android:src="@drawable/tvm_select" />
 
     <RelativeLayout
         android:id="@+id/lay_search"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/dis_72"
+        android:layout_height="@dimen/dis_64"
         android:layout_marginBottom="@dimen/dis_8"
         android:layout_marginEnd="@dimen/dis_24"
         android:layout_marginStart="@dimen/dis_24"
         android:layout_marginTop="@dimen/dis_60"
         android:layout_toStartOf="@+id/img_2vm"
-        android:background="@drawable/back_round_gray"
+        android:background="@drawable/back_round_4df"
         android:orientation="horizontal"
         android:visibility="visible">
 
@@ -359,9 +385,9 @@
             android:layout_centerVertical="true"
             android:layout_marginStart="@dimen/dis_24"
             android:scaleType="centerCrop"
-            android:src="@mipmap/ic_launcher" />
+            android:src="@drawable/select_select" />
 
-        <cn.dogplanet.app.widget.EditTextWithDel
+        <TextView
             android:id="@+id/et_search"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -370,38 +396,37 @@
             android:layout_marginStart="@dimen/dis_72"
             android:layout_toStartOf="@+id/img_input"
             android:background="@null"
-            android:cursorVisible="true"
             android:focusableInTouchMode="true"
+            android:gravity="center_vertical"
             android:hint="@string/search_company"
-            android:imeOptions="actionSearch|flagNoExtractUi|flagNoFullscreen"
             android:singleLine="true"
-            android:textColor="@color/color_c7"
+            android:textColor="@color/white"
             android:textColorHint="#afff"
             android:textCursorDrawable="@drawable/color_cursor"
-            android:textSize="@dimen/font_size_12" />
+            android:textSize="@dimen/font_size_15" />
 
         <ImageView
             android:id="@+id/img_input"
-            android:layout_width="@dimen/dis_28"
+            android:layout_width="@dimen/dis_24"
             android:layout_height="@dimen/dis_28"
+            android:layout_alignParentEnd="true"
             android:layout_centerVertical="true"
-            android:layout_marginEnd="@dimen/dis_30"
+            android:layout_marginEnd="@dimen/dis_24"
             android:layout_marginStart="@dimen/dis_24"
             android:scaleType="centerCrop"
-            android:src="@mipmap/ic_launcher" />
+            android:src="@drawable/input_select" />
 
     </RelativeLayout>
 
 
     <cn.dogplanet.app.widget.FloatingActionButton
         android:id="@+id/btn_cart"
-        android:layout_width="@dimen/dis_100"
-        android:layout_height="@dimen/dis_100"
+        android:layout_width="@dimen/dis_70"
+        android:layout_height="@dimen/dis_70"
         android:layout_alignParentBottom="true"
         android:layout_alignParentEnd="true"
-        android:layout_marginBottom="@dimen/dis_50"
-        android:layout_marginEnd="@dimen/dis_30"
+        android:layout_marginBottom="@dimen/dis_30"
+        android:layout_marginEnd="@dimen/dis_10"
         app:btn_color="#04ffffff"
-        app:drawable="@mipmap/ic_launcher"
-        />
+        app:drawable="@mipmap/ic_cart" />
 </RelativeLayout>

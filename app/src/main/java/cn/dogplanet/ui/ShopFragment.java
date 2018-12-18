@@ -1,24 +1,23 @@
 package cn.dogplanet.ui;
 
 import android.annotation.SuppressLint;
-import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 import android.support.annotation.Nullable;
 import android.support.v4.view.ViewPager;
-import android.util.Log;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.animation.Animation;
-import android.view.animation.TranslateAnimation;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.PopupWindow;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import java.io.File;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
@@ -31,20 +30,19 @@ import butterknife.OnClick;
 import butterknife.Unbinder;
 import cn.dogplanet.GlobalContext;
 import cn.dogplanet.R;
+import cn.dogplanet.app.util.Arithmetic;
+import cn.dogplanet.app.util.FileUtils;
 import cn.dogplanet.app.util.GsonHelper;
 import cn.dogplanet.app.util.PullToRefreshHelper;
 import cn.dogplanet.app.util.StringUtils;
 import cn.dogplanet.app.util.ToastUtil;
-import cn.dogplanet.app.widget.EditTextWithDel;
 import cn.dogplanet.app.widget.FloatingActionButton;
-import cn.dogplanet.app.widget.MyScrollview;
 import cn.dogplanet.app.widget.NoScrollGridView;
 import cn.dogplanet.app.widget.RoundCornerImageView;
 import cn.dogplanet.app.widget.bannerViewPager.BannerPagerAdapter;
 import cn.dogplanet.app.widget.bannerViewPager.BannerTimerTask;
 import cn.dogplanet.app.widget.bannerViewPager.IndicatorView;
 import cn.dogplanet.app.widget.layout.SlideItem;
-import cn.dogplanet.app.widget.library.PullToRefreshBase;
 import cn.dogplanet.app.widget.library.PullToRefreshBase.Mode;
 import cn.dogplanet.app.widget.library.PullToRefreshScrollView;
 import cn.dogplanet.base.BaseFragment;
@@ -56,6 +54,7 @@ import cn.dogplanet.entity.HomeResp;
 import cn.dogplanet.entity.Product;
 import cn.dogplanet.net.PublicReq;
 import cn.dogplanet.net.volley.toolbox.ListImageListener;
+import cn.dogplanet.ui.popup.ShareHomePopupWindow;
 import cn.dogplanet.ui.shop.ProductBuyActivity;
 import cn.dogplanet.ui.shop.ProductFindActivity;
 import cn.dogplanet.ui.shop.ShopProductCartActivity;
@@ -94,7 +93,7 @@ public class ShopFragment extends BaseFragment {
     @BindView(R.id.img_2vm)
     ImageView img2vm;
     @BindView(R.id.et_search)
-    EditTextWithDel etSearch;
+    TextView etSearch;
     @BindView(R.id.img_input)
     ImageView imgInput;
     @BindView(R.id.lay_search)
@@ -103,6 +102,12 @@ public class ShopFragment extends BaseFragment {
     PullToRefreshScrollView scrMain;
     @BindView(R.id.btn_cart)
     FloatingActionButton btnCart;
+    @BindView(R.id.lay_new_product)
+    LinearLayout layNewProduct;
+    @BindView(R.id.lay_main)
+    RelativeLayout layMain;
+    @BindView(R.id.lay_back)
+    View layBack;
 
     private Unbinder bind;
     private Expert expert;
@@ -127,6 +132,7 @@ public class ShopFragment extends BaseFragment {
         }
     });
     private String new_product_id;
+    private ShareHomePopupWindow shareHomePopupWindow;
 
     @Nullable
     @Override
@@ -138,14 +144,34 @@ public class ShopFragment extends BaseFragment {
         PullToRefreshHelper.initIndicator(scrMain);
         PullToRefreshHelper.initIndicatorStart(scrMain);
         scrMain.setOnRefreshListener(refreshView -> getHome());
-        scrMain.setOnScrollListener(new MyScrollview.OnScrollListener() {
+        scrMain.setOnScrollListener(scrollY -> {
+            if (scrollY > 0) {
+                btnCart.hide(true);
+            } else {
+                btnCart.hide(false);
+            }
+        });
+        String qrCodeUrl = HttpUrl.GET_QR_CODE
+                + "?expert_id=" + expert.getId();
+        String qrCacheUrl = Arithmetic.getMD5Str(qrCodeUrl)
+                + ".png";
+        FileUtils fileUtils = new FileUtils(getActivity().getApplicationContext());
+        String imgUrl;
+        boolean isLocal;
+        if (fileUtils.isFileExists(qrCacheUrl)) {
+            imgUrl = fileUtils.getStorageDirectory()
+                    + File.separator
+                    + qrCacheUrl;
+            isLocal = true;
+        } else {
+            imgUrl = qrCodeUrl;
+            isLocal = false;
+        }
+        shareHomePopupWindow = new ShareHomePopupWindow(getContext(), imgUrl, isLocal);
+        shareHomePopupWindow.setOnDismissListener(new PopupWindow.OnDismissListener() {
             @Override
-            public void onScroll(int scrollY) {
-                if(scrollY>0){
-                    btnCart.hide(true);
-                }else{
-                    btnCart.hide(false);
-                }
+            public void onDismiss() {
+                layBack.setVisibility(View.GONE);
             }
         });
         return view;
@@ -271,7 +297,7 @@ public class ShopFragment extends BaseFragment {
         }
     }
 
-    @OnClick({R.id.btn_cart, R.id.lay_ticket, R.id.lay_diving, R.id.lay_sea, R.id.lay_land, R.id.lay_other, R.id.lay_search, R.id.lay_new_product})
+    @OnClick({R.id.img_2vm, R.id.btn_cart, R.id.lay_ticket, R.id.lay_diving, R.id.lay_sea, R.id.lay_land, R.id.lay_other, R.id.lay_search, R.id.lay_new_product})
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.lay_ticket:
@@ -292,6 +318,15 @@ public class ShopFragment extends BaseFragment {
                 break;
             case R.id.btn_cart:
                 startActivity(ShopProductCartActivity.newIntent());
+                break;
+            case R.id.img_2vm:
+                if (null != shareHomePopupWindow) {
+                    shareHomePopupWindow.showAtLocation(layMain,
+                            Gravity.BOTTOM
+                                    | Gravity.CENTER_HORIZONTAL, 0,
+                            0);
+                    layBack.setVisibility(View.VISIBLE);
+                }
                 break;
         }
     }

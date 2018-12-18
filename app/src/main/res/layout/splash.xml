@@ -8,9 +8,9 @@
     android:orientation="vertical" >
 
     <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="@mipmap/splash_load"
-        android:scaleType="fitXY"/>
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:src="@mipmap/splash"
+        android:scaleType="matrix"/>
 
 </LinearLayout>

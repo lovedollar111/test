@@ -23,18 +23,25 @@
     </RelativeLayout>
 
 
-    <RelativeLayout
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dis_4"
+            android:background="@color/back_gary"
+            />
 
         <LinearLayout
             android:id="@+id/lay_tag"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="@dimen/dis_100"
             android:background="@color/white"
             android:gravity="center_vertical"
             android:orientation="horizontal"
-            android:paddingTop="@dimen/dis_20"
+            android:paddingTop="@dimen/dis_10"
             android:paddingBottom="@dimen/dis_10">
 
             <LinearLayout
@@ -46,10 +53,11 @@
                 <Button
                     android:id="@+id/btn_home"
                     style="@style/main_btn_style"
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"
-                    android:drawableTop="@mipmap/ic_launcher"
-                    android:text="@string/main_home" />
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:drawableTop="@drawable/shop_select"
+                    android:text="@string/main_home"
+                    android:textSize="@dimen/font_size_11"/>
             </LinearLayout>
 
             <LinearLayout
@@ -66,23 +74,24 @@
                     <Button
                         android:id="@+id/btn_order"
                         style="@style/main_btn_style"
-                        android:layout_width="40dp"
-                        android:layout_height="40dp"
-                        android:drawableTop="@mipmap/ic_launcher"
-                        android:paddingRight="@dimen/dis_8"
-                        android:text="@string/main_order" />
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:drawableTop="@drawable/order_select"
+                        android:text="@string/main_order"
+                        android:textSize="@dimen/font_size_11" />
 
                     <cn.dogplanet.app.widget.CircleTextView
                         android:id="@+id/tv_bage"
                         android:layout_width="14dp"
                         android:layout_height="14dp"
-                        android:layout_alignRight="@+id/btn_order"
+                        android:layout_alignEnd="@+id/btn_order"
                         android:layout_alignTop="@+id/btn_order"
-                        android:layout_marginLeft="1.5dp"
+                        android:layout_marginEnd="@dimen/dis_30"
+                        android:layout_marginStart="1.5dp"
                         android:visibility="invisible"
                         android:gravity="center"
                         android:textColor="@color/white"
-                        android:textSize="10sp" />
+                        android:textSize="@dimen/font_size_10" />
                 </RelativeLayout>
             </LinearLayout>
 
@@ -95,14 +104,15 @@
                 <Button
                     android:id="@+id/btn_user"
                     style="@style/main_btn_style"
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"
-                    android:background="@android:color/transparent"
-                    android:drawableTop="@mipmap/ic_launcher"
-                    android:text="@string/main_user" />
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:drawableTop="@drawable/user_select"
+                    android:text="@string/main_user"
+                    android:textSize="@dimen/font_size_11" />
             </LinearLayout>
         </LinearLayout>
 
-    </RelativeLayout>
+
+    </LinearLayout>
 
 </LinearLayout>
