@@ -3,107 +3,114 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:orientation="vertical"
     android:background="@drawable/back_round_white_30"
+    android:orientation="vertical"
     tools:context=".ui.shop.ProductBuyFragment">
 
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/string_date" />
+        android:layout_marginBottom="@dimen/dis_30" 
+        android:layout_marginTop="@dimen/dis_60"
+        android:text="@string/string_date"
+        android:textColor="@color/color_8e"
+        android:textSize="@dimen/font_size_13" />
 
     <TextView
         android:id="@+id/tv_date"
         android:layout_width="@dimen/dis_200"
-        android:layout_height="@dimen/dis_80"
+        android:layout_height="@dimen/dis_88"
         android:background="@drawable/gradient_num"
-        android:textColor="@color/white"
-        android:gravity="center"/>
+        android:gravity="center"
+        android:textColor="@color/white" />
 
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/string_num" />
+        android:layout_marginBottom="@dimen/dis_30"
+        android:layout_marginTop="@dimen/dis_50"
+        android:text="@string/string_num"
+        android:textColor="@color/color_8e"
+        android:textSize="@dimen/font_size_13" />
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="@dimen/dis_120"
-        android:padding="@dimen/dis_10"
         android:gravity="center_vertical">
 
         <TextView
             android:id="@+id/tv_1"
-            android:layout_width="@dimen/dis_80"
-            android:layout_height="@dimen/dis_80"
-            android:background="@drawable/gradient_num"
-            android:textColor="@color/white"
-            android:layout_marginEnd="@dimen/dis_30"
-            android:textSize="@dimen/font_size_11"
+            android:layout_width="@dimen/dis_88"
+            android:layout_height="@dimen/dis_88"
+            android:layout_marginEnd="@dimen/dis_15"
+            android:background="@drawable/gradient_num_select"
             android:gravity="center"
-            android:text="1"/>
+            android:text="1"
+            android:textColor="@color/color_33"
+            android:textSize="@dimen/font_size_15" />
 
         <TextView
             android:id="@+id/tv_2"
-            android:layout_width="@dimen/dis_80"
-            android:layout_height="@dimen/dis_80"
-            android:background="@drawable/gradient_num"
-            android:textColor="@color/white"
-            android:layout_marginEnd="@dimen/dis_30"
-            android:textSize="@dimen/font_size_11"
+            android:layout_width="@dimen/dis_88"
+            android:layout_height="@dimen/dis_88"
+            android:layout_marginEnd="@dimen/dis_15"
+            android:background="@drawable/gradient_num_select"
             android:gravity="center"
-            android:text="2"/>
+            android:text="2"
+            android:textColor="@color/color_33"
+            android:textSize="@dimen/font_size_15" />
 
         <TextView
             android:id="@+id/tv_3"
-            android:layout_width="@dimen/dis_80"
-            android:layout_height="@dimen/dis_80"
-            android:background="@drawable/gradient_num"
-            android:textColor="@color/white"
-            android:layout_marginEnd="@dimen/dis_30"
-            android:textSize="@dimen/font_size_11"
+            android:layout_width="@dimen/dis_88"
+            android:layout_height="@dimen/dis_88"
+            android:layout_marginEnd="@dimen/dis_15"
+            android:background="@drawable/gradient_num_select"
             android:gravity="center"
-            android:text="3"/>
+            android:text="3"
+            android:textColor="@color/color_33"
+            android:textSize="@dimen/font_size_15" />
 
         <TextView
             android:id="@+id/tv_4"
-            android:layout_width="@dimen/dis_80"
-            android:layout_height="@dimen/dis_80"
-            android:background="@drawable/gradient_num"
-            android:textColor="@color/white"
-            android:layout_marginEnd="@dimen/dis_30"
-            android:textSize="@dimen/font_size_11"
+            android:layout_width="@dimen/dis_88"
+            android:layout_height="@dimen/dis_88"
+            android:layout_marginEnd="@dimen/dis_15"
+            android:background="@drawable/gradient_num_select"
             android:gravity="center"
-            android:text="4"/>
+            android:text="4"
+            android:textColor="@color/color_33"
+            android:textSize="@dimen/font_size_15" />
 
         <TextView
             android:id="@+id/tv_5"
-            android:layout_width="@dimen/dis_80"
-            android:layout_height="@dimen/dis_80"
-            android:background="@drawable/gradient_num"
-            android:textColor="@color/white"
-            android:layout_marginEnd="@dimen/dis_30"
+            android:layout_width="@dimen/dis_88"
+            android:layout_height="@dimen/dis_88"
+            android:layout_marginEnd="@dimen/dis_15"
+            android:background="@drawable/gradient_num_select"
             android:gravity="center"
-            android:textSize="@dimen/font_size_11"
-            android:text="5"/>
+            android:text="5"
+            android:textColor="@color/color_33"
+            android:textSize="@dimen/font_size_15" />
 
         <EditText
             android:id="@+id/et_other"
-            android:layout_width="@dimen/dis_80"
-            android:layout_height="@dimen/dis_80"
-            android:background="@drawable/gradient_num"
-            android:textColor="@color/white"
+            android:layout_width="@dimen/dis_88"
+            android:layout_height="@dimen/dis_88"
+            android:background="@drawable/gradient_num_select"
             android:gravity="center"
             android:hint="@string/string_other"
-            android:textColorHint="@color/black"
-            android:textSize="@dimen/font_size_11"
             android:inputType="number"
-            android:maxLines="1"/>
+            android:maxLines="1"
+            android:textColor="@color/white"
+            android:textColorHint="@color/color_33"
+            android:textSize="@dimen/font_size_15" />
 
     </LinearLayout>
 
     <View
         android:layout_width="match_parent"
-        android:layout_height="@dimen/dis_80"/>
+        android:layout_height="@dimen/dis_80" />
 </LinearLayout>

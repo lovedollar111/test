@@ -9,6 +9,7 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatDelegate;
+import android.view.Gravity;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
@@ -21,6 +22,7 @@ import android.widget.TextView;
 
 import org.greenrobot.eventbus.EventBus;
 
+import java.io.File;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
@@ -34,6 +36,8 @@ import butterknife.OnClick;
 import cn.dogplanet.GlobalContext;
 import cn.dogplanet.MainActivity;
 import cn.dogplanet.R;
+import cn.dogplanet.app.util.Arithmetic;
+import cn.dogplanet.app.util.FileUtils;
 import cn.dogplanet.app.util.GsonHelper;
 import cn.dogplanet.app.util.StringUtils;
 import cn.dogplanet.app.util.ToastUtil;
@@ -51,6 +55,7 @@ import cn.dogplanet.entity.ProductResp;
 import cn.dogplanet.entity.Resp;
 import cn.dogplanet.entity.ShopBuyDetail;
 import cn.dogplanet.net.PublicReq;
+import cn.dogplanet.ui.popup.ShareHomePopupWindow;
 
 public class ProductBuyActivity extends BaseFragmentActivity implements HoldTabScrollView.OnHoldTabScrollViewScrollChanged {
 
@@ -112,6 +117,8 @@ public class ProductBuyActivity extends BaseFragmentActivity implements HoldTabS
     LinearLayout layCenter;
     @BindView(R.id.ht_scrollView)
     HoldTabScrollView htScrollView;
+    @BindView(R.id.lay_main)
+    RelativeLayout layMain;
 
 
     private int mHeight = 0;
@@ -147,6 +154,7 @@ public class ProductBuyActivity extends BaseFragmentActivity implements HoldTabS
     private String order_date;
     private int order_num;
     private ProductDetail product;
+    private ShareHomePopupWindow shareHomePopupWindow;
 
     public static Intent newIntent(String productId) {
         Intent intent = new Intent(GlobalContext.getInstance(), ProductBuyActivity.class);
@@ -180,6 +188,28 @@ public class ProductBuyActivity extends BaseFragmentActivity implements HoldTabS
             transaction.show(productBuyFragment);
         }
         transaction.commitAllowingStateLoss();
+        initPopup();
+    }
+
+    private void initPopup() {
+        String qrCodeUrl = HttpUrl.GET_QR_CODE
+                + "?expert_id=" + expert.getId();
+        String qrCacheUrl = Arithmetic.getMD5Str(qrCodeUrl)
+                + ".png";
+        FileUtils fileUtils = new FileUtils(this);
+        String imgUrl;
+        boolean isLocal;
+        if (fileUtils.isFileExists(qrCacheUrl)) {
+            imgUrl = fileUtils.getStorageDirectory()
+                    + File.separator
+                    + qrCacheUrl;
+            isLocal = true;
+        } else {
+            imgUrl = qrCodeUrl;
+            isLocal = false;
+        }
+        shareHomePopupWindow = new ShareHomePopupWindow(this, imgUrl, isLocal);
+
     }
 
     private void getProduct() {
@@ -231,23 +261,31 @@ public class ProductBuyActivity extends BaseFragmentActivity implements HoldTabS
                         btnJoinCart.setVisibility(View.VISIBLE);
                         btnJoinCart.setBackgroundResource(R.drawable.gradient_btn_red_left);
                         btnBuy.setBackgroundResource(R.drawable.gradient_btn_red_right);
-                        if(product.getCanBuyNum().getNumber()>0&&product.getTravel_agency_status()&&product.getAuthentication_status()){
+                        if (product.getCanBuyNum().getNumber() > 0 && product.getTravel_agency_status() && product.getAuthentication_status()) {
                             btnBuy.setEnabled(true);
                             btnJoinCart.setEnabled(true);
-                        }else{
+                            imgPrice.setImageResource(R.drawable.ic_price);
+                            tvPrice.setTextColor(getResources().getColor(R.color.color_f5a623));
+                        } else {
                             btnBuy.setEnabled(false);
                             btnJoinCart.setEnabled(false);
+                            imgPrice.setImageResource(R.drawable.ic_price_normal);
+                            tvPrice.setTextColor(getResources().getColor(R.color.color_8e));
                         }
                     } else {
                         btnJoinCart.setVisibility(View.GONE);
                         btnJoinCart.setBackgroundResource(R.drawable.gradient_btn_red_left);
                         btnBuy.setBackgroundResource(R.drawable.gradient_f1_e0);
-                        if(product.getCanBuy().getStatus()&&product.getTravel_agency_status()&&product.getAuthentication_status()){
+                        if (product.getCanBuy().getStatus() && product.getTravel_agency_status() && product.getAuthentication_status()) {
                             btnBuy.setEnabled(true);
                             btnJoinCart.setEnabled(true);
-                        }else{
+                            imgPrice.setImageResource(R.drawable.ic_price);
+                            tvPrice.setTextColor(getResources().getColor(R.color.color_f5a623));
+                        } else {
                             btnBuy.setEnabled(false);
                             btnJoinCart.setEnabled(false);
+                            imgPrice.setImageResource(R.drawable.ic_price_normal);
+                            tvPrice.setTextColor(getResources().getColor(R.color.color_8e));
                         }
                     }
                 } else {
@@ -262,10 +300,19 @@ public class ProductBuyActivity extends BaseFragmentActivity implements HoldTabS
                     }
                     btnBuy.setEnabled(false);
                     btnJoinCart.setEnabled(false);
+                    imgPrice.setImageResource(R.drawable.ic_price_normal);
+                    tvPrice.setTextColor(getResources().getColor(R.color.color_8e));
                 }
             }
         });
         is_rem = product.getRecommend();
+        if (is_rem) {
+            imgRem.setImageResource(R.drawable.ic_rem_product_select);
+            tvRem.setTextColor(getResources().getColor(R.color.color_f5a623));
+        } else {
+            imgRem.setImageResource(R.drawable.ic_btn_rem_product);
+            tvRem.setTextColor(getResources().getColor(R.color.color_8e));
+        }
         if (product.getImages() != null && !product.getImages().isEmpty()) {
             SlideItem[] items = new SlideItem[product.getImages().size()];
             for (int i = 0; i < items.length; i++) {
@@ -277,7 +324,7 @@ public class ProductBuyActivity extends BaseFragmentActivity implements HoldTabS
             notifyHomeAdapter(items);
         }
         if (product.getCan_join_cart()) {
-            if(productBuyFragment!=null){
+            if (productBuyFragment != null) {
                 productBuyFragment.hideNumBtn(product.getCanBuyNum().getNumber());
             }
         } else {
@@ -357,6 +404,12 @@ public class ProductBuyActivity extends BaseFragmentActivity implements HoldTabS
                 break;
             case R.id.btn_share_top:
             case R.id.btn_share:
+                if (null != shareHomePopupWindow) {
+                    shareHomePopupWindow.showAtLocation(layMain,
+                            Gravity.BOTTOM
+                                    | Gravity.CENTER_HORIZONTAL, 0,
+                            0);
+                }
                 break;
             case R.id.lay_rem:
                 remProduct();
@@ -365,11 +418,21 @@ public class ProductBuyActivity extends BaseFragmentActivity implements HoldTabS
     }
 
     private void showDetail() {
-
+        imgProductDetail.setImageResource(R.drawable.ic_product_buy_select);
+        imgProductBuy.setImageResource(R.drawable.ic_product_buy_normal);
+        tvProductBuy.setTextColor(getResources().getColor(R.color.color_c7));
+        tvProductDetail.setTextColor(getResources().getColor(R.color.color_33));
+        btnProductBuy.setTextColor(getResources().getColor(R.color.color_c7));
+        btnProductDetail.setTextColor(getResources().getColor(R.color.color_33));
     }
 
     private void showBuy() {
-
+        imgProductDetail.setImageResource(R.drawable.ic_product_buy_normal);
+        imgProductBuy.setImageResource(R.drawable.ic_product_buy_select);
+        tvProductBuy.setTextColor(getResources().getColor(R.color.color_33));
+        tvProductDetail.setTextColor(getResources().getColor(R.color.color_c7));
+        btnProductBuy.setTextColor(getResources().getColor(R.color.color_33));
+        btnProductDetail.setTextColor(getResources().getColor(R.color.color_c7));
     }
 
     private void hideFragments(FragmentTransaction transaction) {
@@ -445,6 +508,13 @@ public class ProductBuyActivity extends BaseFragmentActivity implements HoldTabS
                         if (resp.isSuccess()) {
                             is_rem = !is_rem;
                             //todo
+                            if (is_rem) {
+                                imgRem.setImageResource(R.drawable.ic_rem_product_select);
+                                tvRem.setTextColor(getResources().getColor(R.color.color_f5a623));
+                            } else {
+                                imgRem.setImageResource(R.drawable.ic_btn_rem_product);
+                                tvRem.setTextColor(getResources().getColor(R.color.color_8e));
+                            }
                         }
                         ToastUtil.showMes(resp.getMsg());
                     } else {

@@ -63,6 +63,7 @@
     <dimen name="dis_175">87.5dp</dimen>
     <dimen name="dis_180">90dp</dimen>
     <dimen name="dis_200">100dp</dimen>
+    <dimen name="dis_220">110dp</dimen>
     <dimen name="dis_240">120dp</dimen>
     <dimen name="dis_270">135dp</dimen>
     <dimen name="dis_400">200dp</dimen>

@@ -322,7 +322,7 @@ public class HttpUrl {
     public static final String GET_NUM = HTTP_URL
             + "v1/b/expert-product/get-num";
 
-    //商城产品搜索  类别 (1 平台产品 2 达人产品 3 全部)
+    //商城产品搜索
     public static final String GET_SEARCH_KEYWORDS = HTTP_URL
             + "v1/b/expert-product/get-search-keywords";
 

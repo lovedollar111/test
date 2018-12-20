@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/lay_main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/back_gary"
@@ -22,12 +23,12 @@
             <android.support.v4.view.ViewPager
                 android:id="@+id/vp_banner"
                 android:layout_width="match_parent"
-                android:layout_height="180dp" />
+                android:layout_height="220dp" />
 
             <LinearLayout
                 android:id="@+id/lay_product"
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/dis_100"
+                android:layout_height="@dimen/dis_120"
                 android:layout_below="@+id/vp_banner"
                 android:background="@color/white"
                 android:gravity="center"
@@ -38,23 +39,31 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textSize="@dimen/font_size_15"
+                    android:textColor="@color/color_33"
+                    android:layout_marginTop="@dimen/dis_30"
                     android:text="1111" />
 
                 <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content">
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dis_30"
+                    android:layout_marginTop="@dimen/dis_5"
+                    android:layout_marginBottom="@dimen/dis_20"
+                    android:gravity="center">
 
                     <ImageView
                         android:layout_width="@dimen/dis_20"
                         android:layout_height="@dimen/dis_20"
-                        android:src="@mipmap/ic_launcher" />
+                        android:src="@drawable/ic_price"
+                        android:layout_gravity="center_vertical"/>
 
                     <TextView
                         android:id="@+id/tv_product_price"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:textSize="@dimen/font_size_11"
-                        android:text="1111"/>
+                        android:layout_marginStart="@dimen/dis_5"
+                        android:text="1111"
+                        android:layout_gravity="center_vertical"/>
 
                 </LinearLayout>
 
@@ -93,7 +102,7 @@
                 <LinearLayout
                     android:id="@+id/lay_choose"
                     android:layout_width="match_parent"
-                    android:layout_height="@dimen/dis_100"
+                    android:layout_height="wrap_content"
                     android:background="@drawable/back_round_white_30">
 
                     <LinearLayout
@@ -102,19 +111,22 @@
                         android:layout_height="match_parent"
                         android:layout_weight="1"
                         android:gravity="center"
-                        android:orientation="vertical">
+                        android:orientation="vertical"
+                        android:layout_marginTop="@dimen/dis_32">
 
                         <ImageView
                             android:id="@+id/img_product_buy"
                             android:layout_width="@dimen/dis_30"
                             android:layout_height="@dimen/dis_30"
-                            android:src="@mipmap/ic_launcher" />
+                            android:src="@drawable/ic_product_buy_normal" />
 
                         <TextView
                             android:id="@+id/tv_product_buy"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="@dimen/dis_10"
+                            android:textColor="@color/color_33"
+                            android:textSize="@dimen/font_size_15"
                             android:text="@string/string_product_buy" />
 
                     </LinearLayout>
@@ -125,19 +137,22 @@
                         android:layout_height="match_parent"
                         android:layout_weight="1"
                         android:gravity="center"
-                        android:orientation="vertical">
+                        android:orientation="vertical"
+                        android:layout_marginTop="@dimen/dis_32">
 
                         <ImageView
                             android:id="@+id/img_product_detail"
                             android:layout_width="@dimen/dis_30"
                             android:layout_height="@dimen/dis_30"
-                            android:src="@mipmap/ic_launcher" />
+                            android:src="@drawable/ic_product_detail_normal" />
 
                         <TextView
                             android:id="@+id/tv_product_detail"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="@dimen/dis_10"
+                            android:textColor="@color/color_c7"
+                            android:textSize="@dimen/font_size_15"
                             android:text="@string/string_product_detail" />
 
                     </LinearLayout>
@@ -147,7 +162,9 @@
                     android:id="@+id/fragment_product"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:background="@drawable/back_round_white_30" />
+                    android:background="@drawable/back_round_white_30"
+                    android:layout_marginStart="@dimen/dis_24"
+                    android:layout_marginEnd="@dimen/dis_24"/>
 
             </LinearLayout>
 
@@ -171,14 +188,17 @@
             android:layout_height="40dp"
             android:layout_marginStart="@dimen/dis_10"
             android:layout_marginBottom="@dimen/dis_10"
+            android:layout_alignParentBottom="true"
             android:background="#0000"
-            android:src="@mipmap/ic_launcher" />
+            android:src="@drawable/ic_back" />
 
 
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
+            android:layout_marginBottom="@dimen/dis_10"
+            android:layout_alignParentBottom="true"
             android:orientation="horizontal">
 
             <TextView
@@ -187,6 +207,8 @@
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="@dimen/dis_20"
                 android:layout_marginTop="@dimen/dis_10"
+                android:textColor="@color/color_33"
+                android:textSize="@dimen/font_size_15"
                 android:text="@string/string_product_buy" />
 
 
@@ -195,6 +217,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/dis_10"
+                android:textColor="@color/color_33"
+                android:textSize="@dimen/font_size_15"
                 android:text="@string/string_product_detail" />
 
         </LinearLayout>
@@ -204,10 +228,11 @@
             android:layout_width="40dp"
             android:layout_height="40dp"
             android:layout_alignParentEnd="true"
-            android:layout_marginEnd="@dimen/dis_10"
             android:layout_marginBottom="@dimen/dis_10"
+            android:layout_alignParentBottom="true"
+            android:layout_marginEnd="@dimen/dis_10"
             android:background="#0000"
-            android:src="@mipmap/ic_launcher"
+            android:src="@drawable/ic_share"
             android:visibility="visible" />
 
     </RelativeLayout>
@@ -223,9 +248,8 @@
         android:orientation="horizontal">
 
         <LinearLayout
-            android:layout_width="wrap_content"
+            android:layout_width="@dimen/dis_120"
             android:layout_height="match_parent"
-            android:layout_weight="1"
             android:gravity="center"
             android:orientation="vertical">
 
@@ -233,23 +257,22 @@
                 android:id="@+id/img_price"
                 android:layout_width="@dimen/dis_20"
                 android:layout_height="@dimen/dis_20"
-                android:src="@mipmap/ic_launcher"/>
+                android:src="@drawable/ic_price_normal"/>
 
             <TextView
                 android:id="@+id/tv_price"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/dis_10"
-                android:textColor="@color/black"
+                android:textColor="@color/color_8e"
                 android:textSize="@dimen/font_size_11"/>
 
         </LinearLayout>
 
         <LinearLayout
             android:id="@+id/lay_rem"
-            android:layout_width="wrap_content"
+            android:layout_width="@dimen/dis_120"
             android:layout_height="match_parent"
-            android:layout_weight="1"
             android:gravity="center"
             android:orientation="vertical">
 
@@ -257,7 +280,7 @@
                 android:id="@+id/img_rem"
                 android:layout_width="@dimen/dis_20"
                 android:layout_height="@dimen/dis_20"
-                android:src="@mipmap/ic_launcher"/>
+                android:src="@drawable/ic_btn_rem_product"/>
 
             <TextView
                 android:id="@+id/tv_rem"
@@ -265,7 +288,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/dis_10"
                 android:text="@string/string_rem"
-                android:textColor="@color/black"
+                android:textColor="@color/color_8e"
                 android:textSize="@dimen/font_size_11" />
 
 
@@ -291,11 +314,6 @@
                 android:text="@string/shop_buy"
                 android:textColor="@color/white"
                 android:textSize="@dimen/font_size_15" />
-
-            <View
-                android:layout_width="@dimen/dis_1"
-                android:layout_height="match_parent"
-                android:background="@color/white" />
 
             <Button
                 android:id="@+id/btn_buy"

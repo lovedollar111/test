@@ -40,7 +40,7 @@
     <color name="color_blcak_76">#767676</color>
     <color name="color_53">#535353</color>
     <color name="color_e8">#e8e8e8</color>
-    <color name="color_e5">#e5e5e5</color>
+    <color name="color_e5">#e5e5ea</color>
     <color name="color_83">#838383</color>
     <color name="color_9b">#9B9B9B</color>
     <color name="color_f5">#ECEFF0</color>
@@ -58,6 +58,7 @@
     <color name="login_color">#8e8e93</color>
     <color name="color_f13051">#F13051</color>
     <color name="color_e02b98">#E02B98</color>
+    <color name="color_f5a623">#F5A623</color>
 
     <color name="vifrification">#00000000</color>
 

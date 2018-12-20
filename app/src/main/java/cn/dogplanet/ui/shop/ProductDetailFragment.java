@@ -64,15 +64,14 @@ public class ProductDetailFragment extends Fragment {
             if (!s.contains("<script>")) {
                 s = String.format("<script>" +
                         "function ResizeImages()" +
-                        "{var myimg,oldwidth;var width = screen.width;var maxwidth=width;" +
+                        "{var myimg,oldwidth;var width = screen.width-60;var maxwidth=width;" +
                         "for(i=0;i <document.images.length;i++){myimg = document.images[i]; " +
                         "if(myimg.width != maxwidth){oldwidth = myimg.width;" +
                         "oldheight = myimg.height;" +
                         "myimg.width = maxwidth;" +
                         "myimg.height = (maxwidth*oldheight)/oldwidth;}" +
-                        "myimg.setAttribute('style', 'margin-left: -8px !important;');" +
                         "}}" +
-                        "</script><style>p{word-wrap: break-word !important; color: #757779; font-size: 13px}</style>" +
+                        "</script><style>p{word-wrap: break-word !important; color: #333333; font-size: 11px}</style>" +
                         "<body onload=\"ResizeImages()\" >%s</body>", s);
             }
             tvServiceDetail.loadData(s, "text/html; charset=UTF-8", null);

@@ -168,6 +168,11 @@
             android:launchMode="singleTask"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateUnspecified|adjustPan" />
+
+        <activity android:name=".ui.shop.ProductListActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateUnspecified|adjustPan"/>
         <activity
             android:name=".ui.order.OrderDetailActivity"
             android:launchMode="singleTask"
@@ -207,6 +212,11 @@
             android:launchMode="singleTask"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateUnspecified|adjustPan" />
+
+        <activity android:name=".ui.user.EditInfoActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateUnspecified|adjustPan"/>
 
         <!-- WX支付 -->
         <activity
@@ -339,7 +349,6 @@
             android:name="com.baidu.speech.SECRET_KEY"
             android:value="jdcc0it3ry1q4SVdRlYDrbFSWY5KHiTW" />
 
-        <activity android:name=".ui.user.EditInfoActivity"></activity>
     </application>
 
 </manifest>

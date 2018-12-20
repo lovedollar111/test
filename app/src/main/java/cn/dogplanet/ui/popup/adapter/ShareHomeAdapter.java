@@ -49,7 +49,7 @@ public class ShareHomeAdapter extends BaseAdapter {
     @Override
     public View getView(final int position, View convertView, ViewGroup parent) {
         if (convertView == null) {
-            convertView = inflater.inflate(R.layout.share_item, null);
+            convertView = inflater.inflate(R.layout.share_home_item, null);
         }
         ImageView shareIcon = convertView
                 .findViewById(R.id.share_icon);
@@ -57,9 +57,7 @@ public class ShareHomeAdapter extends BaseAdapter {
                 .findViewById(R.id.share_title);
         View view_line=convertView.findViewById(R.id.view_line);
         view_line.setVisibility(View.GONE);
-        RelativeLayout.LayoutParams layoutParams=new RelativeLayout.LayoutParams(AndroidUtil.dip2px(30), AndroidUtil.dip2px(30));
         shareIcon.setImageResource(shareIcons[position]);
-        shareIcon.setLayoutParams(layoutParams);
         shareTitle.setText(shareNames[position]);
         return convertView;
     }

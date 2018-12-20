@@ -57,6 +57,7 @@ import cn.dogplanet.net.volley.toolbox.ListImageListener;
 import cn.dogplanet.ui.popup.ShareHomePopupWindow;
 import cn.dogplanet.ui.shop.ProductBuyActivity;
 import cn.dogplanet.ui.shop.ProductFindActivity;
+import cn.dogplanet.ui.shop.ProductListActivity;
 import cn.dogplanet.ui.shop.ShopProductCartActivity;
 import cn.dogplanet.ui.shop.adapter.ProductAdapter;
 
@@ -106,8 +107,6 @@ public class ShopFragment extends BaseFragment {
     LinearLayout layNewProduct;
     @BindView(R.id.lay_main)
     RelativeLayout layMain;
-    @BindView(R.id.lay_back)
-    View layBack;
 
     private Unbinder bind;
     private Expert expert;
@@ -141,6 +140,7 @@ public class ShopFragment extends BaseFragment {
         bind = ButterKnife.bind(this, view);
         expert = WCache.getCacheExpert();
         scrMain.setMode(Mode.PULL_FROM_START);
+        scrMain.scrollTo(0, 0);
         PullToRefreshHelper.initIndicator(scrMain);
         PullToRefreshHelper.initIndicatorStart(scrMain);
         scrMain.setOnRefreshListener(refreshView -> getHome());
@@ -168,12 +168,6 @@ public class ShopFragment extends BaseFragment {
             isLocal = false;
         }
         shareHomePopupWindow = new ShareHomePopupWindow(getContext(), imgUrl, isLocal);
-        shareHomePopupWindow.setOnDismissListener(new PopupWindow.OnDismissListener() {
-            @Override
-            public void onDismiss() {
-                layBack.setVisibility(View.GONE);
-            }
-        });
         return view;
     }
 
@@ -215,9 +209,14 @@ public class ShopFragment extends BaseFragment {
             notifyHomeAdapter(items);
         }
         if (resp.getRecommendProduct() != null && !resp.getRecommendProduct().isEmpty()) {
-            remProductAdapter = new ProductAdapter(resp.getRecommendProduct(), getActivity());
-            listRemProduct.setAdapter(remProductAdapter);
-            listRemProduct.setOnItemClickListener((parent, view, position, id) -> startActivity(ProductBuyActivity.newIntent(resp.getRecommendProduct().get(position).getPro_id())));
+            if (remProductAdapter == null) {
+                remProductAdapter = new ProductAdapter(resp.getRecommendProduct(), getActivity().getApplicationContext());
+                listRemProduct.setAdapter(remProductAdapter);
+                listRemProduct.setOnItemClickListener((parent, view, position, id) -> startActivity(ProductBuyActivity.newIntent(resp.getRecommendProduct().get(position).getPro_id())));
+            }else {
+                remProductAdapter.clear();
+                remProductAdapter.addAll(resp.getRecommendProduct());
+            }
         } else {
             //todo
             if (remProductAdapter != null) {
@@ -301,14 +300,19 @@ public class ShopFragment extends BaseFragment {
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.lay_ticket:
+                startActivity(ProductListActivity.newIntent(Product.CATE_TICKET));
                 break;
             case R.id.lay_diving:
+                startActivity(ProductListActivity.newIntent(Product.CATE_DIVING));
                 break;
             case R.id.lay_sea:
+                startActivity(ProductListActivity.newIntent(Product.CATE_SEA));
                 break;
             case R.id.lay_land:
+                startActivity(ProductListActivity.newIntent(Product.CATE_LAND));
                 break;
             case R.id.lay_other:
+                startActivity(ProductListActivity.newIntent(Product.CATE_OTHER));
                 break;
             case R.id.lay_search:
                 startActivity(ProductFindActivity.newIntent());
@@ -325,7 +329,6 @@ public class ShopFragment extends BaseFragment {
                             Gravity.BOTTOM
                                     | Gravity.CENTER_HORIZONTAL, 0,
                             0);
-                    layBack.setVisibility(View.VISIBLE);
                 }
                 break;
         }

@@ -63,18 +63,15 @@ public class SharePopupWindow extends PopupWindow {
         ColorDrawable dw = new ColorDrawable(Color.argb(140, 0, 0, 0));
         // 设置SelectPicPopupWindow弹出窗体的背景
         this.setBackgroundDrawable(dw);
-        view.setOnTouchListener(new OnTouchListener() {
-
-            public boolean onTouch(View v, MotionEvent event) {
-                int height = view.findViewById(R.id.pop_layout).getTop();
-                int y = (int) event.getY();
-                if (event.getAction() == MotionEvent.ACTION_UP) {
-                    if (y < height) {
-                        dismiss();
-                    }
+        view.setOnTouchListener((v, event) -> {
+            int height = view.findViewById(R.id.pop_layout).getTop();
+            int y = (int) event.getY();
+            if (event.getAction() == MotionEvent.ACTION_UP) {
+                if (y < height) {
+                    dismiss();
                 }
-                return true;
             }
+            return true;
         });
         gridView.setOnItemClickListener(new ShareItemClickListener(this));
     }

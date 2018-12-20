@@ -11,7 +11,7 @@ android {
 
     defaultConfig {
         applicationId "cn.dogplanet"
-        minSdkVersion 19
+        minSdkVersion 21
         targetSdkVersion 26
         versionCode 400
         versionName "3.0.0"

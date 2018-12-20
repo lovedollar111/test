@@ -111,30 +111,80 @@ public class ProductBuyFragment extends Fragment {
         bind.unbind();
     }
 
-    @OnClick({R.id.tv_1, R.id.tv_2, R.id.tv_3, R.id.tv_4, R.id.tv_5, R.id.tv_date})
+    @OnClick({R.id.et_other,R.id.tv_1, R.id.tv_2, R.id.tv_3, R.id.tv_4, R.id.tv_5, R.id.tv_date})
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.tv_1:
                 getInfo.setNum(1);
+                updateButton(1);
                 break;
             case R.id.tv_2:
                 getInfo.setNum(2);
+                updateButton(2);
                 break;
             case R.id.tv_3:
                 getInfo.setNum(3);
+                updateButton(3);
                 break;
             case R.id.tv_4:
                 getInfo.setNum(4);
+                updateButton(4);
                 break;
             case R.id.tv_5:
                 getInfo.setNum(5);
+                updateButton(5);
                 break;
             case R.id.tv_date:
                 getInfo.setDate(DateUtils.dateToStr(new Date()));
                 break;
+            case R.id.et_other:
+                updateButton(0);
+                break;
         }
     }
-    
+
+    public void updateButton(int num) {
+        tv1.setTextColor(getResources().getColor(R.color.color_33));
+        tv2.setTextColor(getResources().getColor(R.color.color_33));
+        tv3.setTextColor(getResources().getColor(R.color.color_33));
+        tv4.setTextColor(getResources().getColor(R.color.color_33));
+        tv5.setTextColor(getResources().getColor(R.color.color_33));
+        etNum.setTextColor(getResources().getColor(R.color.color_33));
+        tv1.setBackgroundResource(R.drawable.gradient_num_normal);
+        tv2.setBackgroundResource(R.drawable.gradient_num_normal);
+        tv3.setBackgroundResource(R.drawable.gradient_num_normal);
+        tv4.setBackgroundResource(R.drawable.gradient_num_normal);
+        tv5.setBackgroundResource(R.drawable.gradient_num_normal);
+        etNum.setBackgroundResource(R.drawable.gradient_num_normal);
+        switch (num) {
+            case 1:
+                tv1.setTextColor(getResources().getColor(R.color.white));
+                tv1.setBackgroundResource(R.drawable.gradient_num);
+                break;
+            case 2:
+                tv2.setTextColor(getResources().getColor(R.color.white));
+                tv2.setBackgroundResource(R.drawable.gradient_num);
+                break;
+            case 3:
+                tv3.setTextColor(getResources().getColor(R.color.white));
+                tv3.setBackgroundResource(R.drawable.gradient_num);
+                break;
+            case 4:
+                tv4.setTextColor(getResources().getColor(R.color.white));
+                tv4.setBackgroundResource(R.drawable.gradient_num);
+                break;
+            case 5:
+                tv5.setBackgroundResource(R.drawable.gradient_num);
+                tv5.setTextColor(getResources().getColor(R.color.white));
+                break;
+            case 0:
+                etNum.setTextColor(getResources().getColor(R.color.white));
+                etNum.setBackgroundResource(R.drawable.gradient_num);
+                break;
+
+        }
+    }
+
     public void hideNumBtn(final int num) {
         switch (num) {
             case 0:
@@ -270,6 +320,7 @@ public class ProductBuyFragment extends Fragment {
 
     public interface SetInfoListener {
         void setDate(String date);
+
         void setNum(int num);
     }
 }

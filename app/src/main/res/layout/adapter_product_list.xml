@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/dis_160">
+
+
+    <cn.dogplanet.app.widget.RoundCornerImageView
+        android:id="@+id/img_product"
+        android:layout_width="@dimen/dis_220"
+        android:layout_height="@dimen/dis_150"
+        android:layout_marginTop="@dimen/dis_24"
+        android:scaleType="centerCrop"
+        android:layout_centerVertical="true"/>
+
+    <TextView
+        android:id="@+id/tv_price"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:textColor="@color/color_8e"
+        android:textSize="@dimen/font_size_13"
+        android:layout_marginEnd="@dimen/dis_24"
+        android:layout_centerVertical="true"
+        />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_price"
+        android:layout_toStartOf="@+id/tv_price"
+        android:layout_marginEnd="@dimen/dis_5"
+        android:layout_centerVertical="true"
+        />
+
+
+    <TextView
+        android:id="@+id/tv_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:textColor="@color/color_33"
+        android:textSize="@dimen/font_size_15"
+        android:layout_marginEnd="@dimen/dis_70"
+        android:layout_marginStart="@dimen/dis_24"
+        android:layout_centerVertical="true"
+        android:layout_toStartOf="@+id/tv_price"
+        android:layout_toEndOf="@+id/img_product"
+        android:maxLines="2"
+        />
+
+</RelativeLayout>

@@ -3,7 +3,7 @@
     android:id="@+id/pop_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#0000">
+    android:background="#8c000000">
 
 
     <RelativeLayout
@@ -54,10 +54,10 @@
         android:layout_width="@dimen/dis_45"
         android:layout_height="@dimen/dis_45"
         android:layout_alignParentEnd="true"
-        android:layout_alignParentTop="true"
         android:layout_marginEnd="66dp"
         android:layout_marginTop="67dp"
-        android:src="@mipmap/logo" />
+        android:src="@mipmap/ic_close"
+        android:scaleType="centerCrop"/>
 
     <TextView
         android:id="@+id/tv_share"

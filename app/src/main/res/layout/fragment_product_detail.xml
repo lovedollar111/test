@@ -10,78 +10,103 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/string_service_desc" />
+        android:layout_marginBottom="@dimen/dis_20"
+        android:layout_marginTop="@dimen/dis_60"
+        android:text="@string/string_service_desc"
+        android:textColor="@color/color_8e"
+        android:textSize="@dimen/font_size_13" />
 
     <cn.dogplanet.app.widget.richeditor.RichEditor
         android:id="@+id/tv_service_detail"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/dis_20"
-        android:textColor="@color/profile_tv_color"
-        android:textSize="@dimen/font_size_13" />
+        android:layout_marginBottom="@dimen/dis_20"
+        android:textColor="@color/color_33"
+        android:textSize="@dimen/font_size_11" />
+
+
+    <View
+        style="@style/view_hor_match_line"/>
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/string_money_explain" />
+        android:layout_marginBottom="@dimen/dis_20"
+        android:layout_marginTop="@dimen/dis_20"
+        android:text="@string/string_money_explain"
+        android:textColor="@color/color_8e"
+        android:textSize="@dimen/font_size_13" />
 
     <TextView
         android:id="@+id/tv_money_explain"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="@dimen/dis_20"
-        android:layout_marginRight="@dimen/dis_20"
-        android:layout_marginTop="@dimen/dis_20"
-        android:textColor="@color/profile_tv_color"
-        android:textSize="@dimen/font_size_14" />
+        android:layout_marginBottom="@dimen/dis_20"
+        android:textColor="@color/color_33"
+        android:textSize="@dimen/font_size_11" />
+
+    <View
+        style="@style/view_hor_match_line" />
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/string_instructions" />
+        android:layout_marginBottom="@dimen/dis_20"
+        android:layout_marginTop="@dimen/dis_20"
+        android:text="@string/string_instructions"
+        android:textColor="@color/color_8e"
+        android:textSize="@dimen/font_size_13" />
 
     <TextView
         android:id="@+id/tv_instructions"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="@dimen/dis_20"
-        android:layout_marginRight="@dimen/dis_20"
-        android:layout_marginTop="@dimen/dis_20"
-        android:textColor="@color/profile_tv_color"
-        android:textSize="@dimen/font_size_14" />
+        android:layout_marginBottom="@dimen/dis_20"
+        android:textColor="@color/color_33"
+        android:textSize="@dimen/font_size_11" />
+
+    <View
+        style="@style/view_hor_match_line" />
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/string_directions" />
+        android:layout_marginBottom="@dimen/dis_20"
+        android:layout_marginTop="@dimen/dis_20"
+        android:text="@string/string_directions"
+        android:textColor="@color/color_8e"
+        android:textSize="@dimen/font_size_13" />
 
     <TextView
         android:id="@+id/tv_directions"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="@dimen/dis_20"
-        android:layout_marginRight="@dimen/dis_20"
-        android:layout_marginTop="@dimen/dis_20"
-        android:textColor="@color/profile_tv_color"
-        android:textSize="@dimen/font_size_14" />
+        android:layout_marginBottom="@dimen/dis_20"
+        android:textColor="@color/color_33"
+        android:textSize="@dimen/font_size_11" />
+
+    <View
+        style="@style/view_hor_match_line"/>
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/dis_20"
+        android:layout_marginTop="@dimen/dis_20"
+        android:textColor="@color/color_8e"
+        android:textSize="@dimen/font_size_13"
         android:text="@string/string_returns" />
 
     <TextView
         android:id="@+id/tv_returns"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="@dimen/dis_20"
-        android:layout_marginRight="@dimen/dis_20"
-        android:layout_marginTop="@dimen/dis_20"
-        android:textColor="@color/profile_tv_color"
-        android:textSize="@dimen/font_size_14" />
+        android:layout_marginBottom="@dimen/dis_20"
+        android:textColor="@color/color_33"
+        android:textSize="@dimen/font_size_11" />
 
 
     <View
         android:layout_width="match_parent"
-        android:layout_height="@dimen/dis_80"/>
+        android:layout_height="@dimen/dis_80" />
 </LinearLayout>

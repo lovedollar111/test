@@ -37,6 +37,16 @@ public class ProductAdapter extends BaseAdapter {
         return details.size();
     }
 
+    public void clear(){
+        details.clear();
+        notifyDataSetChanged();
+    }
+
+    public void addAll(List<Product> details){
+        this.details.addAll(details);
+        notifyDataSetChanged();
+    }
+
     @Override
     public Object getItem(int position) {
         return details.get(position);
