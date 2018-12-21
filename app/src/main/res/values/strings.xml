@@ -205,7 +205,7 @@
     <string name="string_instructions">产品说明</string>
     <string name="string_directions">使用方法</string>
     <string name="string_returns">退改规则</string>
-    <string name="string_total_money">总计金额(元)</string>
+    <string name="string_total_money">总计金额(元):</string>
     <string name="string_money">总计金额</string>
     <string name="string_pay">确认下单</string>
     <string name="string_choose_pay">选择支付方式</string>

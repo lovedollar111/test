@@ -101,10 +101,10 @@ https://github.com/android/platform_frameworks_base/blob/master/core/res/res/lay
 
         <ImageView
             android:id="@+id/img_close"
-            android:layout_width="@dimen/dis_40"
-            android:layout_height="@dimen/dis_40"
+            android:layout_width="@dimen/dis_45"
+            android:layout_height="@dimen/dis_45"
             android:layout_gravity="end"
-            android:background="@mipmap/ic_launcher"
+            android:background="@mipmap/ic_close"
             android:layout_marginBottom="@dimen/dis_20"
             />
 

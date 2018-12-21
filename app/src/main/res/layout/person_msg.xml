@@ -10,26 +10,27 @@
 
         <ImageButton
             android:id="@+id/btn_back"
-            android:layout_width="@dimen/dis_20"
-            android:layout_height="match_parent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_alignParentStart="true"
-            android:layout_centerVertical="true"
+            android:layout_alignParentBottom="true"
             android:background="@android:color/transparent"
-            android:src="@mipmap/ic_launcher" />
+            android:src="@drawable/ic_back" />
 
         <TextView
             android:id="@+id/title"
             style="@style/top_title_text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_centerInParent="true"
+            android:layout_centerHorizontal="true"
+            android:layout_alignParentBottom="true"
             android:text="联系人信息" />
     </RelativeLayout>
 
     <LinearLayout
         android:id="@+id/layout"
         android:layout_width="match_parent"
-        android:layout_height="50dp"
+        android:layout_height="@dimen/dis_100"
         android:layout_alignParentBottom="true"
         android:background="@color/white"
         android:orientation="horizontal" >
@@ -37,15 +38,15 @@
         <LinearLayout
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:layout_weight="2"
+            android:layout_weight="3"
             android:background="@color/white"
-            android:orientation="horizontal" 
+            android:orientation="horizontal"
             android:layout_gravity="center">
 
             <ImageView
-                android:layout_width="@dimen/dis_20"
-                android:layout_height="@dimen/dis_20"
-                android:src="@mipmap/ic_launcher"
+                android:layout_width="@dimen/dis_30"
+                android:layout_height="@dimen/dis_30"
+                android:src="@drawable/ic_price_red"
                 android:layout_marginStart="@dimen/dis_24"
                 android:layout_gravity="center_vertical"
                 />
@@ -54,28 +55,32 @@
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:gravity="center_vertical"
-                android:textSize="@dimen/font_size_12"
+                android:textSize="@dimen/font_size_13"
                 android:layout_marginStart="@dimen/dis_10"
                 android:text="@string/string_total_money"
-                android:textColor="@color/black" />
-            
+                android:textColor="@color/color_33" />
+
             <TextView
                 android:id="@+id/price"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:gravity="center_vertical"
-                android:textColor="@color/txt_selected_color"
-                android:textSize="@dimen/font_size_16"/>
+                android:textColor="@color/color_15"
+                android:layout_marginEnd="@dimen/dis_30"
+                android:layout_marginStart="@dimen/dis_5"
+                android:textSize="@dimen/font_size_18"/>
         </LinearLayout>
 
         <Button
             android:id="@+id/btn_pay"
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:layout_weight="1"
+            android:layout_weight="2"
             android:background="@drawable/gradient_c7_ab"
-            android:layout_margin="@dimen/dis_20"
-            android:text="@string/string_pay"
+            android:layout_marginEnd="@dimen/dis_24"
+            android:layout_marginTop="@dimen/dis_10"
+            android:layout_marginBottom="@dimen/dis_10"
+            android:text="提交订单"
             android:textColor="@color/white"
             android:textSize="@dimen/font_size_15" 
             android:layout_gravity="center_vertical"/>
@@ -90,8 +95,9 @@
         android:background="@color/back_gary"
         android:divider="@color/back_gary"
         android:layout_marginStart="@dimen/dis_24"
+        android:layout_marginTop="@dimen/dis_20"
         android:layout_marginEnd="@dimen/dis_24"
-        android:dividerHeight="@dimen/dis_15" />
+        android:dividerHeight="@dimen/dis_20" />
 
 
     <View

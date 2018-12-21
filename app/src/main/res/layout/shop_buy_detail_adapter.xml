@@ -2,15 +2,14 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_marginTop="@dimen/dis_20"
     android:background="@drawable/back_round_white_30" >
 
-    <cn.dogplanet.net.volley.toolbox.NetworkImageView
+    <cn.dogplanet.app.widget.RoundCornerImageView
         android:id="@+id/ad_img"
-        android:layout_width="60dp"
-        android:layout_height="60dp"
-        android:layout_marginStart="@dimen/dis_20"
-        android:layout_marginTop="@dimen/dis_20"
+        android:layout_width="@dimen/dis_180"
+        android:layout_height="@dimen/dis_120"
+        android:layout_marginStart="@dimen/dis_24"
+        android:layout_marginTop="@dimen/dis_30"
         android:scaleType="centerCrop"
         android:background="@color/color_9b"/>
 
@@ -18,27 +17,26 @@
         android:id="@+id/ad_main_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/dis_30"
+        android:layout_marginStart="@dimen/dis_24"
         android:layout_marginTop="@dimen/dis_15"
         android:layout_toEndOf="@id/ad_img"
         android:layout_alignTop="@id/ad_img"
-        android:textColor="@color/text_color"
-        android:textSize="14sp" 
-        android:singleLine="true"
-        android:text="蜈支洲水上项目"
-        android:layout_toStartOf="@+id/ad_price"
-        android:layout_marginEnd="@dimen/dis_20"/>
+        android:textColor="@color/color_8e"
+        android:textSize="@dimen/font_size_15"
+        android:maxLines="1"
+        android:text="蜈支洲水上项目蜈支洲水上项目蜈支洲水上项目蜈支洲水上项目"
+        android:layout_marginEnd="@dimen/dis_24"/>
 
     <TextView
         android:id="@+id/ad_child_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/ad_main_name"
-        android:layout_marginStart="@dimen/dis_30"
-        android:layout_marginTop="@dimen/dis_10"
+        android:layout_marginStart="@dimen/dis_24"
+        android:layout_marginTop="@dimen/dis_24"
         android:layout_toEndOf="@id/ad_img"
-        android:textColor="#777c88"
-        android:textSize="@dimen/font_size_11"
+        android:textColor="@color/color_8e"
+        android:textSize="@dimen/font_size_13"
         android:visibility="visible"
         android:text="1人"/>
 
@@ -48,10 +46,10 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/ad_main_name"
         android:layout_toEndOf="@id/ad_child_name"
-        android:textColor="@color/text_color"
-        android:textSize="12sp"
-        android:layout_marginStart="@dimen/dis_80"
-        android:layout_marginTop="@dimen/dis_10"
+        android:textColor="@color/color_8e"
+        android:textSize="@dimen/font_size_13"
+        android:layout_marginStart="@dimen/dis_40"
+        android:layout_marginTop="@dimen/dis_24"
         android:text="2015-10-07"/>
 
     <TextView
@@ -59,15 +57,16 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentEnd="true"
-        android:layout_alignTop="@id/ad_child_name"
-        android:layout_marginEnd="@dimen/dis_20"
-        android:textColor="@color/txt_selected_color"
-        android:textSize="@dimen/font_size_11"
+        android:layout_below="@id/ad_main_name"
+        android:layout_marginTop="@dimen/dis_24"
+        android:layout_marginEnd="@dimen/dis_24"
+        android:textColor="@color/color_f13051"
+        android:textSize="@dimen/font_size_13"
         android:text="1290元"/>
 
     <View
         android:layout_width="match_parent"
-        android:layout_height="@dimen/dis_30"
+        android:layout_height="@dimen/dis_35"
         android:background="@drawable/back_round_white_30"
         android:layout_below="@+id/ad_img"
         />

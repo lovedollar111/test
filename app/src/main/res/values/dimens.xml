@@ -56,16 +56,19 @@
     <dimen name="dis_100">50dp</dimen>
     <dimen name="dis_108">54dp</dimen>
     <dimen name="dis_120">60dp</dimen>
+    <dimen name="dis_125">62.5dp</dimen>
     <dimen name="dis_136">78dp</dimen>
     <dimen name="dis_142">71dp</dimen>
     <dimen name="dis_150">75dp</dimen>
     <dimen name="dis_160">80dp</dimen>
+    <dimen name="dis_170">85dp</dimen>
     <dimen name="dis_175">87.5dp</dimen>
     <dimen name="dis_180">90dp</dimen>
     <dimen name="dis_200">100dp</dimen>
     <dimen name="dis_220">110dp</dimen>
     <dimen name="dis_240">120dp</dimen>
     <dimen name="dis_270">135dp</dimen>
+    <dimen name="dis_290">145dp</dimen>
     <dimen name="dis_400">200dp</dimen>
     <dimen name="dis_480">240dp</dimen>
 

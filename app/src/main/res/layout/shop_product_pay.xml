@@ -18,11 +18,12 @@
 
         <ImageView
             android:id="@+id/btn_cancel"
-            android:layout_width="@dimen/dis_60"
-            android:layout_height="@dimen/dis_60"
+            android:layout_width="@dimen/dis_45"
+            android:layout_height="@dimen/dis_45"
             android:layout_alignParentEnd="true"
-            android:layout_marginEnd="@dimen/dis_30"
-            android:src="@mipmap/ic_launcher"/>
+            android:layout_marginEnd="@dimen/dis_40"
+            android:layout_marginBottom="@dimen/dis_20"
+            android:src="@mipmap/close"/>
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -33,23 +34,30 @@
 
             <TextView
                 android:layout_width="wrap_content"
-                android:layout_height="@dimen/dis_100"
+                android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
                 android:gravity="center"
+                android:textColor="@color/color_8e"
+                android:textSize="@dimen/font_size_13"
+                android:layout_marginTop="@dimen/dis_70"
                 android:text="@string/string_choose_pay" />
 
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/dis_60">
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dis_50">
 
                 <TextView
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
-                    android:layout_marginStart="@dimen/dis_36"
+                    android:layout_marginStart="@dimen/dis_40"
                     android:layout_weight="1"
                     android:gravity="center_vertical"
+                    android:textSize="@dimen/font_size_15"
+                    android:textColor="@color/color_33"
+                    android:layout_marginBottom="@dimen/dis_45"
                     android:text="@string/string_total_pay_money" />
 
                 <TextView
@@ -62,75 +70,82 @@
                     android:gravity="center_vertical|end" />
             </LinearLayout>
 
-            <View style="@style/view_hor_margin_line" />
+            <View style="@style/view_hor_match_line"
+                android:layout_marginStart="@dimen/dis_40"/>
 
             <LinearLayout
                 android:id="@+id/lay_wx"
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/dis_80">
+                android:layout_height="@dimen/dis_125">
 
                 <ImageView
-                    android:layout_width="@dimen/dis_15"
-                    android:layout_height="@dimen/dis_15"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical"
-                    android:layout_marginStart="@dimen/dis_36"
+                    android:layout_marginStart="@dimen/dis_40"
                     android:gravity="center_vertical|end"
-                    android:src="@mipmap/ic_launcher" />
+                    android:src="@drawable/ic_pay_wx" />
 
                 <TextView
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical"
-                    android:layout_marginStart="@dimen/dis_10"
+                    android:layout_marginStart="@dimen/dis_24"
+                    android:textColor="@color/color_33"
+                    android:textSize="@dimen/font_size_15"
                     android:layout_weight="1"
                     android:gravity="center_vertical"
                     android:text="@string/string_pay_wx" />
 
                 <ImageView
                     android:id="@+id/img_wx"
-                    android:layout_width="@dimen/dis_15"
-                    android:layout_height="@dimen/dis_15"
+                    android:layout_width="@dimen/dis_40"
+                    android:layout_height="@dimen/dis_40"
                     android:layout_gravity="center_vertical"
                     android:layout_marginEnd="@dimen/dis_36"
                     android:gravity="center_vertical|end"
-                    android:src="@mipmap/ic_launcher" />
+                    android:src="@drawable/ic_pay_normal" />
             </LinearLayout>
 
-            <View style="@style/view_hor_margin_line" />
+            <View style="@style/view_hor_match_line"
+                android:layout_marginStart="@dimen/dis_40"/>
 
             <LinearLayout
                 android:id="@+id/lay_zfb"
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/dis_80">
+                android:layout_height="@dimen/dis_125">
 
                 <ImageView
-                    android:layout_width="@dimen/dis_15"
-                    android:layout_height="@dimen/dis_15"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical"
-                    android:layout_marginStart="@dimen/dis_36"
+                    android:layout_marginStart="@dimen/dis_40"
                     android:gravity="center_vertical|end"
-                    android:src="@mipmap/ic_launcher" />
+                    android:src="@drawable/ic_pay_zfb" />
 
                 <TextView
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical"
-                    android:layout_marginStart="@dimen/dis_10"
+                    android:layout_marginStart="@dimen/dis_24"
+                    android:textColor="@color/color_33"
+                    android:textSize="@dimen/font_size_15"
                     android:layout_weight="1"
                     android:gravity="center_vertical"
                     android:text="@string/string_pay_zfb" />
 
                 <ImageView
                     android:id="@+id/img_zfb"
-                    android:layout_width="@dimen/dis_15"
-                    android:layout_height="@dimen/dis_15"
+                    android:layout_width="@dimen/dis_40"
+                    android:layout_height="@dimen/dis_40"
                     android:layout_gravity="center_vertical"
                     android:layout_marginEnd="@dimen/dis_36"
                     android:gravity="center_vertical|end"
-                    android:src="@mipmap/ic_launcher" />
+                    android:src="@drawable/ic_pay_normal" />
             </LinearLayout>
 
-            <View style="@style/view_hor_margin_line" />
+            <View style="@style/view_hor_match_line"
+                android:layout_marginStart="@dimen/dis_40" />
 
             <Button
                 android:id="@+id/btn_pay"
@@ -139,7 +154,7 @@
                 android:background="@drawable/gradient_c7_ab"
                 android:layout_marginStart="@dimen/dis_100"
                 android:layout_marginEnd="@dimen/dis_100"
-                android:layout_marginTop="@dimen/dis_30"
+                android:layout_marginTop="@dimen/dis_60"
                 android:text="@string/string_pay_ok"
                 android:textSize="@dimen/font_size_14"
                 android:textColor="@color/white"

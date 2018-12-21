@@ -45,31 +45,31 @@ public class OrderListAdapter extends BaseAdapter {
         return position;
     }
 
-    public void clear(){
+    public void clear() {
         this.products.clear();
     }
 
-    public void addAll(List<OrderDetail.OrderProduct> products){
-        this.products=products;
+    public void addAll(List<OrderDetail.OrderProduct> products) {
+        this.products = products;
     }
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
         ViewHolder holder;
-        OrderDetail.OrderProduct product=products.get(position);
+        OrderDetail.OrderProduct product = products.get(position);
         if (convertView == null) {
             convertView = LayoutInflater.from(context).inflate(R.layout.order_list_adapter, parent, false);
-            holder=new ViewHolder(convertView);
+            holder = new ViewHolder(convertView);
             convertView.setTag(holder);
         } else {
-            holder= (ViewHolder) convertView.getTag();
+            holder = (ViewHolder) convertView.getTag();
         }
         if (StringUtils.isNotBlank(product.getThumb())) {
             String url = product.getThumb();
             holder.imgProduct.setTag(url);
             ListImageListener imageListener = new ListImageListener(holder.imgProduct,
                     WConstant.IMG_ERROR_RES_ID, WConstant.IMG_ERROR_RES_ID, url);
-            GlobalContext.getInstance().getImageLoader().get(url,imageListener);
+            GlobalContext.getInstance().getImageLoader().get(url, imageListener);
         }
         holder.tvProductDate.setText(product.getBegin_date());
         holder.tvProductName.setText(product.getPro_name());

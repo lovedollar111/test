@@ -188,10 +188,14 @@ public class ShopProductPayActivity extends BaseActivity {
         switch (view.getId()) {
             case R.id.lay_wx:
                 payType = PAY_BY_WX;
+                imgWx.setImageResource(R.drawable.ic_pay_select);
+                imgZfb.setImageResource(R.drawable.ic_pay_normal);
                 updateButton();
                 break;
             case R.id.lay_zfb:
                 payType = PAY_BY_ZFB;
+                imgWx.setImageResource(R.drawable.ic_pay_normal);
+                imgZfb.setImageResource(R.drawable.ic_pay_select);
                 updateButton();
                 break;
             case R.id.btn_pay:

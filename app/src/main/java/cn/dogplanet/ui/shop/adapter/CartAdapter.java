@@ -48,10 +48,10 @@ public class CartAdapter extends BaseAdapter {
 
     /**
      */
-    public CartAdapter(Context ctx, List<Cart> carts, OnUpdateMoneyListener listener,OnItemLongClickListener onItemLongClickListener) {
+    public CartAdapter(Context ctx, List<Cart> carts, OnUpdateMoneyListener listener, OnItemLongClickListener onItemLongClickListener) {
         mContext = ctx;
         refershMoneyListener = listener;
-        this.onItemLongClickListener=onItemLongClickListener;
+        this.onItemLongClickListener = onItemLongClickListener;
         chkCarts = new HashSet<>();
         this.mCarts = carts;
         for (Cart c : mCarts) {
@@ -84,7 +84,7 @@ public class CartAdapter extends BaseAdapter {
 
     }
 
-    public void addAll(List<Cart> carts){
+    public void addAll(List<Cart> carts) {
         this.mCarts.addAll(carts);
     }
 
@@ -146,9 +146,11 @@ public class CartAdapter extends BaseAdapter {
         holder.imgChoose.setOnClickListener(v -> {
             if ((boolean) holder.imgChoose.getTag()) {
                 holder.imgChoose.setTag(false);
+                holder.imgChoose.setImageResource(R.drawable.ic_pay_select);
                 chkCarts.add(cart.getId());
             } else {
                 holder.imgChoose.setTag(true);
+                holder.imgChoose.setImageResource(R.drawable.ic_pay_normal);
                 chkCarts.remove(cart.getId());
             }
             refershMoneyListener.refreshMoney();
@@ -167,7 +169,7 @@ public class CartAdapter extends BaseAdapter {
         holder.tvNum.setText(cart.getNum());
         View finalConvertView = convertView;
         holder.layMain.setOnLongClickListener(v -> {
-            onItemLongClickListener.onItemLongClick(finalConvertView,position);
+            onItemLongClickListener.onItemLongClick(finalConvertView, position);
             return false;
         });
         return convertView;
@@ -199,7 +201,7 @@ public class CartAdapter extends BaseAdapter {
         }
     }
 
-    public interface  OnItemLongClickListener{
-        public void onItemLongClick(View view,int position);
+    public interface OnItemLongClickListener {
+        public void onItemLongClick(View view, int position);
     }
 }
