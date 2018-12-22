@@ -8,7 +8,7 @@
         android:layout_width="@dimen/dis_120"
         android:layout_height="@dimen/dis_80"
         android:gravity="center"
-        android:textColor="@color/black"
+        android:textColor="@color/color_33"
         android:textSize="@dimen/font_size_13" />
 
 </LinearLayout>

@@ -64,6 +64,7 @@
     <dimen name="dis_170">85dp</dimen>
     <dimen name="dis_175">87.5dp</dimen>
     <dimen name="dis_180">90dp</dimen>
+    <dimen name="dis_190">95dp</dimen>
     <dimen name="dis_200">100dp</dimen>
     <dimen name="dis_220">110dp</dimen>
     <dimen name="dis_240">120dp</dimen>

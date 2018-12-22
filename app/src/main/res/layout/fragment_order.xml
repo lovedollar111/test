@@ -15,10 +15,10 @@
         <RelativeLayout
             android:id="@+id/lay_search"
             android:layout_width="match_parent"
-            android:layout_height="@dimen/dis_72"
-            android:layout_marginBottom="@dimen/dis_8"
-            android:layout_marginEnd="@dimen/dis_30"
+            android:layout_height="@dimen/dis_64"
+            android:layout_marginEnd="@dimen/dis_24"
             android:layout_marginStart="@dimen/dis_24"
+            android:layout_marginBottom="@dimen/dis_10"
             android:background="@drawable/back_round_gray"
             android:orientation="horizontal"
             android:visibility="visible">
@@ -29,7 +29,7 @@
                 android:layout_centerVertical="true"
                 android:layout_marginStart="@dimen/dis_24"
                 android:scaleType="centerCrop"
-                android:src="@mipmap/ic_launcher" />
+                android:src="@drawable/select_select" />
 
             <TextView
                 android:id="@+id/et_search"
@@ -58,7 +58,7 @@
                 android:layout_marginEnd="@dimen/dis_30"
                 android:layout_marginStart="@dimen/dis_24"
                 android:scaleType="centerCrop"
-                android:src="@mipmap/ic_launcher" />
+                android:src="@drawable/input_select" />
 
         </RelativeLayout>
     </RelativeLayout>
@@ -67,7 +67,7 @@
     <net.lucode.hackware.magicindicator.MagicIndicator
         android:id="@+id/magic_indicator"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/dis_100"
+        android:layout_height="@dimen/dis_88"
         android:background="@color/white" />
 
     <android.support.v4.view.ViewPager

@@ -96,7 +96,7 @@ public class OrderDetailAdapter extends BaseAdapter {
             case OrderDetail.ORDER_TYPE_BACK_MONEY:
                 holder.btnReturn.setVisibility(View.VISIBLE);
                 holder.tvCode.setVisibility(View.VISIBLE);
-                holder.btnReturn.setBackgroundResource(R.drawable.gradient_c7_ab);
+                holder.btnReturn.setBackgroundResource(R.drawable.gradient_fa_f1);
                 holder.btnReturn.setText("退款中");
                 holder.btnReturn.setEnabled(false);
                 if(StringUtils.isNotBlank(product.getCheck_number())){
@@ -107,7 +107,7 @@ public class OrderDetailAdapter extends BaseAdapter {
             case OrderDetail.ORDER_TYPE_BACK_ALL_MONEY:
                 holder.btnReturn.setVisibility(View.VISIBLE);
                 holder.tvCode.setVisibility(View.VISIBLE);
-                holder.btnReturn.setBackgroundResource(R.drawable.gradient_c7_ab);
+                holder.btnReturn.setBackgroundResource(R.drawable.gradient_f6);
                 holder.btnReturn.setText("退款成功");
                 holder.btnReturn.setEnabled(false);
                 if(StringUtils.isNotBlank(product.getCheck_number())){

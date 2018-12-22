@@ -2,24 +2,24 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:background="@drawable/back_round_white"
+    android:background="@drawable/back_round_white_30"
     android:orientation="vertical" >
 
     <TextView
         android:layout_width="match_parent"
-        android:layout_height="@dimen/dis_50"
-        android:layout_marginBottom="@dimen/dis_60"
-        android:layout_marginTop="@dimen/dis_30"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/dis_50"
+        android:layout_marginTop="@dimen/dis_50"
         android:gravity="center"
         android:text="申请退款"
-        android:textColor="#282b36"
-        android:textSize="@dimen/font_size_18"
+        android:textColor="@color/color_33"
+        android:textSize="@dimen/font_size_13"
         android:visibility="visible"/>
 
     <EditText
         android:id="@+id/et_num"
         android:layout_width="@dimen/dis_480"
-        android:layout_height="@dimen/dis_70"
+        android:layout_height="@dimen/dis_88"
         android:layout_gravity="center_horizontal"
         android:layout_marginStart="@dimen/dis_50"
         android:layout_marginEnd="@dimen/dis_50"
@@ -38,13 +38,13 @@
         android:orientation="horizontal"
         android:layout_marginStart="@dimen/dis_50"
         android:gravity="end|center_vertical"
-        android:layout_marginTop="@dimen/dis_10"
-        android:layout_marginEnd="@dimen/dis_50">
+        android:layout_marginTop="@dimen/dis_30"
+        android:layout_marginEnd="@dimen/dis_24">
 
         <ImageView
             android:layout_width="@dimen/dis_15"
             android:layout_height="@dimen/dis_15"
-            android:src="@mipmap/ic_launcher"
+            android:src="@drawable/ic_return_rule"
             android:layout_marginEnd="@dimen/dis_10"/>
         
         <TextView
@@ -52,6 +52,7 @@
             android:layout_height="wrap_content"
             android:textSize="@dimen/font_size_11"
             android:text="@string/string_returns"
+            android:textColor="@color/color_8e"
             />
 
     </LinearLayout>
@@ -61,23 +62,25 @@
         android:layout_height="wrap_content"
         android:text="@string/string_hint"
         android:layout_gravity="center_horizontal"
-        android:textSize="@dimen/font_size_12"
-        android:layout_marginTop="@dimen/dis_50"
+        android:textSize="@dimen/font_size_13"
+        android:textColor="@color/color_c7"
+        android:layout_marginTop="@dimen/dis_100"
         />
 
 
     <Button
         android:id="@+id/btn_ok"
         android:layout_width="@dimen/dis_480"
-        android:layout_height="@dimen/dis_70"
+        android:layout_height="@dimen/dis_80"
         android:background="@drawable/gradient_f1_e0"
         android:layout_gravity="center_horizontal"
-        android:layout_marginTop="@dimen/dis_30"
+        android:layout_marginTop="@dimen/dis_35"
         android:layout_marginStart="@dimen/dis_50"
         android:layout_marginEnd="@dimen/dis_50"
         android:textColor="@color/white"
         android:text="@string/string_ok"
-        android:textSize="@dimen/font_size_15"
+        android:textSize="@dimen/font_size_18"
+        android:layout_marginBottom="@dimen/dis_40"
         />
 
 

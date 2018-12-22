@@ -8,7 +8,7 @@
 
     <cn.dogplanet.app.widget.RoundCornerImageView
         android:id="@+id/img_product"
-        android:layout_width="@dimen/dis_240"
+        android:layout_width="@dimen/dis_180"
         android:layout_height="@dimen/dis_120" />
 
     <TextView

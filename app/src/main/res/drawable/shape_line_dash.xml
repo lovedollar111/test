@@ -5,7 +5,7 @@
     <!--线宽为dashWith，线之间空隙dashGap，dashGap=0dp时，是实线 -->
     <stroke
         android:width="@dimen/dis_1"
-        android:color="@color/black"
+        android:color="@color/color_e5"
         android:dashGap="@dimen/dis_20"
         android:dashWidth="@dimen/dis_20"/>
 </shape>

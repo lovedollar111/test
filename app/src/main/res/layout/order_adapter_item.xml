@@ -11,14 +11,14 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center_vertical"
-        android:layout_marginStart="@dimen/dis_30"
-        android:layout_marginEnd="@dimen/dis_30"
-        android:layout_marginTop="@dimen/dis_20"
+        android:layout_marginStart="@dimen/dis_24"
+        android:layout_marginEnd="@dimen/dis_24"
+        android:layout_marginTop="@dimen/dis_30"
         >
 
         <ImageView
-            android:layout_width="@dimen/dis_10"
-            android:layout_height="@dimen/dis_10"
+            android:layout_width="@dimen/dis_40"
+            android:layout_height="@dimen/dis_40"
             android:src="@mipmap/ic_launcher"
             />
 
@@ -26,13 +26,17 @@
             android:id="@+id/tv_name"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_weight="1" />
+            android:layout_weight="1"
+            android:textSize="@dimen/font_size_13"
+            android:textColor="@color/color_33"/>
 
 
         <TextView
             android:id="@+id/tv_status"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:textColor="@color/color_f13051"
+            android:textSize="@dimen/font_size_13"/>
     </LinearLayout>
 
     <View
@@ -40,14 +44,15 @@
         android:layout_width="match_parent"
         android:layout_height="0.5dp"
         android:layout_below="@id/lay_info"
-        android:layout_marginStart="@dimen/dis_20"
-        android:layout_marginTop="@dimen/dis_30"
-        android:background="#d8d8d8" />
+        android:layout_marginStart="@dimen/dis_24"
+        android:layout_marginEnd="@dimen/dis_24"
+        android:layout_marginTop="@dimen/dis_20"
+        android:background="@color/color_e5" />
 
     <cn.dogplanet.app.widget.NoScrollListView
         android:id="@+id/scroll_list"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:listSelector="#0000"
         android:scrollbars="none"
         android:layout_below="@id/view_line1"/>
@@ -57,18 +62,19 @@
         android:layout_width="match_parent"
         android:layout_height="0.5dp"
         android:layout_below="@id/scroll_list"
-        android:layout_marginStart="@dimen/dis_20"
-        android:layout_marginTop="@dimen/dis_30"
-        android:background="#d8d8d8" />
+        android:layout_marginStart="@dimen/dis_24"
+        android:layout_marginEnd="@dimen/dis_24"
+        android:layout_marginTop="@dimen/dis_20"
+        android:background="@color/color_e5" />
 
     <Button
         android:id="@+id/btn_pay"
-        android:layout_width="80dp"
-        android:layout_height="30dp"
+        android:layout_width="@dimen/dis_190"
+        android:layout_height="@dimen/dis_64"
         android:layout_alignParentEnd="true"
         android:layout_below="@id/view_line2"
-        android:layout_marginEnd="@dimen/dis_20"
-        android:layout_marginTop="@dimen/dis_15"
+        android:layout_marginEnd="@dimen/dis_24"
+        android:layout_marginTop="@dimen/dis_10"
         android:background="@drawable/gradient_f1_e0"
         android:gravity="center"
         android:text="@string/string_order_pay"
