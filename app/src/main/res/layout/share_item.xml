@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
+    android:layout_height="@dimen/dis_150"
     android:background="#0000"
     android:orientation="horizontal">
 
@@ -10,13 +10,12 @@
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
         android:layout_marginLeft="@dimen/dis_12"
-        android:layout_marginRight="@dimen/dis_12"
-        android:paddingTop="@dimen/dis_30">
+        android:layout_marginRight="@dimen/dis_12">
 
         <ImageView
             android:id="@+id/share_icon"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="@dimen/dis_80"
+            android:layout_height="@dimen/dis_80"
             android:layout_centerHorizontal="true"
             android:scaleType="matrix"/>
 
@@ -28,17 +27,10 @@
             android:layout_below="@id/share_icon"
             android:layout_centerHorizontal="true"
             android:paddingBottom="@dimen/dis_10"
-            android:paddingTop="@dimen/dis_10"
-            android:textColor="@color/white"
+            android:paddingTop="@dimen/dis_20"
+            android:textColor="@color/color_8e"
             android:textSize="@dimen/font_size_12" />
     </RelativeLayout>
 
-    <View
-        android:id="@id/view_line"
-        android:layout_width="1dp"
-        android:layout_height="33dp"
-        android:layout_alignParentEnd="true"
-        android:layout_marginTop="@dimen/dis_30"
-        android:background="@color/color_e0" />
 
 </RelativeLayout>

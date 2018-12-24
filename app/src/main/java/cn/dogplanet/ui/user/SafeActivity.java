@@ -84,27 +84,6 @@ public class SafeActivity extends BaseActivity {
     }
 
     private void initView() {
-        etPhone.addTextChangedListener(new TextWatcher() {
-            @Override
-            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-
-            }
-
-            @Override
-            public void onTextChanged(CharSequence s, int start, int before, int count) {
-                updateButton();
-                if (StringUtils.isNotBlank(s.toString())) {
-
-                } else {
-
-                }
-            }
-
-            @Override
-            public void afterTextChanged(Editable s) {
-
-            }
-        });
         etVerification.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
@@ -115,9 +94,9 @@ public class SafeActivity extends BaseActivity {
             public void onTextChanged(CharSequence s, int start, int before, int count) {
                 updateButton();
                 if (StringUtils.isNotBlank(s.toString())) {
-
+                    imgVerification.setImageResource(R.drawable.ic_verification_select);
                 } else {
-
+                    imgVerification.setImageResource(R.drawable.ic_verification_normal);
                 }
             }
 
@@ -129,7 +108,6 @@ public class SafeActivity extends BaseActivity {
         etPassword.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-
             }
 
             @Override
@@ -137,8 +115,9 @@ public class SafeActivity extends BaseActivity {
                 updateButton();
                 if (StringUtils.isNotBlank(s.toString())) {
 
+                    imgPassword.setImageResource(R.drawable.ic_password_select);
                 } else {
-
+                    imgPassword.setImageResource(R.drawable.ic_password_normal);
                 }
             }
 
@@ -157,9 +136,9 @@ public class SafeActivity extends BaseActivity {
             public void onTextChanged(CharSequence s, int start, int before, int count) {
                 updateButton();
                 if (StringUtils.isNotBlank(s.toString())) {
-
+                    imgAgainPassword.setImageResource(R.drawable.ic_password_again_select);
                 } else {
-
+                    imgAgainPassword.setImageResource(R.drawable.ic_password_again_normal);
                 }
             }
 

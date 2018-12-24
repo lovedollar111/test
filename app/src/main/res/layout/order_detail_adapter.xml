@@ -49,9 +49,10 @@
             android:id="@+id/tv_product_num"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/img_product"
+            android:layout_below="@+id/tv_product_name"
             android:layout_marginStart="@dimen/dis_20"
             android:layout_toEndOf="@+id/img_product"
+            android:layout_marginTop="@dimen/dis_20"
             android:textSize="@dimen/font_size_13"
             android:textColor="@color/color_8e"/>
 
@@ -59,9 +60,10 @@
             android:id="@+id/tv_product_date"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/img_product"
+            android:layout_below="@+id/tv_product_name"
             android:layout_marginStart="@dimen/dis_20"
             android:layout_toEndOf="@+id/tv_product_num"
+            android:layout_marginTop="@dimen/dis_20"
             android:textSize="@dimen/font_size_13"
             android:textColor="@color/color_8e"/>
 
@@ -69,7 +71,8 @@
             android:id="@+id/tv_product_price"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/img_product"
+            android:layout_below="@+id/tv_product_name"
+            android:layout_marginTop="@dimen/dis_20"
             android:layout_marginStart="@dimen/dis_20"
             android:layout_toEndOf="@+id/tv_product_date"
             android:textSize="@dimen/font_size_13"

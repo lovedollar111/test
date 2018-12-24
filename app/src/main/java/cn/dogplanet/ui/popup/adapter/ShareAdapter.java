@@ -23,10 +23,10 @@ public class ShareAdapter extends BaseAdapter {
     private int type;
     private static String[] shareNames = new String[]{"微信", "朋友圈", "QQ",
             "微博", "空间"};
-    private int[] shareIcons2 = new int[]{R.drawable.weixin_selector,
-            R.drawable.weixin_friends_selector, R.drawable.qq_selector, R.drawable.weibo_selector, R.drawable.qzone_selector};
-    private int[] shareIcons = new int[]{R.drawable.weixin_share_selector,
-            R.drawable.friend_share_selector, R.drawable.qq_share_selector, R.drawable.weibo_share_selector, R.drawable.qzone_share_selector};
+    private int[] shareIcons = new int[]{R.drawable.ic_wx,
+            R.drawable.ic_wx_friend, R.drawable.ic_qq, R.drawable.ic_weibo, R.drawable.ic_qzone};
+    private int[] shareIcons2 = new int[]{R.drawable.ic_wx,
+            R.drawable.ic_wx_friend, R.drawable.ic_qq, R.drawable.ic_weibo, R.drawable.ic_qzone};
 
     private LayoutInflater inflater;
 
@@ -59,21 +59,16 @@ public class ShareAdapter extends BaseAdapter {
                 .findViewById(R.id.share_icon);
         TextView shareTitle = convertView
                 .findViewById(R.id.share_title);
-        View view_line=convertView.findViewById(R.id.view_line);
         if(type==1){
             RelativeLayout.LayoutParams layoutParams=new RelativeLayout.LayoutParams(AndroidUtil.dip2px(44), AndroidUtil.dip2px(44));
             shareIcon.setImageResource(shareIcons2[position]);
             shareIcon.setLayoutParams(layoutParams);
             shareTitle.setText(shareNames[position]);
-            view_line.setVisibility(View.GONE);
         }else{
             RelativeLayout.LayoutParams layoutParams=new RelativeLayout.LayoutParams(AndroidUtil.dip2px(30), AndroidUtil.dip2px(30));
             shareIcon.setImageResource(shareIcons[position]);
             shareIcon.setLayoutParams(layoutParams);
             shareTitle.setText(shareNames[position]);
-            if(position==4){
-                view_line.setVisibility(View.GONE);
-            }
         }
         return convertView;
     }

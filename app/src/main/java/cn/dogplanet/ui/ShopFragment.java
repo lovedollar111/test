@@ -223,9 +223,13 @@ public class ShopFragment extends BaseFragment {
                 remProductAdapter.notifyDataSetChanged();
             }
         }
-
+        listRemProduct.setFocusable(false);
+        vpBanner.setFocusable(true);
+        vpBanner.setFocusableInTouchMode(true);
+        vpBanner.requestFocus();
+        scrMain.smoothScrollTo(0,0);
         if (resp.getHotProduct() != null && !resp.getHotProduct().isEmpty()) {
-            hotProductAdapter = new ProductAdapter(resp.getHotProduct(), getActivity());
+            hotProductAdapter = new ProductAdapter(resp.getHotProduct(), getActivity().getApplicationContext());
             listHotProduct.setAdapter(hotProductAdapter);
             listHotProduct.setOnItemClickListener((parent, view, position, id) -> startActivity(ProductBuyActivity.newIntent(resp.getHotProduct().get(position).getPro_id())));
         }

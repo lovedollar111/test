@@ -18,7 +18,7 @@ public class Expert {
     //高级认证审核状态：authentication_status 1:未进行认证高级认证 0:待审核 10:审核中 20:审核成功 30:审核失败
 
     private String check_status;
-    private String authentication_status;
+    private int authentication_status;
     private String authentication_category;
 
     public static final String CHECK_0 = "0";
@@ -27,11 +27,11 @@ public class Expert {
     public static final String CHECK_20 = "20";
     public static final String CHECK_30 = "30";
 
-    public static final String AUTHENTICATION_0 = "0";
-    public static final String AUTHENTICATION_1 = "1";
-    public static final String AUTHENTICATION_10 = "10";
-    public static final String AUTHENTICATION_20 = "20";
-    public static final String AUTHENTICATION_30 = "30";
+    public static final int AUTHENTICATION_0 = 0;
+    public static final int AUTHENTICATION_1 = 1;
+    public static final int AUTHENTICATION_10 = 10;
+    public static final int AUTHENTICATION_20 = 20;
+    public static final int AUTHENTICATION_30 = 30;
 
     public static final String CATEGORY_WORKERS = "40";
     public static final String CATEGORY_BUSINESS = "30";
@@ -396,11 +396,11 @@ public class Expert {
         this.check_status = check_status;
     }
 
-    public String getAuthentication_status() {
+    public int getAuthentication_status() {
         return authentication_status;
     }
 
-    public void setAuthentication_status(String authentication_status) {
+    public void setAuthentication_status(int authentication_status) {
         this.authentication_status = authentication_status;
     }
 

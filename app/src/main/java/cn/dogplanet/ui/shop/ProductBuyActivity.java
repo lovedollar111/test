@@ -323,6 +323,16 @@ public class ProductBuyActivity extends BaseFragmentActivity implements HoldTabS
             }
             notifyHomeAdapter(items);
         }
+        if (!product.getAuthentication_status()) {
+            ToastUtil.showError(product.getAuthentication_message());
+            return;
+        }
+
+        if (!product.getTravel_agency_status()) {
+            ToastUtil.showError(product.getTravel_agency_message());
+            return;
+        }
+
         if (product.getCan_join_cart()) {
             if (productBuyFragment != null) {
                 productBuyFragment.hideNumBtn(product.getCanBuyNum().getNumber());
@@ -338,26 +348,24 @@ public class ProductBuyActivity extends BaseFragmentActivity implements HoldTabS
 
                 } else {
                     ToastUtil.showError(String.format("当前时段暂不可购买该产品，请%d小时%d分%d秒后再试", hour, min, second));
+                    return;
                 }
                 productBuyFragment.hideNumBtn(product.getMost());
             }
         }
 
-        if (!product.getAuthentication_status()) {
-            ToastUtil.showError(product.getAuthentication_message());
-        }
-
-        if (!product.getTravel_agency_status()) {
-            ToastUtil.showError(product.getTravel_agency_message());
-        }
         if (product.getCan_join_cart()) {
             btnJoinCart.setVisibility(View.VISIBLE);
             btnJoinCart.setBackgroundResource(R.drawable.gradient_btn_gray_left);
             btnBuy.setBackgroundResource(R.drawable.gradient_btn_gray_right);
+            btnJoinCart.setEnabled(false);
+            btnBuy.setEnabled(false);
         } else {
             btnJoinCart.setVisibility(View.GONE);
             btnJoinCart.setBackgroundResource(R.drawable.gradient_btn_gray_left);
             btnBuy.setBackgroundResource(R.drawable.gradient_c7_ab);
+            btnJoinCart.setEnabled(false);
+            btnBuy.setEnabled(false);
         }
     }
 

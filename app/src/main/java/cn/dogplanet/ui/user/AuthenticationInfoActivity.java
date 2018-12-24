@@ -329,7 +329,7 @@ public class AuthenticationInfoActivity extends BaseActivity {
         etDrivingLicenceTime.setText(et.getDriver_license().getDate());
         etVehicleLicenseTime.setText(et.getVehicle_license().getDate());
         etOperationalQualificationTime.setText(et.getOperational_qualification().getDate());
-        String status = et.getAuthentication_status();
+        int status = et.getAuthentication_status();
         switch (status) {
             case Expert.AUTHENTICATION_0:
             case Expert.AUTHENTICATION_10:

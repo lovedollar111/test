@@ -13,37 +13,36 @@
             style="@style/top_title_text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_centerInParent="true"
+            android:layout_centerHorizontal="true"
             android:text="@string/string_user_center" />
     </RelativeLayout>
-
-    <View style="@style/view_hor_margin_line" />
-
 
     <RelativeLayout
         android:id="@+id/lay_info"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/dis_136"
+        android:layout_height="@dimen/dis_160"
         android:background="@color/white">
 
 
         <cn.dogplanet.app.widget.CircleImageView
-            android:layout_width="@dimen/dis_120"
-            android:layout_height="@dimen/dis_120"
+            android:layout_width="@dimen/dis_140"
+            android:layout_height="@dimen/dis_140"
             android:layout_centerVertical="true"
-            android:layout_marginStart="@dimen/dis_24" />
+            android:layout_marginStart="@dimen/dis_24"
+            android:background="@drawable/back_circle_white"/>
 
         <cn.dogplanet.app.widget.CircleImageView
             android:id="@+id/img_head"
-            android:layout_width="@dimen/dis_108"
-            android:layout_height="@dimen/dis_108"
+            android:layout_width="@dimen/dis_120"
+            android:layout_height="@dimen/dis_120"
             android:layout_centerVertical="true"
-            android:layout_marginStart="@dimen/dis_30" />
+            android:layout_marginStart="@dimen/dis_34" />
 
         <TextView
             android:id="@+id/tv_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:textColor="@color/color_33"
             android:layout_centerVertical="true"
             android:layout_marginStart="@dimen/dis_40"
             android:layout_toEndOf="@+id/img_head" />
@@ -53,8 +52,8 @@
             android:layout_height="wrap_content"
             android:layout_alignParentEnd="true"
             android:layout_centerVertical="true"
-            android:layout_marginEnd="@dimen/dis_24"
-            android:src="@mipmap/ic_launcher" />
+            android:layout_marginEnd="@dimen/dis_34"
+            android:src="@mipmap/ic_right_next" />
 
     </RelativeLayout>
 
@@ -62,10 +61,10 @@
     <RelativeLayout
         android:id="@+id/lay_authentication_info"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/dis_88"
+        android:layout_height="@dimen/dis_120"
         android:layout_marginEnd="@dimen/dis_24"
         android:layout_marginStart="@dimen/dis_24"
-        android:layout_marginTop="@dimen/dis_30"
+        android:layout_marginTop="@dimen/dis_24"
         android:background="@drawable/back_round_white_30">
 
         <ImageView
@@ -74,7 +73,7 @@
             android:layout_height="@dimen/dis_30"
             android:layout_centerVertical="true"
             android:layout_marginStart="@dimen/dis_24"
-            android:src="@mipmap/ic_launcher" />
+            android:src="@drawable/ic_verification_select" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -82,6 +81,7 @@
             android:layout_centerVertical="true"
             android:layout_marginStart="@dimen/dis_20"
             android:layout_toEndOf="@+id/img_authentication_info"
+            android:textColor="@color/color_33"
             android:text="@string/string_authentication" />
 
         <ImageView
@@ -90,7 +90,7 @@
             android:layout_alignParentEnd="true"
             android:layout_centerVertical="true"
             android:layout_marginEnd="@dimen/dis_24"
-            android:src="@mipmap/ic_launcher" />
+            android:src="@mipmap/ic_right_next" />
     </RelativeLayout>
 
     <LinearLayout
@@ -105,7 +105,7 @@
         <RelativeLayout
             android:id="@+id/lay_safe"
             android:layout_width="match_parent"
-            android:layout_height="@dimen/dis_88"
+            android:layout_height="@dimen/dis_108"
             android:layout_marginTop="@dimen/dis_10"
             android:background="@drawable/back_round_white_30">
 
@@ -116,13 +116,14 @@
                 android:layout_height="@dimen/dis_30"
                 android:layout_centerVertical="true"
                 android:layout_marginStart="@dimen/dis_24"
-                android:src="@mipmap/ic_launcher" />
+                android:src="@drawable/ic_password_again_select" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerVertical="true"
                 android:layout_marginStart="@dimen/dis_20"
+                android:textColor="@color/color_33"
                 android:layout_toEndOf="@+id/img_safe"
                 android:text="@string/string_safe" />
 
@@ -132,7 +133,7 @@
                 android:layout_alignParentEnd="true"
                 android:layout_centerVertical="true"
                 android:layout_marginEnd="@dimen/dis_24"
-                android:src="@mipmap/ic_launcher" />
+                android:src="@mipmap/ic_right_next" />
         </RelativeLayout>
 
         <View style="@style/view_hor_margin_line" />
@@ -140,7 +141,7 @@
         <RelativeLayout
             android:id="@+id/lay_invite"
             android:layout_width="match_parent"
-            android:layout_height="@dimen/dis_88"
+            android:layout_height="@dimen/dis_108"
             android:layout_marginTop="@dimen/dis_10"
             android:background="@drawable/back_round_white_30">
 
@@ -151,7 +152,7 @@
                 android:layout_height="@dimen/dis_30"
                 android:layout_centerVertical="true"
                 android:layout_marginStart="@dimen/dis_24"
-                android:src="@mipmap/ic_launcher" />
+                android:src="@drawable/ic_invite_select" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -159,6 +160,7 @@
                 android:layout_centerVertical="true"
                 android:layout_marginStart="@dimen/dis_20"
                 android:layout_toEndOf="@+id/img_invite"
+                android:textColor="@color/color_33"
                 android:text="@string/string_invite" />
 
             <ImageView
@@ -167,7 +169,7 @@
                 android:layout_alignParentEnd="true"
                 android:layout_centerVertical="true"
                 android:layout_marginEnd="@dimen/dis_24"
-                android:src="@mipmap/ic_launcher" />
+                android:src="@mipmap/ic_right_next" />
         </RelativeLayout>
 
         <View style="@style/view_hor_margin_line" />
@@ -175,7 +177,7 @@
         <RelativeLayout
             android:id="@+id/lay_about"
             android:layout_width="match_parent"
-            android:layout_height="@dimen/dis_88"
+            android:layout_height="@dimen/dis_108"
             android:layout_marginBottom="@dimen/dis_10"
             android:layout_marginTop="@dimen/dis_10">
 
@@ -186,7 +188,7 @@
                 android:layout_height="@dimen/dis_30"
                 android:layout_centerVertical="true"
                 android:layout_marginStart="@dimen/dis_24"
-                android:src="@mipmap/ic_launcher" />
+                android:src="@mipmap/ic_about_ww" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -194,6 +196,7 @@
                 android:layout_centerVertical="true"
                 android:layout_marginStart="@dimen/dis_20"
                 android:layout_toEndOf="@+id/img_about"
+                android:textColor="@color/color_33"
                 android:text="@string/string_about" />
 
             <ImageView
@@ -202,7 +205,7 @@
                 android:layout_alignParentEnd="true"
                 android:layout_centerVertical="true"
                 android:layout_marginEnd="@dimen/dis_24"
-                android:src="@mipmap/ic_launcher" />
+                android:src="@mipmap/ic_right_next" />
         </RelativeLayout>
     </LinearLayout>
 
@@ -212,8 +215,9 @@
         android:layout_height="@dimen/dis_80"
         android:layout_marginEnd="@dimen/dis_24"
         android:layout_marginStart="@dimen/dis_24"
-        android:layout_marginTop="@dimen/dis_60"
+        android:layout_marginTop="@dimen/dis_70"
         android:textSize="@dimen/font_size_15"
+        android:textColor="@color/color_8e"
         android:background="@drawable/back_round_white_30"
         android:text="@string/string_quit"/>
 </LinearLayout>

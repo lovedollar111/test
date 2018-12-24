@@ -11,19 +11,20 @@
 
         <ImageButton
             android:id="@+id/btn_back"
-            android:layout_width="@dimen/dis_30"
-            android:layout_height="match_parent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
             android:layout_alignParentStart="true"
-            android:layout_centerVertical="true"
             android:background="#0000"
-            android:src="@mipmap/ic_launcher" />
+            android:src="@drawable/ic_back" />
 
         <TextView
             android:id="@+id/title"
             style="@style/top_title_text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_centerInParent="true"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
             android:text="@string/user_setting_profile" />
     </RelativeLayout>
 
@@ -31,23 +32,24 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@drawable/back_round_white_30"
-        android:layout_marginTop="@dimen/dis_36"
-        android:layout_marginStart="@dimen/dis_24"
         android:layout_marginEnd="@dimen/dis_24"
+        android:layout_marginStart="@dimen/dis_24"
+        android:layout_marginTop="@dimen/dis_24"
+        android:background="@drawable/back_round_white_30"
         android:orientation="vertical">
 
         <RelativeLayout
             android:id="@+id/lay_head"
             android:layout_width="match_parent"
-            android:layout_height="@dimen/dis_88">
+            android:layout_height="@dimen/dis_88"
+            android:layout_marginTop="@dimen/dis_20">
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerVertical="true"
                 android:layout_marginEnd="@dimen/dis_40"
-                android:layout_marginStart="@dimen/dis_36"
+                android:layout_marginStart="@dimen/dis_24"
                 android:background="@color/white"
                 android:singleLine="true"
                 android:text="头像"
@@ -56,13 +58,21 @@
 
 
             <cn.dogplanet.app.widget.CircleImageView
-                android:id="@+id/img_head"
                 android:layout_width="@dimen/dis_60"
                 android:layout_height="@dimen/dis_60"
                 android:layout_centerVertical="true"
-                android:layout_marginEnd="@dimen/dis_36"
-                android:layout_toStartOf="@+id/img_right" />
+                android:layout_marginEnd="@dimen/dis_24"
+                android:layout_toStartOf="@+id/img_right"
+                android:background="@drawable/back_circle_white" />
 
+
+            <cn.dogplanet.app.widget.CircleImageView
+                android:id="@+id/img_head"
+                android:layout_width="@dimen/dis_54"
+                android:layout_height="@dimen/dis_54"
+                android:layout_centerVertical="true"
+                android:layout_marginEnd="@dimen/dis_27"
+                android:layout_toStartOf="@+id/img_right"/>
 
             <ImageView
                 android:id="@+id/img_right"
@@ -70,21 +80,22 @@
                 android:layout_height="@dimen/dis_40"
                 android:layout_alignParentEnd="true"
                 android:layout_centerVertical="true"
-                android:layout_marginEnd="@dimen/dis_36"
+                android:layout_marginEnd="@dimen/dis_24"
                 android:paddingEnd="@dimen/dis_20"
                 android:paddingStart="@dimen/dis_20"
                 android:scaleType="center"
-                android:src="@mipmap/ic_launcher" />
+                android:src="@mipmap/ic_right_next" />
 
         </RelativeLayout>
 
         <View
-            style="@style/view_hor_margin_line"
-            android:layout_marginEnd="@dimen/dis_36"
-            android:layout_marginStart="@dimen/dis_36" />
+            style="@style/view_hor_match_line"
+            android:layout_marginEnd="@dimen/dis_24"
+            android:layout_marginStart="@dimen/dis_24" />
+
 
         <RelativeLayout
-            android:id="@+id/lay_name"
+            android:id="@+id/lay_wx"
             android:layout_width="match_parent"
             android:layout_height="@dimen/dis_88">
 
@@ -93,7 +104,58 @@
                 android:layout_height="wrap_content"
                 android:layout_centerVertical="true"
                 android:layout_marginEnd="@dimen/dis_40"
-                android:layout_marginStart="@dimen/dis_36"
+                android:layout_marginStart="@dimen/dis_24"
+                android:background="@color/white"
+                android:singleLine="true"
+                android:text="微信号"
+                android:textColor="@color/color_33"
+                android:textSize="@dimen/font_size_15" />
+
+
+            <TextView
+                android:id="@+id/tv_wx"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginEnd="@dimen/dis_24"
+                android:layout_toStartOf="@+id/img_wx_right"
+                android:paddingEnd="@dimen/dis_20"
+                android:paddingStart="@dimen/dis_20"
+                android:scaleType="center"
+                android:src="@mipmap/ic_launcher" />
+
+
+            <ImageView
+                android:id="@+id/img_wx_right"
+                android:layout_width="@dimen/dis_30"
+                android:layout_height="@dimen/dis_40"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                android:layout_marginEnd="@dimen/dis_24"
+                android:paddingEnd="@dimen/dis_20"
+                android:paddingStart="@dimen/dis_20"
+                android:scaleType="center"
+                android:src="@mipmap/ic_right_next" />
+
+        </RelativeLayout>
+
+        <View
+            style="@style/view_hor_match_line"
+            android:layout_marginEnd="@dimen/dis_24"
+            android:layout_marginStart="@dimen/dis_24" />
+
+        <RelativeLayout
+            android:id="@+id/lay_name"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dis_88"
+            android:layout_marginBottom="@dimen/dis_20">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginEnd="@dimen/dis_40"
+                android:layout_marginStart="@dimen/dis_24"
                 android:background="@color/white"
                 android:singleLine="true"
                 android:text="姓名"
@@ -107,64 +169,13 @@
                 android:layout_height="wrap_content"
                 android:layout_alignParentEnd="true"
                 android:layout_centerVertical="true"
-                android:layout_marginEnd="@dimen/dis_36"
+                android:layout_marginEnd="@dimen/dis_24"
                 android:paddingEnd="@dimen/dis_20"
                 android:paddingStart="@dimen/dis_20"
                 android:scaleType="center"
                 android:src="@mipmap/ic_launcher" />
 
         </RelativeLayout>
-
-        <View
-            style="@style/view_hor_margin_line"
-            android:layout_marginEnd="@dimen/dis_36"
-            android:layout_marginStart="@dimen/dis_36" />
-
-        <RelativeLayout
-            android:id="@+id/lay_wx"
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/dis_88">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerVertical="true"
-                android:layout_marginEnd="@dimen/dis_40"
-                android:layout_marginStart="@dimen/dis_36"
-                android:background="@color/white"
-                android:singleLine="true"
-                android:text="微信号"
-                android:textColor="@color/color_33"
-                android:textSize="@dimen/font_size_15" />
-
-
-            <TextView
-                android:id="@+id/tv_wx"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_toStartOf="@+id/img_wx_right"
-                android:layout_centerVertical="true"
-                android:layout_marginEnd="@dimen/dis_36"
-                android:paddingEnd="@dimen/dis_20"
-                android:paddingStart="@dimen/dis_20"
-                android:scaleType="center"
-                android:src="@mipmap/ic_launcher" />
-
-
-            <ImageView
-                android:id="@+id/img_wx_right"
-                android:layout_width="@dimen/dis_30"
-                android:layout_height="@dimen/dis_40"
-                android:layout_alignParentEnd="true"
-                android:layout_centerVertical="true"
-                android:layout_marginEnd="@dimen/dis_36"
-                android:paddingEnd="@dimen/dis_20"
-                android:paddingStart="@dimen/dis_20"
-                android:scaleType="center"
-                android:src="@mipmap/ic_launcher" />
-
-        </RelativeLayout>
-
 
 
     </LinearLayout>
