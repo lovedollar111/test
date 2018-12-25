@@ -7,6 +7,8 @@ import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.os.Handler;
 import android.os.Message;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.KeyEvent;
 import android.view.View;
 import android.widget.ImageButton;
@@ -128,6 +130,67 @@ public class LoginActivity extends BaseActivity implements PlatformActionListene
         tv_disclaimer.getPaint().setFlags(Paint.UNDERLINE_TEXT_FLAG); //下划线
         tv_disclaimer.getPaint().setAntiAlias(true);//抗锯齿
         btn_log.setTag(TYPE_LOGIN_WITH_PASSWORD);
+        et_phone.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                if(StringUtils.isNotBlank(s.toString())){
+                    btn_get_verification.setImageResource(R.drawable.ic_next_select);
+                }else{
+                    btn_get_verification.setImageResource(R.drawable.ic_next_normal);
+                }
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+
+            }
+        });
+        et_password.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                if(StringUtils.isNotBlank(s.toString())){
+                    btn_log.setImageResource(R.drawable.ic_next_select);
+                }else{
+                    btn_log.setImageResource(R.drawable.ic_next_normal);
+                }
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+
+            }
+        });
+
+        et_verification.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                if(StringUtils.isNotBlank(s.toString())){
+                    btn_log.setImageResource(R.drawable.ic_next_select);
+                }else{
+                    btn_log.setImageResource(R.drawable.ic_next_normal);
+                }
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+
+            }
+        });
     }
 
 
@@ -259,6 +322,7 @@ public class LoginActivity extends BaseActivity implements PlatformActionListene
                 tv_log_with_password.setText(R.string.log_with_verification);
                 btn_log.setTag(TYPE_LOGIN_WITH_PASSWORD);
                 tv_forget_password.setVisibility(View.VISIBLE);
+                img_log_with_password.setImageResource(R.drawable.ic_log_verification);
                 break;
             case TYPE_LOGIN_WITH_PASSWORD:
                 this.type = TYPE_LOGIN_WITH_VERIFICATION;
@@ -278,6 +342,7 @@ public class LoginActivity extends BaseActivity implements PlatformActionListene
                 tv_log_with_password.setText(R.string.log_with_password);
                 btn_log.setTag(TYPE_LOGIN_WITH_VERIFICATION);
                 tv_forget_password.setVisibility(View.INVISIBLE);
+                img_log_with_password.setImageResource(R.drawable.ic_log_password);
                 break;
         }
     }

@@ -43,6 +43,8 @@ public class FirstActivity extends BaseActivity {
     EditTextWithDel et_again_password;
     @BindView(R.id.et_invite_code)
     EditTextWithDel et_invite_code;
+    @BindView(R.id.img_password)
+    ImageView img_password;
     @BindView(R.id.img_again_password)
     ImageView img_again_password;
     @BindView(R.id.img_invite_code)
@@ -70,9 +72,9 @@ public class FirstActivity extends BaseActivity {
         initView();
     }
 
-    @Subscribe(threadMode = ThreadMode.MAIN,sticky = true)
-    public void phoneEventBus(Expert expert){
-        phone=expert.getExpert_account();
+    @Subscribe(threadMode = ThreadMode.MAIN, sticky = true)
+    public void phoneEventBus(Expert expert) {
+        phone = expert.getExpert_account();
     }
 
 
@@ -86,6 +88,11 @@ public class FirstActivity extends BaseActivity {
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
                 updateButton();
+                if (StringUtils.isNotBlank(s.toString())) {
+                    img_password.setImageResource(R.drawable.ic_password_select);
+                } else {
+                    img_password.setImageResource(R.drawable.ic_password_normal);
+                }
             }
 
             @Override
@@ -103,6 +110,11 @@ public class FirstActivity extends BaseActivity {
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
                 updateButton();
+                if (StringUtils.isNotBlank(s.toString())) {
+                    img_again_password.setImageResource(R.drawable.ic_password_again_select);
+                } else {
+                    img_again_password.setImageResource(R.drawable.ic_password_again_normal);
+                }
             }
 
             @Override
@@ -119,7 +131,11 @@ public class FirstActivity extends BaseActivity {
 
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
-
+                if (StringUtils.isNotBlank(s.toString())) {
+                    img_invite_code.setImageResource(R.drawable.ic_invite_select);
+                } else {
+                    img_invite_code.setImageResource(R.drawable.ic_invite_normal);
+                }
             }
 
             @Override
@@ -141,21 +157,21 @@ public class FirstActivity extends BaseActivity {
     void onClick(View view) {
         switch (view.getId()) {
             case R.id.img_see_password:
-                if (et_password.getTransformationMethod()== PasswordTransformationMethod.getInstance()) {
+                if (et_password.getTransformationMethod() == PasswordTransformationMethod.getInstance()) {
                     et_password.setTransformationMethod(HideReturnsTransformationMethod.getInstance());
                 } else if (et_password.getTransformationMethod() == HideReturnsTransformationMethod.getInstance()) {
                     et_password.setTransformationMethod(PasswordTransformationMethod.getInstance());
                 }
                 break;
             case R.id.img_see_again_password:
-                if (et_again_password.getTransformationMethod()== PasswordTransformationMethod.getInstance()) {
+                if (et_again_password.getTransformationMethod() == PasswordTransformationMethod.getInstance()) {
                     et_again_password.setTransformationMethod(HideReturnsTransformationMethod.getInstance());
                 } else if (et_again_password.getTransformationMethod() == HideReturnsTransformationMethod.getInstance()) {
                     et_again_password.setTransformationMethod(PasswordTransformationMethod.getInstance());
                 }
                 break;
             case R.id.btn_next:
-                if(checkInput()){
+                if (checkInput()) {
                     reg();
                 }
                 break;
@@ -165,7 +181,7 @@ public class FirstActivity extends BaseActivity {
 
     private boolean checkInput() {
         String pass = et_password.getText().toString();
-        String again_pass=et_again_password.getText().toString();
+        String again_pass = et_again_password.getText().toString();
         if (StringUtils.isBlank(pass) || pass.length() < 6) {
             ToastUtil.showError(R.string.tip_pass);
             return false;
@@ -174,7 +190,7 @@ public class FirstActivity extends BaseActivity {
             ToastUtil.showError(R.string.tip_pass);
             return false;
         }
-        if(!again_pass.equals(pass)){
+        if (!again_pass.equals(pass)) {
             ToastUtil.showError(R.string.tip_tow_pass_error);
             return false;
         }
@@ -185,12 +201,12 @@ public class FirstActivity extends BaseActivity {
         Map<String, String> params = new HashMap<>();
         params.put("expert_account", phone);
         params.put("expert_password", et_password.getText().toString());
-        params.put("confirm_password",et_again_password.getText().toString());
-        if(StringUtils.isNotBlank(et_invite_code.getText().toString())){
+        params.put("confirm_password", et_again_password.getText().toString());
+        if (StringUtils.isNotBlank(et_invite_code.getText().toString())) {
             params.put("invite_code", et_invite_code.getText().toString());
         }
         params.put("source", "20");
-        Log.i("info",params.toString());
+        Log.i("info", params.toString());
         showProgress();
         PublicReq.request(HttpUrl.EXPERT_REG, response -> {
             hideProgress();

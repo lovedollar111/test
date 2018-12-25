@@ -52,8 +52,8 @@ public class CompanyListActivity extends BaseActivity {
     @BindView(R.id.list_company)
     NoScrollListView listCompany;
 
-    CompanyAdapter companyRemAdapter;
-    CompanyAdapter companyListAdapter;
+    private CompanyAdapter companyRemAdapter;
+    private CompanyAdapter companyListAdapter;
 
     private String company_id, company_name, type, old_travel_agency_id;
     private Expert expert;

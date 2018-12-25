@@ -1,5 +1,6 @@
 package cn.dogplanet.ui.login;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
@@ -86,7 +87,7 @@ public class BaseInfoActivity extends BaseActivity {
     @BindView(R.id.img_operational_qualification_time)
     ImageView img_operational_qualification_time;
 
-    private String company_id,company_name;
+    private String company_id, company_name;
     private Expert expert;
     private boolean isLongTime = false;
     private String driving_licence_time, vehicle_license_time, operational_qualification_time;
@@ -131,23 +132,7 @@ public class BaseInfoActivity extends BaseActivity {
     }
 
     private void initView() {
-        et_name.addTextChangedListener(new TextWatcher() {
-            @Override
-            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-
-            }
-
-            @Override
-            public void onTextChanged(CharSequence s, int start, int before, int count) {
-                updateBtn();
-            }
-
-            @Override
-            public void afterTextChanged(Editable s) {
-
-            }
-        });
-        KeyBoardUtils.openKeybord(et_name,this);
+        KeyBoardUtils.openKeybord(et_name, this);
         et_id_card.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
@@ -157,6 +142,11 @@ public class BaseInfoActivity extends BaseActivity {
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
                 updateBtn();
+                if (StringUtils.isNotBlank(s.toString())) {
+                    img_id_card.setImageResource(R.drawable.ic_id_card_select);
+                } else {
+                    img_id_card.setImageResource(R.drawable.ic_id_card_normal);
+                }
             }
 
             @Override
@@ -166,7 +156,7 @@ public class BaseInfoActivity extends BaseActivity {
         });
     }
 
-    @OnClick({R.id.btn_next, R.id.lay_company, R.id.lay_driving_licence_time, R.id.et_driving_licence_time,R.id.lay_vehicle_license_time, R.id.et_vehicle_license_time,R.id.lay_operational_qualification_time,R.id.et_operational_qualification_time})
+    @OnClick({R.id.btn_next, R.id.lay_company, R.id.lay_driving_licence_time, R.id.et_driving_licence_time, R.id.lay_vehicle_license_time, R.id.et_vehicle_license_time, R.id.lay_operational_qualification_time, R.id.et_operational_qualification_time})
     void onClick(View view) {
         switch (view.getId()) {
             case R.id.btn_next:
@@ -175,7 +165,7 @@ public class BaseInfoActivity extends BaseActivity {
                 }
                 break;
             case R.id.lay_company:
-                startActivityForResult(CompanyListActivity.newIntent(company_id,CompanyListActivity.TYPE_CHOOSE), CompanyListActivity.COMPANY_LIST_CODE);
+                startActivityForResult(CompanyListActivity.newIntent(company_id, CompanyListActivity.TYPE_CHOOSE), CompanyListActivity.COMPANY_LIST_CODE);
                 break;
             case R.id.lay_driving_licence_time:
             case R.id.et_driving_licence_time:
@@ -258,9 +248,12 @@ public class BaseInfoActivity extends BaseActivity {
         super.onActivityResult(requestCode, resultCode, data);
         if (resultCode == CompanyListActivity.COMPANY_LIST_CODE) {
             if (StringUtils.isNotBlank(data.getStringExtra(CompanyListActivity.COMPANY_ID))) {
-                company_id=data.getStringExtra(CompanyListActivity.COMPANY_ID);
-                company_name=data.getStringExtra(CompanyListActivity.COMPANY_NAME);
+                company_id = data.getStringExtra(CompanyListActivity.COMPANY_ID);
+                company_name = data.getStringExtra(CompanyListActivity.COMPANY_NAME);
                 et_company.setText(company_name);
+                img_company.setImageResource(R.drawable.ic_company_select);
+            } else {
+                img_company.setImageResource(R.drawable.ic_company_normal);
             }
         }
     }
@@ -277,7 +270,7 @@ public class BaseInfoActivity extends BaseActivity {
         final NiftyDialogBuilder builder = NiftyDialogBuilder.getInstance(this);
         builder.withEffect(Effectstype.Fadein);
         View view = LayoutInflater.from(this).inflate(R.layout.date_picker_dialog, null);
-        builder.setCustomViewWithoutClose(view, this);
+        builder.setCustomView(view, this);
         LinearLayout lay_ck = view.findViewById(R.id.lay_chk);
         view.findViewById(R.id.lay_main).setEnabled(false);
         if (i == DRIVING_LICENSE) {
@@ -366,21 +359,34 @@ public class BaseInfoActivity extends BaseActivity {
                         } else {
                             et_driving_licence_time.setText(time);
                         }
+                        img_driving_licence_time.setImageResource(R.drawable.ic_driving_licence_select);
                         break;
                     case VEHICLE_LICENSE:
                         vehicle_license_time = time;
                         et_vehicle_license_time.setText(time);
+                        img_vehicle_license_time.setImageResource(R.drawable.ic_vehicle_license_select);
                         break;
                     case OPERATIONAL_LICENSE:
                         operational_qualification_time = time;
                         et_operational_qualification_time.setText(time);
+                        img_operational_qualification_time.setImageResource(R.drawable.ic_operational_qualification_select);
                         break;
                 }
-                builder.cancel();
+                builder.dismiss();
                 updateBtn();
             }
         });
-        view.findViewById(R.id.btn_cancel).setOnClickListener(v -> builder.cancel());
+        builder.setOnDismissListener(dialog -> {
+            if (StringUtils.isBlank(et_driving_licence_time.getText().toString())) {
+                img_driving_licence_time.setImageResource(R.drawable.ic_driving_licence_normal);
+            }
+            if (StringUtils.isBlank(et_vehicle_license_time.getText().toString())) {
+                img_vehicle_license_time.setImageResource(R.drawable.ic_vehicle_license_normal);
+            }
+            if (StringUtils.isBlank(et_operational_qualification_time.getText().toString())) {
+                img_operational_qualification_time.setImageResource(R.drawable.ic_operational_qualification_normal);
+            }
+        });
         builder.show();
         updateBtn();
     }

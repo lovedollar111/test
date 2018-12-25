@@ -1,5 +1,6 @@
 package cn.dogplanet.ui.user;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.Editable;
@@ -10,7 +11,10 @@ import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.DatePicker;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
 
 import java.util.Date;
 import java.util.HashMap;
@@ -56,10 +60,22 @@ public class EditInfoActivity extends BaseActivity {
     EditText etOperationalQualificationTime;
     @BindView(R.id.btn_next)
     Button btnNext;
+    @BindView(R.id.img_id_card)
+    ImageView img_id_card;
+    @BindView(R.id.img_driving_licence_time)
+    ImageView img_driving_licence_time;
+    @BindView(R.id.img_vehicle_license_time)
+    ImageView img_vehicle_license_time;
+    @BindView(R.id.img_operational_qualification_time)
+    ImageView img_operational_qualification_time;
+    @BindView(R.id.et_company)
+    TextView etCompany;
+    @BindView(R.id.img_company)
+    ImageView imgCompany;
 
     private Expert expert;
     private boolean isLongTime = false;
-    private String driving_licence_time, vehicle_license_time, operational_qualification_time;
+    private String driving_licence_time, vehicle_license_time, operational_qualification_time,company_id;
 
     public static Intent newIntent(){
         return new Intent(GlobalContext.getInstance(),EditInfoActivity.class);
@@ -80,22 +96,7 @@ public class EditInfoActivity extends BaseActivity {
         etDrivingLicenceTime.setText(expert.getDriver_license().getDate());
         etName.setText(expert.getExpert_name());
         etIdCard.setText(expert.getExpert_id_card());
-        etName.addTextChangedListener(new TextWatcher() {
-            @Override
-            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-
-            }
-
-            @Override
-            public void onTextChanged(CharSequence s, int start, int before, int count) {
-                updateBtn();
-            }
-
-            @Override
-            public void afterTextChanged(Editable s) {
-
-            }
-        });
+        etCompany.setText(expert.getTravel_agency_name());
         etIdCard.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
@@ -105,6 +106,11 @@ public class EditInfoActivity extends BaseActivity {
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
                 updateBtn();
+                if(StringUtils.isNotBlank(s.toString())){
+                    img_id_card.setImageResource(R.drawable.ic_id_card_select);
+                }else {
+                    img_id_card.setImageResource(R.drawable.ic_id_card_normal);
+                }
             }
 
             @Override
@@ -114,8 +120,22 @@ public class EditInfoActivity extends BaseActivity {
         });
     }
 
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (resultCode == CompanyListActivity.COMPANY_LIST_CODE) {
+            if (StringUtils.isNotBlank(data.getStringExtra(CompanyListActivity.COMPANY_ID))) {
+                company_id = data.getStringExtra(CompanyListActivity.COMPANY_ID);
+                etCompany.setText(data.getStringExtra(CompanyListActivity.COMPANY_NAME));
+                imgCompany.setImageResource(R.drawable.ic_company_select);
+            } else {
+                imgCompany.setImageResource(R.drawable.ic_company_normal);
+            }
+            updateBtn();
+        }
+    }
 
-    @OnClick({R.id.btn_back, R.id.btn_next, R.id.lay_driving_licence_time, R.id.lay_vehicle_license_time, R.id.lay_operational_qualification_time})
+    @OnClick({R.id.lay_company,R.id.btn_back, R.id.btn_next, R.id.lay_driving_licence_time, R.id.lay_vehicle_license_time, R.id.lay_operational_qualification_time})
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.btn_back:
@@ -132,6 +152,9 @@ public class EditInfoActivity extends BaseActivity {
                 break;
             case R.id.lay_operational_qualification_time:
                 showTimeDialog(OPERATIONAL_LICENSE);
+                break;
+            case R.id.lay_company:
+                startActivityForResult(CompanyListActivity.newIntent(expert.getTravel_agency_id(), CompanyListActivity.TYPE_CHANGE), CompanyListActivity.COMPANY_LIST_CODE);
                 break;
         }
     }
@@ -227,18 +250,32 @@ public class EditInfoActivity extends BaseActivity {
                     } else {
                         etDrivingLicenceTime.setText(time);
                     }
+                    img_driving_licence_time.setImageResource(R.drawable.ic_driving_licence_select);
                     break;
                 case VEHICLE_LICENSE:
                     vehicle_license_time = time;
                     etVehicleLicenseTime.setText(time);
+                    img_vehicle_license_time.setImageResource(R.drawable.ic_vehicle_license_select);
                     break;
                 case OPERATIONAL_LICENSE:
                     operational_qualification_time = time;
                     etOperationalQualificationTime.setText(time);
+                    img_operational_qualification_time.setImageResource(R.drawable.ic_operational_qualification_select);
                     break;
             }
             builder.cancel();
             updateBtn();
+        });
+        builder.setOnDismissListener(dialog -> {
+            if (StringUtils.isBlank(etDrivingLicenceTime.getText().toString())) {
+                img_driving_licence_time.setImageResource(R.drawable.ic_driving_licence_normal);
+            }
+            if (StringUtils.isBlank(etVehicleLicenseTime.getText().toString())) {
+                img_vehicle_license_time.setImageResource(R.drawable.ic_vehicle_license_normal);
+            }
+            if (StringUtils.isBlank(etOperationalQualificationTime.getText().toString())) {
+                img_operational_qualification_time.setImageResource(R.drawable.ic_operational_qualification_normal);
+            }
         });
         builder.show();
         updateBtn();
@@ -252,7 +289,7 @@ public class EditInfoActivity extends BaseActivity {
         params.put("type", WConstant.TYPE_DRIVER);
         params.put("expert_name", etName.getText().toString());
         params.put("expert_id_card", etIdCard.getText().toString());
-        params.put("travel_agency_id", expert.getTravel_agency_id());
+        params.put("travel_agency_id", company_id);
         params.put("driver_license", expert.getDriver_license().getId());
         params.put("driver_license_date", etDrivingLicenceTime.getText().toString());
         params.put("vehicle_license", expert.getVehicle_license().getId());

@@ -41,7 +41,7 @@
                 android:layout_width="@dimen/dis_28"
                 android:layout_height="@dimen/dis_28"
                 android:scaleType="centerCrop"
-                android:src="@mipmap/ic_launcher"
+                android:src="@drawable/select_select"
                 android:layout_centerVertical="true"
                 android:layout_marginStart="@dimen/dis_24"
                 />
@@ -71,7 +71,7 @@
                 android:layout_width="@dimen/dis_28"
                 android:layout_height="@dimen/dis_28"
                 android:scaleType="centerCrop"
-                android:src="@mipmap/ic_launcher"
+                android:src="@drawable/input_select"
                 android:layout_centerVertical="true"
                 android:layout_alignParentEnd="true"
                 android:layout_marginStart="@dimen/dis_24"

@@ -79,22 +79,6 @@ public class ForgetPasswordActivity extends BaseActivity {
     }
 
     private void initView() {
-        et_phone.addTextChangedListener(new TextWatcher() {
-            @Override
-            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-
-            }
-
-            @Override
-            public void onTextChanged(CharSequence s, int start, int before, int count) {
-                updateButton();
-            }
-
-            @Override
-            public void afterTextChanged(Editable s) {
-
-            }
-        });
 
         et_again_password.addTextChangedListener(new TextWatcher() {
             @Override
@@ -105,10 +89,10 @@ public class ForgetPasswordActivity extends BaseActivity {
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
                 updateButton();
-                if(StringUtils.isNotBlank(s.toString())){
-
-                }else{
-
+                if (StringUtils.isNotBlank(s.toString())) {
+                    img_again_password.setImageResource(R.drawable.ic_password_again_select);
+                } else {
+                    img_again_password.setImageResource(R.drawable.ic_password_again_normal);
                 }
             }
 
@@ -127,10 +111,10 @@ public class ForgetPasswordActivity extends BaseActivity {
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
                 updateButton();
-                if(StringUtils.isNotBlank(s.toString())){
-
-                }else{
-
+                if (StringUtils.isNotBlank(s.toString())) {
+                    img_password.setImageResource(R.drawable.ic_password_select);
+                } else {
+                    img_password.setImageResource(R.drawable.ic_password_normal);
                 }
             }
 
@@ -149,10 +133,10 @@ public class ForgetPasswordActivity extends BaseActivity {
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
                 updateButton();
-                if(StringUtils.isNotBlank(s.toString())){
-
-                }else{
-
+                if (StringUtils.isNotBlank(s.toString())) {
+                    img_verification.setImageResource(R.drawable.ic_verification_select);
+                } else {
+                    img_verification.setImageResource(R.drawable.ic_verification_normal);
                 }
             }
 
@@ -166,7 +150,7 @@ public class ForgetPasswordActivity extends BaseActivity {
     private void updateButton() {
         if (StringUtils.isNotBlank(et_phone.getText().toString()) && StringUtils.isNotBlank(et_verification.getText().toString()) && StringUtils.isNotBlank(et_password.getText().toString()) && StringUtils.isNotBlank(et_again_password.getText().toString())) {
             btn_ok.setBackgroundResource(R.drawable.gradient_f1_e0);
-        }else{
+        } else {
             btn_ok.setBackgroundResource(R.drawable.gradient_c7_ab);
         }
     }
@@ -176,22 +160,26 @@ public class ForgetPasswordActivity extends BaseActivity {
     void onClick(View view) {
         switch (view.getId()) {
             case R.id.btn_ok:
-                if(checkInput()){
+                if (checkInput()) {
                     forgetPassword();
                 }
                 break;
             case R.id.img_see_password:
-                if (et_password.getTransformationMethod()== PasswordTransformationMethod.getInstance()) {
+                if (et_password.getTransformationMethod() == PasswordTransformationMethod.getInstance()) {
                     et_password.setTransformationMethod(HideReturnsTransformationMethod.getInstance());
+                    img_see_password.setImageResource(R.drawable.ic_can_see);
                 } else if (et_password.getTransformationMethod() == HideReturnsTransformationMethod.getInstance()) {
                     et_password.setTransformationMethod(PasswordTransformationMethod.getInstance());
+                    img_see_password.setImageResource(R.drawable.ic_cant_see);
                 }
                 break;
             case R.id.img_see_again_password:
-                if (et_again_password.getTransformationMethod()== PasswordTransformationMethod.getInstance()) {
+                if (et_again_password.getTransformationMethod() == PasswordTransformationMethod.getInstance()) {
                     et_again_password.setTransformationMethod(HideReturnsTransformationMethod.getInstance());
+                    img_again_password.setImageResource(R.drawable.ic_can_see);
                 } else if (et_again_password.getTransformationMethod() == HideReturnsTransformationMethod.getInstance()) {
                     et_again_password.setTransformationMethod(PasswordTransformationMethod.getInstance());
+                    img_again_password.setImageResource(R.drawable.ic_cant_see);
                 }
                 break;
             case R.id.tv_send_verification:
@@ -272,7 +260,7 @@ public class ForgetPasswordActivity extends BaseActivity {
         String vCode = et_verification.getText().toString();
         // 密码不少6位
         String pass = et_password.getText().toString();
-        String again_pass=et_again_password.getText().toString();
+        String again_pass = et_again_password.getText().toString();
         if (StringUtils.isBlank(vCode) || vCode.length() != 4) {
             ToastUtil.showError(R.string.tip_verify_code);
             return false;
@@ -285,7 +273,7 @@ public class ForgetPasswordActivity extends BaseActivity {
             ToastUtil.showError(R.string.tip_pass);
             return false;
         }
-        if(!again_pass.equals(pass)){
+        if (!again_pass.equals(pass)) {
             ToastUtil.showError(R.string.tip_tow_pass_error);
             return false;
         }

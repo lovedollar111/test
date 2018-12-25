@@ -31,7 +31,7 @@
             android:layout_width="@dimen/dis_30"
             android:layout_height="@dimen/dis_30"
             android:layout_centerHorizontal="true"
-            android:src="@mipmap/ic_launcher" />
+            android:src="@drawable/ic_company_num" />
 
         <TextView
             android:id="@+id/tv_people_num"
@@ -87,7 +87,7 @@
             android:layout_centerHorizontal="true"
             android:layout_marginTop="@dimen/dis_30"
             android:scaleType="centerCrop"
-            android:src="@mipmap/ic_launcher" />
+            android:src="@drawable/ic_company_phone" />
 
         <TextView
             android:id="@+id/tv_company_phone"

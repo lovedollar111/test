@@ -352,7 +352,7 @@
 
             <View
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/dis_30"/>
+                android:layout_height="@dimen/dis_40"/>
 
         </RelativeLayout>
 

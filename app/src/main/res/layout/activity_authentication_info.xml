@@ -18,16 +18,17 @@
             android:layout_width="@dimen/dis_30"
             android:layout_height="match_parent"
             android:layout_alignParentStart="true"
-            android:layout_centerVertical="true"
+            android:layout_alignParentBottom="true"
             android:background="#0000"
-            android:src="@mipmap/ic_launcher" />
+            android:src="@drawable/ic_back" />
 
         <TextView
             android:id="@+id/title"
             style="@style/top_title_text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_centerInParent="true"
+            android:layout_centerHorizontal="true"
+            android:layout_alignParentBottom="true"
             android:text="@string/set_info" />
     </RelativeLayout>
 
@@ -49,21 +50,22 @@
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
                 android:background="@drawable/back_round_white_30"
-                android:layout_marginTop="@dimen/dis_36"
+                android:layout_marginTop="@dimen/dis_24"
                 android:layout_marginStart="@dimen/dis_36"
                 android:layout_marginEnd="@dimen/dis_36">
 
                 <RelativeLayout
                     android:id="@+id/lay_name"
                     android:layout_width="match_parent"
-                    android:layout_height="@dimen/dis_80">
+                    android:layout_height="@dimen/dis_88"
+                    android:layout_marginTop="@dimen/dis_20">
 
                     <ImageView
                         android:id="@+id/img_name"
                         android:layout_width="@dimen/dis_40"
                         android:layout_height="@dimen/dis_40"
                         android:scaleType="center"
-                        android:src="@mipmap/ic_launcher"
+                        android:src="@drawable/ic_name_normal"
                         android:layout_marginStart="@dimen/dis_36"
                         android:layout_centerVertical="true"
                         />
@@ -78,7 +80,7 @@
                         android:layout_marginStart="@dimen/dis_24"
                         android:layout_toEndOf="@+id/img_name"
                         android:background="@color/white"
-                        android:textColor="@color/color_33"
+                        android:textColor="@color/color_8e"
                         android:textSize="@dimen/font_size_15"
                         android:singleLine="true"
                         />
@@ -94,14 +96,14 @@
                 <RelativeLayout
                     android:id="@+id/lay_id_card"
                     android:layout_width="match_parent"
-                    android:layout_height="@dimen/dis_80">
+                    android:layout_height="@dimen/dis_88">
 
                     <ImageView
                         android:id="@+id/img_id_card"
                         android:layout_width="@dimen/dis_40"
                         android:layout_height="@dimen/dis_40"
                         android:scaleType="center"
-                        android:src="@mipmap/ic_launcher"
+                        android:src="@drawable/ic_id_card_normal"
                         android:layout_marginStart="@dimen/dis_36"
                         android:layout_centerVertical="true"
                         />
@@ -116,7 +118,7 @@
                         android:layout_marginStart="@dimen/dis_24"
                         android:layout_marginEnd="@dimen/dis_40"
                         android:textSize="@dimen/font_size_15"
-                        android:textColor="@color/color_33"
+                        android:textColor="@color/color_8e"
                         android:layout_centerVertical="true"
                         android:singleLine="true"
                         android:imeOptions="actionDone"
@@ -134,14 +136,14 @@
                 <RelativeLayout
                     android:id="@+id/lay_company"
                     android:layout_width="match_parent"
-                    android:layout_height="@dimen/dis_80">
+                    android:layout_height="@dimen/dis_88">
 
                     <ImageView
                         android:id="@+id/img_company"
                         android:layout_width="@dimen/dis_40"
                         android:layout_height="@dimen/dis_40"
                         android:scaleType="center"
-                        android:src="@mipmap/ic_launcher"
+                        android:src="@drawable/ic_company_normal"
                         android:layout_marginStart="@dimen/dis_36"
                         android:layout_centerVertical="true"
                         />
@@ -153,10 +155,10 @@
                         android:layout_alignParentEnd="true"
                         android:layout_centerVertical="true"
                         android:layout_marginEnd="@dimen/dis_36"
-                        android:paddingEnd="@dimen/dis_20"
                         android:paddingStart="@dimen/dis_20"
+                        android:paddingEnd="@dimen/dis_20"
                         android:scaleType="center"
-                        android:src="@mipmap/ic_launcher" />
+                        android:src="@mipmap/ic_right_next" />
 
                     <TextView
                         android:id="@+id/et_company"
@@ -166,7 +168,7 @@
                         android:layout_marginStart="@dimen/dis_24"
                         android:layout_marginEnd="@dimen/dis_40"
                         android:textSize="@dimen/font_size_15"
-                        android:textColor="@color/color_33"
+                        android:textColor="@color/color_8e"
                         android:layout_toEndOf="@id/img_company"
                         android:layout_toStartOf="@+id/img_company_choose"
                         android:layout_centerVertical="true"
@@ -187,14 +189,14 @@
                 <RelativeLayout
                     android:id="@+id/lay_driving_licence_time"
                     android:layout_width="match_parent"
-                    android:layout_height="@dimen/dis_80">
+                    android:layout_height="@dimen/dis_88">
 
                     <ImageView
                         android:id="@+id/img_driving_licence_time"
                         android:layout_width="@dimen/dis_40"
                         android:layout_height="@dimen/dis_40"
                         android:scaleType="center"
-                        android:src="@mipmap/ic_launcher"
+                        android:src="@drawable/ic_driving_licence_normal"
                         android:layout_marginStart="@dimen/dis_36"
                         android:layout_centerVertical="true"
                         />
@@ -209,7 +211,7 @@
                         android:layout_marginStart="@dimen/dis_24"
                         android:layout_toEndOf="@+id/img_driving_licence_time"
                         android:background="@color/white"
-                        android:textColor="@color/color_33"
+                        android:textColor="@color/color_8e"
                         android:textSize="@dimen/font_size_15"
                         android:focusable="false"
                         android:focusableInTouchMode="false"
@@ -226,14 +228,14 @@
                 <RelativeLayout
                     android:id="@+id/lay_vehicle_license_time"
                     android:layout_width="match_parent"
-                    android:layout_height="@dimen/dis_80">
+                    android:layout_height="@dimen/dis_88">
 
                     <ImageView
                         android:id="@+id/img_vehicle_license_time"
                         android:layout_width="@dimen/dis_40"
                         android:layout_height="@dimen/dis_40"
                         android:scaleType="center"
-                        android:src="@mipmap/ic_launcher"
+                        android:src="@drawable/ic_vehicle_license_normal"
                         android:layout_marginStart="@dimen/dis_36"
                         android:layout_centerVertical="true"
                         />
@@ -248,7 +250,7 @@
                         android:layout_marginStart="@dimen/dis_24"
                         android:layout_marginEnd="@dimen/dis_40"
                         android:textSize="@dimen/font_size_15"
-                        android:textColor="@color/color_33"
+                        android:textColor="@color/color_8e"
                         android:layout_centerVertical="true"
                         android:singleLine="true"
                         android:focusable="false"
@@ -267,14 +269,15 @@
                 <RelativeLayout
                     android:id="@+id/lay_operational_qualification_time"
                     android:layout_width="match_parent"
-                    android:layout_height="@dimen/dis_80">
+                    android:layout_height="@dimen/dis_88"
+                    android:layout_marginBottom="@dimen/dis_20">
 
                     <ImageView
                         android:id="@+id/img_operational_qualification_time"
                         android:layout_width="@dimen/dis_40"
                         android:layout_height="@dimen/dis_40"
                         android:scaleType="center"
-                        android:src="@mipmap/ic_launcher"
+                        android:src="@drawable/ic_operational_qualification_normal"
                         android:layout_marginStart="@dimen/dis_36"
                         android:layout_centerVertical="true"
                         />
@@ -288,7 +291,7 @@
                         android:layout_marginStart="@dimen/dis_24"
                         android:layout_marginEnd="@dimen/dis_40"
                         android:textSize="@dimen/font_size_15"
-                        android:textColor="@color/color_33"
+                        android:textColor="@color/color_8e"
                         android:layout_toEndOf="@id/img_operational_qualification_time"
                         android:layout_centerVertical="true"
                         android:singleLine="true"
@@ -302,19 +305,21 @@
 
 
             <LinearLayout
+                android:id="@+id/lay_img"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
                 android:background="@drawable/back_round_white_30"
                 android:layout_below="@+id/lay_txt"
-                android:layout_marginTop="@dimen/dis_36"
+                android:layout_marginTop="@dimen/dis_24"
                 android:layout_marginStart="@dimen/dis_36"
                 android:layout_marginEnd="@dimen/dis_36">
 
                 <RelativeLayout
                     android:id="@+id/lay_card_left"
                     android:layout_width="match_parent"
-                    android:layout_height="@dimen/dis_80">
+                    android:layout_height="@dimen/dis_88"
+                    android:layout_marginTop="@dimen/dis_20">
 
                     <TextView
                         android:layout_width="match_parent"
@@ -323,7 +328,7 @@
                         android:layout_marginEnd="@dimen/dis_40"
                         android:layout_marginStart="@dimen/dis_36"
                         android:background="@color/white"
-                        android:textColor="@color/color_33"
+                        android:textColor="@color/color_8e"
                         android:textSize="@dimen/font_size_15"
                         android:singleLine="true"
                         android:text="手持身份证正面照"
@@ -338,7 +343,7 @@
                         android:paddingEnd="@dimen/dis_20"
                         android:paddingStart="@dimen/dis_20"
                         android:scaleType="center"
-                        android:src="@mipmap/ic_launcher" />
+                        android:src="@mipmap/ic_right_next" />
 
                 </RelativeLayout>
 
@@ -351,7 +356,7 @@
                 <RelativeLayout
                     android:id="@+id/lay_card_right"
                     android:layout_width="match_parent"
-                    android:layout_height="@dimen/dis_80">
+                    android:layout_height="@dimen/dis_88">
 
                     <TextView
                         android:layout_width="match_parent"
@@ -360,7 +365,7 @@
                         android:layout_marginEnd="@dimen/dis_40"
                         android:layout_marginStart="@dimen/dis_36"
                         android:background="@color/white"
-                        android:textColor="@color/color_33"
+                        android:textColor="@color/color_8e"
                         android:textSize="@dimen/font_size_15"
                         android:singleLine="true"
                         android:text="手持身份证反面照"
@@ -375,7 +380,7 @@
                         android:paddingEnd="@dimen/dis_20"
                         android:paddingStart="@dimen/dis_20"
                         android:scaleType="center"
-                        android:src="@mipmap/ic_launcher" />
+                        android:src="@mipmap/ic_right_next" />
 
                 </RelativeLayout>
 
@@ -390,7 +395,7 @@
                 <RelativeLayout
                     android:id="@+id/lay_driving_licence"
                     android:layout_width="match_parent"
-                    android:layout_height="@dimen/dis_80">
+                    android:layout_height="@dimen/dis_88">
 
                     <TextView
                         android:layout_width="match_parent"
@@ -399,7 +404,7 @@
                         android:layout_marginEnd="@dimen/dis_40"
                         android:layout_marginStart="@dimen/dis_36"
                         android:background="@color/white"
-                        android:textColor="@color/color_33"
+                        android:textColor="@color/color_8e"
                         android:textSize="@dimen/font_size_15"
                         android:singleLine="true"
                         android:text="手持驾驶证"
@@ -414,7 +419,7 @@
                         android:paddingEnd="@dimen/dis_20"
                         android:paddingStart="@dimen/dis_20"
                         android:scaleType="center"
-                        android:src="@mipmap/ic_launcher" />
+                        android:src="@mipmap/ic_right_next" />
 
                 </RelativeLayout>
 
@@ -429,7 +434,7 @@
                 <RelativeLayout
                     android:id="@+id/lay_vehicle_license"
                     android:layout_width="match_parent"
-                    android:layout_height="@dimen/dis_80">
+                    android:layout_height="@dimen/dis_88">
 
                     <TextView
                         android:layout_width="match_parent"
@@ -438,7 +443,7 @@
                         android:layout_marginEnd="@dimen/dis_40"
                         android:layout_marginStart="@dimen/dis_36"
                         android:background="@color/white"
-                        android:textColor="@color/color_33"
+                        android:textColor="@color/color_8e"
                         android:textSize="@dimen/font_size_15"
                         android:singleLine="true"
                         android:text="手持行驶证"
@@ -453,7 +458,7 @@
                         android:paddingEnd="@dimen/dis_20"
                         android:paddingStart="@dimen/dis_20"
                         android:scaleType="center"
-                        android:src="@mipmap/ic_launcher" />
+                        android:src="@mipmap/ic_right_next" />
 
                 </RelativeLayout>
 
@@ -467,7 +472,8 @@
                 <RelativeLayout
                     android:id="@+id/lay_operational_qualification"
                     android:layout_width="match_parent"
-                    android:layout_height="@dimen/dis_80">
+                    android:layout_height="@dimen/dis_88"
+                    android:layout_marginBottom="@dimen/dis_20">
 
                     <TextView
                         android:layout_width="match_parent"
@@ -476,7 +482,7 @@
                         android:layout_marginEnd="@dimen/dis_40"
                         android:layout_marginStart="@dimen/dis_36"
                         android:background="@color/white"
-                        android:textColor="@color/color_33"
+                        android:textColor="@color/color_8e"
                         android:textSize="@dimen/font_size_15"
                         android:singleLine="true"
                         android:text="手持运营资质"
@@ -491,22 +497,27 @@
                         android:paddingEnd="@dimen/dis_20"
                         android:paddingStart="@dimen/dis_20"
                         android:scaleType="center"
-                        android:src="@mipmap/ic_launcher" />
+                        android:src="@mipmap/ic_right_next" />
 
                 </RelativeLayout>
 
             </LinearLayout>
 
 
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dis_40"
+                android:layout_below="@+id/lay_img"/>
+
             <ImageView
                 android:id="@+id/img_status"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginEnd="@dimen/dis_100"
+                android:layout_marginEnd="@dimen/dis_70"
                 android:layout_alignParentEnd="true"
-                android:layout_marginTop="@dimen/dis_60"
-                android:src="@mipmap/ic_launcher"
-                android:visibility="gone"
+                android:layout_marginTop="@dimen/dis_45"
+                android:src="@mipmap/ic_launcher_round"
+                android:visibility="visible"
                 />
 
         </RelativeLayout>

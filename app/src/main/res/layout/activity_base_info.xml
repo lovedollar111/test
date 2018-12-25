@@ -119,7 +119,7 @@
             android:layout_width="@dimen/dis_40"
             android:layout_height="@dimen/dis_40"
             android:scaleType="center"
-            android:src="@mipmap/ic_launcher"
+            android:src="@drawable/ic_name"
             android:layout_marginStart="@dimen/dis_36"
             android:layout_centerVertical="true"
             />
@@ -162,7 +162,7 @@
             android:layout_width="@dimen/dis_40"
             android:layout_height="@dimen/dis_40"
             android:scaleType="center"
-            android:src="@mipmap/ic_launcher"
+            android:src="@drawable/ic_id_card_normal"
             android:layout_marginStart="@dimen/dis_36"
             android:layout_centerVertical="true"
             />
@@ -207,7 +207,7 @@
             android:layout_width="@dimen/dis_40"
             android:layout_height="@dimen/dis_40"
             android:scaleType="center"
-            android:src="@mipmap/ic_launcher"
+            android:src="@drawable/ic_company_normal"
             android:layout_marginStart="@dimen/dis_36"
             android:layout_centerVertical="true"
             />
@@ -217,7 +217,7 @@
             android:layout_width="@dimen/dis_60"
             android:layout_height="@dimen/dis_40"
             android:scaleType="center"
-            android:src="@mipmap/ic_launcher"
+            android:src="@mipmap/ic_right_next"
             android:layout_marginEnd="@dimen/dis_36"
             android:layout_alignParentEnd="true"
             android:paddingEnd="@dimen/dis_20"
@@ -267,7 +267,7 @@
             android:layout_width="@dimen/dis_40"
             android:layout_height="@dimen/dis_40"
             android:scaleType="center"
-            android:src="@mipmap/ic_launcher"
+            android:src="@drawable/ic_driving_licence_normal"
             android:layout_marginStart="@dimen/dis_36"
             android:layout_centerVertical="true"
             />
@@ -311,7 +311,7 @@
             android:layout_width="@dimen/dis_40"
             android:layout_height="@dimen/dis_40"
             android:scaleType="center"
-            android:src="@mipmap/ic_launcher"
+            android:src="@drawable/ic_vehicle_license_normal"
             android:layout_marginStart="@dimen/dis_36"
             android:layout_centerVertical="true"
             />
@@ -357,7 +357,7 @@
             android:layout_width="@dimen/dis_40"
             android:layout_height="@dimen/dis_40"
             android:scaleType="center"
-            android:src="@mipmap/ic_launcher"
+            android:src="@drawable/ic_operational_qualification_normal"
             android:layout_marginStart="@dimen/dis_36"
             android:layout_centerVertical="true"
             />

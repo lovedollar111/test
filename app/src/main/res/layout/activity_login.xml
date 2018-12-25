@@ -28,7 +28,7 @@
                 android:layout_alignParentEnd="true"
                 android:layout_marginEnd="@dimen/dis_36"
                 android:layout_marginTop="@dimen/dis_54"
-                android:background="@mipmap/ic_launcher"
+                android:background="@drawable/ic_next_normal"
                 android:scaleType="centerCrop"
                 android:visibility="visible" />
 
@@ -81,7 +81,7 @@
                 android:layout_below="@id/btn_get_verification"
                 android:layout_marginEnd="@dimen/dis_36"
                 android:layout_marginTop="@dimen/dis_60"
-                android:background="@mipmap/ic_launcher"
+                android:background="@drawable/ic_next_normal"
                 android:gravity="center_vertical"
                 android:scaleType="centerCrop"
                 android:textColorHint="@color/color_c7"
@@ -160,11 +160,11 @@
 
                 <ImageView
                     android:id="@+id/img_log_with_password"
-                    android:layout_width="@dimen/dis_30"
-                    android:layout_height="@dimen/dis_30"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
                     android:layout_marginStart="@dimen/dis_50"
                     android:scaleType="centerCrop"
-                    android:src="@mipmap/ic_launcher" />
+                    android:src="@drawable/ic_log_password" />
 
                 <TextView
                     android:id="@+id/tv_log_with_password"
@@ -179,11 +179,11 @@
 
                 <ImageView
                     android:id="@+id/img_log_with_wx"
-                    android:layout_width="@dimen/dis_30"
-                    android:layout_height="@dimen/dis_30"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
                     android:layout_marginStart="@dimen/dis_40"
                     android:scaleType="centerCrop"
-                    android:src="@mipmap/ic_launcher" />
+                    android:src="@drawable/ic_log_wx" />
 
                 <TextView
                     android:id="@+id/tv_log_with_wx"

@@ -11,6 +11,7 @@ import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.pgyersdk.javabean.AppBean;
@@ -22,6 +23,8 @@ import butterknife.ButterKnife;
 import butterknife.OnClick;
 import cn.dogplanet.GlobalContext;
 import cn.dogplanet.R;
+import cn.dogplanet.app.util.KeyBoardUtils;
+import cn.dogplanet.app.util.SoftKeyBoardListener;
 import cn.dogplanet.app.util.StringUtils;
 import cn.dogplanet.app.util.ToastUtil;
 import cn.dogplanet.app.widget.niftymodaldialogeffects.Effectstype;
@@ -36,6 +39,10 @@ public class AboutActivity extends BaseActivity {
     EditText etMsg;
     @BindView(R.id.tv_num)
     TextView tvNum;
+    @BindView(R.id.lay_update)
+    LinearLayout layUpdate;
+    @BindView(R.id.lay_logo)
+    LinearLayout layLogo;
 
     public static Intent newIntent() {
         return new Intent(GlobalContext.getInstance(), AboutActivity.class);
@@ -69,9 +76,9 @@ public class AboutActivity extends BaseActivity {
 
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
-                if(StringUtils.isBlank(s.toString())){
+                if (StringUtils.isBlank(s.toString())) {
                     tvNum.setText("0/100");
-                }else{
+                } else {
                     tvNum.setText(String.format("%d/100", s.length()));
                 }
 
@@ -83,7 +90,19 @@ public class AboutActivity extends BaseActivity {
 
             }
         });
+        SoftKeyBoardListener .setListener(this, new SoftKeyBoardListener.OnSoftKeyBoardChangeListener() {
+            @Override
+            public void keyBoardShow(int height) {
+                layLogo.setVisibility(View.GONE);
+                layUpdate.setVisibility(View.GONE);
+            }
 
+            @Override
+            public void keyBoardHide(int height) {
+                layLogo.setVisibility(View.VISIBLE);
+                layUpdate.setVisibility(View.VISIBLE);
+            }
+        });
     }
 
     @OnClick({R.id.btn_back, R.id.lay_update})
@@ -132,11 +151,14 @@ public class AboutActivity extends BaseActivity {
 
     @Override
     public boolean dispatchKeyEvent(KeyEvent event) {
-        if(event.getAction()==KeyEvent.ACTION_DOWN){
-            if(StringUtils.isNotBlank(etMsg.getText().toString())){
+        if (event.getAction() == KeyEvent.ACTION_DOWN) {
+            if (StringUtils.isNotBlank(etMsg.getText().toString())) {
                 etMsg.setText(null);
                 etMsg.setGravity(Gravity.START);
+                etMsg.setSelection(0);
                 ToastUtil.showMes("感谢您的反馈");
+                layLogo.setVisibility(View.VISIBLE);
+                layUpdate.setVisibility(View.VISIBLE);
             }
         }
         return super.dispatchKeyEvent(event);
