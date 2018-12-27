@@ -76,7 +76,7 @@
                 android:layout_marginStart="@dimen/dis_10"
                 android:layout_marginTop="@dimen/dis_20"
                 android:background="#0000"
-                android:src="@mipmap/ic_launcher" />
+                android:src="@drawable/ic_back_back" />
 
             <ImageButton
                 android:id="@+id/btn_share"
@@ -86,7 +86,7 @@
                 android:layout_marginTop="@dimen/dis_20"
                 android:layout_marginEnd="@dimen/dis_10"
                 android:background="#0000"
-                android:src="@mipmap/ic_launcher"
+                android:src="@drawable/ic_back_share"
                 android:visibility="visible" />
 
             <LinearLayout
@@ -296,23 +296,22 @@
             android:layout_marginTop="@dimen/dis_10"
             android:layout_marginEnd="@dimen/dis_20"
             android:layout_marginBottom="@dimen/dis_10"
-            android:layout_weight="3"
-            android:background="@drawable/back_round_gray"
+            android:layout_weight="1"
             android:orientation="horizontal">
 
             <Button
                 android:id="@+id/btn_join_cart"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:background="@drawable/gradient_btn_gray_left"
-                android:text="@string/shop_buy"
+                android:text="@string/string_join_cart"
                 android:textColor="@color/white"
                 android:textSize="@dimen/font_size_15" />
 
             <Button
                 android:id="@+id/btn_buy"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:background="@drawable/gradient_btn_gray_right"

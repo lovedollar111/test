@@ -28,7 +28,7 @@
     <color name="white">#FFFFFF</color>
     <color name="black">#000000</color>
     <color name="textColor">#282c36</color>
-    <color name="line_color">#e0e0e0</color>
+    <color name="line_color">#e5e5ea</color>
     <color name="profile_title_color">#323232</color>
     <color name="profile_tv_color">#757779</color>
     <color name="profile_tv_line_color">#C8C8C8</color>

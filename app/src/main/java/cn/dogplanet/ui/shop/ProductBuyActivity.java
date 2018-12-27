@@ -9,6 +9,7 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatDelegate;
+import android.util.Log;
 import android.view.Gravity;
 import android.view.MotionEvent;
 import android.view.View;
@@ -333,13 +334,9 @@ public class ProductBuyActivity extends BaseFragmentActivity implements HoldTabS
             return;
         }
 
-        if (product.getCan_join_cart()) {
-            if (productBuyFragment != null) {
-                productBuyFragment.hideNumBtn(product.getCanBuyNum().getNumber());
-            }
-        } else {
+        if (product.isIs_package_ticket()) {
             if (!product.getCanBuy().getStatus()) {
-                int time = product.getTime();
+                int time = product.getCanBuy().getTime();
                 int hour = time / 3600;
                 int min = (time - hour * 3600) / 60;
                 int second = time - hour * 3600 - min * 60;
@@ -350,23 +347,32 @@ public class ProductBuyActivity extends BaseFragmentActivity implements HoldTabS
                     ToastUtil.showError(String.format("当前时段暂不可购买该产品，请%d小时%d分%d秒后再试", hour, min, second));
                     return;
                 }
-                productBuyFragment.hideNumBtn(product.getMost());
+                productBuyFragment.hideNumBtn(product.getMost(), false);
             }
-        }
-
-        if (product.getCan_join_cart()) {
-            btnJoinCart.setVisibility(View.VISIBLE);
-            btnJoinCart.setBackgroundResource(R.drawable.gradient_btn_gray_left);
-            btnBuy.setBackgroundResource(R.drawable.gradient_btn_gray_right);
-            btnJoinCart.setEnabled(false);
-            btnBuy.setEnabled(false);
-        } else {
             btnJoinCart.setVisibility(View.GONE);
             btnJoinCart.setBackgroundResource(R.drawable.gradient_btn_gray_left);
             btnBuy.setBackgroundResource(R.drawable.gradient_c7_ab);
             btnJoinCart.setEnabled(false);
             btnBuy.setEnabled(false);
+        } else {
+            if (product.getCan_join_cart()) {
+                if (productBuyFragment != null) {
+                    productBuyFragment.hideNumBtn(product.getCanBuyNum().getNumber(), true);
+                    btnJoinCart.setVisibility(View.VISIBLE);
+                    btnJoinCart.setBackgroundResource(R.drawable.gradient_btn_gray_left);
+                    btnBuy.setBackgroundResource(R.drawable.gradient_btn_gray_right);
+                    btnJoinCart.setEnabled(false);
+                    btnBuy.setEnabled(false);
+                } else {
+                    btnJoinCart.setVisibility(View.GONE);
+                    btnJoinCart.setBackgroundResource(R.drawable.gradient_btn_gray_left);
+                    btnBuy.setBackgroundResource(R.drawable.gradient_c7_ab);
+                    btnJoinCart.setEnabled(false);
+                    btnBuy.setEnabled(false);
+                }
+            }
         }
+
     }
 
 
@@ -455,13 +461,14 @@ public class ProductBuyActivity extends BaseFragmentActivity implements HoldTabS
 
     private void buy() {
         ShopBuyDetail detail = new ShopBuyDetail();
-        detail.setId(product.getPoi_id());
+        detail.setId(product.getProduct_id());
         detail.setCategory(String.valueOf(product.getCategory()));
         detail.setType(ShopBuyDetail.TYPE_DETAIL);
         detail.setChild_name(product.getName());
         detail.setImgUrl(product.getImages().get(0));
         detail.setNum(String.valueOf(order_num));
         detail.setTime(order_date);
+        detail.setType(ShopBuyDetail.TYPE_DETAIL);
         detail.setPrice(String.valueOf(product.getPrice()));
         EventBus.getDefault().postSticky(detail);
         startActivity(PersonMsgActivity.newIntent());

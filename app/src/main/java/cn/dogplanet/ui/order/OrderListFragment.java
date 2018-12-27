@@ -129,11 +129,11 @@ public class OrderListFragment extends BaseFragment {
             params.put("expert_id", expert.getId().toString());
             params.put("access_token", expert.getAccess_token());
             params.put("page_id", String.valueOf(current_page));
-            if (category != Integer.parseInt(OrderDetail.ORDER_TYPE_ALL)) {
+            if (category != Integer.parseInt(OrderDetail.ORDER_MAIN_TYPE_ALL)) {
                 params.put("status", String.valueOf(category));
             }
-            if (category == Integer.parseInt(OrderDetail.ORDER_TYPE_BACK_ALL_MONEY) ||
-                    category == Integer.parseInt(OrderDetail.ORDER_TYPE_BACK_MONEY)) {
+            if (category == Integer.parseInt(OrderDetail.ORDER_MAIN_TYPE_BACK_ALL_MONEY) ||
+                    category == Integer.parseInt(OrderDetail.ORDER_MAIN_TYPE_BACK_MONEY)) {
                 url = HttpUrl.GET_REFUND_ORDER;
             }
             PublicReq.request(url, response -> {
@@ -187,24 +187,24 @@ public class OrderListFragment extends BaseFragment {
     private void getCategory() {
         switch (type) {
             case OrderFragment.ORDER_TYPE_ALL:
-                category = Integer.parseInt(OrderDetail.ORDER_TYPE_ALL);
-                order_type = Integer.parseInt(OrderDetail.ORDER_TYPE_ALL);
+                category = Integer.parseInt(OrderDetail.ORDER_MAIN_TYPE_ALL);
+                order_type = Integer.parseInt(OrderDetail.ORDER_MAIN_TYPE_ALL);
                 break;
             case OrderFragment.ORDER_TYPE_WAIT:
-                category = Integer.parseInt(OrderDetail.ORDER_TYPE_WAIT);
-                order_type = Integer.parseInt(OrderDetail.ORDER_TYPE_WAIT);
+                category = Integer.parseInt(OrderDetail.ORDER_MAIN_TYPE_WAIT);
+                order_type = Integer.parseInt(OrderDetail.ORDER_MAIN_TYPE_WAIT);
                 break;
             case OrderFragment.ORDER_TYPE_SUCCESS:
-                category = Integer.parseInt(OrderDetail.ORDER_TYPE_SUCCESS);
-                order_type = Integer.parseInt(OrderDetail.ORDER_TYPE_SUCCESS);
+                category = Integer.parseInt(OrderDetail.ORDER_MAIN_TYPE_SUCCESS);
+                order_type = Integer.parseInt(OrderDetail.ORDER_MAIN_TYPE_SUCCESS);
                 break;
             case OrderFragment.ORDER_TYPE_BACK_ALL_MONEY:
-                category = Integer.parseInt(OrderDetail.ORDER_TYPE_BACK_ALL_MONEY);
-                order_type = Integer.parseInt(OrderDetail.ORDER_TYPE_BACK_ALL_MONEY);
+                category = Integer.parseInt(OrderDetail.ORDER_MAIN_TYPE_BACK_ALL_MONEY);
+                order_type = Integer.parseInt(OrderDetail.ORDER_MAIN_TYPE_BACK_ALL_MONEY);
                 break;
             case OrderFragment.ORDER_TYPE_BACK_MONEY:
-                category = Integer.parseInt(OrderDetail.ORDER_TYPE_BACK_MONEY);
-                order_type = Integer.parseInt(OrderDetail.ORDER_TYPE_BACK_MONEY);
+                category = Integer.parseInt(OrderDetail.ORDER_MAIN_TYPE_BACK_MONEY);
+                order_type = Integer.parseInt(OrderDetail.ORDER_MAIN_TYPE_BACK_MONEY);
                 break;
             default:
                 break;

@@ -105,18 +105,18 @@ public class OrderAdapter extends BaseAdapter {
         holder.tvName.setText(String.format("%s————%s", order.getContact_name(), order.getContact_tel()));
         String status = order.getStatus();
         switch (status) {
-            case OrderDetail.ORDER_TYPE_WAIT:
+            case OrderDetail.ORDER_MAIN_TYPE_WAIT:
                 holder.tvStatus.setText("未支付");
                 break;
-            case OrderDetail.ORDER_TYPE_SUCCESS:
+            case OrderDetail.ORDER_MAIN_TYPE_SUCCESS:
                 holder.tvStatus.setText("已支付");
                 break;
-            case OrderDetail.ORDER_TYPE_CLOSE:
+            case OrderDetail.ORDER_MAIN_TYPE_CLOSE:
                 holder.tvStatus.setText("交易关闭");
                 break;
-            case OrderDetail.ORDER_TYPE_BACK_MONEY:
+            case OrderDetail.ORDER_MAIN_TYPE_BACK_MONEY:
                 holder.tvStatus.setText("退款中");
-            case OrderDetail.ORDER_TYPE_BACK_ALL_MONEY:
+            case OrderDetail.ORDER_MAIN_TYPE_BACK_ALL_MONEY:
                 holder.tvStatus.setText("已退款");
                 break;
         }
@@ -125,22 +125,22 @@ public class OrderAdapter extends BaseAdapter {
             holder.viewLine.setVisibility(View.GONE);
         } else {
             switch (status) {
-                case OrderDetail.ORDER_TYPE_WAIT:
+                case OrderDetail.ORDER_MAIN_TYPE_WAIT:
                     holder.btnPay.setVisibility(View.VISIBLE);
                     holder.viewLine.setVisibility(View.VISIBLE);
                     break;
-                case OrderDetail.ORDER_TYPE_SUCCESS:
+                case OrderDetail.ORDER_MAIN_TYPE_SUCCESS:
                     holder.btnPay.setVisibility(View.GONE);
                     holder.viewLine.setVisibility(View.GONE);
                     break;
-                case OrderDetail.ORDER_TYPE_CLOSE:
+                case OrderDetail.ORDER_MAIN_TYPE_CLOSE:
                     holder.btnPay.setVisibility(View.GONE);
                     holder.viewLine.setVisibility(View.GONE);
                     break;
-                case OrderDetail.ORDER_TYPE_BACK_MONEY:
+                case OrderDetail.ORDER_MAIN_TYPE_BACK_MONEY:
                     holder.btnPay.setVisibility(View.GONE);
                     holder.viewLine.setVisibility(View.GONE);
-                case OrderDetail.ORDER_TYPE_BACK_ALL_MONEY:
+                case OrderDetail.ORDER_MAIN_TYPE_BACK_ALL_MONEY:
                     holder.btnPay.setVisibility(View.GONE);
                     holder.viewLine.setVisibility(View.GONE);
                     break;

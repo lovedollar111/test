@@ -21,10 +21,18 @@ public class OrderDetail {
 
 	public final static String ORDER_TYPE_ALL = "0";
 	public final static String ORDER_TYPE_WAIT = "10";
+	public final static String ORDER_TYPE_SUCCESS = "20";
 	public final static String ORDER_TYPE_CLOSE = "30";
-	public final static String ORDER_TYPE_SUCCESS = "40";
 	public final static String ORDER_TYPE_BACK_MONEY = "50";
 	public final static String ORDER_TYPE_BACK_ALL_MONEY = "60";
+
+
+	public final static String ORDER_MAIN_TYPE_ALL = "0";
+	public final static String ORDER_MAIN_TYPE_WAIT = "10";
+	public final static String ORDER_MAIN_TYPE_SUCCESS = "20";
+	public final static String ORDER_MAIN_TYPE_BACK_MONEY = "50";
+	public final static String ORDER_MAIN_TYPE_BACK_ALL_MONEY = "60";
+	public final static String ORDER_MAIN_TYPE_CLOSE = "500";
 
 	// category 10：达人商品 20：达人服务
 	private String id;

@@ -5,11 +5,13 @@ import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.content.pm.PackageManager.NameNotFoundException;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.view.View.OnClickListener;
-import android.view.WindowManager;
+import android.widget.Button;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
@@ -22,6 +24,7 @@ import java.util.Map;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import butterknife.OnClick;
 import cn.dogplanet.GlobalContext;
 import cn.dogplanet.R;
 import cn.dogplanet.app.util.ComUtils;
@@ -48,15 +51,19 @@ import cn.dogplanet.ui.shop.adapter.ShopBuyAdapter;
  * file_name:PersonMsgActivity.java
  * date:2016-12-6
  */
-public class PersonMsgActivity extends BaseActivity implements OnClickListener {
+public class PersonMsgActivity extends BaseActivity{
 
 
     @BindView(R.id.shop_list)
     ListView shopList;
+    @BindView(R.id.price)
+    TextView tvPrice;
 
     EditTextWithDel etName;
     EditTextWithDel etPhone;
     EditTextWithDel etIdcard;
+    @BindView(R.id.btn_pay)
+    Button btnPay;
 
     private Expert expert;
     private ShopBuyAdapter adapter;
@@ -105,6 +112,64 @@ public class PersonMsgActivity extends BaseActivity implements OnClickListener {
         etIdcard = view.findViewById(R.id.et_id_card);
         etPhone = view.findViewById(R.id.et_phone);
         etName = view.findViewById(R.id.et_name);
+        etName.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                updateButton();
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+
+            }
+        });
+        etIdcard.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                updateButton();
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+
+            }
+        });
+        etPhone.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                updateButton();
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+
+            }
+        });
+    }
+
+    private void updateButton() {
+        if (StringUtils.isNotBlank(etIdcard.getText().toString()) && StringUtils.isNotBlank(etName.getText().toString()) && StringUtils.isNotBlank(etPhone.getText().toString())) {
+            btnPay.setEnabled(true);
+            btnPay.setBackgroundResource(R.drawable.gradient_f1_e0);
+        } else {
+            btnPay.setEnabled(false);
+            btnPay.setBackgroundResource(R.drawable.gradient_c7_ab);
+        }
     }
 
     @Subscribe(threadMode = ThreadMode.MAIN, sticky = true)
@@ -115,6 +180,8 @@ public class PersonMsgActivity extends BaseActivity implements OnClickListener {
             category = detail.getCategory();
             num = detail.getNum();
             String price = detail.getPrice();
+            int totalPrice = Integer.parseInt(num) * Integer.parseInt(price);
+            tvPrice.setText(String.valueOf(totalPrice));
             date = detail.getTime();
             if (adapter != null) {
                 adapter.clear();
@@ -131,47 +198,6 @@ public class PersonMsgActivity extends BaseActivity implements OnClickListener {
             getCartData();
         }
 
-    }
-
-
-    @Override
-    public void onClick(View v) {
-        // TODO Auto-generated method stub
-        if (v.getId() == R.id.btn_pay) {
-            String name = etName.getText().toString();
-            String phone = etPhone.getText().toString();
-            String idCard = etIdcard.getText().toString();
-            if (StringUtils.isBlank(name)) {
-                ToastUtil.showError(R.string.user_input_name_tip);
-                return;
-            }
-            if (ComUtils.compileExChar(name)) {
-                ToastUtil.showError("请输入正确的姓名");
-                return;
-            }
-            if (StringUtils.isBlank(phone)) {
-                ToastUtil.showError("请输入手机号");
-                return;
-            }
-            if (!ComUtils.isMobileNo(phone)) {
-                ToastUtil.showError(R.string.tip_phone);
-                return;
-            }
-            if (!IdcardUtils.validateCard(idCard)) {
-                ToastUtil.showError(R.string.user_input_card_tip);
-                return;
-            }
-            if (type.contains(ShopBuyDetail.TYPE_DETAIL)) {
-                createOrder();
-            } else {
-                createOrderByCart();
-            }
-
-        } else if (v.getId() == R.id.btn_back) {
-            getWindow().setSoftInputMode(
-                    WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN);
-            finish();
-        }
     }
 
     private void createOrder() {
@@ -324,5 +350,45 @@ public class PersonMsgActivity extends BaseActivity implements OnClickListener {
     protected void onDestroy() {
         super.onDestroy();
         EventBus.getDefault().unregister(this);
+    }
+
+    @OnClick({R.id.btn_back, R.id.btn_pay})
+    public void onViewClicked(View view) {
+        switch (view.getId()) {
+            case R.id.btn_back:
+                finish();
+                break;
+            case R.id.btn_pay:
+                String name = etName.getText().toString();
+                String phone = etPhone.getText().toString();
+                String idCard = etIdcard.getText().toString();
+                if (StringUtils.isBlank(name)) {
+                    ToastUtil.showError(R.string.user_input_name_tip);
+                    return;
+                }
+                if (ComUtils.compileExChar(name)) {
+                    ToastUtil.showError("请输入正确的姓名");
+                    return;
+                }
+                if (StringUtils.isBlank(phone)) {
+                    ToastUtil.showError("请输入手机号");
+                    return;
+                }
+                if (!ComUtils.isMobileNo(phone)) {
+                    ToastUtil.showError(R.string.tip_phone);
+                    return;
+                }
+                if (!IdcardUtils.validateCard(idCard)) {
+                    ToastUtil.showError(R.string.user_input_card_tip);
+                    return;
+                }
+                if (type.contains(ShopBuyDetail.TYPE_DETAIL)) {
+                    createOrder();
+                } else {
+                    createOrderByCart();
+                }
+
+                break;
+        }
     }
 }

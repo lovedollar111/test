@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.RelativeLayout;
@@ -68,8 +69,14 @@ public class ProductListActivity extends BaseActivity {
     }
 
     private void initView() {
-
         listProduct.setMode(PullToRefreshBase.Mode.BOTH);
+        listProduct.setOnItemClickListener((parent, view, position, id) -> {
+            if(adapter!=null){
+                Product product= (Product) adapter.getItem(position-1);
+                startActivity(ProductBuyActivity.newIntent(product.getPro_id()));
+                finish();
+            }
+        });
         PullToRefreshHelper.initIndicator(listProduct);
         PullToRefreshHelper.initIndicatorStart(listProduct);
         listProduct.setOnRefreshListener(new PullToRefreshBase.OnRefreshListener2<ListView>() {
@@ -110,31 +117,29 @@ public class ProductListActivity extends BaseActivity {
     }
 
     private void getProduct() {
-        {
-            Map<String, String> params = new HashMap<>();
-            params.put("expert_id", expert.getId().toString());
-            params.put("access_token", expert.getAccess_token());
-            params.put("category", type);
-            params.put("page_id", String.valueOf(pageId));
-            showProgress();
-            PublicReq.request(HttpUrl.GET_EXPERT_PRODUCT,
-                    response -> {
-                        hideProgress();
-                        Log.i("info", response);
-                        if (StringUtils.isNotBlank(response)) {
-                            ProductListResp resp = GsonHelper.parseObject(response, ProductListResp.class);
-                            if (resp != null) {
-                                if (pageId == 1) {
-                                    if (adapter != null) {
-                                        adapter.clear();
-                                    }
+        Map<String, String> params = new HashMap<>();
+        params.put("expert_id", expert.getId().toString());
+        params.put("access_token", expert.getAccess_token());
+        params.put("category", type);
+        params.put("page_id", String.valueOf(pageId));
+        showProgress();
+        PublicReq.request(HttpUrl.GET_EXPERT_PRODUCT,
+                response -> {
+                    hideProgress();
+                    listProduct.onRefreshComplete();
+                    if (StringUtils.isNotBlank(response)) {
+                        ProductListResp resp = GsonHelper.parseObject(response, ProductListResp.class);
+                        if (resp != null) {
+                            if (pageId == 1) {
+                                if (adapter != null) {
+                                    adapter.clear();
                                 }
-                                updateView(resp.getProduct());
                             }
+                            updateView(resp.getProduct());
                         }
+                    }
 
-                    }, error -> ToastUtil.showError(R.string.network_error), params);
-        }
+                }, error -> ToastUtil.showError(R.string.network_error), params);
     }
 
     private void updateView(List<Product> products) {

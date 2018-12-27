@@ -76,6 +76,12 @@
         <item name="android:textSize">@dimen/font_size_12</item>
     </style>
 
+    <style name="ProjectDialogTheme" parent="@android:style/Theme.Holo.Light.Dialog">
+        <item name="android:windowNoTitle">true</item><!-- Activity无标题-->
+        <item name="android:windowBackground">@android:color/transparent</item><!-- dialog外无背景-->
+        <item name="android:windowCloseOnTouchOutside">false</item><!-- dialog外点击无效果-->
+    </style>
+
     <!-- 文字button -->
     <style name="btn_tv_style">
         <item name="android:background">@android:color/transparent</item>

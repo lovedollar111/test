@@ -51,7 +51,7 @@
                     android:id="@+id/img_step_1"
                     android:layout_width="@dimen/dis_30"
                     android:layout_height="@dimen/dis_30"
-                    android:src="@mipmap/ic_launcher"
+                    android:src="@mipmap/one_select"
                     android:layout_alignEnd="@+id/tv_step_1"
                     android:layout_alignStart="@+id/tv_step_1"
                     android:layout_centerVertical="true"
@@ -73,7 +73,7 @@
                     android:id="@+id/img_step_2"
                     android:layout_width="@dimen/dis_30"
                     android:layout_height="@dimen/dis_30"
-                    android:src="@mipmap/ic_launcher"
+                    android:src="@mipmap/two_select"
                     android:layout_centerVertical="true"
                     android:layout_alignEnd="@+id/tv_step_2"
                     android:layout_alignStart="@+id/tv_step_2"
@@ -96,7 +96,7 @@
                     android:id="@+id/img_step_3"
                     android:layout_width="@dimen/dis_30"
                     android:layout_height="@dimen/dis_30"
-                    android:src="@mipmap/ic_launcher"
+                    android:src="@mipmap/three_select"
                     android:layout_centerVertical="true"
                     android:layout_alignEnd="@+id/tv_step_3"
                     android:layout_alignStart="@+id/tv_step_3"
@@ -178,6 +178,7 @@
                     android:layout_weight="1"
                     android:scaleType="centerCrop"
                     android:visibility="visible"
+                    android:background="@mipmap/img_back"
                     android:layout_marginStart="@dimen/dis_30"/>
 
                 <cn.dogplanet.app.widget.RoundCornerImageView
@@ -187,6 +188,7 @@
                     android:layout_weight="1"
                     android:scaleType="centerCrop"
                     android:visibility="visible"
+                    android:background="@mipmap/img_back"
                     android:layout_marginEnd="@dimen/dis_30"/>
 
             </LinearLayout>
@@ -234,6 +236,7 @@
                     android:layout_height="140dp"
                     android:layout_weight="1"
                     android:scaleType="centerCrop"
+                    android:background="@mipmap/img_back"
                     android:visibility="visible"
                     android:layout_marginStart="@dimen/dis_30"/>
 
@@ -242,6 +245,7 @@
                     android:layout_width="0dp"
                     android:layout_height="140dp"
                     android:layout_weight="1"
+                    android:background="@mipmap/img_back"
                     android:scaleType="centerCrop"
                     android:visibility="visible"
                     android:layout_marginEnd="@dimen/dis_30"/>
@@ -292,6 +296,7 @@
                     android:layout_height="140dp"
                     android:layout_weight="1"
                     android:scaleType="centerCrop"
+                    android:background="@mipmap/img_back"
                     android:visibility="visible"
                     android:layout_marginStart="@dimen/dis_30"/>
 
@@ -352,7 +357,8 @@
 
             <View
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/dis_40"/>
+                android:layout_height="@dimen/dis_40"
+                android:layout_below="@id/btn_reg"/>
 
         </RelativeLayout>
 

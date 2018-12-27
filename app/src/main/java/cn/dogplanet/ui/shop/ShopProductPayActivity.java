@@ -7,8 +7,12 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 import android.text.TextUtils;
+import android.util.Log;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -18,6 +22,8 @@ import com.alipay.sdk.app.PayTask;
 import com.tencent.mm.sdk.modelpay.PayReq;
 import com.tencent.mm.sdk.openapi.IWXAPI;
 import com.tencent.mm.sdk.openapi.WXAPIFactory;
+
+import org.greenrobot.eventbus.EventBus;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -35,6 +41,7 @@ import cn.dogplanet.app.widget.niftymodaldialogeffects.NiftyDialogBuilder;
 import cn.dogplanet.base.BaseActivity;
 import cn.dogplanet.constant.HttpUrl;
 import cn.dogplanet.constant.WCache;
+import cn.dogplanet.constant.WConstant;
 import cn.dogplanet.entity.Expert;
 import cn.dogplanet.entity.OrderDetailResp;
 import cn.dogplanet.entity.OrderMainEnum;
@@ -43,6 +50,7 @@ import cn.dogplanet.entity.PayResult;
 import cn.dogplanet.entity.WXPayEntity;
 import cn.dogplanet.entity.ZFBPayEntity;
 import cn.dogplanet.net.PublicReq;
+import cn.dogplanet.ui.order.OrderDetailActivity;
 import cn.dogplanet.wxapi.Constants;
 
 
@@ -86,20 +94,18 @@ public class ShopProductPayActivity extends BaseActivity {
                             (Map<String, String>) msg.obj);
                     String resultInfo = payResult.getResult();// 同步返回需要验证的信息
                     String resultStatus = payResult.getResultStatus();
-                    final AlertDialog dialog = new AlertDialog.Builder(getApplicationContext()).create();
-                    View view = LayoutInflater.from(getApplicationContext()).inflate(
-                            R.layout.dialog_item, null);
+                    View view = LayoutInflater.from(ShopProductPayActivity.this).inflate(R.layout.dialog_ok,
+                            null);
+                    NiftyDialogBuilder builder = NiftyDialogBuilder.getInstance(ShopProductPayActivity.this);
+                    builder.setCustomView(view, ShopProductPayActivity.this);
+                    builder.withEffect(Effectstype.Fadein);
                     TextView title = view.findViewById(R.id.title);
                     title.setText("支付结果通知");
                     TextView tv_msg = view.findViewById(R.id.msg);
                     view.findViewById(R.id.btn_ok).setOnClickListener(
-                            new View.OnClickListener() {
-
-                                @Override
-                                public void onClick(View v) {
-                                    // TODO Auto-generated method stub
-                                    dialog.cancel();
-                                }
+                            v -> {
+                                // TODO Auto-generated method stub
+                                builder.dismiss();
                             });
 
                     // 判断resultStatus 为9000则代表支付成功
@@ -116,8 +122,8 @@ public class ShopProductPayActivity extends BaseActivity {
                     }
                     if (!TextUtils.equals(resultStatus, "9000")) {
                         if (!isFinishing()) {
-                            dialog.show();
-                            dialog.setContentView(view);
+                            builder.show();
+                            builder.setContentView(view);
                         }
                     }
                     break;
@@ -144,7 +150,21 @@ public class ShopProductPayActivity extends BaseActivity {
         api = WXAPIFactory.createWXAPI(this, null);
         api.registerApp(Constants.APP_ID);
         orderId = getIntent().getStringExtra(ORDER_ID);
+        btnPay.setBackgroundResource(R.drawable.gradient_c7_ab);
+        btnPay.setEnabled(true);
         getOrder();
+    }
+
+    @Override
+    public void onAttachedToWindow() {
+        super.onAttachedToWindow();
+        Window win = this.getWindow();
+        win.getDecorView().setPadding(0, 0, 0, 0);
+        WindowManager.LayoutParams lp = win.getAttributes();
+        lp.width = WindowManager.LayoutParams.MATCH_PARENT;
+        lp.height = WindowManager.LayoutParams.WRAP_CONTENT;
+        lp.gravity = Gravity.BOTTOM;//设置对话框置顶显示
+        win.setAttributes(lp);
     }
 
     private void getOrder() {
@@ -210,10 +230,10 @@ public class ShopProductPayActivity extends BaseActivity {
     private void updateButton() {
         if (StringUtils.isNotBlank(payType)) {
             btnPay.setBackgroundResource(R.drawable.gradient_f1_e0);
-            btnPay.setEnabled(false);
+            btnPay.setEnabled(true);
         } else {
             btnPay.setBackgroundResource(R.drawable.gradient_c7_ab);
-            btnPay.setEnabled(true);
+            btnPay.setEnabled(false);
         }
     }
 
@@ -297,10 +317,10 @@ public class ShopProductPayActivity extends BaseActivity {
                                     respData.getOrder().getStatus())) {
                                 Toast.makeText(ShopProductPayActivity.this,
                                         "支付成功", Toast.LENGTH_SHORT).show();
-//                                startActivity(OrderDetailActivity
-//                                        .newIntent(orderId));
-//                                String type=WConstant.TYPE_BACK_MAIN;
-//                                EventBus.getDefault().postSticky(type);
+                                startActivity(OrderDetailActivity
+                                        .newIntent(orderId));
+                                String type= WConstant.TYPE_BACK_MAIN;
+                                EventBus.getDefault().postSticky(type);
                                 finish();
                             } else {
                                 builder.show();
