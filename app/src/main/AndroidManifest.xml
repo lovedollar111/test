@@ -142,6 +142,7 @@
             android:name=".ui.shop.ShopProductPayActivity"
             android:launchMode="singleTask"
             android:screenOrientation="portrait"
+            android:theme="@style/ProjectDialogTheme"
             android:windowSoftInputMode="stateUnspecified|adjustPan" />
         <activity
             android:name=".ui.shop.ShopProductCartActivity"

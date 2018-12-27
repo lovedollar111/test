@@ -150,7 +150,7 @@
             <Button
                 android:id="@+id/btn_pay"
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/dis_70"
+                android:layout_height="@dimen/dis_80"
                 android:background="@drawable/gradient_c7_ab"
                 android:layout_marginStart="@dimen/dis_100"
                 android:layout_marginEnd="@dimen/dis_100"

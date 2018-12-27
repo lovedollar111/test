@@ -185,136 +185,151 @@ public class ProductBuyFragment extends Fragment {
         }
     }
 
-    public void hideNumBtn(final int num) {
-        switch (num) {
-            case 0:
-                tv1.setVisibility(View.VISIBLE);
-                tv2.setVisibility(View.VISIBLE);
-                tv3.setVisibility(View.VISIBLE);
-                tv4.setVisibility(View.VISIBLE);
-                tv5.setVisibility(View.VISIBLE);
-                etNum.setVisibility(View.VISIBLE);
-                ToastUtil.showError("根据景区规定，必须先购买门票产品");
-                tv1.setEnabled(false);
-                tv2.setEnabled(false);
-                tv3.setEnabled(false);
-                tv4.setEnabled(false);
-                tv5.setEnabled(false);
-                etNum.setEnabled(false);
-                break;
-            case 1:
-                tv1.setVisibility(View.VISIBLE);
-                tv2.setVisibility(View.GONE);
-                tv3.setVisibility(View.GONE);
-                tv4.setVisibility(View.GONE);
-                tv5.setVisibility(View.GONE);
-                etNum.setVisibility(View.GONE);
-                tv1.setEnabled(true);
-                tv2.setEnabled(false);
-                tv3.setEnabled(false);
-                tv4.setEnabled(false);
-                tv5.setEnabled(false);
-                etNum.setEnabled(false);
-                break;
-            case 2:
-                tv1.setVisibility(View.VISIBLE);
-                tv2.setVisibility(View.VISIBLE);
-                tv3.setVisibility(View.GONE);
-                tv4.setVisibility(View.GONE);
-                tv5.setVisibility(View.GONE);
-                etNum.setVisibility(View.GONE);
-                tv1.setEnabled(true);
-                tv2.setEnabled(true);
-                tv3.setEnabled(false);
-                tv4.setEnabled(false);
-                tv5.setEnabled(false);
-                etNum.setEnabled(false);
-                break;
-            case 3:
-                tv1.setVisibility(View.VISIBLE);
-                tv2.setVisibility(View.VISIBLE);
-                tv3.setVisibility(View.VISIBLE);
-                tv4.setVisibility(View.GONE);
-                tv5.setVisibility(View.GONE);
-                etNum.setVisibility(View.GONE);
-                tv1.setEnabled(true);
-                tv2.setEnabled(true);
-                tv3.setEnabled(true);
-                tv4.setEnabled(false);
-                tv5.setEnabled(false);
-                etNum.setEnabled(false);
-                break;
-            case 4:
-                tv1.setVisibility(View.VISIBLE);
-                tv2.setVisibility(View.VISIBLE);
-                tv3.setVisibility(View.VISIBLE);
-                tv4.setVisibility(View.VISIBLE);
-                tv5.setVisibility(View.GONE);
-                etNum.setVisibility(View.GONE);
-                tv1.setEnabled(true);
-                tv2.setEnabled(true);
-                tv3.setEnabled(true);
-                tv4.setEnabled(true);
-                tv5.setEnabled(false);
-                etNum.setEnabled(false);
-                break;
-            case 5:
-                tv1.setVisibility(View.VISIBLE);
-                tv2.setVisibility(View.VISIBLE);
-                tv3.setVisibility(View.VISIBLE);
-                tv4.setVisibility(View.VISIBLE);
-                tv5.setVisibility(View.VISIBLE);
-                etNum.setVisibility(View.GONE);
-                tv1.setEnabled(true);
-                tv2.setEnabled(true);
-                tv3.setEnabled(true);
-                tv4.setEnabled(true);
-                tv5.setEnabled(true);
-                etNum.setEnabled(false);
-                break;
-            default:
-                tv1.setVisibility(View.VISIBLE);
-                tv2.setVisibility(View.VISIBLE);
-                tv3.setVisibility(View.VISIBLE);
-                tv4.setVisibility(View.VISIBLE);
-                tv5.setVisibility(View.VISIBLE);
-                etNum.setVisibility(View.VISIBLE);
-                tv1.setEnabled(true);
-                tv2.setEnabled(true);
-                tv3.setEnabled(true);
-                tv4.setEnabled(true);
-                tv5.setEnabled(true);
-                etNum.setEnabled(true);
-                etNum.addTextChangedListener(new TextWatcher() {
+    public void hideNumBtn(final int num,boolean canBuy) {
+        if(canBuy){
+            switch (num) {
+                case 0:
+                    tv1.setVisibility(View.VISIBLE);
+                    tv2.setVisibility(View.VISIBLE);
+                    tv3.setVisibility(View.VISIBLE);
+                    tv4.setVisibility(View.VISIBLE);
+                    tv5.setVisibility(View.VISIBLE);
+                    etNum.setVisibility(View.VISIBLE);
+                    ToastUtil.showError("根据景区规定，必须先购买门票产品");
+                    tv1.setEnabled(false);
+                    tv2.setEnabled(false);
+                    tv3.setEnabled(false);
+                    tv4.setEnabled(false);
+                    tv5.setEnabled(false);
+                    etNum.setEnabled(false);
+                    break;
+                case 1:
+                    tv1.setVisibility(View.VISIBLE);
+                    tv2.setVisibility(View.GONE);
+                    tv3.setVisibility(View.GONE);
+                    tv4.setVisibility(View.GONE);
+                    tv5.setVisibility(View.GONE);
+                    etNum.setVisibility(View.GONE);
+                    tv1.setEnabled(true);
+                    tv2.setEnabled(false);
+                    tv3.setEnabled(false);
+                    tv4.setEnabled(false);
+                    tv5.setEnabled(false);
+                    etNum.setEnabled(false);
+                    break;
+                case 2:
+                    tv1.setVisibility(View.VISIBLE);
+                    tv2.setVisibility(View.VISIBLE);
+                    tv3.setVisibility(View.GONE);
+                    tv4.setVisibility(View.GONE);
+                    tv5.setVisibility(View.GONE);
+                    etNum.setVisibility(View.GONE);
+                    tv1.setEnabled(true);
+                    tv2.setEnabled(true);
+                    tv3.setEnabled(false);
+                    tv4.setEnabled(false);
+                    tv5.setEnabled(false);
+                    etNum.setEnabled(false);
+                    break;
+                case 3:
+                    tv1.setVisibility(View.VISIBLE);
+                    tv2.setVisibility(View.VISIBLE);
+                    tv3.setVisibility(View.VISIBLE);
+                    tv4.setVisibility(View.GONE);
+                    tv5.setVisibility(View.GONE);
+                    etNum.setVisibility(View.GONE);
+                    tv1.setEnabled(true);
+                    tv2.setEnabled(true);
+                    tv3.setEnabled(true);
+                    tv4.setEnabled(false);
+                    tv5.setEnabled(false);
+                    etNum.setEnabled(false);
+                    break;
+                case 4:
+                    tv1.setVisibility(View.VISIBLE);
+                    tv2.setVisibility(View.VISIBLE);
+                    tv3.setVisibility(View.VISIBLE);
+                    tv4.setVisibility(View.VISIBLE);
+                    tv5.setVisibility(View.GONE);
+                    etNum.setVisibility(View.GONE);
+                    tv1.setEnabled(true);
+                    tv2.setEnabled(true);
+                    tv3.setEnabled(true);
+                    tv4.setEnabled(true);
+                    tv5.setEnabled(false);
+                    etNum.setEnabled(false);
+                    break;
+                case 5:
+                    tv1.setVisibility(View.VISIBLE);
+                    tv2.setVisibility(View.VISIBLE);
+                    tv3.setVisibility(View.VISIBLE);
+                    tv4.setVisibility(View.VISIBLE);
+                    tv5.setVisibility(View.VISIBLE);
+                    etNum.setVisibility(View.GONE);
+                    tv1.setEnabled(true);
+                    tv2.setEnabled(true);
+                    tv3.setEnabled(true);
+                    tv4.setEnabled(true);
+                    tv5.setEnabled(true);
+                    etNum.setEnabled(false);
+                    break;
+                default:
+                    tv1.setVisibility(View.VISIBLE);
+                    tv2.setVisibility(View.VISIBLE);
+                    tv3.setVisibility(View.VISIBLE);
+                    tv4.setVisibility(View.VISIBLE);
+                    tv5.setVisibility(View.VISIBLE);
+                    etNum.setVisibility(View.VISIBLE);
+                    tv1.setEnabled(true);
+                    tv2.setEnabled(true);
+                    tv3.setEnabled(true);
+                    tv4.setEnabled(true);
+                    tv5.setEnabled(true);
+                    etNum.setEnabled(true);
+                    etNum.addTextChangedListener(new TextWatcher() {
 
-                    @Override
-                    public void onTextChanged(CharSequence s, int start,
-                                              int before, int count) {
-                        // TODO Auto-generated method stub
-                        if (StringUtils.isNotBlank(s.toString())
-                                && Integer.parseInt(s.toString()) > num) {
-                            ToastUtil.showError("根据景区规定，您现在最多可购买" + num + "张票");
-                            etNum.setText(String.format("%d", num));
+                        @Override
+                        public void onTextChanged(CharSequence s, int start,
+                                                  int before, int count) {
+                            // TODO Auto-generated method stub
+                            if (StringUtils.isNotBlank(s.toString())
+                                    && Integer.parseInt(s.toString()) > num) {
+                                ToastUtil.showError("根据景区规定，您现在最多可购买" + num + "张票");
+                                etNum.setText(String.format("%d", num));
+                            }
+                            if (StringUtils.isNotBlank(s.toString())) {
+                                getInfo.setNum(Integer.parseInt(s.toString()));
+                            }
                         }
-                        if (StringUtils.isNotBlank(s.toString())) {
-                            getInfo.setNum(Integer.parseInt(s.toString()));
+
+                        @Override
+                        public void beforeTextChanged(CharSequence s, int start,
+                                                      int count, int after) {
+                            // TODO Auto-generated method stub
+
                         }
-                    }
 
-                    @Override
-                    public void beforeTextChanged(CharSequence s, int start,
-                                                  int count, int after) {
-                        // TODO Auto-generated method stub
+                        @Override
+                        public void afterTextChanged(Editable s) {
+                            // TODO Auto-generated method stub
 
-                    }
-
-                    @Override
-                    public void afterTextChanged(Editable s) {
-                        // TODO Auto-generated method stub
-
-                    }
-                });
-                break;
+                        }
+                    });
+                    break;
+            }
+        }else{
+            tv1.setVisibility(View.VISIBLE);
+            tv2.setVisibility(View.VISIBLE);
+            tv3.setVisibility(View.VISIBLE);
+            tv4.setVisibility(View.VISIBLE);
+            tv5.setVisibility(View.VISIBLE);
+            etNum.setVisibility(View.VISIBLE);
+            tv1.setEnabled(false);
+            tv2.setEnabled(false);
+            tv3.setEnabled(false);
+            tv4.setEnabled(false);
+            tv5.setEnabled(false);
+            etNum.setEnabled(false);
         }
     }
 

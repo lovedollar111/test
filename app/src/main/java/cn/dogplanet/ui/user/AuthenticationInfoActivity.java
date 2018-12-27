@@ -26,7 +26,6 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 import cn.dogplanet.GlobalContext;
-import cn.dogplanet.MainActivity;
 import cn.dogplanet.R;
 import cn.dogplanet.app.util.AndroidUtil;
 import cn.dogplanet.app.util.AppManager;
@@ -60,8 +59,6 @@ public class AuthenticationInfoActivity extends BaseActivity {
 
     @BindView(R.id.et_name)
     TextView etName;
-    @BindView(R.id.img_id_card)
-    ImageView imgIdCard;
     @BindView(R.id.et_id_card)
     TextView etIdCard;
     @BindView(R.id.et_company)
@@ -88,6 +85,18 @@ public class AuthenticationInfoActivity extends BaseActivity {
     RelativeLayout layVehicleLicense;
     @BindView(R.id.lay_operational_qualification)
     RelativeLayout layOperationalQualification;
+    @BindView(R.id.img_name)
+    ImageView imgName;
+    @BindView(R.id.img_id_card)
+    ImageView imgIdCard;
+    @BindView(R.id.img_company)
+    ImageView imgCompany;
+    @BindView(R.id.img_driving_licence_time)
+    ImageView imgDrivingLicenceTime;
+    @BindView(R.id.img_vehicle_license_time)
+    ImageView imgVehicleLicenseTime;
+    @BindView(R.id.img_operational_qualification_time)
+    ImageView imgOperationalQualificationTime;
 
     private Expert expert;
     private int type;
@@ -329,6 +338,36 @@ public class AuthenticationInfoActivity extends BaseActivity {
         etDrivingLicenceTime.setText(et.getDriver_license().getDate());
         etVehicleLicenseTime.setText(et.getVehicle_license().getDate());
         etOperationalQualificationTime.setText(et.getOperational_qualification().getDate());
+        if (StringUtils.isNotBlank(etName.getText().toString())) {
+            imgName.setImageResource(R.drawable.ic_name_select);
+        } else {
+            imgName.setImageResource(R.drawable.ic_name_normal);
+        }
+        if (StringUtils.isNotBlank(etIdCard.getText().toString())) {
+            imgIdCard.setImageResource(R.drawable.ic_id_card_select);
+        } else {
+            imgIdCard.setImageResource(R.drawable.ic_id_card_normal);
+        }
+        if (StringUtils.isNotBlank(etCompany.getText().toString())) {
+            imgCompany.setImageResource(R.drawable.ic_company_select);
+        } else {
+            imgCompany.setImageResource(R.drawable.ic_company_normal);
+        }
+        if (StringUtils.isNotBlank(etDrivingLicenceTime.getText().toString())) {
+            imgDrivingLicenceTime.setImageResource(R.drawable.ic_driving_licence_select);
+        } else {
+            imgDrivingLicenceTime.setImageResource(R.drawable.ic_driving_licence_normal);
+        }
+        if (StringUtils.isNotBlank(etVehicleLicenseTime.getText().toString())) {
+            imgVehicleLicenseTime.setImageResource(R.drawable.ic_vehicle_license_select);
+        } else {
+            imgVehicleLicenseTime.setImageResource(R.drawable.ic_verification_normal);
+        }
+        if (StringUtils.isNotBlank(etOperationalQualificationTime.getText().toString())) {
+            imgVehicleLicenseTime.setImageResource(R.drawable.ic_operational_qualification_select);
+        } else {
+            imgVehicleLicenseTime.setImageResource(R.drawable.ic_operational_qualification_normal);
+        }
         int status = et.getAuthentication_status();
         switch (status) {
             case Expert.AUTHENTICATION_0:
@@ -341,7 +380,7 @@ public class AuthenticationInfoActivity extends BaseActivity {
                 layDrivingLicence.setEnabled(false);
                 layVehicleLicense.setEnabled(false);
                 layOperationalQualification.setEnabled(false);
-                imgStatus.setImageResource(R.mipmap.ic_launcher);
+                imgStatus.setImageResource(R.mipmap.shenhezhong);
                 break;
             case Expert.AUTHENTICATION_20:
                 layTxt.setEnabled(false);
@@ -352,7 +391,7 @@ public class AuthenticationInfoActivity extends BaseActivity {
                 layDrivingLicence.setEnabled(false);
                 layVehicleLicense.setEnabled(false);
                 layOperationalQualification.setEnabled(false);
-                imgStatus.setImageResource(R.mipmap.ic_launcher);
+                imgStatus.setImageResource(R.mipmap.shenhechenggong);
                 break;
             case Expert.AUTHENTICATION_30:
                 layTxt.setEnabled(true);
@@ -363,7 +402,7 @@ public class AuthenticationInfoActivity extends BaseActivity {
                 layDrivingLicence.setEnabled(true);
                 layVehicleLicense.setEnabled(true);
                 layOperationalQualification.setEnabled(true);
-                imgStatus.setImageResource(R.mipmap.ic_launcher);
+                imgStatus.setImageResource(R.mipmap.shenheshibai);
                 break;
         }
 

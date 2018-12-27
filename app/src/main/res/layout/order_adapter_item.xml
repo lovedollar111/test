@@ -19,7 +19,9 @@
         <ImageView
             android:layout_width="@dimen/dis_40"
             android:layout_height="@dimen/dis_40"
-            android:src="@mipmap/ic_launcher"
+            android:scaleType="center"
+            android:src="@drawable/ic_name_normal"
+            android:layout_marginEnd="@dimen/dis_24"
             />
 
         <TextView

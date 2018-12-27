@@ -140,8 +140,6 @@ public class ShopFragment extends BaseFragment {
         bind = ButterKnife.bind(this, view);
         expert = WCache.getCacheExpert();
         scrMain.setMode(Mode.PULL_FROM_START);
-        scrMain.scrollTo(0, 0);
-        PullToRefreshHelper.initIndicator(scrMain);
         PullToRefreshHelper.initIndicatorStart(scrMain);
         scrMain.setOnRefreshListener(refreshView -> getHome());
         scrMain.setOnScrollListener(scrollY -> {
@@ -227,7 +225,7 @@ public class ShopFragment extends BaseFragment {
         vpBanner.setFocusable(true);
         vpBanner.setFocusableInTouchMode(true);
         vpBanner.requestFocus();
-        scrMain.smoothScrollTo(0,0);
+        scrMain.smoothScrollTo(0,200);
         if (resp.getHotProduct() != null && !resp.getHotProduct().isEmpty()) {
             hotProductAdapter = new ProductAdapter(resp.getHotProduct(), getActivity().getApplicationContext());
             listHotProduct.setAdapter(hotProductAdapter);

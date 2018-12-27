@@ -11,6 +11,7 @@ import java.util.List;
  */
 public class ProductDetail {
 	private Integer pro_id;
+	private String product_id;//自订单id
 	private String name;
 	private List<String> feature;
 	private List<String> images;
@@ -67,6 +68,7 @@ public class ProductDetail {
     private boolean authentication_status;  //true 可以下单 false 不能下单
     private String authentication_message;
     private boolean can_join_cart;
+    private boolean is_package_ticket; // true 是门船票 false 不是门船票
 
     public boolean getTravel_agency_status() {
         return travel_agency_status;
@@ -374,8 +376,24 @@ public class ProductDetail {
         this.canBuyNum = canBuyNum;
     }
 
+	public boolean isIs_package_ticket() {
+		return is_package_ticket;
+	}
 
-    public class canBuy{
+	public void setIs_package_ticket(boolean is_package_ticket) {
+		this.is_package_ticket = is_package_ticket;
+	}
+
+	public String getProduct_id() {
+		return product_id;
+	}
+
+	public void setProduct_id(String product_id) {
+		this.product_id = product_id;
+	}
+
+
+	public class canBuy{
         private boolean status;
         private int time;
         private String msg;

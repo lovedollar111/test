@@ -48,7 +48,7 @@
                 android:layout_centerVertical="true"
                 android:layout_marginStart="@dimen/dis_36"
                 android:scaleType="center"
-                android:src="@drawable/ic_name" />
+                android:src="@drawable/ic_name_select" />
 
 
             <cn.dogplanet.app.widget.EditTextWithDel

@@ -48,6 +48,7 @@ import cn.dogplanet.entity.Resp;
 import cn.dogplanet.net.PublicReq;
 import cn.dogplanet.net.RespData;
 import cn.dogplanet.ui.order.adapter.OrderDetailAdapter;
+import cn.dogplanet.ui.shop.ShopProductPayActivity;
 
 
 /**
@@ -329,7 +330,7 @@ public class OrderDetailActivity extends BaseActivity {
 
     }
 
-    @OnClick({R.id.btn_back, R.id.btn_cancel})
+    @OnClick({R.id.btn_back, R.id.btn_cancel, R.id.btn_pay})
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.btn_back:
@@ -348,8 +349,15 @@ public class OrderDetailActivity extends BaseActivity {
                     builderCancel.setCustomView(viewCancel, this);
                     builderCancel.withEffect(Effectstype.Fadein);
                     builderCancel.show();
-                    view.findViewById(R.id.btn_ok).setOnClickListener(v -> cancelMainOrder());
+                    viewCancel.findViewById(R.id.btn_ok).setOnClickListener(v -> cancelMainOrder());
+                    TextView tvTitle = viewCancel.findViewById(R.id.title);
+                    tvTitle.setText("取消订单");
+                    TextView tvMsg = viewCancel.findViewById(R.id.msg);
+                    tvMsg.setText("是否取消订单");
                 }
+            case R.id.btn_pay:
+                startActivity(ShopProductPayActivity.newIntent(oid));
+                break;
         }
     }
 
@@ -396,4 +404,5 @@ public class OrderDetailActivity extends BaseActivity {
         super.onDestroy();
         EventBus.getDefault().unregister(this);
     }
+
 }

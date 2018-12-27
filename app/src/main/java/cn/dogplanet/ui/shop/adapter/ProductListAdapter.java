@@ -48,7 +48,10 @@ public class ProductListAdapter extends BaseAdapter {
 
     @Override
     public Object getItem(int position) {
-        return products.get(position);
+        if (position > 0)
+            return products.get(position);
+        else
+            return products.get(0);
     }
 
     @Override
@@ -59,15 +62,15 @@ public class ProductListAdapter extends BaseAdapter {
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
         ViewHolder holder;
-        Product product=products.get(position);
+        Product product = products.get(position);
         if (convertView == null) {
             convertView = LayoutInflater.from(context).inflate(R.layout.adapter_product_list, parent, false);
-            holder=new ViewHolder(convertView);
+            holder = new ViewHolder(convertView);
             convertView.setTag(holder);
-        }else{
-            holder= (ViewHolder) convertView.getTag();
+        } else {
+            holder = (ViewHolder) convertView.getTag();
         }
-        String url=product.getUrl();
+        String url = product.getUrl();
         if (StringUtils.isNotBlank(url)) {
             holder.imgProduct.setTag(url);
             ListImageListener imageListener = new ListImageListener(
