@@ -30,12 +30,12 @@
 
         <ImageView
             android:id="@+id/img_find"
-            android:layout_width="@dimen/dis_36"
-            android:layout_height="@dimen/dis_36"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_alignParentEnd="true"
             android:layout_alignParentBottom="true"
             android:src="@drawable/select_select"
-            android:layout_marginBottom="@dimen/dis_30"
+            android:layout_marginBottom="@dimen/dis_10"
             android:layout_marginEnd="@dimen/dis_10" />
     </RelativeLayout>
 

@@ -47,6 +47,7 @@ public class OrderDetail {
 	private List<OrderProduct> products;
 	private OrderService service;
 	private String contact_id_card;
+	private boolean pay;
 
 	
 	public String getContact_id_card() {
@@ -143,6 +144,14 @@ public class OrderDetail {
 
 	public void setService(OrderService service) {
 		this.service = service;
+	}
+
+	public boolean isPay() {
+		return pay;
+	}
+
+	public void setPay(boolean pay) {
+		this.pay = pay;
 	}
 
 	public class OrderProduct {

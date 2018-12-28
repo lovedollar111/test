@@ -45,6 +45,7 @@ import cn.dogplanet.app.util.ToastUtil;
 import cn.dogplanet.app.widget.HoldTabScrollView;
 import cn.dogplanet.app.widget.bannerViewPager.BannerPagerAdapter;
 import cn.dogplanet.app.widget.bannerViewPager.BannerTimerTask;
+import cn.dogplanet.app.widget.bannerViewPager.IndicatorView;
 import cn.dogplanet.app.widget.layout.SlideItem;
 import cn.dogplanet.base.BaseFragmentActivity;
 import cn.dogplanet.constant.HttpUrl;
@@ -120,6 +121,8 @@ public class ProductBuyActivity extends BaseFragmentActivity implements HoldTabS
     HoldTabScrollView htScrollView;
     @BindView(R.id.lay_main)
     RelativeLayout layMain;
+    @BindView(R.id.idv_banner)
+    IndicatorView idvBanner;
 
 
     private int mHeight = 0;
@@ -345,9 +348,10 @@ public class ProductBuyActivity extends BaseFragmentActivity implements HoldTabS
 
                 } else {
                     ToastUtil.showError(String.format("当前时段暂不可购买该产品，请%d小时%d分%d秒后再试", hour, min, second));
-                    return;
                 }
-                productBuyFragment.hideNumBtn(product.getMost(), false);
+                productBuyFragment.hideNumBtn(0, false);
+            }else{
+                productBuyFragment.hideNumBtn(product.getMost(),true);
             }
             btnJoinCart.setVisibility(View.GONE);
             btnJoinCart.setBackgroundResource(R.drawable.gradient_btn_gray_left);
@@ -550,6 +554,7 @@ public class ProductBuyActivity extends BaseFragmentActivity implements HoldTabS
         Collections.addAll(pictureList, items);
         BannerPagerAdapter mBannerPagerAdapter = new BannerPagerAdapter(this, pictureList);
         vpBanner.setAdapter(mBannerPagerAdapter);
+        idvBanner.setViewPager(pictureList.size(), vpBanner);
         // 设置默认起始位置,使开始可以向左边滑动
         vpBanner.setCurrentItem(pictureList.size() * 100);
         vpBanner.setOnTouchListener((v, event) -> {

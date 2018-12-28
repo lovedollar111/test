@@ -222,6 +222,10 @@ public class ShopProductPayActivity extends BaseActivity {
                 startPay();
                 break;
             case R.id.btn_cancel:
+                String type= WConstant.TYPE_BACK_MAIN;
+                EventBus.getDefault().postSticky(type);
+                startActivity(OrderDetailActivity
+                        .newIntent(orderId));
                 finish();
                 break;
         }
@@ -317,10 +321,10 @@ public class ShopProductPayActivity extends BaseActivity {
                                     respData.getOrder().getStatus())) {
                                 Toast.makeText(ShopProductPayActivity.this,
                                         "支付成功", Toast.LENGTH_SHORT).show();
-                                startActivity(OrderDetailActivity
-                                        .newIntent(orderId));
                                 String type= WConstant.TYPE_BACK_MAIN;
                                 EventBus.getDefault().postSticky(type);
+                                startActivity(OrderDetailActivity
+                                        .newIntent(orderId));
                                 finish();
                             } else {
                                 builder.show();

@@ -38,8 +38,8 @@
             android:visibility="visible">
             
             <ImageView
-                android:layout_width="@dimen/dis_28"
-                android:layout_height="@dimen/dis_28"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:scaleType="centerCrop"
                 android:src="@drawable/select_select"
                 android:layout_centerVertical="true"
@@ -68,8 +68,8 @@
 
             <ImageView
                 android:id="@+id/img_input"
-                android:layout_width="@dimen/dis_28"
-                android:layout_height="@dimen/dis_28"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:scaleType="centerCrop"
                 android:src="@drawable/input_select"
                 android:layout_centerVertical="true"

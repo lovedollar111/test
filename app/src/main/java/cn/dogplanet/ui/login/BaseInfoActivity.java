@@ -122,12 +122,7 @@ public class BaseInfoActivity extends BaseActivity {
                         et_company.setText(resp.getTravelAgencyIdArr().getTravel_agency_name());
                     }
                 }
-            }, new Response.ErrorListener() {
-                @Override
-                public void onErrorResponse(VolleyError error) {
-                    ToastUtil.showError(R.string.network_error);
-                }
-            }, params);
+            }, error -> ToastUtil.showError(R.string.network_error), params);
         }
     }
 

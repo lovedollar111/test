@@ -29,7 +29,7 @@
         <RelativeLayout
             android:id="@+id/lay_search"
             android:layout_width="match_parent"
-            android:layout_height="@dimen/dis_72"
+            android:layout_height="@dimen/dis_64"
             android:layout_marginBottom="@dimen/dis_8"
             android:layout_marginEnd="@dimen/dis_30"
             android:layout_marginStart="@dimen/dis_24"
@@ -39,11 +39,11 @@
             android:visibility="visible">
 
             <ImageView
-                android:layout_width="@dimen/dis_28"
-                android:layout_height="@dimen/dis_28"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:layout_centerVertical="true"
                 android:layout_marginStart="@dimen/dis_24"
-                android:scaleType="centerCrop"
+                android:scaleType="center"
                 android:src="@drawable/select_select" />
 
             <cn.dogplanet.app.widget.EditTextWithDel
@@ -67,13 +67,13 @@
 
             <ImageView
                 android:id="@+id/img_input"
-                android:layout_width="@dimen/dis_28"
-                android:layout_height="@dimen/dis_28"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:layout_alignParentEnd="true"
                 android:layout_centerVertical="true"
                 android:layout_marginEnd="@dimen/dis_30"
                 android:layout_marginStart="@dimen/dis_24"
-                android:scaleType="centerCrop"
+                android:scaleType="center"
                 android:src="@drawable/input_select" />
 
         </RelativeLayout>

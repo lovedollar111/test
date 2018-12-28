@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:idv="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/lay_main"
     android:layout_width="match_parent"
@@ -20,16 +21,38 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-            <android.support.v4.view.ViewPager
-                android:id="@+id/vp_banner"
+            <RelativeLayout
+                android:id="@+id/lay_banner"
                 android:layout_width="match_parent"
-                android:layout_height="220dp" />
+                android:layout_height="220dp"
+                android:background="@color/white">
+
+                <android.support.v4.view.ViewPager
+                    android:id="@+id/vp_banner"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" />
+
+
+                <cn.dogplanet.app.widget.bannerViewPager.IndicatorView
+                    android:id="@+id/idv_banner"
+                    android:layout_width="match_parent"
+                    android:layout_height="10dp"
+                    android:layout_alignBottom="@+id/vp_banner"
+                    android:layout_marginBottom="@dimen/dis_20"
+                    android:layout_marginTop="20dp"
+                    android:gravity="center_horizontal"
+                    idv:indicatorInterval="10dp"
+                    idv:isCirculate="true"
+                    idv:normalDrawable="@mipmap/dot_normal"
+                    idv:selectDrawable="@mipmap/dot_focused" />
+
+            </RelativeLayout>
 
             <LinearLayout
                 android:id="@+id/lay_product"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/dis_120"
-                android:layout_below="@+id/vp_banner"
+                android:layout_below="@+id/lay_banner"
                 android:background="@color/white"
                 android:gravity="center"
                 android:orientation="vertical">

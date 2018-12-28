@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.text.Editable;
 import android.text.Html;
 import android.text.TextWatcher;
+import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -188,9 +189,13 @@ public class OrderDetailActivity extends BaseActivity {
         }
         String status = order.getStatus();
         if (status.equals(OrderDetail.ORDER_TYPE_WAIT)) {
+            if (order.isPay()) {
+                layPay.setVisibility(View.VISIBLE);
+                tvPrice.setText(order.getPrice());
+            } else {
+                layPay.setVisibility(View.GONE);
+            }
             btnCancel.setVisibility(View.VISIBLE);
-            layPay.setVisibility(View.VISIBLE);
-            tvPrice.setText(order.getPrice());
         } else {
             btnCancel.setVisibility(View.GONE);
             layPay.setVisibility(View.GONE);
@@ -355,6 +360,7 @@ public class OrderDetailActivity extends BaseActivity {
                     TextView tvMsg = viewCancel.findViewById(R.id.msg);
                     tvMsg.setText("是否取消订单");
                 }
+                break;
             case R.id.btn_pay:
                 startActivity(ShopProductPayActivity.newIntent(oid));
                 break;

@@ -28,44 +28,24 @@
         android:textColor="#282b36"
         android:textSize="@dimen/font_size_14" />
 
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="0.5dp"
-        android:layout_marginTop="@dimen/dis_50"
-        android:background="#dadada" />
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal" >
 
-        <Button
-            android:id="@+id/btn_cancel"
-            android:layout_width="0dp"
-            android:layout_height="50dp"
-            android:layout_weight="1"
-            android:background="@drawable/back_round_white"
-            android:gravity="center"
-            android:text="取消"
-            android:textColor="@color/title_bg"
-            android:textSize="@dimen/font_size_12"
-            android:visibility="gone"/>
-
-        <View
-            android:layout_width="0.5dp"
-            android:layout_height="match_parent"
-            android:background="#dadada"
-            android:visibility="gone"/>
 
         <Button
             android:id="@+id/btn_ok"
             android:layout_width="0dp"
-            android:layout_height="50dp"
+            android:layout_height="@dimen/dis_88"
             android:layout_weight="1"
-            android:background="@drawable/back_round_white"
+            android:background="@drawable/gradient_f1_e0"
+            android:layout_marginStart="@dimen/dis_40"
+            android:layout_marginEnd="@dimen/dis_40"
             android:gravity="center"
             android:text="确定"
-            android:textColor="@color/title_bg"
+            android:textColor="@color/white"
             android:textSize="@dimen/font_size_12" />
     </LinearLayout>
 
