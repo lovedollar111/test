@@ -104,6 +104,7 @@ public class OrderAdapter extends BaseAdapter {
         Order order = mOrders.get(position);
         holder.tvName.setText(String.format("%s————%s", order.getContact_name(), order.getContact_tel()));
         String status = order.getStatus();
+        Log.i("info",status);
         switch (status) {
             case OrderDetail.ORDER_MAIN_TYPE_WAIT:
                 holder.tvStatus.setText("未支付");
@@ -116,6 +117,7 @@ public class OrderAdapter extends BaseAdapter {
                 break;
             case OrderDetail.ORDER_MAIN_TYPE_BACK_MONEY:
                 holder.tvStatus.setText("退款中");
+                break;
             case OrderDetail.ORDER_MAIN_TYPE_BACK_ALL_MONEY:
                 holder.tvStatus.setText("已退款");
                 break;

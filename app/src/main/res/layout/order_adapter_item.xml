@@ -67,7 +67,8 @@
         android:layout_marginStart="@dimen/dis_24"
         android:layout_marginEnd="@dimen/dis_24"
         android:layout_marginTop="@dimen/dis_20"
-        android:background="@color/color_e5" />
+        android:background="@color/color_e5"
+        android:visibility="gone"/>
 
     <Button
         android:id="@+id/btn_pay"
@@ -81,6 +82,7 @@
         android:gravity="center"
         android:text="@string/string_order_pay"
         android:textColor="@color/white"
-        android:textSize="@dimen/font_size_12" />
+        android:textSize="@dimen/font_size_12"
+        android:visibility="gone"/>
 
 </RelativeLayout>

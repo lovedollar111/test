@@ -22,8 +22,6 @@ import cn.dogplanet.constant.WConstant;
 import cn.dogplanet.entity.Expert;
 import cn.dogplanet.net.PublicReq;
 import cn.dogplanet.net.RespData;
-import cn.dogplanet.net.volley.Response;
-import cn.dogplanet.net.volley.VolleyError;
 import cn.dogplanet.ui.login.BaseInfoActivity;
 import cn.dogplanet.ui.login.FirstActivity;
 import cn.dogplanet.ui.login.LoginActivity;
@@ -97,12 +95,9 @@ public class SplashActivity extends Activity {
                             e.printStackTrace();
                         }
                         redirectActivity();
-                    }, new Response.ErrorListener() {
-                        @Override
-                        public void onErrorResponse(VolleyError error) {
-                            redirectActivity();
-                            System.out.println("异常");
-                        }
+                    }, error -> {
+                        redirectActivity();
+                        System.out.println("异常");
                     }, params);
         }
     }
@@ -113,9 +108,6 @@ public class SplashActivity extends Activity {
             Intent mainIntent = new Intent(SplashActivity.this,
                     LoginActivity.class);
             SplashActivity.this.startActivity(mainIntent);
-        } else if (StringUtils.isBlank(expert.getExpert_name())) {
-            // 如果必填项为空即跳转到完善个人信息
-            startActivity(BaseInfoActivity.newIntent());
         } else {
             SplashActivity.this.startActivity(MainActivity.newIntent(MainActivity.TYPE_HOME));
         }

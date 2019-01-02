@@ -133,6 +133,7 @@
                     android:layout_height="110dp"
                     android:layout_marginStart="@dimen/dis_30"
                     android:layout_weight="1"
+                    android:scaleType="fitXY"
                     android:src="@mipmap/shili" />
 
                 <RelativeLayout

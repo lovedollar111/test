@@ -101,7 +101,17 @@ public class CardInfoActivity extends BaseActivity {
         ButterKnife.bind(this);
         expert = WCache.getCacheExpert();
         initDialog();
+        initView();
+        btnReg.setEnabled(false);
         registerBoradcastReceiver();
+    }
+
+    private void initView() {
+        imgDriver.setRoundness(30);
+        imgLeftCard.setRoundness(30);
+        imgRightCard.setRoundness(30);
+        imgVehicle.setRoundness(30);
+        imgOperational.setRoundness(30);
     }
 
     private void initDialog() {
@@ -156,6 +166,8 @@ public class CardInfoActivity extends BaseActivity {
                     } else {
                         ToastUtil.showError(R.string.network_error);
                     }
+                } else if (respData.isReg()) {
+                    ToastUtil.showError(respData.getMsg());
                 } else {
                     ToastUtil.showError(respData.getMsg());
                 }
@@ -429,8 +441,10 @@ public class CardInfoActivity extends BaseActivity {
     private void updateBtn() {
         if (StringUtils.isNotBlank(left_card_id) && StringUtils.isNotBlank(right_card_id) && StringUtils.isNotBlank(driver_id) && StringUtils.isNotBlank(vehicle_id) && StringUtils.isNotBlank(operational_id)) {
             btnReg.setBackgroundResource(R.drawable.gradient_f1_e0);
+            btnReg.setEnabled(true);
         } else {
             btnReg.setBackgroundResource(R.drawable.gradient_c7_ab);
+            btnReg.setEnabled(false);
         }
     }
 

@@ -74,7 +74,6 @@ public class ProductListActivity extends BaseActivity {
             if(adapter!=null){
                 Product product= (Product) adapter.getItem(position-1);
                 startActivity(ProductBuyActivity.newIntent(product.getPro_id()));
-                finish();
             }
         });
         PullToRefreshHelper.initIndicator(listProduct);

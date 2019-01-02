@@ -18,6 +18,7 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
+import android.widget.TextView;
 
 import org.greenrobot.eventbus.EventBus;
 
@@ -67,7 +68,7 @@ public class BaseInfoActivity extends BaseActivity {
     @BindView(R.id.et_id_card)
     EditTextWithDel et_id_card;
     @BindView(R.id.et_company)
-    EditText et_company;
+    TextView et_company;
     @BindView(R.id.et_driving_licence_time)
     EditText et_driving_licence_time;
     @BindView(R.id.et_vehicle_license_time)
@@ -103,6 +104,7 @@ public class BaseInfoActivity extends BaseActivity {
         setContentView(R.layout.activity_base_info);
         ButterKnife.bind(this);
         expert = WCache.getCacheExpert();
+        btn_next.setEnabled(false);
         initView();
         getCompanyByInvite();
 
@@ -120,6 +122,7 @@ public class BaseInfoActivity extends BaseActivity {
                     if (resp != null && resp.isSuccess()) {
                         company_id = resp.getTravelAgencyIdArr().getTravel_agency_id();
                         et_company.setText(resp.getTravelAgencyIdArr().getTravel_agency_name());
+                        img_company.setImageResource(R.drawable.ic_company_select);
                     }
                 }
             }, error -> ToastUtil.showError(R.string.network_error), params);
@@ -256,8 +259,10 @@ public class BaseInfoActivity extends BaseActivity {
     private void updateBtn() {
         if (StringUtils.isNotBlank(et_name.getText().toString()) && StringUtils.isNotBlank(et_id_card.getText().toString()) && StringUtils.isNotBlank(et_company.getText().toString()) && StringUtils.isNotBlank(et_driving_licence_time.getText().toString()) && StringUtils.isNotBlank(et_vehicle_license_time.getText().toString()) && StringUtils.isNotBlank(et_operational_qualification_time.getText().toString())) {
             btn_next.setBackgroundResource(R.drawable.gradient_f1_e0);
+            btn_next.setEnabled(true);
         } else {
             btn_next.setBackgroundResource(R.drawable.gradient_c7_ab);
+            btn_next.setEnabled(false);
         }
     }
 

@@ -30,7 +30,7 @@ public class OrderDetail {
 	public final static String ORDER_MAIN_TYPE_ALL = "0";
 	public final static String ORDER_MAIN_TYPE_WAIT = "10";
 	public final static String ORDER_MAIN_TYPE_SUCCESS = "20";
-	public final static String ORDER_MAIN_TYPE_BACK_MONEY = "50";
+	public final static String ORDER_MAIN_TYPE_BACK_MONEY = "40";
 	public final static String ORDER_MAIN_TYPE_BACK_ALL_MONEY = "60";
 	public final static String ORDER_MAIN_TYPE_CLOSE = "500";
 

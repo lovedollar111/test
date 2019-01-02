@@ -2,6 +2,7 @@ package cn.dogplanet.ui.order.adapter;
 
 
 import android.content.Context;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -72,7 +73,7 @@ public class OrderDetailAdapter extends BaseAdapter {
             GlobalContext.getInstance().getImageLoader().get(url,imageListener);
         }
         String status=product.getStatus();
-
+        Log.i("info",status);
         switch (status){
             case OrderDetail.ORDER_TYPE_WAIT:
                 holder.btnReturn.setVisibility(View.INVISIBLE);
@@ -121,7 +122,7 @@ public class OrderDetailAdapter extends BaseAdapter {
         holder.tvProductName.setText(product.getPro_name());
         holder.tvProductNum.setText(String.format("%s人", product.getNum()));
         holder.tvProductPrice.setText(String.format("¥%s", product.getPrice()));
-        holder.btnReturn.setOnClickListener(v -> onReturnClickListener.onReturnClick(product.getId(), Integer.parseInt(product.getCheck_number()),product.getBegin_date(),product.isIs_package_ticket(),product.getPro_id(),product.getCategory()));
+        holder.btnReturn.setOnClickListener(v -> onReturnClickListener.onReturnClick(product.getId(), Integer.parseInt(product.getNum()),product.getBegin_date(),product.isIs_package_ticket(),product.getPro_id(),product.getCategory()));
 
         return convertView;
     }

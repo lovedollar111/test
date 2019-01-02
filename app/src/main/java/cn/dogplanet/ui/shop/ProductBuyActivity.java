@@ -367,13 +367,13 @@ public class ProductBuyActivity extends BaseFragmentActivity implements HoldTabS
                     btnBuy.setBackgroundResource(R.drawable.gradient_btn_gray_right);
                     btnJoinCart.setEnabled(false);
                     btnBuy.setEnabled(false);
-                } else {
-                    btnJoinCart.setVisibility(View.GONE);
-                    btnJoinCart.setBackgroundResource(R.drawable.gradient_btn_gray_left);
-                    btnBuy.setBackgroundResource(R.drawable.gradient_c7_ab);
-                    btnJoinCart.setEnabled(false);
-                    btnBuy.setEnabled(false);
                 }
+            }else {
+                btnJoinCart.setVisibility(View.GONE);
+                btnJoinCart.setBackgroundResource(R.drawable.gradient_btn_gray_left);
+                btnBuy.setBackgroundResource(R.drawable.gradient_c7_ab);
+                btnJoinCart.setEnabled(false);
+                btnBuy.setEnabled(false);
             }
         }
 

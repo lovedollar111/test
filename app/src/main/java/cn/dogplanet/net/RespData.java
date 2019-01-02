@@ -19,6 +19,8 @@ public class RespData {
     //微信登陆未绑定账号
     public final static Integer CODE_UN_REG = 1009;
 
+    public final static Integer CODE_REG = 1038;
+
 
     // 状态码
     private Integer code;
@@ -57,7 +59,9 @@ public class RespData {
     public boolean isSuccess() {
         return this.code.intValue() == CODE_SUCCESS;
     }
-
+    public boolean isReg() {
+        return this.code.intValue() == CODE_REG;
+    }
     public boolean isUnReg() {
         return this.code.intValue() == CODE_UN_REG;
     }

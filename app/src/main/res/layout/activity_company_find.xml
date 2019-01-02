@@ -56,7 +56,7 @@
                 android:hint="@string/search_company"
                 android:imeOptions="actionSearch|flagNoExtractUi|flagNoFullscreen"
                 android:textColor="@color/color_c7"
-                android:textColorHint="#afff"
+                android:textColorHint="@color/color_c7"
                 android:textCursorDrawable="@drawable/color_cursor"
                 android:textSize="@dimen/font_size_12"
                 android:layout_marginEnd="@dimen/dis_20"

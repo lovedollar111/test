@@ -1,5 +1,6 @@
 package cn.dogplanet.ui.user;
 
+import android.annotation.SuppressLint;
 import android.app.AlertDialog;
 import android.content.Intent;
 import android.graphics.Color;
@@ -74,6 +75,7 @@ public class AboutActivity extends BaseActivity {
 
             }
 
+            @SuppressLint({"SetTextI18n", "DefaultLocale"})
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
                 if (StringUtils.isBlank(s.toString())) {
@@ -90,7 +92,7 @@ public class AboutActivity extends BaseActivity {
 
             }
         });
-        SoftKeyBoardListener .setListener(this, new SoftKeyBoardListener.OnSoftKeyBoardChangeListener() {
+        SoftKeyBoardListener.setListener(this, new SoftKeyBoardListener.OnSoftKeyBoardChangeListener() {
             @Override
             public void keyBoardShow(int height) {
                 layLogo.setVisibility(View.GONE);
@@ -101,6 +103,7 @@ public class AboutActivity extends BaseActivity {
             public void keyBoardHide(int height) {
                 layLogo.setVisibility(View.VISIBLE);
                 layUpdate.setVisibility(View.VISIBLE);
+                etMsg.setText("");
             }
         });
     }

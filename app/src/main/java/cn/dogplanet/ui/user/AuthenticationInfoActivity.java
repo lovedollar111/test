@@ -361,12 +361,12 @@ public class AuthenticationInfoActivity extends BaseActivity {
         if (StringUtils.isNotBlank(etVehicleLicenseTime.getText().toString())) {
             imgVehicleLicenseTime.setImageResource(R.drawable.ic_vehicle_license_select);
         } else {
-            imgVehicleLicenseTime.setImageResource(R.drawable.ic_verification_normal);
+            imgVehicleLicenseTime.setImageResource(R.drawable.ic_vehicle_license_normal);
         }
         if (StringUtils.isNotBlank(etOperationalQualificationTime.getText().toString())) {
-            imgVehicleLicenseTime.setImageResource(R.drawable.ic_operational_qualification_select);
+            imgOperationalQualificationTime.setImageResource(R.drawable.ic_operational_qualification_select);
         } else {
-            imgVehicleLicenseTime.setImageResource(R.drawable.ic_operational_qualification_normal);
+            imgOperationalQualificationTime.setImageResource(R.drawable.ic_operational_qualification_normal);
         }
         int status = et.getAuthentication_status();
         switch (status) {
@@ -405,6 +405,11 @@ public class AuthenticationInfoActivity extends BaseActivity {
                 imgStatus.setImageResource(R.mipmap.shenheshibai);
                 break;
         }
+        left_card_id = expert.getId_card_photo().get(0).getId();
+        right_card_id = expert.getId_card_photo().get(1).getId();
+        driver_id = expert.getDriver_license().getId();
+        vehicle_id = expert.getVehicle_license().getId();
+        operational_id = expert.getOperational_qualification().getId();
 
     }
 

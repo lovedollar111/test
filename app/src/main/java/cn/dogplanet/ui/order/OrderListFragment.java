@@ -132,8 +132,8 @@ public class OrderListFragment extends BaseFragment {
             if (category != Integer.parseInt(OrderDetail.ORDER_MAIN_TYPE_ALL)) {
                 params.put("status", String.valueOf(category));
             }
-            if (category == Integer.parseInt(OrderDetail.ORDER_MAIN_TYPE_BACK_ALL_MONEY) ||
-                    category == Integer.parseInt(OrderDetail.ORDER_MAIN_TYPE_BACK_MONEY)) {
+            if (category == Integer.parseInt(OrderDetail.ORDER_TYPE_BACK_ALL_MONEY) ||
+                    category == Integer.parseInt(OrderDetail.ORDER_TYPE_BACK_MONEY)) {
                 url = HttpUrl.GET_REFUND_ORDER;
             }
             PublicReq.request(url, response -> {
@@ -203,8 +203,8 @@ public class OrderListFragment extends BaseFragment {
                 order_type = Integer.parseInt(OrderDetail.ORDER_MAIN_TYPE_BACK_ALL_MONEY);
                 break;
             case OrderFragment.ORDER_TYPE_BACK_MONEY:
-                category = Integer.parseInt(OrderDetail.ORDER_MAIN_TYPE_BACK_MONEY);
-                order_type = Integer.parseInt(OrderDetail.ORDER_MAIN_TYPE_BACK_MONEY);
+                category = Integer.parseInt(OrderDetail.ORDER_TYPE_BACK_MONEY);
+                order_type = Integer.parseInt(OrderDetail.ORDER_TYPE_BACK_MONEY);
                 break;
             default:
                 break;

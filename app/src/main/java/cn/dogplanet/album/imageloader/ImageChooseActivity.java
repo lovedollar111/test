@@ -355,7 +355,7 @@ public class ImageChooseActivity extends BaseActivity implements
 
 	private void updateUI(int selectedCount) {
 		if (selectedCount > 0) {
-			btnFinish.setTextColor(ContextCompat.getColor(this, R.color.white));
+			btnFinish.setTextColor(ContextCompat.getColor(this, R.color.black));
 			String hasChoose = getString(R.string.btn_has_choose);
 			btnFinish.setText(String.format(hasChoose, selectedCount, count));
 			btnFinish.setOnClickListener(new OnClickListener() {
