@@ -58,19 +58,10 @@
 
         />
 
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="0.5dp"
-        android:layout_marginTop="@dimen/dis_50"
-        android:background="#dadada" />
-
-
-
-
     <Button
         android:id="@+id/btn_ok"
         android:layout_width="@dimen/dis_480"
-        android:layout_height="@dimen/dis_70"
+        android:layout_height="@dimen/dis_80"
         android:background="@drawable/gradient_f1_e0"
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="@dimen/dis_50"

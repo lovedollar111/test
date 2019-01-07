@@ -1,6 +1,5 @@
 package cn.dogplanet.ui.user;
 
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.Editable;
@@ -13,7 +12,6 @@ import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
-import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import java.util.Date;
@@ -24,7 +22,6 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 import cn.dogplanet.GlobalContext;
-import cn.dogplanet.MainActivity;
 import cn.dogplanet.R;
 import cn.dogplanet.app.util.GsonHelper;
 import cn.dogplanet.app.util.SPUtils;
@@ -88,9 +85,11 @@ public class EditInfoActivity extends BaseActivity {
         ButterKnife.bind(this);
         expert = WCache.getCacheExpert();
         initView();
+        updateBtn();
     }
 
     private void initView() {
+        company_id=expert.getTravel_agency_id();
         etOperationalQualificationTime.setText(expert.getOperational_qualification().getDate());
         etVehicleLicenseTime.setText(expert.getVehicle_license().getDate());
         etDrivingLicenceTime.setText(expert.getDriver_license().getDate());
@@ -299,7 +298,7 @@ public class EditInfoActivity extends BaseActivity {
         params.put("id_card_images[0]", expert.getId_card_photo().get(0).getId());
         params.put("id_card_images[1]", expert.getId_card_photo().get(1).getId());
         showProgress();
-        PublicReq.request(HttpUrl.EXPERT_REG, response -> {
+        PublicReq.request(HttpUrl.EXPERT_SAVE, response -> {
             hideProgress();
             RespData respData = GsonHelper.parseObject(response,
                     RespData.class);

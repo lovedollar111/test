@@ -130,7 +130,7 @@
 
                 <ImageView
                     android:layout_width="0dp"
-                    android:layout_height="110dp"
+                    android:layout_height="140dp"
                     android:layout_marginStart="@dimen/dis_30"
                     android:layout_weight="1"
                     android:scaleType="fitXY"
@@ -170,6 +170,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
+                android:layout_marginTop="@dimen/dis_35"
                 android:layout_below="@+id/lay_hint">
 
                 <cn.dogplanet.app.widget.RoundCornerImageView
@@ -229,7 +230,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
-                android:layout_below="@+id/lay_tv_id_card">
+                android:layout_below="@+id/lay_tv_id_card"
+                android:layout_marginTop="@dimen/dis_10">
 
                 <cn.dogplanet.app.widget.RoundCornerImageView
                     android:id="@+id/img_driver"
@@ -289,7 +291,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
-                android:layout_below="@+id/lay_tv_driver">
+                android:layout_below="@+id/lay_tv_driver"
+                android:layout_marginTop="@dimen/dis_10">
 
                 <cn.dogplanet.app.widget.RoundCornerImageView
                     android:id="@+id/img_operational"

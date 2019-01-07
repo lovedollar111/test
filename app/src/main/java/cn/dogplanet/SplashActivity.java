@@ -104,7 +104,7 @@ public class SplashActivity extends Activity {
 
     private void redirectActivity() {
         expert = WCache.getCacheExpert();
-        if (null == expert) {
+        if (null == expert||StringUtils.isBlank(expert.getExpert_name())) {
             Intent mainIntent = new Intent(SplashActivity.this,
                     LoginActivity.class);
             SplashActivity.this.startActivity(mainIntent);
@@ -113,6 +113,4 @@ public class SplashActivity extends Activity {
         }
         SplashActivity.this.finish();
     }
-
-
 }

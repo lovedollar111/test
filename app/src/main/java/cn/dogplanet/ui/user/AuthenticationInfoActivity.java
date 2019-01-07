@@ -403,6 +403,12 @@ public class AuthenticationInfoActivity extends BaseActivity {
                 layVehicleLicense.setEnabled(true);
                 layOperationalQualification.setEnabled(true);
                 imgStatus.setImageResource(R.mipmap.shenheshibai);
+                etName.setTextColor(getResources().getColor(R.color.color_33));
+                etIdCard.setTextColor(getResources().getColor(R.color.color_33));
+                etCompany.setTextColor(getResources().getColor(R.color.color_33));
+                etDrivingLicenceTime.setTextColor(getResources().getColor(R.color.color_33));
+                etVehicleLicenseTime.setTextColor(getResources().getColor(R.color.color_33));
+                etOperationalQualificationTime.setTextColor(getResources().getColor(R.color.color_33));
                 break;
         }
         left_card_id = expert.getId_card_photo().get(0).getId();
@@ -430,7 +436,7 @@ public class AuthenticationInfoActivity extends BaseActivity {
         params.put("id_card_images[0]", left_card_id);
         params.put("id_card_images[1]", right_card_id);
         showProgress();
-        PublicReq.request(HttpUrl.EXPERT_REG, response -> {
+        PublicReq.request(HttpUrl.EXPERT_SAVE, response -> {
             hideProgress();
             RespData respData = GsonHelper.parseObject(response,
                     RespData.class);
@@ -455,5 +461,11 @@ public class AuthenticationInfoActivity extends BaseActivity {
             ToastUtil.showError(R.string.network_error);
         }, params);
 
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        unregisterReceiver(mBroadcastReceiver);
     }
 }

@@ -107,11 +107,11 @@ public class CardInfoActivity extends BaseActivity {
     }
 
     private void initView() {
-        imgDriver.setRoundness(30);
-        imgLeftCard.setRoundness(30);
-        imgRightCard.setRoundness(30);
-        imgVehicle.setRoundness(30);
-        imgOperational.setRoundness(30);
+        imgDriver.setRoundness(15);
+        imgLeftCard.setRoundness(15);
+        imgRightCard.setRoundness(15);
+        imgVehicle.setRoundness(15);
+        imgOperational.setRoundness(15);
     }
 
     private void initDialog() {
@@ -147,7 +147,7 @@ public class CardInfoActivity extends BaseActivity {
         params.put("id_card_images[0]", left_card_id);
         params.put("id_card_images[1]", right_card_id);
         showProgress();
-        PublicReq.request(HttpUrl.EXPERT_REG, response -> {
+        PublicReq.request(HttpUrl.EXPERT_SAVE, response -> {
             hideProgress();
             RespData respData = GsonHelper.parseObject(response,
                     RespData.class);
@@ -164,7 +164,7 @@ public class CardInfoActivity extends BaseActivity {
                         startActivity(MainActivity.newIntent(MainActivity.TYPE_HOME));
 
                     } else {
-                        ToastUtil.showError(R.string.network_error);
+                        ToastUtil.showError(R.string.network_data_error);
                     }
                 } else if (respData.isReg()) {
                     ToastUtil.showError(respData.getMsg());
