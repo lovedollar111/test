@@ -12,8 +12,10 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.view.KeyEvent;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 
 import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
@@ -43,6 +45,8 @@ import cn.dogplanet.app.util.StringUtils;
 import cn.dogplanet.app.util.ToastUtil;
 import cn.dogplanet.app.util.UploadUtilsAsync;
 import cn.dogplanet.app.widget.RoundCornerImageView;
+import cn.dogplanet.app.widget.niftymodaldialogeffects.Effectstype;
+import cn.dogplanet.app.widget.niftymodaldialogeffects.NiftyDialogBuilder;
 import cn.dogplanet.base.BaseActivity;
 import cn.dogplanet.constant.ConstantSet;
 import cn.dogplanet.constant.HttpUrl;
@@ -160,9 +164,7 @@ public class CardInfoActivity extends BaseActivity {
                         // 注册成功 缓存数据 并跳转到主界面
                         SPUtils.put(WConstant.EXPERT_DATA,
                                 GsonHelper.toJson(expert));
-                        // 跳转都完善个人信息界面
-                        startActivity(MainActivity.newIntent(MainActivity.TYPE_HOME));
-
+                         showCallDialog();
                     } else {
                         ToastUtil.showError(R.string.network_data_error);
                     }
@@ -177,6 +179,19 @@ public class CardInfoActivity extends BaseActivity {
             ToastUtil.showError(R.string.network_error);
         }, params);
 
+    }
+
+    private void showCallDialog() {
+        NiftyDialogBuilder builder = NiftyDialogBuilder.getInstance(this);
+        builder.withEffect(Effectstype.Fadein);
+        View view = LayoutInflater.from(this).inflate(R.layout.dialog_reg, null);
+        builder.setCustomViewWithoutClose(view, this);
+        ButterKnife.findById(view, R.id.btn_ok).setOnClickListener(v -> {
+            builder.cancel();
+            // 跳转都完善个人信息界面
+            startActivity(MainActivity.newIntent(MainActivity.TYPE_HOME));
+        });
+        builder.show();
     }
 
     @Override

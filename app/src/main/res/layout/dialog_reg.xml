@@ -12,23 +12,32 @@
         android:layout_marginStart="@dimen/dis_60"
         android:layout_marginEnd="@dimen/dis_60"
         android:layout_gravity="center_horizontal"
-        android:src="@drawable/ic_call"
+        android:src="@drawable/ic_reg"
         />
 
     <TextView
-        android:id="@+id/tv_phone"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/dis_60"
         android:layout_marginEnd="@dimen/dis_60"
-        android:layout_marginTop="@dimen/dis_70"
+        android:layout_marginTop="@dimen/dis_50"
         android:layout_gravity="center_horizontal"
         android:textColor="@color/black"
         android:textSize="@dimen/font_size_15"
-        android:text="000-98765432"
+        android:text="提交成功"
         />
 
-
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/dis_60"
+        android:layout_marginEnd="@dimen/dis_60"
+        android:layout_marginTop="@dimen/dis_20"
+        android:layout_gravity="center_horizontal"
+        android:textColor="@color/color_8e"
+        android:textSize="@dimen/font_size_13"
+        android:text="2-3个工作日内完成审核"
+        />
 
 
     <Button
@@ -37,9 +46,9 @@
         android:layout_height="@dimen/dis_80"
         android:background="@drawable/gradient_f1_e0"
         android:layout_gravity="center_horizontal"
-        android:layout_marginTop="@dimen/dis_136"
+        android:layout_marginTop="@dimen/dis_80"
         android:textColor="@color/white"
-        android:text="@string/str_call"
+        android:text="知道啦"
         android:textSize="@dimen/font_size_18"
         android:layout_marginStart="@dimen/dis_50"
         android:layout_marginEnd="@dimen/dis_50"

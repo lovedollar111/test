@@ -25,20 +25,17 @@ import cn.dogplanet.R;
 import cn.dogplanet.app.util.ComUtils;
 import cn.dogplanet.app.util.GsonHelper;
 import cn.dogplanet.app.util.KeyBoardUtils;
-import cn.dogplanet.app.util.SPUtils;
 import cn.dogplanet.app.util.StringUtils;
 import cn.dogplanet.app.util.ToastUtil;
 import cn.dogplanet.app.widget.EditTextWithDel;
 import cn.dogplanet.app.widget.GraphicCodeDialog;
 import cn.dogplanet.base.BaseActivity;
 import cn.dogplanet.constant.HttpUrl;
-import cn.dogplanet.constant.WConstant;
 import cn.dogplanet.entity.Expert;
 import cn.dogplanet.net.PublicReq;
 import cn.dogplanet.net.RespData;
 import cn.dogplanet.net.volley.Response;
 import cn.dogplanet.ui.login.BaseInfoActivity;
-import cn.dogplanet.ui.login.ForgetPasswordActivity;
 
 public class SafeActivity extends BaseActivity {
 
