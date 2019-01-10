@@ -35,6 +35,7 @@ import cn.sharesdk.wechat.moments.WechatMoments;
  * date:2016-12-6
  */
 public class SharePopupWindow extends PopupWindow {
+
     private View view;
     private Context context;
     private PlatformActionListener platformActionListener;

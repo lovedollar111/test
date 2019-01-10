@@ -55,6 +55,7 @@ import cn.dogplanet.entity.OrderPayResp;
 import cn.dogplanet.entity.ProductDetail;
 import cn.dogplanet.entity.ProductResp;
 import cn.dogplanet.entity.Resp;
+import cn.dogplanet.entity.ShareData;
 import cn.dogplanet.entity.ShopBuyDetail;
 import cn.dogplanet.net.PublicReq;
 import cn.dogplanet.ui.popup.ShareHomePopupWindow;
@@ -263,33 +264,52 @@ public class ProductBuyActivity extends BaseFragmentActivity implements HoldTabS
                 if (num != 0) {
                     if (product.getCan_join_cart()) {
                         btnJoinCart.setVisibility(View.VISIBLE);
-                        btnJoinCart.setBackgroundResource(R.drawable.gradient_btn_red_left);
-                        btnBuy.setBackgroundResource(R.drawable.gradient_btn_red_right);
                         if (product.getCanBuyNum().getNumber() > 0 && product.getTravel_agency_status() && product.getAuthentication_status()) {
                             btnBuy.setEnabled(true);
                             btnJoinCart.setEnabled(true);
                             imgPrice.setImageResource(R.drawable.ic_price);
+                            btnJoinCart.setBackgroundResource(R.drawable.gradient_btn_red_left);
+                            btnBuy.setBackgroundResource(R.drawable.gradient_btn_red_right);
                             tvPrice.setTextColor(getResources().getColor(R.color.color_f5a623));
                         } else {
                             btnBuy.setEnabled(false);
                             btnJoinCart.setEnabled(false);
                             imgPrice.setImageResource(R.drawable.ic_price_normal);
                             tvPrice.setTextColor(getResources().getColor(R.color.color_8e));
+                            btnJoinCart.setBackgroundResource(R.drawable.gradient_btn_gray_left);
+                            btnBuy.setBackgroundResource(R.drawable.gradient_btn_gray_right);
                         }
                     } else {
                         btnJoinCart.setVisibility(View.GONE);
                         btnJoinCart.setBackgroundResource(R.drawable.gradient_btn_red_left);
-                        btnBuy.setBackgroundResource(R.drawable.gradient_f1_e0);
-                        if (product.getCanBuy().getStatus() && product.getTravel_agency_status() && product.getAuthentication_status()) {
-                            btnBuy.setEnabled(true);
-                            btnJoinCart.setEnabled(true);
-                            imgPrice.setImageResource(R.drawable.ic_price);
-                            tvPrice.setTextColor(getResources().getColor(R.color.color_f5a623));
-                        } else {
-                            btnBuy.setEnabled(false);
-                            btnJoinCart.setEnabled(false);
-                            imgPrice.setImageResource(R.drawable.ic_price_normal);
-                            tvPrice.setTextColor(getResources().getColor(R.color.color_8e));
+                        if(product.isIs_package_ticket()){
+                            if (product.getCanBuy().getStatus()&&product.getTravel_agency_status() && product.getAuthentication_status()) {
+                                btnBuy.setEnabled(true);
+                                btnJoinCart.setEnabled(true);
+                                btnBuy.setBackgroundResource(R.drawable.gradient_f1_e0);
+                                imgPrice.setImageResource(R.drawable.ic_price);
+                                tvPrice.setTextColor(getResources().getColor(R.color.color_f5a623));
+                            } else {
+                                btnBuy.setEnabled(false);
+                                btnJoinCart.setEnabled(false);
+                                btnBuy.setBackgroundResource(R.drawable.gradient_c7_ab);
+                                imgPrice.setImageResource(R.drawable.ic_price_normal);
+                                tvPrice.setTextColor(getResources().getColor(R.color.color_8e));
+                            }
+                        }else{
+                            if (product.getTravel_agency_status() && product.getAuthentication_status()) {
+                                btnBuy.setEnabled(true);
+                                btnJoinCart.setEnabled(true);
+                                btnBuy.setBackgroundResource(R.drawable.gradient_f1_e0);
+                                imgPrice.setImageResource(R.drawable.ic_price);
+                                tvPrice.setTextColor(getResources().getColor(R.color.color_f5a623));
+                            } else {
+                                btnBuy.setEnabled(false);
+                                btnJoinCart.setEnabled(false);
+                                btnBuy.setBackgroundResource(R.drawable.gradient_c7_ab);
+                                imgPrice.setImageResource(R.drawable.ic_price_normal);
+                                tvPrice.setTextColor(getResources().getColor(R.color.color_8e));
+                            }
                         }
                     }
                 } else {
@@ -423,6 +443,14 @@ public class ProductBuyActivity extends BaseFragmentActivity implements HoldTabS
             case R.id.btn_share_top:
             case R.id.btn_share:
                 if (null != shareHomePopupWindow) {
+                    String url = expert.getShop_url();
+                    ShareData shareData = new ShareData();
+                    shareData.setContent("我在汪汪星球，在这里为你提供最便宜的旅行产品，最优质的旅行服务，让你玩的更好，快来找我吧。"
+                            + url);
+                    shareData.setPic(expert.getExpert_icon());
+                    shareData.setTitle("汪汪星球");
+                    shareData.setUrl(url);
+                    shareHomePopupWindow.initShareParams(shareData);
                     shareHomePopupWindow.showAtLocation(layMain,
                             Gravity.BOTTOM
                                     | Gravity.CENTER_HORIZONTAL, 0,

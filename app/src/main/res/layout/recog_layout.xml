@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:voiceView="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/back_gary"
+    android:orientation="vertical">
+
+
+    <TextView
+        android:id="@+id/tv_touch"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="@dimen/dis_80"
+        android:layout_centerHorizontal="true"
+        android:textSize="@dimen/font_size_13"
+        android:textColor="@color/color_c7"
+        android:text="按住说话"
+        />
+
+    <ImageView
+        android:id="@+id/img_background"
+        android:layout_width="@dimen/dis_200"
+        android:layout_height="@dimen/dis_200"
+        android:src="@mipmap/img_background"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="@dimen/dis_100"
+        android:visibility="invisible"
+        />
+
+    <ImageView
+        android:id="@+id/img_rec_input"
+        android:layout_width="@dimen/dis_130"
+        android:layout_height="@dimen/dis_130"
+        android:layout_above="@+id/tv_touch"
+        android:src="@mipmap/img_input_normal"
+        android:layout_centerHorizontal="true"
+        android:layout_alignTop="@id/img_background"
+        android:layout_alignBottom="@id/img_background"
+        />
+
+    <TextView
+        android:id="@+id/tv_msg"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_above="@+id/img_background"
+        android:layout_marginBottom="@dimen/dis_50"
+        android:textSize="@dimen/font_size_15"
+        android:textColor="@color/color_c7"
+        android:text="111"
+        android:visibility="gone"
+        />
+
+    <cn.dogplanet.app.widget.VoiceLineView
+        android:id="@+id/volume_view"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dis_40"
+        android:layout_above="@id/tv_msg"
+        android:layout_marginStart="@dimen/dis_100"
+        android:layout_marginEnd="@dimen/dis_100"
+        android:layout_marginBottom="@dimen/dis_30"
+        android:visibility="gone"
+        voiceView:middleLine="@color/back_gary"
+        voiceView:middleLineHeight="@dimen/dis_1"
+        voiceView:rectInitHeight="@dimen/dis_20"
+        voiceView:rectSpace="@dimen/dis_15"
+        voiceView:rectWidth="@dimen/dis_6"
+        voiceView:viewMode="rect"
+        voiceView:voiceLine="@color/color_f13051"
+        />
+
+
+    <TextView
+        android:id="@+id/tv_hit1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@id/img_background"
+        android:layout_marginBottom="@dimen/dis_300"
+        android:layout_centerHorizontal="true"
+        android:text="1111"
+        android:textSize="@dimen/font_size_15"
+        android:textColor="@color/color_8e"/>
+
+
+    <TextView
+        android:id="@+id/tv_hit2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@id/tv_hit1"
+        android:layout_marginBottom="@dimen/dis_50"
+        android:layout_centerHorizontal="true"
+        android:text="1111"
+        android:textSize="@dimen/font_size_15"
+        android:textColor="@color/color_8e"/>
+
+
+    <TextView
+        android:id="@+id/tv_hit3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@id/tv_hit2"
+        android:layout_marginBottom="@dimen/dis_50"
+        android:layout_centerHorizontal="true"
+        android:text="1111"
+        android:textSize="@dimen/font_size_15"
+        android:textColor="@color/color_8e"/>
+
+
+    <TextView
+        android:id="@+id/tv_hit4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@id/tv_hit3"
+        android:layout_marginBottom="@dimen/dis_50"
+        android:layout_centerHorizontal="true"
+        android:text="1111"
+        android:textSize="@dimen/font_size_15"
+        android:textColor="@color/color_8e"/>
+
+
+    <TextView
+        android:id="@+id/tv_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@id/tv_hit4"
+        android:layout_marginBottom="@dimen/dis_50"
+        android:layout_centerHorizontal="true"
+        android:text="试试这样说"
+        android:textSize="@dimen/font_size_18"
+        android:textColor="@color/color_33"/>
+</RelativeLayout>

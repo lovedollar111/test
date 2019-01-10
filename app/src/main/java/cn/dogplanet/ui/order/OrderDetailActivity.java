@@ -188,7 +188,6 @@ public class OrderDetailActivity extends BaseActivity {
             listSubOrder.setAdapter(adapter);
         }
         String status = order.getStatus();
-        Log.i("info",status);
         if (status.equals(OrderDetail.ORDER_TYPE_WAIT)) {
             if (order.isPay()) {
                 layPay.setVisibility(View.VISIBLE);

@@ -6,6 +6,7 @@ import android.os.Handler;
 import android.os.Message;
 import android.support.annotation.Nullable;
 import android.support.v4.view.ViewPager;
+import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
@@ -52,6 +53,7 @@ import cn.dogplanet.constant.WConstant;
 import cn.dogplanet.entity.Expert;
 import cn.dogplanet.entity.HomeResp;
 import cn.dogplanet.entity.Product;
+import cn.dogplanet.entity.ShareData;
 import cn.dogplanet.net.PublicReq;
 import cn.dogplanet.net.volley.toolbox.ListImageListener;
 import cn.dogplanet.ui.popup.ShareHomePopupWindow;
@@ -143,7 +145,7 @@ public class ShopFragment extends BaseFragment {
         PullToRefreshHelper.initIndicatorStart(scrMain);
         scrMain.setOnRefreshListener(refreshView -> getHome());
         scrMain.setOnScrollListener(scrollY -> {
-            if (scrollY > 0) {
+            if (scrollY < -3||scrollY>3) {
                 btnCart.hide(true);
             } else {
                 btnCart.hide(false);
@@ -327,6 +329,14 @@ public class ShopFragment extends BaseFragment {
                 break;
             case R.id.img_2vm:
                 if (null != shareHomePopupWindow) {
+                    String url = expert.getShop_url();
+                    ShareData shareData = new ShareData();
+                    shareData.setContent("我在汪汪星球，在这里为你提供最便宜的旅行产品，最优质的旅行服务，让你玩的更好，快来找我吧。"
+                            + url);
+                    shareData.setPic(expert.getExpert_icon());
+                    shareData.setTitle("汪汪星球");
+                    shareData.setUrl(url);
+                    shareHomePopupWindow.initShareParams(shareData);
                     shareHomePopupWindow.showAtLocation(layMain,
                             Gravity.BOTTOM
                                     | Gravity.CENTER_HORIZONTAL, 0,

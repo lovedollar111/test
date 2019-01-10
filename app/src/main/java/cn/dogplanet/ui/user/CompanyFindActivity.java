@@ -19,6 +19,11 @@ import android.widget.ListView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import com.baidu.aip.asrwakeup3.core.mini.AutoCheck;
+import com.baidu.aip.asrwakeup3.core.recog.MyRecognizer;
+import com.baidu.aip.asrwakeup3.core.recog.listener.IRecogListener;
+import com.baidu.aip.asrwakeup3.core.recog.listener.MessageStatusRecogListener;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -36,10 +41,6 @@ import cn.dogplanet.app.util.ToastUtil;
 import cn.dogplanet.app.widget.EditTextWithDel;
 import cn.dogplanet.app.widget.niftymodaldialogeffects.Effectstype;
 import cn.dogplanet.app.widget.niftymodaldialogeffects.NiftyDialogBuilder;
-import cn.dogplanet.baiduApi.AutoCheck;
-import cn.dogplanet.baiduApi.IRecogListener;
-import cn.dogplanet.baiduApi.MessageStatusRecogListener;
-import cn.dogplanet.baiduApi.MyRecognizer;
 import cn.dogplanet.base.BaseActivity;
 import cn.dogplanet.constant.HttpUrl;
 import cn.dogplanet.constant.WCache;

@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/white"
+    android:background="@color/back_gary"
     tools:context=".ui.shop.ProductFindActivity">
 
     <RelativeLayout
@@ -46,7 +46,7 @@
                 android:scaleType="center"
                 android:src="@drawable/select_select" />
 
-            <cn.dogplanet.app.widget.EditTextWithDel
+            <EditText
                 android:id="@+id/et_search"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
@@ -79,17 +79,30 @@
         </RelativeLayout>
     </RelativeLayout>
 
+
+
     <cn.dogplanet.app.widget.library.PullToRefreshListView
         android:id="@+id/list_result"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:divider="@color/white"
-        android:background="@color/white"
-        android:layout_margin="@dimen/dis_24"
+        android:divider="@color/back_gary"
+        android:background="@color/back_gary"
+        android:layout_marginStart="@dimen/dis_24"
+        android:layout_marginEnd="@dimen/dis_24"
+        android:layout_marginBottom="@dimen/dis_30"
         android:dividerHeight="@dimen/dis_10"
         android:visibility="visible"
         android:layout_below="@+id/lay_title"
         android:layout_marginTop="@dimen/dis_12"/>
+
+    <ImageView
+        android:id="@+id/img_tip"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="center"
+        android:src="@mipmap/img_no_product"
+        android:visibility="gone"
+        />
 
     <RelativeLayout
         android:id="@+id/lay_history"
@@ -149,5 +162,14 @@
             android:layout_height="wrap_content"
             />
     </LinearLayout>
+
+    <include
+        android:id="@+id/layout_recog"
+        layout="@layout/recog_layout"
+        android:visibility="gone"
+        android:layout_height="match_parent"
+        android:layout_width="match_parent"
+        android:layout_below="@+id/lay_title"
+        />
 
 </RelativeLayout>

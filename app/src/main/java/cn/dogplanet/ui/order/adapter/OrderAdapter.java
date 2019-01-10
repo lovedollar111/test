@@ -115,9 +115,6 @@ public class OrderAdapter extends BaseAdapter {
             case OrderDetail.ORDER_MAIN_TYPE_CLOSE:
                 holder.tvStatus.setText("交易关闭");
                 break;
-            case OrderDetail.ORDER_MAIN_TYPE_BACK_MONEY:
-                holder.tvStatus.setText("退款中");
-                break;
             case OrderDetail.ORDER_MAIN_TYPE_BACK_ALL_MONEY:
                 holder.tvStatus.setText("已退款");
                 break;
@@ -144,9 +141,6 @@ public class OrderAdapter extends BaseAdapter {
                     holder.btnPay.setVisibility(View.GONE);
                     holder.viewLine.setVisibility(View.GONE);
                     break;
-                case OrderDetail.ORDER_MAIN_TYPE_BACK_MONEY:
-                    holder.btnPay.setVisibility(View.GONE);
-                    holder.viewLine.setVisibility(View.GONE);
                 case OrderDetail.ORDER_MAIN_TYPE_BACK_ALL_MONEY:
                     holder.btnPay.setVisibility(View.GONE);
                     holder.viewLine.setVisibility(View.GONE);

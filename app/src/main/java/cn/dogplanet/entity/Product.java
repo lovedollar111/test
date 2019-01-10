@@ -10,9 +10,9 @@ public class Product {
     public static final String CATE_ALL = "0";
     public static final String CATE_DIVING = "1";
     public static final String CATE_SEA = "2";
-    public static final String CATE_TICKET = "3";
+    public static final String CATE_TICKET = "6";
     public static final String CATE_LAND = "4";
-    public static final String CATE_OTHER = "6";
+    public static final String CATE_OTHER = "3";
 
     private String pro_id;
     private String name;

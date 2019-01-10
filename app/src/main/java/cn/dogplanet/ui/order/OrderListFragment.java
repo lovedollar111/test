@@ -60,7 +60,7 @@ public class OrderListFragment extends BaseFragment {
     private String type;
     private int category, order_type;
     private Expert expert;
-    private int current_page;
+    private int current_page=1;
     private OrderAdapter orderAdapter;
 
     public static OrderListFragment newFragment(String type) {
@@ -97,6 +97,7 @@ public class OrderListFragment extends BaseFragment {
             @Override
             public void onPullDownToRefresh(
                     PullToRefreshBase<ListView> refreshView) {
+                current_page=1;
                 getOrder(LOAD_TYPE_DEF);
             }
 
@@ -159,8 +160,10 @@ public class OrderListFragment extends BaseFragment {
 
     private void notifyAdapter(List<Order> order, String loadType) {
         if (order == null || order.isEmpty()) {
-            listOrder.setVisibility(View.GONE);
-            tvTip.setVisibility(View.VISIBLE);
+            if(current_page==1){
+                listOrder.setVisibility(View.GONE);
+                tvTip.setVisibility(View.VISIBLE);
+            }
         } else {
             listOrder.setVisibility(View.VISIBLE);
             tvTip.setVisibility(View.GONE);
@@ -188,19 +191,19 @@ public class OrderListFragment extends BaseFragment {
         switch (type) {
             case OrderFragment.ORDER_TYPE_ALL:
                 category = Integer.parseInt(OrderDetail.ORDER_MAIN_TYPE_ALL);
-                order_type = Integer.parseInt(OrderDetail.ORDER_MAIN_TYPE_ALL);
+                order_type = Integer.parseInt(OrderDetail.ORDER_TYPE_ALL);
                 break;
             case OrderFragment.ORDER_TYPE_WAIT:
                 category = Integer.parseInt(OrderDetail.ORDER_MAIN_TYPE_WAIT);
-                order_type = Integer.parseInt(OrderDetail.ORDER_MAIN_TYPE_WAIT);
+                order_type = Integer.parseInt(OrderDetail.ORDER_TYPE_WAIT);
                 break;
             case OrderFragment.ORDER_TYPE_SUCCESS:
                 category = Integer.parseInt(OrderDetail.ORDER_MAIN_TYPE_SUCCESS);
-                order_type = Integer.parseInt(OrderDetail.ORDER_MAIN_TYPE_SUCCESS);
+                order_type = Integer.parseInt(OrderDetail.ORDER_TYPE_SUCCESS);
                 break;
             case OrderFragment.ORDER_TYPE_BACK_ALL_MONEY:
                 category = Integer.parseInt(OrderDetail.ORDER_MAIN_TYPE_BACK_ALL_MONEY);
-                order_type = Integer.parseInt(OrderDetail.ORDER_MAIN_TYPE_BACK_ALL_MONEY);
+                order_type = Integer.parseInt(OrderDetail.ORDER_TYPE_BACK_ALL_MONEY);
                 break;
             case OrderFragment.ORDER_TYPE_BACK_MONEY:
                 category = Integer.parseInt(OrderDetail.ORDER_TYPE_BACK_MONEY);

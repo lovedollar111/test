@@ -9,6 +9,7 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Bundle;
+import android.view.KeyEvent;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -267,6 +268,7 @@ public class AuthenticationInfoActivity extends BaseActivity {
         uploadUtilsAsync.setListener(result -> {
             UploadImage resultImg = GsonHelper.parseObject(result,
                     UploadImage.class);
+            hideProgress();
             if (null != resultImg) {
                 if (resultImg.isSuccess()) {
                     if (type == IMG_DRIVER) {
@@ -283,7 +285,7 @@ public class AuthenticationInfoActivity extends BaseActivity {
                     } else if (type == IMG_RIGHT_CARD) {
                         right_card_id = resultImg.getImage().getImage_id().toString();
                     }
-                    saveData();
+                    ToastUtil.showMes("修改成功");
                 } else {
                     ToastUtil.showError(resultImg.getMsg());
                 }
@@ -435,37 +437,26 @@ public class AuthenticationInfoActivity extends BaseActivity {
         params.put("operational_qualification_date", expert.getOperational_qualification().getDate());
         params.put("id_card_images[0]", left_card_id);
         params.put("id_card_images[1]", right_card_id);
-        showProgress();
         PublicReq.request(HttpUrl.EXPERT_SAVE, response -> {
-            hideProgress();
-            RespData respData = GsonHelper.parseObject(response,
-                    RespData.class);
-            if (null != respData) {
-                if (respData.isSuccess()) {
-                    Expert expert = GsonHelper.parseObject(
-                            GsonHelper.toJson(respData.getExpert()),
-                            Expert.class);
-                    if (null != expert) {
-                        // 注册成功 缓存数据 并跳转到主界面
-                        SPUtils.put(WConstant.EXPERT_DATA,
-                                GsonHelper.toJson(expert));
-                    } else {
-                        ToastUtil.showError(R.string.network_error);
-                    }
-                } else {
-                    ToastUtil.showError(respData.getMsg());
-                }
-            }
+
         }, error -> {
-            hideProgress();
-            ToastUtil.showError(R.string.network_error);
         }, params);
 
+    }
+
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+        if (keyCode == KeyEvent.KEYCODE_BACK) {
+            saveData();
+            finish();
+            return true;
+        }
+        return super.onKeyDown(keyCode, event);
     }
 
     @Override
     protected void onDestroy() {
         super.onDestroy();
         unregisterReceiver(mBroadcastReceiver);
+        saveData();
     }
 }
