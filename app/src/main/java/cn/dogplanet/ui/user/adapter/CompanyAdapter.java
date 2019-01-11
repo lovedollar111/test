@@ -80,7 +80,7 @@ public class CompanyAdapter extends BaseAdapter {
         } else {
             viewHolder.imgCompany.setImageResource(R.mipmap.company_logo);
         }
-        if (StringUtils.isNotBlank(travel.getHead())) {
+        if (StringUtils.isNotBlank(travel.getName())) {
             viewHolder.tvCompanyName.setText(travel.getName());
         }
         if (StringUtils.isNotBlank(choose_id)) {

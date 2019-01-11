@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -8,7 +8,9 @@
     android:background="@color/back_gary"
     android:orientation="vertical">
 
-    <RelativeLayout style="@style/top_title_style"
+    <RelativeLayout
+        android:id="@+id/lay_title"
+        style="@style/top_title_style"
         android:padding="@dimen/dis_0"
         android:visibility="visible">
 
@@ -36,7 +38,7 @@
             android:layout_marginEnd="@dimen/dis_30"
             android:orientation="horizontal"
             android:visibility="visible">
-            
+
             <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -90,14 +92,13 @@
             android:layout_marginBottom="@dimen/dis_8"
             android:layout_marginEnd="@dimen/dis_30"
             android:layout_centerHorizontal="true"
-            android:gravity="center"
-            android:visibility="gone">
+            android:gravity="center">
 
             <ImageView
                 android:layout_width="@dimen/dis_28"
                 android:layout_height="@dimen/dis_28"
                 android:scaleType="centerCrop"
-                android:src="@mipmap/ic_launcher"
+                android:src="@drawable/select_select"
                 android:layout_centerVertical="true"
                 android:layout_marginStart="@dimen/dis_24"
                 />
@@ -127,6 +128,7 @@
         android:layout_height="match_parent"
         android:scrollbars="none"
         android:background="@color/back_gary"
+        android:layout_below="@+id/lay_title"
         android:layout_marginStart="@dimen/dis_24"
         android:layout_marginEnd="@dimen/dis_24"
         android:layout_marginTop="@dimen/dis_24"
@@ -134,13 +136,23 @@
         android:divider="#0000"
         />
 
-    <TextView
+    <ImageView
         android:id="@+id/tv_tip"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:drawablePadding="15dp"
-        android:drawableTop="@mipmap/ic_launcher"
-        android:gravity="center_horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/lay_title"
+        android:gravity="center"
+        android:scaleType="center"
+        android:src="@mipmap/img_no_product"
         android:visibility="gone" />
 
-</LinearLayout>
+    <include
+        android:id="@+id/layout_recog"
+        layout="@layout/recog_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/lay_title"
+        android:visibility="gone" />
+
+
+</RelativeLayout>

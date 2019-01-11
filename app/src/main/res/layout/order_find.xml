@@ -1,12 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/color_f5"
-    android:orientation="vertical" >
+    android:orientation="vertical">
 
 
-    <RelativeLayout style="@style/top_title_style"
+    <RelativeLayout
+        android:id="@+id/lay_title"
+        style="@style/top_title_style"
         android:padding="@dimen/dis_0"
         android:visibility="visible">
 
@@ -16,107 +18,105 @@
             android:layout_height="@dimen/dis_72"
             android:layout_alignParentEnd="true"
             android:layout_marginEnd="@dimen/dis_24"
-            android:textSize="@dimen/font_size_12"
+            android:layout_marginBottom="@dimen/dis_8"
+            android:gravity="center_vertical"
             android:text="@string/str_cancel"
             android:textColor="@color/color_8e"
-            android:layout_marginBottom="@dimen/dis_8"
-            android:gravity="center_vertical"/>
+            android:textSize="@dimen/font_size_12" />
 
 
         <RelativeLayout
             android:id="@+id/lay_search"
             android:layout_width="match_parent"
             android:layout_height="@dimen/dis_72"
+            android:layout_marginStart="@dimen/dis_24"
+            android:layout_marginEnd="@dimen/dis_30"
+            android:layout_marginBottom="@dimen/dis_8"
             android:layout_toStartOf="@+id/btn_cancel"
             android:background="@drawable/back_round_gray"
-            android:layout_marginStart="@dimen/dis_24"
-            android:layout_marginBottom="@dimen/dis_8"
-            android:layout_marginEnd="@dimen/dis_30"
             android:orientation="horizontal"
             android:visibility="visible">
 
             <ImageView
-                android:layout_width="@dimen/dis_28"
-                android:layout_height="@dimen/dis_28"
-                android:scaleType="centerCrop"
-                android:src="@mipmap/ic_launcher"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:layout_centerVertical="true"
                 android:layout_marginStart="@dimen/dis_24"
-                />
+                android:scaleType="center"
+                android:src="@drawable/select_select" />
 
             <cn.dogplanet.app.widget.EditTextWithDel
                 android:id="@+id/et_search"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="@dimen/dis_72"
+                android:layout_marginEnd="@dimen/dis_20"
+                android:layout_toStartOf="@+id/img_input"
                 android:background="@null"
                 android:cursorVisible="true"
                 android:focusableInTouchMode="true"
                 android:hint="@string/search_order"
                 android:imeOptions="actionSearch|flagNoExtractUi|flagNoFullscreen"
+                android:singleLine="true"
                 android:textColor="@color/color_c7"
                 android:textColorHint="#afff"
                 android:textCursorDrawable="@drawable/color_cursor"
-                android:textSize="@dimen/font_size_12"
-                android:layout_marginEnd="@dimen/dis_20"
-                android:layout_marginStart="@dimen/dis_72"
-                android:singleLine="true"
-                android:layout_centerVertical="true"
-                android:layout_toStartOf="@+id/img_input"
-                />
+                android:textSize="@dimen/font_size_12" />
 
             <ImageView
                 android:id="@+id/img_input"
-                android:layout_width="@dimen/dis_28"
-                android:layout_height="@dimen/dis_28"
-                android:scaleType="centerCrop"
-                android:src="@mipmap/ic_launcher"
-                android:layout_centerVertical="true"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
                 android:layout_marginStart="@dimen/dis_24"
                 android:layout_marginEnd="@dimen/dis_30"
-                />
+                android:scaleType="center"
+                android:src="@drawable/input_select" />
 
         </RelativeLayout>
     </RelativeLayout>
 
-    <LinearLayout
+    <cn.dogplanet.app.widget.library.PullToRefreshListView xmlns:ptr="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/list"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginTop="@dimen/dis_20"
+        android:layout_below="@+id/lay_title"
+        android:background="#ECECEC"
+        android:clipToPadding="false"
+        android:divider="@color/color_f5"
+        android:dividerHeight="@dimen/dis_20"
+        android:gravity="center_horizontal"
+        android:horizontalSpacing="@null"
+        android:listSelector="#00000000"
+        android:scrollbars="none"
+        android:stretchMode="columnWidth"
+        android:verticalSpacing="1dp"
+        android:visibility="visible"
+        ptr:ptrAnimationStyle="flip"
+        ptr:ptrHeaderTextColor="#000000"
+        ptr:ptrListViewExtrasEnabled="false"
+        ptr:ptrMode="pullFromEnd"
+        ptr:ptrScrollingWhileRefreshingEnabled="true"
+        ptr:ptrShowIndicator="false" />
+
+    <ImageView
+        android:id="@+id/tv_tip"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/lay_title"
         android:gravity="center"
-        android:orientation="vertical" >
+        android:scaleType="center"
+        android:src="@mipmap/img_no_order"
+        android:visibility="gone" />
 
-        <cn.dogplanet.app.widget.library.PullToRefreshListView
-            xmlns:ptr="http://schemas.android.com/apk/res-auto"
-            android:id="@+id/list"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:background="#ECECEC"
-            android:clipToPadding="false"
-            android:divider="@color/color_f5"
-            android:dividerHeight="@dimen/dis_20"
-            android:gravity="center_horizontal"
-            android:horizontalSpacing="@null"
-            android:listSelector="#00000000"
-            android:scrollbars="none"
-            android:stretchMode="columnWidth"
-            android:verticalSpacing="1dp"
-            ptr:ptrAnimationStyle="flip"
-            ptr:ptrHeaderTextColor="#000000"
-            ptr:ptrListViewExtrasEnabled="false"
-            ptr:ptrMode="pullFromEnd"
-            ptr:ptrScrollingWhileRefreshingEnabled="true"
-            ptr:ptrShowIndicator="false"
-            android:visibility="visible"/>
+    <include
+        android:id="@+id/layout_recog"
+        layout="@layout/recog_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/lay_title"
+        android:visibility="gone" />
 
-        <TextView
-            android:id="@+id/tv_tip"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:drawablePadding="15dp"
-            android:drawableTop="@mipmap/order_default"
-            android:gravity="center_horizontal"
-            android:visibility="gone" />
-    </LinearLayout>
-
-</LinearLayout>
+</RelativeLayout>

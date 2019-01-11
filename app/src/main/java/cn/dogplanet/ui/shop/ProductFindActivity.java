@@ -122,18 +122,6 @@ public class ProductFindActivity extends BaseActivity {
      */
     protected MyRecognizer myRecognizer;
 
-    protected Handler handler = new Handler() {
-
-        /*
-         * @param msg
-         */
-        @Override
-        public void handleMessage(Message msg) {
-            super.handleMessage(msg);
-
-        }
-
-    };
 
 
     public static Intent newIntent() {
@@ -147,12 +135,7 @@ public class ProductFindActivity extends BaseActivity {
         ButterKnife.bind(this);
         histories = new ArrayList<>();
         listDataSave = new ListDataSave(this, SHOP_FIND);
-        expert = WCache.getCacheExpert();
-        // DEMO集成步骤 1.1 新建一个回调类，识别引擎会回调这个类告知重要状态和识别结果
-        IRecogListener listener = new MessageStatusRecogListener(handler);
-        // DEMO集成步骤 1.2 初始化：new一个IRecogListener示例 & new 一个 MyRecognizer 示例
-        myRecognizer = new MyRecognizer(this, listener);
-        myRecognizer.setEventListener(new IRecogListener() {
+        myRecognizer = new MyRecognizer(this, new IRecogListener() {
             @Override
             public void onAsrReady() {
 
