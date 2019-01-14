@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/back_gary"
+    android:orientation="vertical"
+    tools:context=".ui.user.InfoActivity">
+
+    <RelativeLayout style="@style/top_title_style">
+
+        <ImageButton
+            android:id="@+id/btn_back"
+            android:layout_width="@dimen/dis_30"
+            android:layout_height="match_parent"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentBottom="true"
+            android:background="#0000"
+            android:src="@drawable/ic_back" />
+
+        <TextView
+            android:id="@+id/title"
+            style="@style/top_title_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:text="退款规则" />
+    </RelativeLayout>
+
+
+    <TextView
+        android:id="@+id/tv_msg"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="@dimen/dis_24"
+        android:textSize="@dimen/font_size_15"
+        android:textColor="@color/color_33"/>
+
+</LinearLayout>

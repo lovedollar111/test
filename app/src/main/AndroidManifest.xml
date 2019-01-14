@@ -304,6 +304,7 @@
             android:configChanges="orientation|keyboardHidden|navigation"
             android:exported="false"
             android:screenOrientation="behind" />
+        <activity android:name=".ui.order.RefundRulerActivity" />
 
         <service
             android:name="com.baidu.speech.VoiceRecognitionService"

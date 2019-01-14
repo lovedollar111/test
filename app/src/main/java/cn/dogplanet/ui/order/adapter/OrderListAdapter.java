@@ -1,6 +1,7 @@
 package cn.dogplanet.ui.order.adapter;
 
 import android.content.Context;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -71,6 +72,7 @@ public class OrderListAdapter extends BaseAdapter {
                     WConstant.IMG_ERROR_RES_ID, WConstant.IMG_ERROR_RES_ID, url);
             GlobalContext.getInstance().getImageLoader().get(url, imageListener);
         }
+        Log.i("info",product.toString());
         holder.tvProductDate.setText(product.getBegin_date());
         holder.tvProductName.setText(product.getPro_name());
         holder.tvProductNum.setText(String.format("%s人", product.getNum()));

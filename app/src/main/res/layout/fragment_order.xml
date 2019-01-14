@@ -45,14 +45,14 @@
                 android:gravity="center"
                 android:singleLine="true"
                 android:textColor="@color/color_c7"
-                android:textColorHint="#afff"
+                android:textColorHint="@color/color_c7"
                 android:textCursorDrawable="@drawable/color_cursor"
-                android:textSize="@dimen/font_size_12" />
+                android:textSize="@dimen/font_size_15" />
 
             <ImageView
                 android:id="@+id/img_input"
-                android:layout_width="@dimen/dis_28"
-                android:layout_height="@dimen/dis_28"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:layout_alignParentEnd="true"
                 android:layout_centerVertical="true"
                 android:layout_marginEnd="@dimen/dis_30"

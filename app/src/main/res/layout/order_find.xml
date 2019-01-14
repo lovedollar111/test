@@ -2,7 +2,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/color_f5"
+    android:background="@color/back_gary"
     android:orientation="vertical">
 
 
@@ -45,7 +45,7 @@
                 android:scaleType="center"
                 android:src="@drawable/select_select" />
 
-            <cn.dogplanet.app.widget.EditTextWithDel
+            <EditText
                 android:id="@+id/et_search"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
@@ -59,10 +59,10 @@
                 android:hint="@string/search_order"
                 android:imeOptions="actionSearch|flagNoExtractUi|flagNoFullscreen"
                 android:singleLine="true"
-                android:textColor="@color/color_c7"
-                android:textColorHint="#afff"
+                android:textColor="@color/color_33"
+                android:textColorHint="@color/color_c7"
                 android:textCursorDrawable="@drawable/color_cursor"
-                android:textSize="@dimen/font_size_12" />
+                android:textSize="@dimen/font_size_15" />
 
             <ImageView
                 android:id="@+id/img_input"
@@ -78,14 +78,16 @@
         </RelativeLayout>
     </RelativeLayout>
 
-    <cn.dogplanet.app.widget.library.PullToRefreshListView xmlns:ptr="http://schemas.android.com/apk/res-auto"
+    <cn.dogplanet.app.widget.library.PullToRefreshListView
+        xmlns:ptr="http://schemas.android.com/apk/res-auto"
         android:id="@+id/list"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_below="@+id/lay_title"
-        android:background="#ECECEC"
+        android:background="@color/back_gary"
         android:clipToPadding="false"
-        android:divider="@color/color_f5"
+        android:layout_margin="@dimen/dis_24"
+        android:divider="@color/back_gary"
         android:dividerHeight="@dimen/dis_20"
         android:gravity="center_horizontal"
         android:horizontalSpacing="@null"

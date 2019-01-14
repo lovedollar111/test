@@ -104,7 +104,6 @@ public class OrderAdapter extends BaseAdapter {
         Order order = mOrders.get(position);
         holder.tvName.setText(String.format("%s————%s", order.getContact_name(), order.getContact_tel()));
         String status = order.getStatus();
-        Log.i("info",status);
         switch (status) {
             case OrderDetail.ORDER_MAIN_TYPE_WAIT:
                 holder.tvStatus.setText("未支付");
@@ -150,7 +149,6 @@ public class OrderAdapter extends BaseAdapter {
         OrderListAdapter adapter;
         adapter = new OrderListAdapter(order.getOrderProducts(), mContext);
         holder.scrollList.setAdapter(adapter);
-        adapter.notifyDataSetChanged();
         holder.btnPay.setOnClickListener(v -> onPayListener.OnPay(order.getId()));
         holder.layMain.setOnClickListener(v ->
                 mContext.startActivity(OrderDetailActivity.newIntent(order.getId())));

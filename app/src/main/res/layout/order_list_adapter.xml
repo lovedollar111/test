@@ -4,7 +4,8 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:background="@drawable/back_round_white_20"
-    android:paddingTop="@dimen/dis_40">
+    android:paddingTop="@dimen/dis_20"
+    android:paddingBottom="@dimen/dis_10">
 
     <cn.dogplanet.app.widget.RoundCornerImageView
         android:id="@+id/img_product"
@@ -21,7 +22,9 @@
         android:layout_marginStart="@dimen/dis_20"
         android:layout_toEndOf="@+id/img_product"
         android:layout_toStartOf="@+id/tv_product_price"
-        android:maxLines="1" />
+        android:maxLines="1"
+        android:textSize="@dimen/font_size_13"
+        android:textColor="@color/color_8e"/>
 
 
     <TextView
@@ -30,8 +33,10 @@
         android:layout_height="wrap_content"
         android:layout_alignParentEnd="true"
         android:layout_marginEnd="@dimen/dis_36"
-        android:layout_marginStart="@dimen/dis_20"
-        android:layout_centerVertical="true"/>
+        android:layout_marginStart="@dimen/dis_24"
+        android:layout_centerVertical="true"
+        android:textSize="@dimen/font_size_15"
+        android:textColor="@color/color_33"/>
 
 
     <TextView
@@ -39,22 +44,18 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/tv_product_name"
-        android:layout_marginStart="@dimen/dis_20"
-        android:layout_toEndOf="@+id/img_product" />
+        android:layout_marginStart="@dimen/dis_24"
+        android:layout_toEndOf="@+id/img_product"
+        android:textColor="@color/color_8e"
+        android:textSize="@dimen/font_size_13"/>
 
     <TextView
         android:id="@+id/tv_product_date"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/tv_product_name"
-        android:layout_marginStart="@dimen/dis_20"
-        android:layout_toEndOf="@+id/tv_product_num" />
-
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/dis_40"
-        android:background="@drawable/back_round_white_20"
-        android:layout_below="@+id/img_product"
-        />
-
+        android:layout_marginStart="@dimen/dis_40"
+        android:layout_toEndOf="@+id/tv_product_num"
+        android:textColor="@color/color_8e"
+        android:textSize="@dimen/font_size_13"/>
 </RelativeLayout>

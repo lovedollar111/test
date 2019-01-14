@@ -284,6 +284,7 @@ public class CompanyFindActivity extends BaseActivity {
                 laySearch.setVisibility(View.VISIBLE);
                 break;
             case R.id.img_input:
+                KeyBoardUtils.closeKeybord(etSearch,this);
                 if (Build.VERSION.SDK_INT >= 23) {
                     initPermission();
                 } else {
@@ -358,6 +359,9 @@ public class CompanyFindActivity extends BaseActivity {
                 response -> {
                     hideProgress();
                     flag = false;
+                    layoutRecog.setVisibility(View.GONE);
+                    tvMsg.setVisibility(View.GONE);
+                    volumeView.setVisibility(View.GONE);
                     if (StringUtils.isNotBlank(response)) {
                         TravelResp resp = GsonHelper.parseObject(response, TravelResp.class);
                         if (resp != null) {

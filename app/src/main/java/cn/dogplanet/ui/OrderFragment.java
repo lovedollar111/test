@@ -29,6 +29,7 @@ import butterknife.OnClick;
 import butterknife.Unbinder;
 import cn.dogplanet.R;
 import cn.dogplanet.base.BaseFragment;
+import cn.dogplanet.ui.order.OrderFindActivity;
 import cn.dogplanet.ui.order.OrderListFragment;
 
 public class OrderFragment extends BaseFragment {
@@ -151,8 +152,8 @@ public class OrderFragment extends BaseFragment {
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.et_search:
-                break;
             case R.id.img_input:
+                startActivity(OrderFindActivity.newIntent());
                 break;
         }
     }

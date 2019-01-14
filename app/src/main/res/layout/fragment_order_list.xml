@@ -16,7 +16,7 @@
         android:paddingBottom="@dimen/dis_30"
         android:divider="@color/back_gary"
         android:background="@color/back_gary"
-        android:dividerHeight="@dimen/dis_20"
+        android:dividerHeight="@dimen/dis_10"
         android:gravity="center_horizontal"
         android:paddingTop="@dimen/dis_20"
         android:scrollbars="none"
@@ -28,14 +28,12 @@
         ptr:ptrShowIndicator="false"
         android:visibility="visible"/>
 
-    <TextView
+    <ImageView
         android:id="@+id/tv_tip"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:drawablePadding="@dimen/dis_40"
-        android:drawableTop="@mipmap/ic_launcher"
-        android:textColor="#9b9b9b"
-        android:textSize="@dimen/font_size_12"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="center"
+        android:drawableTop="@mipmap/img_no_order"
         android:visibility="gone" />
 
 </RelativeLayout>

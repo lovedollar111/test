@@ -44,6 +44,7 @@ import cn.dogplanet.GlobalContext;
 import cn.dogplanet.R;
 import cn.dogplanet.app.util.AndroidUtil;
 import cn.dogplanet.app.util.GsonHelper;
+import cn.dogplanet.app.util.KeyBoardUtils;
 import cn.dogplanet.app.util.ListDataSave;
 import cn.dogplanet.app.util.PullToRefreshHelper;
 import cn.dogplanet.app.util.StringUtils;
@@ -519,6 +520,7 @@ public class ProductFindActivity extends BaseActivity {
                 updateHistory();
                 break;
             case R.id.img_input:
+                KeyBoardUtils.closeKeybord(etSearch,this);
                 if (Build.VERSION.SDK_INT >= 23) {
                     initPermission();
                 } else {

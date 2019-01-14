@@ -48,7 +48,8 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_below="@+id/lay_title"
-        android:src="@mipmap/ic_launcher"
+        android:src="@mipmap/img_no_product"
+        android:scaleType="center"
         android:visibility="gone"
         />
 

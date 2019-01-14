@@ -282,26 +282,13 @@ public class OrderDetailActivity extends BaseActivity {
                                 response, ProductDetailResp.class);
                         if (respData != null) {
                             if (respData.isSuccess()) {
-                                View view = LayoutInflater.from(this).inflate(R.layout.dialog_ok,
-                                        null);
-                                NiftyDialogBuilder builder = NiftyDialogBuilder.getInstance(this);
-                                builder.setCustomView(view, this);
-                                builder.withEffect(Effectstype.Fadein);
-                                builder.show();
-                                TextView tv_title = view.findViewById(R.id.title);
-                                tv_title.setText("该产品退改规则如下");
-                                TextView tv_msg = view.findViewById(R.id.msg);
                                 String fromHtml;
                                 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
                                     fromHtml = String.valueOf(Html.fromHtml(respData.getProduct().getReturns(), Html.FROM_HTML_MODE_LEGACY));
                                 } else {
                                     fromHtml = String.valueOf(Html.fromHtml(respData.getProduct().getReturns()));
                                 }
-                                tv_msg.setText(fromHtml);
-                                tv_msg.setLineSpacing(0, 0.96f);
-                                tv_msg.setGravity(Gravity.START);
-                                view.findViewById(R.id.btn_ok).setOnClickListener(
-                                        v -> builder.dismiss());
+                                startActivity(RefundRulerActivity.newIntent(fromHtml));
                             } else {
                                 ToastUtil.showMes(respData.getMsg());
                             }

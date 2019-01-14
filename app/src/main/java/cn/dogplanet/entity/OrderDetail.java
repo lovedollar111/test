@@ -298,6 +298,28 @@ public class OrderDetail {
 		public void setIs_package_ticket(boolean is_package_ticket) {
 			this.is_package_ticket = is_package_ticket;
 		}
+
+		@Override
+		public String toString() {
+			return "OrderProduct{" +
+					"id='" + id + '\'' +
+					", pro_id='" + pro_id + '\'' +
+					", num='" + num + '\'' +
+					", price='" + price + '\'' +
+					", begin_date='" + begin_date + '\'' +
+					", finish_date='" + finish_date + '\'' +
+					", status='" + status + '\'' +
+					", create_time='" + create_time + '\'' +
+					", pro_name='" + pro_name + '\'' +
+					", thumb='" + thumb + '\'' +
+					", refund_money=" + refund_money +
+					", refund_number=" + refund_number +
+					", show_refund=" + show_refund +
+					", check_number='" + check_number + '\'' +
+					", category='" + category + '\'' +
+					", is_package_ticket=" + is_package_ticket +
+					'}';
+		}
 	}
 
 	@SuppressLint("SimpleDateFormat")
